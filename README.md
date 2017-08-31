@@ -7,6 +7,8 @@
 [![Latest Stable Version](https://poser.pugx.org/localheinz/test-util/v/stable)](https://packagist.org/packages/localheinz/test-util)
 [![Total Downloads](https://poser.pugx.org/localheinz/test-util/downloads)](https://packagist.org/packages/localheinz/test-util)
 
+As an alternative to [`refinery29/test-util`](https://github.com/refinery29/test-util), this repository provides a test helper.
+
 ## Installation
 
 Run
@@ -17,7 +19,57 @@ $ composer require --dev localheinz/test-util
 
 ## Usage
 
-:bulb: This is a great place for showing a few usage examples!
+Import the `Localheinz\Test\Util\Helper` trait into your test class:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Foo\Bar\Test\Unit;
+
+use Localheinz\Test\Util\Helper;
+use PHPUnit\Framework\TestCase;
+
+final class BazTest extends TestCase
+{
+    use Helper;
+} 
+```
+
+### Easy access to localized instances of `Faker\Generator`
+
+Assuming you have installed [`fzaninotto/faker`](http://github.com/fzaninotto/Faker), you can use
+
+* `faker(string $locale = \Faker\Factory::DEFAULT_LOCALE) : \Faker\Generator`
+
+to fetch an instance of `Faker\Generator`.
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example\Test\Unit;
+
+use Example\Player;
+use Localheinz\Test\Util\Helper;
+use PHPUnit\Framework\TestCase;
+
+final class PlayerTest extends TestCase
+{
+    use Helper;
+    
+    public function testConstructorSetsValues()
+    {
+        $name = $this->faker()->firstName;
+        
+        $player = new Player($name);
+        
+        $this->assertSame($name, $player->firstName());
+    }
+} 
+```
 
 ## Contributing
 
