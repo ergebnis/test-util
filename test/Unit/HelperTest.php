@@ -1,0 +1,102 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Copyright (c) 2017 Andreas Möller.
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
+ *
+ * @link https://github.com/localheinz/test-util
+ */
+
+namespace Localheinz\Test\Util\Test\Unit;
+
+use Faker\Factory;
+use Faker\Generator;
+use Faker\Provider;
+use Localheinz\Test\Util\Helper;
+use PHPUnit\Framework;
+
+final class HelperTest extends Framework\TestCase
+{
+    use Helper;
+
+    public function testFakerWithoutLocaleReturnsFakerWithDefaultLocale()
+    {
+        $faker = $this->faker();
+
+        $this->assertHasOnlyProvidersWithLocale(Factory::DEFAULT_LOCALE, $faker);
+    }
+
+    /**
+     * @dataProvider providerLocale
+     *
+     * @param string $locale
+     */
+    public function testFakerWithLocaleReturnsFakerWithSpecifiedLocale(string $locale)
+    {
+        $faker = $this->faker($locale);
+
+        $this->assertHasOnlyProvidersWithLocale($locale, $faker);
+    }
+
+    /**
+     * @dataProvider providerLocale
+     *
+     * @param string $locale
+     */
+    public function testFakerReturnsSameFaker(string $locale)
+    {
+        $faker = $this->faker($locale);
+
+        $this->assertSame($faker, $this->faker($locale));
+    }
+
+    public function providerLocale(): \Generator
+    {
+        /**
+         * Note that \Faker\Factory::getProviderClassname() will fall back to using the default locale if it cannot find
+         * a localized provider class name for one of the default providers - that's why the selection of locales here
+         * is a bit limited.
+         *
+         * @see \Faker\Factory::$defaultProviders
+         * @see \Faker\Factory::getProviderClassname()
+         */
+        $locales = [
+            'de_DE',
+            'en_US',
+            'fr_FR',
+        ];
+
+        foreach ($locales as $locale) {
+            yield $locale => [
+                $locale,
+            ];
+        }
+    }
+
+    private function assertHasOnlyProvidersWithLocale(string $locale, Generator $faker)
+    {
+        $providerClasses = \array_map(function (Provider\Base $provider) {
+            return \get_class($provider);
+        }, $faker->getProviders());
+
+        $providerLocales = \array_map(function (string $providerClass) {
+            if (0 === \preg_match('/^Faker\\\\Provider\\\\(?P<locale>[a-z]{2}_[A-Z]{2})\\\\/', $providerClass, $matches)) {
+                return null;
+            }
+
+            return $matches['locale'];
+        }, $providerClasses);
+
+        $locales = \array_values(\array_unique(\array_filter($providerLocales)));
+
+        $expected = [
+            $locale,
+        ];
+
+        $this->assertEquals($expected, $locales);
+    }
+}

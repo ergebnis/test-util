@@ -22,8 +22,12 @@
   },
   "require-dev": {
     "codeclimate/php-test-reporter": "0.4.4",
+    "fzaninotto/faker": "^1.0.0",
     "localheinz/php-cs-fixer-config": "~1.4.0",
     "phpunit/phpunit": "^6.2.4"
+  },
+  "suggest": {
+    "fzaninotto/faker": "For generating fake data in tests"
   },
   "autoload": {
     "psr-4": {
