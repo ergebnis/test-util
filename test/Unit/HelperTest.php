@@ -77,6 +77,156 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
+    public function testClassExistsFailsWhenClassDoesNotExist()
+    {
+        $className = __NAMESPACE__ . '\Fixture\NonExistentClass';
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a class "%s" exists',
+            $className
+        ));
+
+        $this->assertClassExists($className);
+    }
+
+    /**
+     * @dataProvider providerNotAClass
+     *
+     * @param string $className
+     */
+    public function testClassExistsFailsWhenClassIsNotAClass(string $className)
+    {
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a class "%s" exists',
+            $className
+        ));
+
+        $this->assertClassExists($className);
+    }
+
+    public function providerNotAClass(): \Generator
+    {
+        $classNames = [
+            Fixture\AnInterface::class,
+            Fixture\ATrait::class,
+        ];
+
+        foreach ($classNames as $className) {
+            yield [
+                $className,
+            ];
+        }
+    }
+
+    public function testClassExistsSucceedsWhenClassExists()
+    {
+        $className = Fixture\AClass::class;
+
+        $this->assertClassExists($className);
+    }
+
+    public function testInterfaceExistsFailsWhenInterfaceDoesNotExist()
+    {
+        $className = __NAMESPACE__ . '\Fixture\NonExistentInterface';
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that an interface "%s" exists',
+            $className
+        ));
+
+        $this->assertInterfaceExists($className);
+    }
+
+    /**
+     * @dataProvider providerNotAnInterface
+     *
+     * @param string $className
+     */
+    public function testInterfaceExistsFailsWhenInterfaceIsNotAInterface(string $className)
+    {
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that an interface "%s" exists',
+            $className
+        ));
+
+        $this->assertInterfaceExists($className);
+    }
+
+    public function providerNotAnInterface(): \Generator
+    {
+        $classNames = [
+            Fixture\AClass::class,
+            Fixture\ATrait::class,
+        ];
+
+        foreach ($classNames as $className) {
+            yield [
+                $className,
+            ];
+        }
+    }
+
+    public function testInterfaceExistsSucceedsWhenInterfaceExists()
+    {
+        $className = Fixture\AnInterface::class;
+
+        $this->assertInterfaceExists($className);
+    }
+
+    public function testTraitExistsFailsWhenTraitDoesNotExist()
+    {
+        $className = __NAMESPACE__ . '\Fixture\NonExistentTrait';
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a trait "%s" exists',
+            $className
+        ));
+
+        $this->assertTraitExists($className);
+    }
+
+    /**
+     * @dataProvider providerNotATrait
+     *
+     * @param string $className
+     */
+    public function testTraitExistsFailsWhenTraitIsNotATrait(string $className)
+    {
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a trait "%s" exists',
+            $className
+        ));
+
+        $this->assertTraitExists($className);
+    }
+
+    public function providerNotATrait(): \Generator
+    {
+        $classNames = [
+            Fixture\AClass::class,
+            Fixture\AnInterface::class,
+        ];
+
+        foreach ($classNames as $className) {
+            yield [
+                $className,
+            ];
+        }
+    }
+
+    public function testTraitExistsSucceedsWhenTraitExists()
+    {
+        $className = Fixture\ATrait::class;
+
+        $this->assertTraitExists($className);
+    }
+
     private function assertHasOnlyProvidersWithLocale(string $locale, Generator $faker)
     {
         $providerClasses = \array_map(function (Provider\Base $provider) {
