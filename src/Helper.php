@@ -81,6 +81,18 @@ trait Helper
         ));
     }
 
+    final protected function assertClassUsesTrait(string $traitName, string $className)
+    {
+        $this->assertTraitExists($traitName);
+        $this->assertClassExists($className);
+
+        $this->assertContains($traitName, \class_uses($className), \sprintf(
+            'Failed to assert that class "%s" uses trait "%s"',
+            $className,
+            $traitName
+        ));
+    }
+
     final protected function assertInterfaceExists(string $interfaceName)
     {
         $this->assertTrue(\interface_exists($interfaceName), \sprintf(
