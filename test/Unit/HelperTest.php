@@ -309,6 +309,69 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
+    public function testAssertClassUsesTraitFailsWhenTraitDoesNotExist()
+    {
+        $traitName = __NAMESPACE__ . '\Fixture\NonExistentTrait';
+        $className = Fixture\ExampleClass::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a trait "%s" exists',
+            $traitName
+        ));
+
+        $this->assertClassUsesTrait(
+            $traitName,
+            $className
+        );
+    }
+
+    public function testAssertClassUsesTraitFailsWhenClassDoesNotExist()
+    {
+        $traitName = Fixture\ExampleTrait::class;
+        $className = __NAMESPACE__ . '\Fixture\NonExistentClass';
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a class "%s" exists',
+            $className
+        ));
+
+        $this->assertClassUsesTrait(
+            $traitName,
+            $className
+        );
+    }
+
+    public function testAssertClassUsesTraitFailsWhenClassDoesNotUseTrait()
+    {
+        $traitName = Fixture\ExampleTrait::class;
+        $className = Fixture\ClassNotUsingTrait::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that class "%s" uses trait "%s"',
+            $className,
+            $traitName
+        ));
+
+        $this->assertClassUsesTrait(
+            $traitName,
+            $className
+        );
+    }
+
+    public function testAssertClassUsesTraitSucceedsWhenClassUsesTrait()
+    {
+        $traitName = Fixture\ExampleTrait::class;
+        $className = Fixture\ClassUsingTrait::class;
+
+        $this->assertClassUsesTrait(
+            $traitName,
+            $className
+        );
+    }
+
     public function testAssertInterfaceExistsFailsWhenInterfaceDoesNotExist()
     {
         $interfaceName = __NAMESPACE__ . '\Fixture\NonExistentInterface';
