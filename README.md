@@ -39,11 +39,10 @@ final class BazTest extends TestCase
 
 ### Easy access to localized instances of `Faker\Generator`
 
-Assuming you have installed [`fzaninotto/faker`](http://github.com/fzaninotto/Faker), you can use
+Assuming you have installed [`fzaninotto/faker`](https://github.com/fzaninotto/Faker), 
+the `Helper` trait provides a method to fetch a localized instance of `Faker\Generator`:
 
 * `faker(string $locale = \Faker\Factory::DEFAULT_LOCALE) : \Faker\Generator`
-
-to fetch an instance of `Faker\Generator`.
 
 ```php
 <?php
