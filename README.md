@@ -76,9 +76,11 @@ In addition to the assertions made available by extending from `PHPUnit\Framewor
 the `Helper` trait provides the following assertions:
 
 * `assertClassExists(string $className)`
+* `assertClassExtends(string $parentClassName, string $className)`
 * `assertClassImplementsInterface(string $interfaceName, string $className)`
 * `assertClassIsAbstractOrFinal(string $className)`
 * `assertInterfaceExists(string $interfaceName)`
+* `assertInterfaceExtends(string $parentInterfaceName, string $interfaceName)`
 * `assertTraitExists(string $traitName)`
 
 ## Contributing

@@ -41,6 +41,20 @@ trait Helper
         ));
     }
 
+    final protected function assertClassExtends(string $parentClassName, string $className)
+    {
+        $this->assertClassExists($parentClassName);
+        $this->assertClassExists($className);
+
+        $reflection = new \ReflectionClass($className);
+
+        $this->assertTrue($reflection->isSubclassOf($parentClassName), \sprintf(
+            'Failed to assert that class "%s" extends "%s"',
+            $className,
+            $parentClassName
+        ));
+    }
+
     final protected function assertClassImplementsInterface(string $interfaceName, string $className)
     {
         $this->assertInterfaceExists($interfaceName);
@@ -72,6 +86,20 @@ trait Helper
         $this->assertTrue(\interface_exists($interfaceName), \sprintf(
             'Failed to assert that an interface "%s" exists',
             $interfaceName
+        ));
+    }
+
+    final protected function assertInterfaceExtends(string $parentInterfaceName, string $interfaceName)
+    {
+        $this->assertInterfaceExists($parentInterfaceName);
+        $this->assertInterfaceExists($interfaceName);
+
+        $reflection = new \ReflectionClass($interfaceName);
+
+        $this->assertTrue($reflection->isSubclassOf($parentInterfaceName), \sprintf(
+            'Failed to assert that interface "%s" extends "%s"',
+            $interfaceName,
+            $parentInterfaceName
         ));
     }
 

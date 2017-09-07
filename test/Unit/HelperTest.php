@@ -127,6 +127,69 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassExists($className);
     }
 
+    public function testAssertClassExtendsFailsWhenParentClassDoesNotExist()
+    {
+        $parentClassName = __NAMESPACE__ . '\Fixture\NonExistentClass';
+        $className = Fixture\ExampleClass::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a class "%s" exists',
+            $parentClassName
+        ));
+
+        $this->assertClassExtends(
+            $parentClassName,
+            $className
+        );
+    }
+
+    public function testAssertClassExtendsFailsWhenClassDoesNotExist()
+    {
+        $parentClassName = Fixture\AbstractClass::class;
+        $className = __NAMESPACE__ . '\Fixture\NonExistentClass';
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a class "%s" exists',
+            $className
+        ));
+
+        $this->assertClassExtends(
+            $parentClassName,
+            $className
+        );
+    }
+
+    public function testClassExtendsFailsWhenClassDoesNotExtendParentClass()
+    {
+        $parentClassName = Fixture\AbstractClass::class;
+        $className = Fixture\ClassNotExtendingParentClass::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that class "%s" extends "%s"',
+            $className,
+            $parentClassName
+        ));
+
+        $this->assertClassExtends(
+            $parentClassName,
+            $className
+        );
+    }
+
+    public function testAssertClassExtendsSucceedsWhenClassExtendsParentClass()
+    {
+        $parentClassName = Fixture\AbstractClass::class;
+        $className = Fixture\ClassExtendingParentClass::class;
+
+        $this->assertClassExtends(
+            $parentClassName,
+            $className
+        );
+    }
+
     public function testAssertClassImplementsInterfaceFailsWhenInterfaceDoesNotExist()
     {
         $interfaceName = __NAMESPACE__ . '\Fixture\NonExistentInterface';
@@ -294,6 +357,69 @@ final class HelperTest extends Framework\TestCase
         $interfaceName = Fixture\ExampleInterface::class;
 
         $this->assertInterfaceExists($interfaceName);
+    }
+
+    public function testInterfaceExtendsFailsWhenParentInterfaceDoesNotExist()
+    {
+        $parentInterfaceName = __NAMESPACE__ . '\Fixture\NonExistentInterface';
+        $interfaceName = Fixture\ExampleInterface::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that an interface "%s" exists',
+            $parentInterfaceName
+        ));
+
+        $this->assertInterfaceExtends(
+            $parentInterfaceName,
+            $interfaceName
+        );
+    }
+
+    public function testAssertInterfaceExtendsFailsWhenInterfaceDoesNotExist()
+    {
+        $parentInterfaceName = Fixture\ExampleInterface::class;
+        $interfaceName = __NAMESPACE__ . '\Fixture\NonExistentInterface';
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that an interface "%s" exists',
+            $interfaceName
+        ));
+
+        $this->assertInterfaceExtends(
+            $parentInterfaceName,
+            $interfaceName
+        );
+    }
+
+    public function testAssertInterfaceExtendsFailsWhenInterfaceDoesNotExtendParentInterface()
+    {
+        $parentInterfaceName = Fixture\ExampleInterface::class;
+        $interfaceName = Fixture\InterfaceNotExtendingParentInterface::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that interface "%s" extends "%s"',
+            $interfaceName,
+            $parentInterfaceName
+        ));
+
+        $this->assertInterfaceExtends(
+            $parentInterfaceName,
+            $interfaceName
+        );
+    }
+
+    public function testAssertInterfaceExtendsSucceedsWhenInterfaceExtendsParentInterface()
+    {
+        $parentInterfaceName = Fixture\ExampleInterface::class;
+        $interfaceName = Fixture\InterfaceExtendingParentInterface::class;
+
+        $this->assertInterfaceExtends(
+            $parentInterfaceName,
+            $interfaceName
+        );
     }
 
     public function testAssertTraitExistsFailsWhenTraitDoesNotExist()
