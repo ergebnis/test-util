@@ -13,6 +13,6 @@ declare(strict_types=1);
 
 namespace Localheinz\Test\Util\Test\Unit\Fixture;
 
-trait ATrait
+interface ExampleInterface
 {
 }
