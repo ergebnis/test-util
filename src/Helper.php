@@ -67,19 +67,19 @@ trait Helper
         ));
     }
 
-    final protected function assertInterfaceExists(string $className)
+    final protected function assertInterfaceExists(string $interfaceName)
     {
-        $this->assertTrue(\interface_exists($className), \sprintf(
+        $this->assertTrue(\interface_exists($interfaceName), \sprintf(
             'Failed to assert that an interface "%s" exists',
-            $className
+            $interfaceName
         ));
     }
 
-    final protected function assertTraitExists(string $className)
+    final protected function assertTraitExists(string $traitName)
     {
-        $this->assertTrue(\trait_exists($className), \sprintf(
+        $this->assertTrue(\trait_exists($traitName), \sprintf(
             'Failed to assert that a trait "%s" exists',
-            $className
+            $traitName
         ));
     }
 }

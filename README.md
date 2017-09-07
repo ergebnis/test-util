@@ -78,8 +78,8 @@ the `Helper` trait provides the following assertions:
 * `assertClassExists(string $className)`
 * `assertClassImplementsInterface(string $interfaceName, string $className)`
 * `assertClassIsAbstractOrFinal(string $className)`
-* `assertInterfaceExists(string $className)`
-* `assertTraitExists(string $className)`
+* `assertInterfaceExists(string $interfaceName)`
+* `assertTraitExists(string $traitName)`
 
 ## Contributing
 

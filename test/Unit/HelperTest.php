@@ -248,102 +248,102 @@ final class HelperTest extends Framework\TestCase
 
     public function testInterfaceExistsFailsWhenInterfaceDoesNotExist()
     {
-        $className = __NAMESPACE__ . '\Fixture\NonExistentInterface';
+        $interfaceName = __NAMESPACE__ . '\Fixture\NonExistentInterface';
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed to assert that an interface "%s" exists',
-            $className
+            $interfaceName
         ));
 
-        $this->assertInterfaceExists($className);
+        $this->assertInterfaceExists($interfaceName);
     }
 
     /**
      * @dataProvider providerNotAnInterface
      *
-     * @param string $className
+     * @param string $interfaceName
      */
-    public function testInterfaceExistsFailsWhenInterfaceIsNotAInterface(string $className)
+    public function testInterfaceExistsFailsWhenInterfaceIsNotAInterface(string $interfaceName)
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed to assert that an interface "%s" exists',
-            $className
+            $interfaceName
         ));
 
-        $this->assertInterfaceExists($className);
+        $this->assertInterfaceExists($interfaceName);
     }
 
     public function providerNotAnInterface(): \Generator
     {
-        $classNames = [
+        $interfaceNames = [
             Fixture\ExampleClass::class,
             Fixture\ExampleTrait::class,
         ];
 
-        foreach ($classNames as $className) {
+        foreach ($interfaceNames as $interfaceName) {
             yield [
-                $className,
+                $interfaceName,
             ];
         }
     }
 
     public function testInterfaceExistsSucceedsWhenInterfaceExists()
     {
-        $className = Fixture\ExampleInterface::class;
+        $interfaceName = Fixture\ExampleInterface::class;
 
-        $this->assertInterfaceExists($className);
+        $this->assertInterfaceExists($interfaceName);
     }
 
     public function testTraitExistsFailsWhenTraitDoesNotExist()
     {
-        $className = __NAMESPACE__ . '\Fixture\NonExistentTrait';
+        $traitName = __NAMESPACE__ . '\Fixture\NonExistentTrait';
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed to assert that a trait "%s" exists',
-            $className
+            $traitName
         ));
 
-        $this->assertTraitExists($className);
+        $this->assertTraitExists($traitName);
     }
 
     /**
      * @dataProvider providerNotATrait
      *
-     * @param string $className
+     * @param string $traitName
      */
-    public function testTraitExistsFailsWhenTraitIsNotATrait(string $className)
+    public function testTraitExistsFailsWhenTraitIsNotATrait(string $traitName)
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed to assert that a trait "%s" exists',
-            $className
+            $traitName
         ));
 
-        $this->assertTraitExists($className);
+        $this->assertTraitExists($traitName);
     }
 
     public function providerNotATrait(): \Generator
     {
-        $classNames = [
+        $traitNames = [
             Fixture\ExampleClass::class,
             Fixture\ExampleInterface::class,
         ];
 
-        foreach ($classNames as $className) {
+        foreach ($traitNames as $traitName) {
             yield [
-                $className,
+                $traitName,
             ];
         }
     }
 
     public function testTraitExistsSucceedsWhenTraitExists()
     {
-        $className = Fixture\ExampleTrait::class;
+        $traitName = Fixture\ExampleTrait::class;
 
-        $this->assertTraitExists($className);
+        $this->assertTraitExists($traitName);
     }
 
     private function assertHasOnlyProvidersWithLocale(string $locale, Generator $faker)
