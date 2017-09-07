@@ -214,6 +214,16 @@ trait Helper
         ));
     }
 
+    final protected function assertClassSatisfiesSpecification(callable $specification, string $className, string $message = '')
+    {
+        $this->assertClassExists($className);
+
+        $this->assertTrue($specification($className), \sprintf(
+            '' !== $message ? $message : 'Failed to assert that class "%s" satisfies a specification.',
+            $className
+        ));
+    }
+
     final protected function assertClassUsesTrait(string $traitName, string $className)
     {
         $this->assertTraitExists($traitName);
@@ -248,10 +258,30 @@ trait Helper
         ));
     }
 
+    final protected function assertInterfaceSatisfiesSpecification(callable $specification, string $interfaceName, string $message = '')
+    {
+        $this->assertInterfaceExists($interfaceName);
+
+        $this->assertTrue($specification($interfaceName), \sprintf(
+            '' !== $message ? $message : 'Failed to assert that interface "%s" satisfies a specification.',
+            $interfaceName
+        ));
+    }
+
     final protected function assertTraitExists(string $traitName)
     {
         $this->assertTrue(\trait_exists($traitName), \sprintf(
             'Failed to assert that a trait "%s" exists.',
+            $traitName
+        ));
+    }
+
+    final protected function assertTraitSatisfiesSpecification(callable $specification, string $traitName, string $message = '')
+    {
+        $this->assertTraitExists($traitName);
+
+        $this->assertTrue($specification($traitName), \sprintf(
+            '' !== $message ? $message : 'Failed to assert that trait "%s" satisfies a specification.',
             $traitName
         ));
     }
