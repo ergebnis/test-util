@@ -41,6 +41,18 @@ trait Helper
         ));
     }
 
+    final protected function assertClassIsAbstractOrFinal(string $className)
+    {
+        $this->assertClassExists($className);
+
+        $reflection = new \ReflectionClass($className);
+
+        $this->assertTrue($reflection->isAbstract() || $reflection->isFinal(), \sprintf(
+            'Failed to assert that class "%s" is abstract or final',
+            $className
+        ));
+    }
+
     final protected function assertInterfaceExists(string $className)
     {
         $this->assertTrue(\interface_exists($className), \sprintf(

@@ -127,6 +127,62 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassExists($className);
     }
 
+    public function testClassIsAbstractOrFinalFailsWhenClassDoesNotExist()
+    {
+        $className = __NAMESPACE__ . '\Fixture\NonExistentClass';
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a class "%s" exists',
+            $className
+        ));
+
+        $this->assertClassIsAbstractOrFinal($className);
+    }
+
+    /**
+     * @dataProvider providerNotAClass
+     *
+     * @param string $className
+     */
+    public function testClassIsAbstractOrFinalFailsWhenClassIsNotAClass(string $className)
+    {
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a class "%s" exists',
+            $className
+        ));
+
+        $this->assertClassIsAbstractOrFinal($className);
+    }
+
+    public function testClassIsAbstractOrFinalFailsWhenClassIsNeitherAbstractNorFinal()
+    {
+        $className = Fixture\NonFinalClass::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that class "%s" is abstract or final',
+            $className
+        ));
+
+        $this->assertClassIsAbstractOrFinal($className);
+    }
+
+    public function providerClassAbstractOrFinal(): \Generator
+    {
+        $classNames = [
+            Fixture\AbstractClass::class,
+            Fixture\FinalClass::class,
+        ];
+
+        foreach ($classNames as $className) {
+            yield [
+                $className,
+            ];
+        }
+    }
+
     public function testInterfaceExistsFailsWhenInterfaceDoesNotExist()
     {
         $className = __NAMESPACE__ . '\Fixture\NonExistentInterface';
