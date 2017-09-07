@@ -109,8 +109,8 @@ final class HelperTest extends Framework\TestCase
     public function providerNotAClass(): \Generator
     {
         $classNames = [
-            Fixture\AnInterface::class,
-            Fixture\ATrait::class,
+            Fixture\ExampleInterface::class,
+            Fixture\ExampleTrait::class,
         ];
 
         foreach ($classNames as $className) {
@@ -122,7 +122,7 @@ final class HelperTest extends Framework\TestCase
 
     public function testClassExistsSucceedsWhenClassExists()
     {
-        $className = Fixture\AClass::class;
+        $className = Fixture\ExampleClass::class;
 
         $this->assertClassExists($className);
     }
@@ -159,8 +159,8 @@ final class HelperTest extends Framework\TestCase
     public function providerNotAnInterface(): \Generator
     {
         $classNames = [
-            Fixture\AClass::class,
-            Fixture\ATrait::class,
+            Fixture\ExampleClass::class,
+            Fixture\ExampleTrait::class,
         ];
 
         foreach ($classNames as $className) {
@@ -172,7 +172,7 @@ final class HelperTest extends Framework\TestCase
 
     public function testInterfaceExistsSucceedsWhenInterfaceExists()
     {
-        $className = Fixture\AnInterface::class;
+        $className = Fixture\ExampleInterface::class;
 
         $this->assertInterfaceExists($className);
     }
@@ -209,8 +209,8 @@ final class HelperTest extends Framework\TestCase
     public function providerNotATrait(): \Generator
     {
         $classNames = [
-            Fixture\AClass::class,
-            Fixture\AnInterface::class,
+            Fixture\ExampleClass::class,
+            Fixture\ExampleInterface::class,
         ];
 
         foreach ($classNames as $className) {
@@ -222,7 +222,7 @@ final class HelperTest extends Framework\TestCase
 
     public function testTraitExistsSucceedsWhenTraitExists()
     {
-        $className = Fixture\ATrait::class;
+        $className = Fixture\ExampleTrait::class;
 
         $this->assertTraitExists($className);
     }
