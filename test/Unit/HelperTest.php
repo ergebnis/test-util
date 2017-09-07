@@ -77,7 +77,7 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
-    public function testClassExistsFailsWhenClassDoesNotExist()
+    public function testAssertClassExistsFailsWhenClassDoesNotExist()
     {
         $className = __NAMESPACE__ . '\Fixture\NonExistentClass';
 
@@ -95,7 +95,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $className
      */
-    public function testClassExistsFailsWhenClassIsNotAClass(string $className)
+    public function testAssertClassExistsFailsWhenClassIsNotAClass(string $className)
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -120,14 +120,14 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
-    public function testClassExistsSucceedsWhenClassExists()
+    public function testAssertClassExistsSucceedsWhenClassExists()
     {
         $className = Fixture\ExampleClass::class;
 
         $this->assertClassExists($className);
     }
 
-    public function testClassImplementsInterfaceFailsWhenInterfaceDoesNotExist()
+    public function testAssertClassImplementsInterfaceFailsWhenInterfaceDoesNotExist()
     {
         $interfaceName = __NAMESPACE__ . '\Fixture\NonExistentInterface';
         $className = Fixture\ExampleClass::class;
@@ -144,7 +144,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testClassImplementsInterfaceFailsWhenClassDoesNotExist()
+    public function testAssertClassImplementsInterfaceFailsWhenClassDoesNotExist()
     {
         $interfaceName = Fixture\ExampleInterface::class;
         $className = __NAMESPACE__ . '\Fixture\NonExistentClass';
@@ -161,7 +161,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testClassImplementsInterfaceFailsWhenClassDoesNotImplementInterface()
+    public function testAssertClassImplementsInterfaceFailsWhenClassDoesNotImplementInterface()
     {
         $interfaceName = Fixture\ExampleInterface::class;
         $className = Fixture\ClassNotImplementingInterface::class;
@@ -179,7 +179,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testClassImplementsInterfaceSucceedsWhenClassImplementsInterface()
+    public function testAssertClassImplementsInterfaceSucceedsWhenClassImplementsInterface()
     {
         $interfaceName = Fixture\ExampleInterface::class;
         $className = Fixture\ClassImplementingInterface::class;
@@ -190,7 +190,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testClassIsAbstractOrFinalFailsWhenClassDoesNotExist()
+    public function testAssertClassIsAbstractOrFinalFailsWhenClassDoesNotExist()
     {
         $className = __NAMESPACE__ . '\Fixture\NonExistentClass';
 
@@ -208,7 +208,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $className
      */
-    public function testClassIsAbstractOrFinalFailsWhenClassIsNotAClass(string $className)
+    public function testAssertClassIsAbstractOrFinalFailsWhenClassIsNotAClass(string $className)
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -219,7 +219,7 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassIsAbstractOrFinal($className);
     }
 
-    public function testClassIsAbstractOrFinalFailsWhenClassIsNeitherAbstractNorFinal()
+    public function testAssertClassIsAbstractOrFinalFailsWhenClassIsNeitherAbstractNorFinal()
     {
         $className = Fixture\NonFinalClass::class;
 
@@ -246,7 +246,7 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
-    public function testInterfaceExistsFailsWhenInterfaceDoesNotExist()
+    public function testAssertInterfaceExistsFailsWhenInterfaceDoesNotExist()
     {
         $interfaceName = __NAMESPACE__ . '\Fixture\NonExistentInterface';
 
@@ -264,7 +264,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $interfaceName
      */
-    public function testInterfaceExistsFailsWhenInterfaceIsNotAInterface(string $interfaceName)
+    public function testAssertInterfaceExistsFailsWhenInterfaceIsNotAnInterface(string $interfaceName)
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -289,14 +289,14 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
-    public function testInterfaceExistsSucceedsWhenInterfaceExists()
+    public function testAssertInterfaceExistsSucceedsWhenInterfaceExists()
     {
         $interfaceName = Fixture\ExampleInterface::class;
 
         $this->assertInterfaceExists($interfaceName);
     }
 
-    public function testTraitExistsFailsWhenTraitDoesNotExist()
+    public function testAssertTraitExistsFailsWhenTraitDoesNotExist()
     {
         $traitName = __NAMESPACE__ . '\Fixture\NonExistentTrait';
 
@@ -314,7 +314,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $traitName
      */
-    public function testTraitExistsFailsWhenTraitIsNotATrait(string $traitName)
+    public function testAssertTraitExistsFailsWhenTraitIsNotATrait(string $traitName)
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -339,7 +339,7 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
-    public function testTraitExistsSucceedsWhenTraitExists()
+    public function testAssertTraitExistsSucceedsWhenTraitExists()
     {
         $traitName = Fixture\ExampleTrait::class;
 
