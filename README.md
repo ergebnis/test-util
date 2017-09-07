@@ -71,6 +71,15 @@ final class PlayerTest extends TestCase
 } 
 ```
 
+### Additional Assertions
+
+In addition to the assertions made available by extending from `PHPUnit\Framework\TestCase`, 
+the `Helper` trait provides the following assertions:
+
+* `assertClassExists(string $className)`
+* `assertInterfaceExists(string $className)`
+* `assertTraitExists(string $className)`
+
 ## Contributing
 
 Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).

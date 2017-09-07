@@ -32,4 +32,28 @@ trait Helper
 
         return $fakers[$locale];
     }
+
+    final protected function assertClassExists(string $className)
+    {
+        $this->assertTrue(\class_exists($className), \sprintf(
+            'Failed to assert that a class "%s" exists',
+            $className
+        ));
+    }
+
+    final protected function assertInterfaceExists(string $className)
+    {
+        $this->assertTrue(\interface_exists($className), \sprintf(
+            'Failed to assert that an interface "%s" exists',
+            $className
+        ));
+    }
+
+    final protected function assertTraitExists(string $className)
+    {
+        $this->assertTrue(\trait_exists($className), \sprintf(
+            'Failed to assert that a trait "%s" exists',
+            $className
+        ));
+    }
 }
