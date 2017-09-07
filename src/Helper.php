@@ -41,6 +41,20 @@ trait Helper
         ));
     }
 
+    final protected function assertClassImplementsInterface(string $interfaceName, string $className)
+    {
+        $this->assertInterfaceExists($interfaceName);
+        $this->assertClassExists($className);
+
+        $reflection = new \ReflectionClass($className);
+
+        $this->assertTrue($reflection->implementsInterface($interfaceName), \sprintf(
+            'Failed to assert that class "%s" implements interface "%s"',
+            $className,
+            $interfaceName
+        ));
+    }
+
     final protected function assertClassIsAbstractOrFinal(string $className)
     {
         $this->assertClassExists($className);

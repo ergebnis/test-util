@@ -127,6 +127,69 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassExists($className);
     }
 
+    public function testClassImplementsInterfaceFailsWhenInterfaceDoesNotExist()
+    {
+        $interfaceName = __NAMESPACE__ . '\Fixture\NonExistentInterface';
+        $className = Fixture\ExampleClass::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that an interface "%s" exists',
+            $interfaceName
+        ));
+
+        $this->assertClassImplementsInterface(
+            $interfaceName,
+            $className
+        );
+    }
+
+    public function testClassImplementsInterfaceFailsWhenClassDoesNotExist()
+    {
+        $interfaceName = Fixture\ExampleInterface::class;
+        $className = __NAMESPACE__ . '\Fixture\NonExistentClass';
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a class "%s" exists',
+            $className
+        ));
+
+        $this->assertClassImplementsInterface(
+            $interfaceName,
+            $className
+        );
+    }
+
+    public function testClassImplementsInterfaceFailsWhenClassDoesNotImplementInterface()
+    {
+        $interfaceName = Fixture\ExampleInterface::class;
+        $className = Fixture\ClassNotImplementingInterface::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that class "%s" implements interface "%s"',
+            $className,
+            $interfaceName
+        ));
+
+        $this->assertClassImplementsInterface(
+            $interfaceName,
+            $className
+        );
+    }
+
+    public function testClassImplementsInterfaceSucceedsWhenClassImplementsInterface()
+    {
+        $interfaceName = Fixture\ExampleInterface::class;
+        $className = Fixture\ClassImplementingInterface::class;
+
+        $this->assertClassImplementsInterface(
+            $interfaceName,
+            $className
+        );
+    }
+
     public function testClassIsAbstractOrFinalFailsWhenClassDoesNotExist()
     {
         $className = __NAMESPACE__ . '\Fixture\NonExistentClass';
