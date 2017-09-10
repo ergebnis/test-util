@@ -11,9 +11,8 @@ declare(strict_types=1);
  * @link https://github.com/localheinz/test-util
  */
 
-namespace Localheinz\Test\Util\Test\Unit\Fixture;
+namespace Localheinz\Test\Util\Test\Unit\Fixture\ClassUsesTrait;
 
-final class ClassUsingTrait
+trait ExampleTrait
 {
-    use ExampleTrait;
 }

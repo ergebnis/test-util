@@ -11,8 +11,8 @@ declare(strict_types=1);
  * @link https://github.com/localheinz/test-util
  */
 
-namespace Localheinz\Test\Util\Test\Unit\Fixture;
+namespace Localheinz\Test\Util\Test\Unit\Fixture\ClassUsesTrait;
 
-final class ClassExtendingParentClass extends AbstractClass
+final class ClassNotUsingTrait
 {
 }
