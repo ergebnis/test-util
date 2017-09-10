@@ -17,6 +17,7 @@ use Faker\Factory;
 use Faker\Generator;
 use Faker\Provider;
 use Localheinz\Test\Util\Helper;
+use Localheinz\Test\Util\Test\Fixture;
 use PHPUnit\Framework;
 
 final class HelperTest extends Framework\TestCase
@@ -96,7 +97,7 @@ final class HelperTest extends Framework\TestCase
     public function providerNotClass(): \Generator
     {
         $classNames = [
-            'class-non-existent' => __NAMESPACE__ . '\Fixture\NonExistentClass',
+            'class-non-existent' => __NAMESPACE__ . '\NonExistentClass',
             'interface' => Fixture\NotClass\ExampleInterface::class,
             'trait' => Fixture\NotClass\ExampleTrait::class,
         ];
@@ -391,7 +392,7 @@ final class HelperTest extends Framework\TestCase
     {
         $interfaceNames = [
             'class' => Fixture\NotInterface\ExampleClass::class,
-            'interface-non-existent' => __NAMESPACE__ . '\Fixture\NonExistentInterface',
+            'interface-non-existent' => __NAMESPACE__ . '\NonExistentInterface',
             'trait' => Fixture\NotInterface\ExampleTrait::class,
         ];
 
@@ -501,7 +502,7 @@ final class HelperTest extends Framework\TestCase
         $traitNames = [
             'class' => Fixture\NotTrait\ExampleClass::class,
             'interface' => Fixture\NotTrait\ExampleInterface::class,
-            'trait-non-existent' => __NAMESPACE__ . '\Fixture\NonExistentTrait',
+            'trait-non-existent' => __NAMESPACE__ . '\NonExistentTrait',
         ];
 
         foreach ($traitNames as $key => $traitName) {
