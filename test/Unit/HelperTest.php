@@ -86,7 +86,7 @@ final class HelperTest extends Framework\TestCase
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that a class "%s" exists',
+            'Failed to assert that a class "%s" exists.',
             $className
         ));
 
@@ -126,7 +126,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that a class "%s" exists',
+            'Failed to assert that a class "%s" exists.',
             $parentClassName
         ));
 
@@ -147,7 +147,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that a class "%s" exists',
+            'Failed to assert that a class "%s" exists.',
             $className
         ));
 
@@ -164,7 +164,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that class "%s" extends "%s"',
+            'Failed to assert that class "%s" extends "%s".',
             $className,
             $parentClassName
         ));
@@ -197,7 +197,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that an interface "%s" exists',
+            'Failed to assert that an interface "%s" exists.',
             $interfaceName
         ));
 
@@ -218,7 +218,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that a class "%s" exists',
+            'Failed to assert that a class "%s" exists.',
             $className
         ));
 
@@ -235,7 +235,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that class "%s" implements interface "%s"',
+            'Failed to assert that class "%s" implements interface "%s".',
             $className,
             $interfaceName
         ));
@@ -266,7 +266,7 @@ final class HelperTest extends Framework\TestCase
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that a class "%s" exists',
+            'Failed to assert that a class "%s" exists.',
             $className
         ));
 
@@ -279,7 +279,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that class "%s" is abstract or final',
+            'Failed to assert that class "%s" is abstract or final.',
             $className
         ));
 
@@ -311,7 +311,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that a trait "%s" exists',
+            'Failed to assert that a trait "%s" exists.',
             $traitName
         ));
 
@@ -332,7 +332,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that a class "%s" exists',
+            'Failed to assert that a class "%s" exists.',
             $className
         ));
 
@@ -349,7 +349,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that class "%s" uses trait "%s"',
+            'Failed to assert that class "%s" uses trait "%s".',
             $className,
             $traitName
         ));
@@ -380,7 +380,7 @@ final class HelperTest extends Framework\TestCase
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that an interface "%s" exists',
+            'Failed to assert that an interface "%s" exists.',
             $interfaceName
         ));
 
@@ -420,7 +420,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that an interface "%s" exists',
+            'Failed to assert that an interface "%s" exists.',
             $parentInterfaceName
         ));
 
@@ -441,7 +441,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that an interface "%s" exists',
+            'Failed to assert that an interface "%s" exists.',
             $interfaceName
         ));
 
@@ -458,7 +458,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that interface "%s" extends "%s"',
+            'Failed to assert that interface "%s" extends "%s".',
             $interfaceName,
             $parentInterfaceName
         ));
@@ -489,7 +489,7 @@ final class HelperTest extends Framework\TestCase
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that a trait "%s" exists',
+            'Failed to assert that a trait "%s" exists.',
             $traitName
         ));
 

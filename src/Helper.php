@@ -36,7 +36,7 @@ trait Helper
     final protected function assertClassExists(string $className)
     {
         $this->assertTrue(\class_exists($className), \sprintf(
-            'Failed to assert that a class "%s" exists',
+            'Failed to assert that a class "%s" exists.',
             $className
         ));
     }
@@ -49,7 +49,7 @@ trait Helper
         $reflection = new \ReflectionClass($className);
 
         $this->assertTrue($reflection->isSubclassOf($parentClassName), \sprintf(
-            'Failed to assert that class "%s" extends "%s"',
+            'Failed to assert that class "%s" extends "%s".',
             $className,
             $parentClassName
         ));
@@ -63,7 +63,7 @@ trait Helper
         $reflection = new \ReflectionClass($className);
 
         $this->assertTrue($reflection->implementsInterface($interfaceName), \sprintf(
-            'Failed to assert that class "%s" implements interface "%s"',
+            'Failed to assert that class "%s" implements interface "%s".',
             $className,
             $interfaceName
         ));
@@ -76,7 +76,7 @@ trait Helper
         $reflection = new \ReflectionClass($className);
 
         $this->assertTrue($reflection->isAbstract() || $reflection->isFinal(), \sprintf(
-            'Failed to assert that class "%s" is abstract or final',
+            'Failed to assert that class "%s" is abstract or final.',
             $className
         ));
     }
@@ -87,7 +87,7 @@ trait Helper
         $this->assertClassExists($className);
 
         $this->assertContains($traitName, \class_uses($className), \sprintf(
-            'Failed to assert that class "%s" uses trait "%s"',
+            'Failed to assert that class "%s" uses trait "%s".',
             $className,
             $traitName
         ));
@@ -96,7 +96,7 @@ trait Helper
     final protected function assertInterfaceExists(string $interfaceName)
     {
         $this->assertTrue(\interface_exists($interfaceName), \sprintf(
-            'Failed to assert that an interface "%s" exists',
+            'Failed to assert that an interface "%s" exists.',
             $interfaceName
         ));
     }
@@ -109,7 +109,7 @@ trait Helper
         $reflection = new \ReflectionClass($interfaceName);
 
         $this->assertTrue($reflection->isSubclassOf($parentInterfaceName), \sprintf(
-            'Failed to assert that interface "%s" extends "%s"',
+            'Failed to assert that interface "%s" extends "%s".',
             $interfaceName,
             $parentInterfaceName
         ));
@@ -118,7 +118,7 @@ trait Helper
     final protected function assertTraitExists(string $traitName)
     {
         $this->assertTrue(\trait_exists($traitName), \sprintf(
-            'Failed to assert that a trait "%s" exists',
+            'Failed to assert that a trait "%s" exists.',
             $traitName
         ));
     }
