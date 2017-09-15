@@ -18,9 +18,20 @@ use Faker\Generator;
 
 trait Helper
 {
-    final protected function faker(string $locale = Factory::DEFAULT_LOCALE): Generator
+    final protected function faker(string $locale = 'en_US'): Generator
     {
         static $fakers = [];
+
+        if (false === \class_exists(Generator::class)) {
+            \trigger_error(
+                \sprintf(
+                    'For using the method "%s()", the package "%s" needs to be installed, but it appears that it is not.',
+                    __METHOD__,
+                    'fzaninotto/faker'
+                ),
+                E_USER_ERROR
+            );
+        }
 
         if (!\array_key_exists($locale, $fakers)) {
             $faker = Factory::create($locale);
