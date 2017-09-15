@@ -42,7 +42,7 @@ final class BazTest extends TestCase
 Assuming you have installed [`fzaninotto/faker`](https://github.com/fzaninotto/Faker), 
 the `Helper` trait provides a method to fetch a localized instance of `Faker\Generator`:
 
-* `faker(string $locale = \Faker\Factory::DEFAULT_LOCALE) : \Faker\Generator`
+* `faker(string $locale = 'en_US') : \Faker\Generator`
 
 ```php
 <?php
