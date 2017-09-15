@@ -84,6 +84,10 @@ the `Helper` trait provides the following assertions:
 * `assertInterfaceExtends(string $parentInterfaceName, string $interfaceName)`
 * `assertTraitExists(string $traitName)`
 
+Assuming you have installed [`zendframework/zend-file`](https://github.com/zendframework/zend-file), you can also use the following assertion:
+
+* `assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])`
+
 ## Contributing
 
 Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).

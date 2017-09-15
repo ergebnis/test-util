@@ -78,6 +78,135 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
+    public function testAssertClassesAreAbstractOrFinalRejectsNonExistentDirectory()
+    {
+        $directory = __DIR__ . '/../Fixture/NonExistentDirectory';
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Directory "%s" does not exist.',
+            $directory
+        ));
+
+        $this->assertClassesAreAbstractOrFinal($directory);
+    }
+
+    public function testAssertClassesAreAbstractOrFinalFailsWhenFoundClassesAreNeitherAbstractNorFinal()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal/NotAllAbstractOrFinal';
+        $classesNeitherAbstractNorFinal = [
+            Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\AlsoNeitherAbstractNorFinal::class,
+            Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\NeitherAbstractNorFinal::class,
+        ];
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            "Failed to assert that the classes\n\n%s\n\nare abstract or final.",
+            ' - ' . \implode("\n - ", $classesNeitherAbstractNorFinal)
+        ));
+
+        $this->assertClassesAreAbstractOrFinal($directory);
+    }
+
+    public function testAssertClassesAreAbstractOrFinalSucceedsWhenNoClassesHaveBeenFound()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal/EmptyDirectory';
+
+        $this->assertClassesAreAbstractOrFinal($directory);
+    }
+
+    public function testAssertClassesAreAbstractOrFinalSucceedsWhenFoundClassesAreAbstractOrFinal()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal/AbstractOrFinal';
+
+        $this->assertClassesAreAbstractOrFinal($directory);
+    }
+
+    /**
+     * @dataProvider providerInvalidExcludeClassName
+     *
+     * @param mixed $excludeClassName
+     */
+    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesRejectsInvalidExcludeClassNames($excludeClassName)
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal';
+        $excludeClassNames = [
+            $excludeClassName,
+        ];
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Exclude class names need to be specified as an array of strings, got "%s" instead.',
+            \is_object($excludeClassName) ? \get_class($excludeClassName) : \gettype($excludeClassName)
+        ));
+
+        $this->assertClassesAreAbstractOrFinal(
+            $directory,
+            $excludeClassNames
+        );
+    }
+
+    public function providerInvalidExcludeClassName(): \Generator
+    {
+        $values = [
+            'array' => [
+                'foo',
+                'bar',
+                'baz',
+            ],
+            'boolean-false' => false,
+            'boolean-true' => true,
+            'float' => 3.14,
+            'integer' => 9000,
+            'null' => null,
+            'object' => new \stdClass(),
+            'resource' => \fopen(__FILE__, 'rb'),
+        ];
+
+        foreach ($values as $key => $value) {
+            yield $key => [
+                $value,
+            ];
+        }
+    }
+
+    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesFailsWhenFoundClassesAreNeitherAbstractNorFinal()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal/NotAllAbstractOrFinal';
+        $excludeClassNames = [
+            Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\AlsoNeitherAbstractNorFinal::class,
+        ];
+
+        $classesNeitherAbstractNorFinal = [
+            Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\NeitherAbstractNorFinal::class,
+        ];
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            "Failed to assert that the classes\n\n%s\n\nare abstract or final.",
+            ' - ' . \implode("\n - ", $classesNeitherAbstractNorFinal)
+        ));
+
+        $this->assertClassesAreAbstractOrFinal(
+            $directory,
+            $excludeClassNames
+        );
+    }
+
+    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesSucceedsWhenFoundClassesAreAbstractOrFinal()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal';
+        $excludeClassNames = [
+            Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\AlsoNeitherAbstractNorFinal::class,
+            Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\NeitherAbstractNorFinal::class,
+        ];
+
+        $this->assertClassesAreAbstractOrFinal(
+            $directory,
+            $excludeClassNames
+        );
+    }
+
     /**
      * @dataProvider providerNotClass
      *

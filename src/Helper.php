@@ -15,6 +15,7 @@ namespace Localheinz\Test\Util;
 
 use Faker\Factory;
 use Faker\Generator;
+use Zend\File;
 
 trait Helper
 {
@@ -23,13 +24,9 @@ trait Helper
         static $fakers = [];
 
         if (false === \class_exists(Generator::class)) {
-            \trigger_error(
-                \sprintf(
-                    'For using the method "%s()", the package "%s" needs to be installed, but it appears that it is not.',
-                    __METHOD__,
-                    'fzaninotto/faker'
-                ),
-                E_USER_ERROR
+            $this->triggerMissingPackageError(
+                __METHOD__,
+                'fzaninotto/faker'
             );
         }
 
@@ -42,6 +39,94 @@ trait Helper
         }
 
         return $fakers[$locale];
+    }
+
+    /**
+     * @param string   $directory
+     * @param string[] $excludeClassNames
+     *
+     * @throws \InvalidArgumentException
+     */
+    final protected function assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])
+    {
+        if (false === \class_exists(File\ClassFileLocator::class)) {
+            $this->triggerMissingPackageError(
+                __METHOD__,
+                'zendframework/zend-file'
+            );
+        }
+
+        if (!\is_dir($directory)) {
+            throw new \InvalidArgumentException(\sprintf(
+                'Directory "%s" does not exist.',
+                $directory
+            ));
+        }
+
+        \array_walk($excludeClassNames, function ($excludeClassName) {
+            if (!\is_string($excludeClassName)) {
+                throw new \InvalidArgumentException(\sprintf(
+                    'Exclude class names need to be specified as an array of strings, got "%s" instead.',
+                    \is_object($excludeClassName) ? \get_class($excludeClassName) : \gettype($excludeClassName)
+                ));
+            }
+        });
+
+        $directory = \realpath($directory);
+
+        $nonExistentExcludeClassNames = \array_filter($excludeClassNames, function (string $excludeClassName) {
+            return false === \class_exists($excludeClassName);
+        });
+
+        if (0 < \count($nonExistentExcludeClassNames)) {
+            throw new \InvalidArgumentException(\sprintf(
+                'Exclude class names need to be specified as existing classes, but "%s" does not exist.',
+                \implode('", "', $excludeClassNames)
+            ));
+        }
+
+        $classFileLocator = new File\ClassFileLocator($directory);
+
+        /** @var File\PhpClassFile[] $classFiles */
+        $classFiles = \iterator_to_array(
+            $classFileLocator,
+            false
+        );
+
+        $classNames = \array_reduce(
+            $classFiles,
+            function (array $classNames, File\PhpClassFile $classFile) use ($excludeClassNames) {
+                return \array_merge(
+                    $classNames,
+                    \array_diff(
+                        $classFile->getClasses(),
+                        $excludeClassNames
+                    )
+                );
+            },
+            []
+        );
+
+        \sort($classNames);
+
+        $classNamesNeitherAbstractNorFinal = \array_filter($classNames, function ($className) {
+            $reflection = new \ReflectionClass($className);
+
+            if ($reflection->isAbstract()
+                || $reflection->isFinal()
+                || $reflection->isInterface()
+                || $reflection->isTrait()
+            ) {
+                return false;
+            }
+
+            return true;
+        });
+
+        $this->assertEmpty($classNamesNeitherAbstractNorFinal, \sprintf(
+            "Failed to assert that the classes\n\n%s\n\nare abstract or final.",
+            ' - ' . \implode("\n - ", $classNamesNeitherAbstractNorFinal)
+        ));
     }
 
     final protected function assertClassExists(string $className)
@@ -132,5 +217,17 @@ trait Helper
             'Failed to assert that a trait "%s" exists.',
             $traitName
         ));
+    }
+
+    private function triggerMissingPackageError(string $method, string $package)
+    {
+        \trigger_error(
+            \sprintf(
+                'For using the method "%s()", the package "%s" needs to be installed, but it appears that it is not.',
+                $method,
+                $package
+            ),
+            E_USER_ERROR
+        );
     }
 }
