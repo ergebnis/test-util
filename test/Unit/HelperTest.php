@@ -744,6 +744,77 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
+     * @dataProvider providerNotClass
+     *
+     * @param string $className
+     */
+    public function testAssertClassSatisfiesSpecificationFailsWhenClassIsNotAClass(string $className)
+    {
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a class "%s" exists',
+            $className
+        ));
+
+        $this->assertClassSatisfiesSpecification(
+            function () {
+                return true;
+            },
+            $className
+        );
+    }
+
+    public function testAssertClassSatisfiesSpecificationFailsWhenSpecificationReturnsFalse()
+    {
+        $className = Fixture\ClassSatisfiesSpecification\ExampleClass::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that class "%s" satisfies a specification.',
+            $className
+        ));
+
+        $this->assertClassSatisfiesSpecification(
+            function () {
+                return false;
+            },
+            $className
+        );
+    }
+
+    public function testAssertClassSatisfiesSpecificationFailsWhenSpecificationReturnsFalseAndUsesMessage()
+    {
+        $className = Fixture\ClassSatisfiesSpecification\ExampleClass::class;
+        $message = 'Looks like "%s" does not satisfy our requirements right now';
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            $message,
+            $className
+        ));
+
+        $this->assertClassSatisfiesSpecification(
+            function () {
+                return false;
+            },
+            $className,
+            $message
+        );
+    }
+
+    public function testAssertClassSatisfiesSpecificationSucceedsWhenSpecificationReturnsTrue()
+    {
+        $className = Fixture\ClassSatisfiesSpecification\ExampleClass::class;
+
+        $this->assertClassSatisfiesSpecification(
+            function () {
+                return true;
+            },
+            $className
+        );
+    }
+
+    /**
      * @dataProvider providerNotTrait
      *
      * @param string $traitName
@@ -924,6 +995,77 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
+     * @dataProvider providerNotInterface
+     *
+     * @param string $interfaceName
+     */
+    public function testAssertInterfaceSatisfiesSpecificationFailsWhenInterfaceIsNotAInterface(string $interfaceName)
+    {
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that an interface "%s" exists',
+            $interfaceName
+        ));
+
+        $this->assertInterfaceSatisfiesSpecification(
+            function () {
+                return true;
+            },
+            $interfaceName
+        );
+    }
+
+    public function testAssertInterfaceSatisfiesSpecificationFailsWhenSpecificationReturnsFalse()
+    {
+        $interfaceName = Fixture\InterfaceSatisfiesSpecification\ExampleInterface::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that interface "%s" satisfies a specification.',
+            $interfaceName
+        ));
+
+        $this->assertInterfaceSatisfiesSpecification(
+            function () {
+                return false;
+            },
+            $interfaceName
+        );
+    }
+
+    public function testAssertInterfaceSatisfiesSpecificationFailsWhenSpecificationReturnsFalseAndUsesMessage()
+    {
+        $interfaceName = Fixture\InterfaceSatisfiesSpecification\ExampleInterface::class;
+        $message = 'Looks like "%s" does not satisfy our requirements right now';
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            $message,
+            $interfaceName
+        ));
+
+        $this->assertInterfaceSatisfiesSpecification(
+            function () {
+                return false;
+            },
+            $interfaceName,
+            $message
+        );
+    }
+
+    public function testAssertInterfaceSatisfiesSpecificationSucceedsWhenSpecificationReturnsTrue()
+    {
+        $interfaceName = Fixture\InterfaceSatisfiesSpecification\ExampleInterface::class;
+
+        $this->assertInterfaceSatisfiesSpecification(
+            function () {
+                return true;
+            },
+            $interfaceName
+        );
+    }
+
+    /**
      * @dataProvider providerNotTrait
      *
      * @param string $traitName
@@ -959,6 +1101,77 @@ final class HelperTest extends Framework\TestCase
         $traitName = Fixture\TraitExists\ExampleTrait::class;
 
         $this->assertTraitExists($traitName);
+    }
+
+    /**
+     * @dataProvider providerNotTrait
+     *
+     * @param string $traitName
+     */
+    public function testAssertTraitSatisfiesSpecificationFailsWhenTraitIsNotATrait(string $traitName)
+    {
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a trait "%s" exists',
+            $traitName
+        ));
+
+        $this->assertTraitSatisfiesSpecification(
+            function () {
+                return true;
+            },
+            $traitName
+        );
+    }
+
+    public function testAssertTraitSatisfiesSpecificationFailsWhenSpecificationReturnsFalse()
+    {
+        $traitName = Fixture\TraitSatisfiesSpecification\ExampleTrait::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that trait "%s" satisfies a specification.',
+            $traitName
+        ));
+
+        $this->assertTraitSatisfiesSpecification(
+            function () {
+                return false;
+            },
+            $traitName
+        );
+    }
+
+    public function testAssertTraitSatisfiesSpecificationFailsWhenSpecificationReturnsFalseAndUsesMessage()
+    {
+        $traitName = Fixture\TraitSatisfiesSpecification\ExampleTrait::class;
+        $message = 'Looks like "%s" does not satisfy our requirements right now';
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            $message,
+            $traitName
+        ));
+
+        $this->assertTraitSatisfiesSpecification(
+            function () {
+                return false;
+            },
+            $traitName,
+            $message
+        );
+    }
+
+    public function testAssertTraitSatisfiesSpecificationSucceedsWhenSpecificationReturnsTrue()
+    {
+        $traitName = Fixture\TraitSatisfiesSpecification\ExampleTrait::class;
+
+        $this->assertTraitSatisfiesSpecification(
+            function () {
+                return true;
+            },
+            $traitName
+        );
     }
 
     private function assertHasOnlyProvidersWithLocale(string $locale, Generator $faker)
