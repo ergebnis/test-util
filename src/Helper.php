@@ -15,6 +15,7 @@ namespace Localheinz\Test\Util;
 
 use Faker\Factory;
 use Faker\Generator;
+use PHPUnit\Framework;
 use Zend\File;
 
 trait Helper
@@ -54,6 +55,49 @@ trait Helper
             $directory,
             $excludeClassNames,
             "Failed to assert that the classes\n\n%s\n\nare abstract or final."
+        );
+    }
+
+    /**
+     * @param string   $directory
+     * @param string   $namespace
+     * @param string   $testNamespace
+     * @param string[] $excludeClassNames
+     */
+    final protected function assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassNames = [])
+    {
+        $namespace = \rtrim($namespace, '\\') . '\\';
+        $testNamespace = \rtrim($testNamespace, '\\') . '\\';
+
+        $this->assertClassesSatisfySpecification(
+            function (string $className) use ($namespace, $testNamespace) {
+                $reflection = new \ReflectionClass($className);
+
+                if ($reflection->isAbstract()
+                    || $reflection->isInterface()
+                    || $reflection->isTrait()
+                    || $reflection->isSubclassOf(Framework\TestCase::class)
+                ) {
+                    return true;
+                }
+
+                $testClassName = \str_replace(
+                    $namespace,
+                    $testNamespace,
+                    $className
+                ) . 'Test';
+
+                if (!\class_exists($testClassName)) {
+                    return false;
+                }
+
+                $testReflection = new \ReflectionClass($testClassName);
+
+                return $testReflection->isSubclassOf(Framework\TestCase::class);
+            },
+            $directory,
+            $excludeClassNames,
+            "Failed to assert that the classes\n\n%s\n\nhave tests."
         );
     }
 

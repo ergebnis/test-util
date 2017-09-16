@@ -207,6 +207,186 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
+    public function testAssertClassesHaveTestsRejectsNonExistentDirectory()
+    {
+        $directory = __DIR__ . '/../Fixture/NonExistentDirectory';
+        $namespace = '';
+        $testNamespace = '';
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Directory "%s" does not exist.',
+            $directory
+        ));
+
+        $this->assertClassesHaveTests(
+            $directory,
+            $namespace,
+            $testNamespace
+        );
+    }
+
+    public function testAssertClassesHaveTestsFailsWhenFoundClassesDoNotHaveTests()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesHaveTests/WithoutTests';
+        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithoutTests\\';
+        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithoutTests\\Test';
+
+        $classesNotSatisfyingSpecification = [
+            Fixture\ClassesHaveTests\WithoutTests\ExampleClass::class,
+        ];
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            "Failed to assert that the classes\n\n%s\n\nhave tests.",
+            ' - ' . \implode("\n - ", $classesNotSatisfyingSpecification)
+        ));
+
+        $this->assertClassesHaveTests(
+            $directory,
+            $namespace,
+            $testNamespace
+        );
+    }
+
+    public function testAssertClassesHaveTestsSucceedsWhenNoClassesHaveBeenFound()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesHaveTests/EmptyDirectory';
+        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\EmptyDirectory\\';
+        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\EmptyDirectory\\Test\\';
+
+        $this->assertClassesHaveTests(
+            $directory,
+            $namespace,
+            $testNamespace
+        );
+    }
+
+    public function testAssertClassesHaveTestsSucceedsWhenFoundClassesHaveTests()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesHaveTests/WithTests';
+        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\';
+        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Test\\';
+
+        $this->assertClassesHaveTests(
+            $directory,
+            $namespace,
+            $testNamespace
+        );
+    }
+
+    /**
+     * @dataProvider providerNamespaceAndTestNamespace
+     *
+     * @param string $namespace
+     * @param string $testNamespace
+     */
+    public function testAssertClassesHaveTestsWorksWithAndWithoutTrailingSlash(string $namespace, string $testNamespace)
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesHaveTests/WithTests';
+
+        $this->assertClassesHaveTests(
+            $directory,
+            $namespace,
+            $testNamespace
+        );
+    }
+
+    public function providerNamespaceAndTestNamespace(): \Generator
+    {
+        $namespaces = [
+            'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests',
+            'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\',
+        ];
+
+        $testNamespaces = [
+            'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Test',
+            'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Test\\',
+        ];
+
+        foreach ($namespaces as $namespace) {
+            foreach ($testNamespaces as $testNamespace) {
+                yield [
+                    $namespace,
+                    $testNamespace,
+                ];
+            }
+        }
+    }
+
+    /**
+     * @dataProvider providerInvalidExcludeClassName
+     *
+     * @param mixed $excludeClassName
+     */
+    public function testAssertClassesHaveTestsWithExcludeClassNamesRejectsInvalidExcludeClassNames($excludeClassName)
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests';
+        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\';
+        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
+        $excludeClassNames = [
+            $excludeClassName,
+        ];
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Exclude class names need to be specified as an array of strings, got "%s" instead.',
+            \is_object($excludeClassName) ? \get_class($excludeClassName) : \gettype($excludeClassName)
+        ));
+
+        $this->assertClassesHaveTests(
+            $directory,
+            $namespace,
+            $testNamespace,
+            $excludeClassNames
+        );
+    }
+
+    public function testAssertClassesHaveTestsWithExcludeClassNamesFailsWhenFoundClassesDoNotHaveTests()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests';
+        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\';
+        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
+        $excludeClassNames = [
+            Fixture\ClassesHaveTests\NotAllClassesHaveTests\AnotherExampleClass::class,
+        ];
+
+        $classesWithoutTests = [
+            Fixture\ClassesHaveTests\NotAllClassesHaveTests\OneMoreExampleClass::class,
+        ];
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            "Failed to assert that the classes\n\n%s\n\nhave tests.",
+            ' - ' . \implode("\n - ", $classesWithoutTests)
+        ));
+
+        $this->assertClassesHaveTests(
+            $directory,
+            $namespace,
+            $testNamespace,
+            $excludeClassNames
+        );
+    }
+
+    public function testAssertClassesHaveTestsWithExcludeClassNamesSucceedsWhenFoundClassesHaveTests()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests';
+        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\';
+        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
+        $excludeClassNames = [
+            Fixture\ClassesHaveTests\NotAllClassesHaveTests\AnotherExampleClass::class,
+            Fixture\ClassesHaveTests\NotAllClassesHaveTests\OneMoreExampleClass::class,
+        ];
+
+        $this->assertClassesHaveTests(
+            $directory,
+            $namespace,
+            $testNamespace,
+            $excludeClassNames
+        );
+    }
+
     public function testAssertClassesSatisfySpecificationRejectsNonExistentDirectory()
     {
         $directory = __DIR__ . '/../Fixture/NonExistentDirectory';
