@@ -56,6 +56,30 @@ trait Helper
             );
         }
 
+        $this->assertClassesSatisfySpecification(
+            function (string $className) {
+                $reflection = new \ReflectionClass($className);
+
+                return $reflection->isAbstract()
+                    || $reflection->isFinal()
+                    || $reflection->isInterface()
+                    || $reflection->isTrait();
+            },
+            $directory,
+            $excludeClassNames,
+            "Failed to assert that the classes\n\n%s\n\nare abstract or final."
+        );
+    }
+
+    final protected function assertClassesSatisfySpecification(callable $specification, string $directory, array $excludeClassNames = [], string $message = '')
+    {
+        if (false === \class_exists(File\ClassFileLocator::class)) {
+            $this->triggerMissingPackageError(
+                __METHOD__,
+                'zendframework/zend-file'
+            );
+        }
+
         if (!\is_dir($directory)) {
             throw new \InvalidArgumentException(\sprintf(
                 'Directory "%s" does not exist.',
@@ -109,23 +133,13 @@ trait Helper
 
         \sort($classNames);
 
-        $classNamesNeitherAbstractNorFinal = \array_filter($classNames, function ($className) {
-            $reflection = new \ReflectionClass($className);
-
-            if ($reflection->isAbstract()
-                || $reflection->isFinal()
-                || $reflection->isInterface()
-                || $reflection->isTrait()
-            ) {
-                return false;
-            }
-
-            return true;
+        $classNamesNotSatisfyingSpecification = \array_filter($classNames, function (string $className) use ($specification) {
+            return false === $specification($className);
         });
 
-        $this->assertEmpty($classNamesNeitherAbstractNorFinal, \sprintf(
-            "Failed to assert that the classes\n\n%s\n\nare abstract or final.",
-            ' - ' . \implode("\n - ", $classNamesNeitherAbstractNorFinal)
+        $this->assertEmpty($classNamesNotSatisfyingSpecification, \sprintf(
+            '' !== $message ? $message : "Failed to assert that the classes\n\n%s\n\nsatisfy a specification.",
+            ' - ' . \implode("\n - ", $classNamesNotSatisfyingSpecification)
         ));
     }
 

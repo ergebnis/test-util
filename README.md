@@ -87,6 +87,7 @@ the `Helper` trait provides the following assertions:
 Assuming you have installed [`zendframework/zend-file`](https://github.com/zendframework/zend-file), you can also use the following assertion:
 
 * `assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])`
+* `assertClassesSatisfySpecification(callable $specification, string $directory, array $excludeClassNames = [], $message = '')`
 
 ## Contributing
 
