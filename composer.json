@@ -3,8 +3,10 @@
   "description": "Provides utilities for tests.",
   "type": "library",
   "keywords": [
-    "test",
-    "phpunit"
+    "assertion",
+    "faker",
+    "phpunit",
+    "test"
   ],
   "license": "MIT",
   "authors": [
