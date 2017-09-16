@@ -18,18 +18,14 @@
     "sort-packages": true
   },
   "require": {
-    "php": "^7.0"
+    "php": "^7.0",
+    "fzaninotto/faker": "^1.0.0",
+    "zendframework/zend-file": "^2.7.1"
   },
   "require-dev": {
     "codeclimate/php-test-reporter": "0.4.4",
-    "fzaninotto/faker": "^1.0.0",
     "localheinz/php-cs-fixer-config": "~1.5.1",
-    "phpunit/phpunit": "^6.2.4",
-    "zendframework/zend-file": "^2.7.1"
-  },
-  "suggest": {
-    "fzaninotto/faker": "For generating fake data in tests",
-    "zendframework/zend-file": "For using assertions which traverse the filesystem to find classes"
+    "phpunit/phpunit": "^6.2.4"
   },
   "autoload": {
     "psr-4": {

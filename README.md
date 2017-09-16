@@ -39,8 +39,7 @@ final class BazTest extends TestCase
 
 ### Easy access to localized instances of `Faker\Generator`
 
-Assuming you have installed [`fzaninotto/faker`](https://github.com/fzaninotto/Faker), 
-the `Helper` trait provides a method to fetch a localized instance of `Faker\Generator`:
+The `Helper` trait provides a method to fetch a localized instance of `Faker\Generator`:
 
 * `faker(string $locale = 'en_US') : \Faker\Generator`
 
@@ -70,11 +69,15 @@ final class PlayerTest extends TestCase
 } 
 ```
 
+For reference, see [`fzaninotto/faker`](https://github.com/fzaninotto/Faker).
+
 ### Additional Assertions
 
 In addition to the assertions made available by extending from `PHPUnit\Framework\TestCase`, 
 the `Helper` trait provides the following assertions:
 
+* `assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])`
+* `assertClassesSatisfySpecification(callable $specification, string $directory, array $excludeClassNames = [], $message = '')`
 * `assertClassExists(string $className)`
 * `assertClassExtends(string $parentClassName, string $className)`
 * `assertClassImplementsInterface(string $interfaceName, string $className)`
@@ -83,11 +86,6 @@ the `Helper` trait provides the following assertions:
 * `assertInterfaceExists(string $interfaceName)`
 * `assertInterfaceExtends(string $parentInterfaceName, string $interfaceName)`
 * `assertTraitExists(string $traitName)`
-
-Assuming you have installed [`zendframework/zend-file`](https://github.com/zendframework/zend-file), you can also use the following assertion:
-
-* `assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])`
-* `assertClassesSatisfySpecification(callable $specification, string $directory, array $excludeClassNames = [], $message = '')`
 
 ## Contributing
 
