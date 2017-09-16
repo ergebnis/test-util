@@ -207,6 +207,139 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
+    public function testAssertClassesSatisfySpecificationRejectsNonExistentDirectory()
+    {
+        $directory = __DIR__ . '/../Fixture/NonExistentDirectory';
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Directory "%s" does not exist.',
+            $directory
+        ));
+
+        $this->assertClassesSatisfySpecification(
+            function (string $className) {
+                return false;
+            },
+            $directory
+        );
+    }
+
+    public function testAssertClassesSatisfySpecificationFailsWhenFoundClassesDoNotSatisfySpecification()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesSatisfySpecification';
+        $classesNotSatisfyingSpecification = [
+            Fixture\ClassesSatisfySpecification\AnotherExampleClass::class,
+            Fixture\ClassesSatisfySpecification\ExampleClass::class,
+        ];
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            "Failed to assert that the classes\n\n%s\n\nsatisfy a specification.",
+            ' - ' . \implode("\n - ", $classesNotSatisfyingSpecification)
+        ));
+
+        $this->assertClassesSatisfySpecification(
+            function (string $className) {
+                return false;
+            },
+            $directory
+        );
+    }
+
+    public function testAssertClassesSatisfySpecificationSucceedsWhenNoClassesHaveBeenFound()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesSatisfySpecification/EmptyDirectory';
+
+        $this->assertClassesSatisfySpecification(
+            function (string $className) {
+                return false;
+            },
+            $directory
+        );
+    }
+
+    public function testAssertClassesSatisfySpecificationSucceedsWhenFoundClassesSatisfySpecification()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesSatisfySpecification';
+
+        $this->assertClassesSatisfySpecification(
+            function (string $className) {
+                return true;
+            },
+            $directory
+        );
+    }
+
+    /**
+     * @dataProvider providerInvalidExcludeClassName
+     *
+     * @param mixed $excludeClassName
+     */
+    public function testAssertClassesSatisfySpecificationWithExcludeClassNamesRejectsInvalidExcludeClassNames($excludeClassName)
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesSatisfySpecification';
+        $excludeClassNames = [
+            $excludeClassName,
+        ];
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Exclude class names need to be specified as an array of strings, got "%s" instead.',
+            \is_object($excludeClassName) ? \get_class($excludeClassName) : \gettype($excludeClassName)
+        ));
+
+        $this->assertClassesSatisfySpecification(
+            function (string $className) {
+                return true;
+            },
+            $directory,
+            $excludeClassNames
+        );
+    }
+
+    public function testAssertClassesSatisfySpecificationWithExcludeClassNamesFailsWhenFoundClassesDoNotSatisfySpecification()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesSatisfySpecification';
+        $excludeClassNames = [
+            Fixture\ClassesSatisfySpecification\AnotherExampleClass::class,
+        ];
+
+        $classesNotSatisfyingSpecification = [
+            Fixture\ClassesSatisfySpecification\ExampleClass::class,
+        ];
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            "Failed to assert that the classes\n\n%s\n\nsatisfy a specification.",
+            ' - ' . \implode("\n - ", $classesNotSatisfyingSpecification)
+        ));
+
+        $this->assertClassesSatisfySpecification(
+            function (string $className) {
+                return false;
+            },
+            $directory,
+            $excludeClassNames
+        );
+    }
+
+    public function testAssertClassesSatisfySpecificationWithExcludeClassNamesSucceedsWhenFoundClassesSatisfySpecification()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesSatisfySpecification';
+        $excludeClassNames = [
+            Fixture\ClassesSatisfySpecification\AnotherExampleClass::class,
+        ];
+
+        $this->assertClassesSatisfySpecification(
+            function (string $className) {
+                return Fixture\ClassesSatisfySpecification\ExampleClass::class === $className;
+            },
+            $directory,
+            $excludeClassNames
+        );
+    }
+
     /**
      * @dataProvider providerNotClass
      *
