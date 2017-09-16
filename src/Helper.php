@@ -23,13 +23,6 @@ trait Helper
     {
         static $fakers = [];
 
-        if (false === \class_exists(Generator::class)) {
-            $this->triggerMissingPackageError(
-                __METHOD__,
-                'fzaninotto/faker'
-            );
-        }
-
         if (!\array_key_exists($locale, $fakers)) {
             $faker = Factory::create($locale);
 
@@ -49,13 +42,6 @@ trait Helper
      */
     final protected function assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])
     {
-        if (false === \class_exists(File\ClassFileLocator::class)) {
-            $this->triggerMissingPackageError(
-                __METHOD__,
-                'zendframework/zend-file'
-            );
-        }
-
         $this->assertClassesSatisfySpecification(
             function (string $className) {
                 $reflection = new \ReflectionClass($className);
@@ -73,13 +59,6 @@ trait Helper
 
     final protected function assertClassesSatisfySpecification(callable $specification, string $directory, array $excludeClassNames = [], string $message = '')
     {
-        if (false === \class_exists(File\ClassFileLocator::class)) {
-            $this->triggerMissingPackageError(
-                __METHOD__,
-                'zendframework/zend-file'
-            );
-        }
-
         if (!\is_dir($directory)) {
             throw new \InvalidArgumentException(\sprintf(
                 'Directory "%s" does not exist.',
@@ -231,17 +210,5 @@ trait Helper
             'Failed to assert that a trait "%s" exists.',
             $traitName
         ));
-    }
-
-    private function triggerMissingPackageError(string $method, string $package)
-    {
-        \trigger_error(
-            \sprintf(
-                'For using the method "%s()", the package "%s" needs to be installed, but it appears that it is not.',
-                $method,
-                $package
-            ),
-            E_USER_ERROR
-        );
     }
 }
