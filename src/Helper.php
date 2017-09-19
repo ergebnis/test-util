@@ -20,6 +20,17 @@ use Zend\File;
 
 trait Helper
 {
+    /**
+     * Returns a localized instance of Faker\Generator.
+     *
+     * Useful for generating fake data in tests.
+     *
+     * @link https://github.com/fzaninotto/Faker
+     *
+     * @param string $locale
+     *
+     * @return Generator
+     */
     final protected function faker(string $locale = 'en_US'): Generator
     {
         static $fakers = [];
@@ -36,6 +47,10 @@ trait Helper
     }
 
     /**
+     * Asserts that classes in a directory are either abstract or final.
+     *
+     * Useful to prevent long inheritance chains.
+     *
      * @param string   $directory
      * @param string[] $excludeClassNames
      *
@@ -59,10 +74,14 @@ trait Helper
     }
 
     /**
+     * Asserts that classes in a directory have matching test classes extending from PHPUnit\Framework\TestCase.
+     *
      * @param string   $directory
      * @param string   $namespace
      * @param string   $testNamespace
      * @param string[] $excludeClassNames
+     *
+     * @throws \InvalidArgumentException
      */
     final protected function assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassNames = [])
     {
@@ -101,6 +120,18 @@ trait Helper
         );
     }
 
+    /**
+     * Asserts that all classes, interfaces, and traits found in a directory satisfy a specification.
+     *
+     * Useful for asserting that production and test code conforms to certain requirements.
+     *
+     * The specification will be invoked with a single argument, the class name, and should return true or false.
+     *
+     * @param callable $specification
+     * @param string   $directory
+     * @param string[] $excludeClassNames
+     * @param string   $message
+     */
     final protected function assertClassesSatisfySpecification(callable $specification, string $directory, array $excludeClassNames = [], string $message = '')
     {
         if (!\is_dir($directory)) {
@@ -155,6 +186,11 @@ trait Helper
         ));
     }
 
+    /**
+     * Asserts that a class exists.
+     *
+     * @param string $className
+     */
     final protected function assertClassExists(string $className)
     {
         $this->assertTrue(\class_exists($className), \sprintf(
@@ -163,6 +199,12 @@ trait Helper
         ));
     }
 
+    /**
+     * Asserts that a class extends from a parent class.
+     *
+     * @param string $parentClassName
+     * @param string $className
+     */
     final protected function assertClassExtends(string $parentClassName, string $className)
     {
         $this->assertClassExists($parentClassName);
@@ -177,6 +219,12 @@ trait Helper
         ));
     }
 
+    /**
+     * Asserts that a class implements an interface.
+     *
+     * @param string $interfaceName
+     * @param string $className
+     */
     final protected function assertClassImplementsInterface(string $interfaceName, string $className)
     {
         $this->assertInterfaceExists($interfaceName);
@@ -191,6 +239,13 @@ trait Helper
         ));
     }
 
+    /**
+     * Asserts that a class is abstract or final.
+     *
+     * Useful to prevent long inheritance chains.
+     *
+     * @param string $className
+     */
     final protected function assertClassIsAbstractOrFinal(string $className)
     {
         $this->assertClassExists($className);
@@ -203,6 +258,15 @@ trait Helper
         ));
     }
 
+    /**
+     * Asserts that a class satisfies a specification.
+     *
+     * The specification will be invoked with a single argument, the class name, and should return true or false.
+     *
+     * @param callable $specification
+     * @param string   $className
+     * @param string   $message
+     */
     final protected function assertClassSatisfiesSpecification(callable $specification, string $className, string $message = '')
     {
         $this->assertClassExists($className);
@@ -213,6 +277,12 @@ trait Helper
         ));
     }
 
+    /**
+     * Asserts that a class uses a trait.
+     *
+     * @param string $traitName
+     * @param string $className
+     */
     final protected function assertClassUsesTrait(string $traitName, string $className)
     {
         $this->assertTraitExists($traitName);
@@ -225,6 +295,11 @@ trait Helper
         ));
     }
 
+    /**
+     * Asserts that an interface exists.
+     *
+     * @param string $interfaceName
+     */
     final protected function assertInterfaceExists(string $interfaceName)
     {
         $this->assertTrue(\interface_exists($interfaceName), \sprintf(
@@ -233,6 +308,12 @@ trait Helper
         ));
     }
 
+    /**
+     * Asserts that an interface extends a parent interface.
+     *
+     * @param string $parentInterfaceName
+     * @param string $interfaceName
+     */
     final protected function assertInterfaceExtends(string $parentInterfaceName, string $interfaceName)
     {
         $this->assertInterfaceExists($parentInterfaceName);
@@ -247,6 +328,15 @@ trait Helper
         ));
     }
 
+    /**
+     * Asserts that an interface satisfies a specification.
+     *
+     * The specification will be invoked with a single argument, the class name, and should return true or false.
+     *
+     * @param callable $specification
+     * @param string   $interfaceName
+     * @param string   $message
+     */
     final protected function assertInterfaceSatisfiesSpecification(callable $specification, string $interfaceName, string $message = '')
     {
         $this->assertInterfaceExists($interfaceName);
@@ -257,6 +347,11 @@ trait Helper
         ));
     }
 
+    /**
+     * Asserts that a trait exists.
+     *
+     * @param string $traitName
+     */
     final protected function assertTraitExists(string $traitName)
     {
         $this->assertTrue(\trait_exists($traitName), \sprintf(
@@ -265,6 +360,15 @@ trait Helper
         ));
     }
 
+    /**
+     * Asserts that a trait satisfies a specification.
+     *
+     * The specification will be invoked with a single argument, the class name, and should return true or false.
+     *
+     * @param callable $specification
+     * @param string   $traitName
+     * @param string   $message
+     */
     final protected function assertTraitSatisfiesSpecification(callable $specification, string $traitName, string $message = '')
     {
         $this->assertTraitExists($traitName);
