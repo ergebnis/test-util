@@ -207,6 +207,21 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
+    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesIgnoresNonExistentExcludeClassNames()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal';
+        $excludeClassNames = [
+            Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\AlsoNeitherAbstractNorFinal::class,
+            Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\NeitherAbstractNorFinal::class,
+            __NAMESPACE__ . '\\NonExistentClass',
+        ];
+
+        $this->assertClassesAreAbstractOrFinal(
+            $directory,
+            $excludeClassNames
+        );
+    }
+
     public function testAssertClassesHaveTestsRejectsNonExistentDirectory()
     {
         $directory = __DIR__ . '/../Fixture/NonExistentDirectory';
@@ -387,6 +402,25 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
+    public function testAssertClassesHaveTestsWithExcludeClassNamesIgnoresNonExistentExcludeClassNames()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests';
+        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\';
+        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
+        $excludeClassNames = [
+            Fixture\ClassesHaveTests\NotAllClassesHaveTests\AnotherExampleClass::class,
+            Fixture\ClassesHaveTests\NotAllClassesHaveTests\OneMoreExampleClass::class,
+            __NAMESPACE__ . '\\NonExistentClass',
+        ];
+
+        $this->assertClassesHaveTests(
+            $directory,
+            $namespace,
+            $testNamespace,
+            $excludeClassNames
+        );
+    }
+
     public function testAssertClassesSatisfySpecificationRejectsNonExistentDirectory()
     {
         $directory = __DIR__ . '/../Fixture/NonExistentDirectory';
@@ -509,6 +543,23 @@ final class HelperTest extends Framework\TestCase
         $directory = __DIR__ . '/../Fixture/ClassesSatisfySpecification';
         $excludeClassNames = [
             Fixture\ClassesSatisfySpecification\AnotherExampleClass::class,
+        ];
+
+        $this->assertClassesSatisfySpecification(
+            function (string $className) {
+                return Fixture\ClassesSatisfySpecification\ExampleClass::class === $className;
+            },
+            $directory,
+            $excludeClassNames
+        );
+    }
+
+    public function testAssertClassesSatisfySpecificationWithExcludeClassNamesIgnoresNonExistentExcludeClassNames()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesSatisfySpecification';
+        $excludeClassNames = [
+            Fixture\ClassesSatisfySpecification\AnotherExampleClass::class,
+            __NAMESPACE__ . '\\NonExistentClass',
         ];
 
         $this->assertClassesSatisfySpecification(

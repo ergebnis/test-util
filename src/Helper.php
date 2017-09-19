@@ -121,17 +121,6 @@ trait Helper
 
         $directory = \realpath($directory);
 
-        $nonExistentExcludeClassNames = \array_filter($excludeClassNames, function (string $excludeClassName) {
-            return false === \class_exists($excludeClassName);
-        });
-
-        if (0 < \count($nonExistentExcludeClassNames)) {
-            throw new \InvalidArgumentException(\sprintf(
-                'Exclude class names need to be specified as existing classes, but "%s" does not exist.',
-                \implode('", "', $excludeClassNames)
-            ));
-        }
-
         $classFileLocator = new File\ClassFileLocator($directory);
 
         /** @var File\PhpClassFile[] $classFiles */
