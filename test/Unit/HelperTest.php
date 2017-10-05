@@ -595,8 +595,8 @@ final class HelperTest extends Framework\TestCase
             'trait' => Fixture\NotClass\ExampleTrait::class,
         ];
 
-        foreach ($classNames as $className) {
-            yield [
+        foreach ($classNames as $key => $className) {
+            yield $key => [
                 $className,
             ];
         }
