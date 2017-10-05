@@ -15,8 +15,8 @@ namespace Localheinz\Test\Util;
 
 use Faker\Factory;
 use Faker\Generator;
+use Localheinz\Classy;
 use PHPUnit\Framework;
-use Zend\File;
 
 trait Helper
 {
@@ -55,6 +55,7 @@ trait Helper
      * @param string[] $excludeClassNames
      *
      * @throws \InvalidArgumentException
+     * @throws Classy\Exception\MultipleDefinitionsFound
      */
     final protected function assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])
     {
@@ -82,6 +83,7 @@ trait Helper
      * @param string[] $excludeClassNames
      *
      * @throws \InvalidArgumentException
+     * @throws Classy\Exception\MultipleDefinitionsFound
      */
     final protected function assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassNames = [])
     {
@@ -133,6 +135,7 @@ trait Helper
      * @param string   $message
      *
      * @throws \InvalidArgumentException
+     * @throws Classy\Exception\MultipleDefinitionsFound
      */
     final protected function assertClassesSatisfySpecification(callable $specification, string $directory, array $excludeClassNames = [], string $message = '')
     {
@@ -152,31 +155,12 @@ trait Helper
             }
         });
 
-        $directory = \realpath($directory);
+        $constructs = Classy\Constructs::fromDirectory($directory);
 
-        $classFileLocator = new File\ClassFileLocator($directory);
-
-        /** @var File\PhpClassFile[] $classFiles */
-        $classFiles = \iterator_to_array(
-            $classFileLocator,
-            false
+        $classNames = \array_diff(
+            $constructs,
+            $excludeClassNames
         );
-
-        $classNames = \array_reduce(
-            $classFiles,
-            function (array $classNames, File\PhpClassFile $classFile) use ($excludeClassNames) {
-                return \array_merge(
-                    $classNames,
-                    \array_diff(
-                        $classFile->getClasses(),
-                        $excludeClassNames
-                    )
-                );
-            },
-            []
-        );
-
-        \sort($classNames);
 
         $classNamesNotSatisfyingSpecification = \array_filter($classNames, function (string $className) use ($specification) {
             return false === $specification($className);
