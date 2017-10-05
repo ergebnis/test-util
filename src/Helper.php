@@ -59,7 +59,7 @@ trait Helper
      */
     final protected function assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])
     {
-        $this->assertClassesSatisfySpecification(
+        $this->assertClassyConstructsSatisfySpecification(
             function (string $className) {
                 $reflection = new \ReflectionClass($className);
 
@@ -90,7 +90,7 @@ trait Helper
         $namespace = \rtrim($namespace, '\\') . '\\';
         $testNamespace = \rtrim($testNamespace, '\\') . '\\';
 
-        $this->assertClassesSatisfySpecification(
+        $this->assertClassyConstructsSatisfySpecification(
             function (string $className) use ($namespace, $testNamespace) {
                 $reflection = new \ReflectionClass($className);
 
@@ -131,13 +131,13 @@ trait Helper
      *
      * @param callable $specification
      * @param string   $directory
-     * @param string[] $excludeClassNames
+     * @param string[] $excludeClassyNames
      * @param string   $message
      *
      * @throws \InvalidArgumentException
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
-    final protected function assertClassesSatisfySpecification(callable $specification, string $directory, array $excludeClassNames = [], string $message = '')
+    final protected function assertClassyConstructsSatisfySpecification(callable $specification, string $directory, array $excludeClassyNames = [], string $message = '')
     {
         if (!\is_dir($directory)) {
             throw new \InvalidArgumentException(\sprintf(
@@ -146,29 +146,29 @@ trait Helper
             ));
         }
 
-        \array_walk($excludeClassNames, function ($excludeClassName) {
-            if (!\is_string($excludeClassName)) {
+        \array_walk($excludeClassyNames, function ($excludeClassyName) {
+            if (!\is_string($excludeClassyName)) {
                 throw new \InvalidArgumentException(\sprintf(
-                    'Exclude class names need to be specified as an array of strings, got "%s" instead.',
-                    \is_object($excludeClassName) ? \get_class($excludeClassName) : \gettype($excludeClassName)
+                    'Exclude classy names need to be specified as an array of strings, got "%s" instead.',
+                    \is_object($excludeClassyName) ? \get_class($excludeClassyName) : \gettype($excludeClassyName)
                 ));
             }
         });
 
         $constructs = Classy\Constructs::fromDirectory($directory);
 
-        $classNames = \array_diff(
+        $classyNames = \array_diff(
             $constructs,
-            $excludeClassNames
+            $excludeClassyNames
         );
 
-        $classNamesNotSatisfyingSpecification = \array_filter($classNames, function (string $className) use ($specification) {
+        $classyNamesNotSatisfyingSpecification = \array_filter($classyNames, function (string $className) use ($specification) {
             return false === $specification($className);
         });
 
-        $this->assertEmpty($classNamesNotSatisfyingSpecification, \sprintf(
-            '' !== $message ? $message : "Failed to assert that the classes\n\n%s\n\nsatisfy a specification.",
-            ' - ' . \implode("\n - ", $classNamesNotSatisfyingSpecification)
+        $this->assertEmpty($classyNamesNotSatisfyingSpecification, \sprintf(
+            '' !== $message ? $message : "Failed to assert that the classy constructs\n\n%s\n\nsatisfy a specification.",
+            ' - ' . \implode("\n - ", $classyNamesNotSatisfyingSpecification)
         ));
     }
 

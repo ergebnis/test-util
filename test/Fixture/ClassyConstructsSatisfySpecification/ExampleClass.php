@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @link https://github.com/localheinz/test-util
  */
 
-namespace Localheinz\Test\Util\Test\Fixture\ClassesSatisfySpecification;
+namespace Localheinz\Test\Util\Test\Fixture\ClassyConstructsSatisfySpecification;
 
 final class ExampleClass
 {
