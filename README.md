@@ -78,13 +78,13 @@ the `Helper` trait provides the following assertions:
 
 * `assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])`
 * `assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassNames = [])`
-* `assertClassesSatisfySpecification(callable $specification, string $directory, array $excludeClassNames = [], $message = '')`
 * `assertClassExists(string $className)`
 * `assertClassExtends(string $parentClassName, string $className)`
 * `assertClassImplementsInterface(string $interfaceName, string $className)`
 * `assertClassIsAbstractOrFinal(string $className)`
 * `assertClassSatisfiesSpecification(callable $specification, string $className, string $message = '')`
 * `assertClassUsesTrait(string $traitName, string $className)`
+* `assertClassyConstructsSatisfySpecification(callable $specification, string $directory, array $excludeClassNames = [], $message = '')`
 * `assertInterfaceExists(string $interfaceName)`
 * `assertInterfaceExtends(string $parentInterfaceName, string $interfaceName)`
 * `assertInterfaceSatisfiesSpecification(callable $specification, string $interfaceName, string $message = '')`
