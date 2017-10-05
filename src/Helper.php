@@ -131,6 +131,8 @@ trait Helper
      * @param string   $directory
      * @param string[] $excludeClassNames
      * @param string   $message
+     *
+     * @throws \InvalidArgumentException
      */
     final protected function assertClassesSatisfySpecification(callable $specification, string $directory, array $excludeClassNames = [], string $message = '')
     {
