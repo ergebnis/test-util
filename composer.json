@@ -22,7 +22,7 @@
   "require": {
     "php": "^7.0",
     "fzaninotto/faker": "^1.7.1",
-    "localheinz/classy": "0.1.0"
+    "localheinz/classy": "0.2.0"
   },
   "require-dev": {
     "codeclimate/php-test-reporter": "0.4.4",
