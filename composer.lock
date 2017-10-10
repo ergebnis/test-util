@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f80149ded579ebc540ba2f122f6bc66",
+    "content-hash": "2b00cf24389730b77640c37a2673bbe9",
     "packages": [
         {
             "name": "fzaninotto/faker",
@@ -58,27 +58,27 @@
         },
         {
             "name": "localheinz/classy",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/classy.git",
-                "reference": "4736201da461f3ab28e2859796819fe1504974a7"
+                "reference": "165395d7e62bc49cf8c8bdd6d4e452fa367dbb31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/classy/zipball/4736201da461f3ab28e2859796819fe1504974a7",
-                "reference": "4736201da461f3ab28e2859796819fe1504974a7",
+                "url": "https://api.github.com/repos/localheinz/classy/zipball/165395d7e62bc49cf8c8bdd6d4e452fa367dbb31",
+                "reference": "165395d7e62bc49cf8c8bdd6d4e452fa367dbb31",
                 "shasum": ""
             },
             "require": {
-                "localheinz/token": "0.2.0",
                 "php": "^7.0"
             },
             "require-dev": {
                 "codeclimate/php-test-reporter": "0.4.4",
                 "localheinz/php-cs-fixer-config": "~1.6.2",
                 "localheinz/test-util": "0.2.2",
-                "phpunit/phpunit": "^6.3.1"
+                "phpbench/phpbench": "0.13.0",
+                "phpunit/phpunit": "^6.4.1"
             },
             "type": "library",
             "autoload": {
@@ -97,49 +97,7 @@
                 }
             ],
             "description": "Provides a way to collect classy constructs from source or a directory.",
-            "time": "2017-10-05T11:53:14+00:00"
-        },
-        {
-            "name": "localheinz/token",
-            "version": "0.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/localheinz/token.git",
-                "reference": "965142e924330fb6778f42150dc65938b1988779"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/token/zipball/965142e924330fb6778f42150dc65938b1988779",
-                "reference": "965142e924330fb6778f42150dc65938b1988779",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0"
-            },
-            "require-dev": {
-                "codeclimate/php-test-reporter": "0.4.4",
-                "localheinz/php-cs-fixer-config": "~1.6.2",
-                "localheinz/test-util": "0.2.2",
-                "phpunit/phpunit": "^6.3.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Localheinz\\Token\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
-                }
-            ],
-            "description": "Provides a simple abstraction for a token and a sequence of tokens.",
-            "time": "2017-10-04T21:52:24+00:00"
+            "time": "2017-10-10T06:43:55+00:00"
         }
     ],
     "packages-dev": [
