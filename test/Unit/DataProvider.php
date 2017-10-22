@@ -17,6 +17,21 @@ use Localheinz\Test\Util\Test\Fixture;
 
 final class DataProvider
 {
+    public function providerNotInterface(): \Generator
+    {
+        $interfaceNames = [
+            'class' => Fixture\NotInterface\ExampleClass::class,
+            'interface-non-existent' => __NAMESPACE__ . '\NonExistentInterface',
+            'trait' => Fixture\NotInterface\ExampleTrait::class,
+        ];
+
+        foreach ($interfaceNames as $key => $interfaceName) {
+            yield $key => [
+                $interfaceName,
+            ];
+        }
+    }
+
     public function providerNotTrait(): \Generator
     {
         $traitNames = [

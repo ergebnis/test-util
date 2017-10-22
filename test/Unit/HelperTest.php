@@ -681,7 +681,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotInterface
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotInterface()
      *
      * @param string $interfaceName
      */
@@ -983,7 +983,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotInterface
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotInterface()
      *
      * @param string $interfaceName
      */
@@ -998,21 +998,6 @@ final class HelperTest extends Framework\TestCase
         $this->assertInterfaceExists($interfaceName);
     }
 
-    public function providerNotInterface(): \Generator
-    {
-        $interfaceNames = [
-            'class' => Fixture\NotInterface\ExampleClass::class,
-            'interface-non-existent' => __NAMESPACE__ . '\NonExistentInterface',
-            'trait' => Fixture\NotInterface\ExampleTrait::class,
-        ];
-
-        foreach ($interfaceNames as $key => $interfaceName) {
-            yield $key => [
-                $interfaceName,
-            ];
-        }
-    }
-
     public function testAssertInterfaceExistsSucceedsWhenInterfaceExists()
     {
         $interfaceName = Fixture\InterfaceExists\ExampleInterface::class;
@@ -1021,7 +1006,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotInterface
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotInterface()
      *
      * @param string $parentInterfaceName
      */
@@ -1042,7 +1027,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotInterface
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotInterface()
      *
      * @param string $interfaceName
      */
@@ -1092,7 +1077,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotInterface
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotInterface()
      *
      * @param string $interfaceName
      */
