@@ -307,10 +307,7 @@ trait Helper
      */
     final protected function assertInterfaceExists(string $interfaceName)
     {
-        $this->assertTrue(\interface_exists($interfaceName), \sprintf(
-            'Failed asserting that an interface "%s" exists.',
-            $interfaceName
-        ));
+        self::assertThat($interfaceName, new Constraint\InterfaceExists());
     }
 
     /**
