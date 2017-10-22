@@ -59,7 +59,7 @@ final class ClassExistsTest extends AbstractTestCase
      *
      * @param string $other
      */
-    public function testEvaluateThrowsAssertionFailedErrorWithDefaultMessageWhenClassDoesNotExist(string $other)
+    public function testEvaluateThrowsAssertionFailedErrorWithDefaultMessageIfClassDoesNotExist(string $other)
     {
         $constraint = new ClassExists();
 
@@ -83,7 +83,7 @@ TXT;
      *
      * @param string $other
      */
-    public function testEvaluateThrowsAssertionFailedErrorWithCustomMessageWhenClassDoesNotExist(string $other)
+    public function testEvaluateThrowsAssertionFailedErrorWithCustomMessageIfClassDoesNotExist(string $other)
     {
         $customMessage = $this->faker()->sentence();
 
@@ -105,7 +105,7 @@ TXT;
         $this->fail();
     }
 
-    public function testEvaluateReturnsNullWhenClassExists()
+    public function testEvaluateReturnsNullIfClassExists()
     {
         $other = Fixture\ClassExists\ExampleClass::class;
 
