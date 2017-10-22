@@ -59,7 +59,7 @@ final class InterfaceExistsTest extends AbstractTestCase
      *
      * @param string $other
      */
-    public function testEvaluateThrowsAssertionFailedErrorWithDefaultMessageWhenInterfaceDoesNotExist(string $other)
+    public function testEvaluateThrowsAssertionFailedErrorWithDefaultMessageIfInterfaceDoesNotExist(string $other)
     {
         $constraint = new InterfaceExists();
 
@@ -83,7 +83,7 @@ TXT;
      *
      * @param string $other
      */
-    public function testEvaluateThrowsAssertionFailedErrorWithCustomMessageWhenInterfaceDoesNotExist(string $other)
+    public function testEvaluateThrowsAssertionFailedErrorWithCustomMessageIfInterfaceDoesNotExist(string $other)
     {
         $customMessage = $this->faker()->sentence();
 
@@ -105,7 +105,7 @@ TXT;
         $this->fail();
     }
 
-    public function testEvaluateReturnsNullWhenInterfaceExists()
+    public function testEvaluateReturnsNullIfInterfaceExists()
     {
         $other = Fixture\InterfaceExists\ExampleInterface::class;
 

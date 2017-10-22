@@ -59,7 +59,7 @@ final class TraitExistsTest extends AbstractTestCase
      *
      * @param string $other
      */
-    public function testEvaluateThrowsAssertionFailedErrorWithDefaultMessageWhenTraitDoesNotExist(string $other)
+    public function testEvaluateThrowsAssertionFailedErrorWithDefaultMessageIfTraitDoesNotExist(string $other)
     {
         $constraint = new TraitExists();
 
@@ -83,7 +83,7 @@ TXT;
      *
      * @param string $other
      */
-    public function testEvaluateThrowsAssertionFailedErrorWithCustomMessageWhenTraitDoesNotExist(string $other)
+    public function testEvaluateThrowsAssertionFailedErrorWithCustomMessageIfTraitDoesNotExist(string $other)
     {
         $customMessage = $this->faker()->sentence();
 
@@ -105,7 +105,7 @@ TXT;
         $this->fail();
     }
 
-    public function testEvaluateReturnsNullWhenTraitExists()
+    public function testEvaluateReturnsNullIfTraitExists()
     {
         $other = Fixture\TraitExists\ExampleTrait::class;
 
