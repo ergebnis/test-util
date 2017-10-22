@@ -809,6 +809,42 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $className
      */
+    public function testAssertClassIsFinalFailsWhenClassIsNotClass(string $className)
+    {
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that a class "%s" exists.',
+            $className
+        ));
+
+        $this->assertClassIsFinal($className);
+    }
+
+    public function testAssertClassIsFinalFailsWhenClassIsNotFinal()
+    {
+        $className = Fixture\ClassIsFinal\NeitherAbstractNorFinalClass::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that class "%s" is final.',
+            $className
+        ));
+
+        $this->assertClassIsFinal($className);
+    }
+
+    public function testAssertClassIsFinalSucceedsWhenClassIsFinal()
+    {
+        $className = Fixture\ClassIsFinal\FinalClass::class;
+
+        $this->assertClassIsFinal($className);
+    }
+
+    /**
+     * @dataProvider providerNotClass
+     *
+     * @param string $className
+     */
     public function testAssertClassSatisfiesSpecificationFailsWhenClassIsNotAClass(string $className)
     {
         $this->expectException(Framework\AssertionFailedError::class);
