@@ -359,10 +359,7 @@ trait Helper
      */
     final protected function assertTraitExists(string $traitName)
     {
-        $this->assertTrue(\trait_exists($traitName), \sprintf(
-            'Failed asserting that a trait "%s" exists.',
-            $traitName
-        ));
+        self::assertThat($traitName, new Constraint\TraitExists());
     }
 
     /**

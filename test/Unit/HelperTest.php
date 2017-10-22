@@ -912,7 +912,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotTrait
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotTrait()
      *
      * @param string $traitName
      */
@@ -1163,7 +1163,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotTrait
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotTrait()
      *
      * @param string $traitName
      */
@@ -1178,21 +1178,6 @@ final class HelperTest extends Framework\TestCase
         $this->assertTraitExists($traitName);
     }
 
-    public function providerNotTrait(): \Generator
-    {
-        $traitNames = [
-            'class' => Fixture\NotTrait\ExampleClass::class,
-            'interface' => Fixture\NotTrait\ExampleInterface::class,
-            'trait-non-existent' => __NAMESPACE__ . '\NonExistentTrait',
-        ];
-
-        foreach ($traitNames as $key => $traitName) {
-            yield $key => [
-                $traitName,
-            ];
-        }
-    }
-
     public function testAssertTraitExistsSucceedsWhenTraitExists()
     {
         $traitName = Fixture\TraitExists\ExampleTrait::class;
@@ -1201,7 +1186,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotTrait
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotTrait()
      *
      * @param string $traitName
      */
@@ -1209,7 +1194,7 @@ final class HelperTest extends Framework\TestCase
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed asserting that a trait "%s" exists',
+            'Failed asserting that a trait "%s" exists.',
             $traitName
         ));
 
