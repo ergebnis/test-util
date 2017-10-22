@@ -17,6 +17,21 @@ use Localheinz\Test\Util\Test\Fixture;
 
 final class DataProvider
 {
+    public function providerNotClass(): \Generator
+    {
+        $classyNames = [
+            'class-non-existent' => __NAMESPACE__ . '\NonExistentClass',
+            'interface' => Fixture\NotClass\ExampleInterface::class,
+            'trait' => Fixture\NotClass\ExampleTrait::class,
+        ];
+
+        foreach ($classyNames as $key => $classyName) {
+            yield $key => [
+                $classyName,
+            ];
+        }
+    }
+
     public function providerNotInterface(): \Generator
     {
         $interfaceNames = [

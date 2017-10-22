@@ -572,7 +572,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotClass
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
      *
      * @param string $className
      */
@@ -587,21 +587,6 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassExists($className);
     }
 
-    public function providerNotClass(): \Generator
-    {
-        $classyNames = [
-            'class-non-existent' => __NAMESPACE__ . '\NonExistentClass',
-            'interface' => Fixture\NotClass\ExampleInterface::class,
-            'trait' => Fixture\NotClass\ExampleTrait::class,
-        ];
-
-        foreach ($classyNames as $key => $classyName) {
-            yield $key => [
-                $classyName,
-            ];
-        }
-    }
-
     public function testAssertClassExistsSucceedsWhenClassExists()
     {
         $className = Fixture\ClassExists\ExampleClass::class;
@@ -610,7 +595,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotClass
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
      *
      * @param string $parentClassName
      */
@@ -631,7 +616,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotClass
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
      *
      * @param string $className
      */
@@ -702,7 +687,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotClass
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
      *
      * @param string $className
      */
@@ -752,7 +737,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotClass
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
      *
      * @param string $className
      */
@@ -805,7 +790,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotClass
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
      *
      * @param string $className
      */
@@ -841,7 +826,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotClass
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
      *
      * @param string $className
      */
@@ -933,7 +918,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerNotClass
+     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
      *
      * @param string $className
      */

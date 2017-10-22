@@ -179,10 +179,7 @@ trait Helper
      */
     final protected function assertClassExists(string $className)
     {
-        $this->assertTrue(\class_exists($className), \sprintf(
-            'Failed asserting that a class "%s" exists.',
-            $className
-        ));
+        self::assertThat($className, new Constraint\ClassExists());
     }
 
     /**
