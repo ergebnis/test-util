@@ -245,6 +245,25 @@ trait Helper
     }
 
     /**
+     * Asserts that a class is final.
+     *
+     * Useful to prevent long inheritance chains.
+     *
+     * @param string $className
+     */
+    final protected function assertClassIsFinal(string $className)
+    {
+        $this->assertClassExists($className);
+
+        $reflection = new \ReflectionClass($className);
+
+        $this->assertTrue($reflection->isFinal(), \sprintf(
+            'Failed to assert that class "%s" is final.',
+            $className
+        ));
+    }
+
+    /**
      * Asserts that a class satisfies a specification.
      *
      * The specification will be invoked with a single argument, the class name, and should return true or false.
