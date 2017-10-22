@@ -780,6 +780,16 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassIsAbstractOrFinal($className);
     }
 
+    /**
+     * @dataProvider providerClassAbstractOrFinal
+     *
+     * @param string $className
+     */
+    public function testAssertClassIsAbstractOrFinalSucceedsWhenClassIsAbstractOrFinal(string $className)
+    {
+        $this->assertClassIsAbstractOrFinal($className);
+    }
+
     public function providerClassAbstractOrFinal(): \Generator
     {
         $classNames = [
