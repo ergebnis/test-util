@@ -572,7 +572,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
+     * @dataProvider providerNotClass
      *
      * @param string $className
      */
@@ -587,6 +587,21 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassExists($className);
     }
 
+    public function providerNotClass(): \Generator
+    {
+        $classyNames = [
+            'class-non-existent' => __NAMESPACE__ . '\NonExistentClass',
+            'interface' => Fixture\NotClass\ExampleInterface::class,
+            'trait' => Fixture\NotClass\ExampleTrait::class,
+        ];
+
+        foreach ($classyNames as $key => $classyName) {
+            yield $key => [
+                $classyName,
+            ];
+        }
+    }
+
     public function testAssertClassExistsSucceedsWhenClassExists()
     {
         $className = Fixture\ClassExists\ExampleClass::class;
@@ -595,7 +610,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
+     * @dataProvider providerNotClass
      *
      * @param string $parentClassName
      */
@@ -616,7 +631,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
+     * @dataProvider providerNotClass
      *
      * @param string $className
      */
@@ -666,7 +681,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotInterface()
+     * @dataProvider providerNotInterface
      *
      * @param string $interfaceName
      */
@@ -687,7 +702,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
+     * @dataProvider providerNotClass
      *
      * @param string $className
      */
@@ -737,7 +752,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
+     * @dataProvider providerNotClass
      *
      * @param string $className
      */
@@ -790,7 +805,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
+     * @dataProvider providerNotClass
      *
      * @param string $className
      */
@@ -826,7 +841,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
+     * @dataProvider providerNotClass
      *
      * @param string $className
      */
@@ -834,7 +849,7 @@ final class HelperTest extends Framework\TestCase
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed asserting that a class "%s" exists',
+            'Failed asserting that a class "%s" exists.',
             $className
         ));
 
@@ -897,7 +912,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotTrait()
+     * @dataProvider providerNotTrait
      *
      * @param string $traitName
      */
@@ -918,7 +933,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotClass()
+     * @dataProvider providerNotClass
      *
      * @param string $className
      */
@@ -968,7 +983,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotInterface()
+     * @dataProvider providerNotInterface
      *
      * @param string $interfaceName
      */
@@ -983,6 +998,21 @@ final class HelperTest extends Framework\TestCase
         $this->assertInterfaceExists($interfaceName);
     }
 
+    public function providerNotInterface(): \Generator
+    {
+        $interfaceNames = [
+            'class' => Fixture\NotInterface\ExampleClass::class,
+            'interface-non-existent' => __NAMESPACE__ . '\NonExistentInterface',
+            'trait' => Fixture\NotInterface\ExampleTrait::class,
+        ];
+
+        foreach ($interfaceNames as $key => $interfaceName) {
+            yield $key => [
+                $interfaceName,
+            ];
+        }
+    }
+
     public function testAssertInterfaceExistsSucceedsWhenInterfaceExists()
     {
         $interfaceName = Fixture\InterfaceExists\ExampleInterface::class;
@@ -991,7 +1021,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotInterface()
+     * @dataProvider providerNotInterface
      *
      * @param string $parentInterfaceName
      */
@@ -1012,7 +1042,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotInterface()
+     * @dataProvider providerNotInterface
      *
      * @param string $interfaceName
      */
@@ -1062,7 +1092,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotInterface()
+     * @dataProvider providerNotInterface
      *
      * @param string $interfaceName
      */
@@ -1070,7 +1100,7 @@ final class HelperTest extends Framework\TestCase
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed asserting that an interface "%s" exists',
+            'Failed asserting that an interface "%s" exists.',
             $interfaceName
         ));
 
@@ -1133,7 +1163,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotTrait()
+     * @dataProvider providerNotTrait
      *
      * @param string $traitName
      */
@@ -1148,6 +1178,21 @@ final class HelperTest extends Framework\TestCase
         $this->assertTraitExists($traitName);
     }
 
+    public function providerNotTrait(): \Generator
+    {
+        $traitNames = [
+            'class' => Fixture\NotTrait\ExampleClass::class,
+            'interface' => Fixture\NotTrait\ExampleInterface::class,
+            'trait-non-existent' => __NAMESPACE__ . '\NonExistentTrait',
+        ];
+
+        foreach ($traitNames as $key => $traitName) {
+            yield $key => [
+                $traitName,
+            ];
+        }
+    }
+
     public function testAssertTraitExistsSucceedsWhenTraitExists()
     {
         $traitName = Fixture\TraitExists\ExampleTrait::class;
@@ -1156,7 +1201,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Localheinz\Test\Util\Test\Unit\DataProvider::providerNotTrait()
+     * @dataProvider providerNotTrait
      *
      * @param string $traitName
      */

@@ -179,7 +179,10 @@ trait Helper
      */
     final protected function assertClassExists(string $className)
     {
-        self::assertThat($className, new Constraint\ClassExists());
+        $this->assertTrue(\class_exists($className), \sprintf(
+            'Failed asserting that a class "%s" exists.',
+            $className
+        ));
     }
 
     /**
@@ -304,7 +307,10 @@ trait Helper
      */
     final protected function assertInterfaceExists(string $interfaceName)
     {
-        self::assertThat($interfaceName, new Constraint\InterfaceExists());
+        $this->assertTrue(\interface_exists($interfaceName), \sprintf(
+            'Failed asserting that an interface "%s" exists.',
+            $interfaceName
+        ));
     }
 
     /**
@@ -353,7 +359,10 @@ trait Helper
      */
     final protected function assertTraitExists(string $traitName)
     {
-        self::assertThat($traitName, new Constraint\TraitExists());
+        $this->assertTrue(\trait_exists($traitName), \sprintf(
+            'Failed asserting that a trait "%s" exists.',
+            $traitName
+        ));
     }
 
     /**
