@@ -809,59 +809,6 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $className
      */
-    public function testAssertClassIsAbstractOrFinalFailsWhenClassIsNotClass(string $className)
-    {
-        $this->expectException(Framework\AssertionFailedError::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Failed asserting that a class "%s" exists.',
-            $className
-        ));
-
-        $this->assertClassIsAbstractOrFinal($className);
-    }
-
-    public function testAssertClassIsAbstractOrFinalFailsWhenClassIsNeitherAbstractNorFinal()
-    {
-        $className = Fixture\ClassIsAbstractOrFinal\NeitherAbstractNorFinalClass::class;
-
-        $this->expectException(Framework\AssertionFailedError::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Failed asserting that class "%s" is abstract or final.',
-            $className
-        ));
-
-        $this->assertClassIsAbstractOrFinal($className);
-    }
-
-    /**
-     * @dataProvider providerClassAbstractOrFinal
-     *
-     * @param string $className
-     */
-    public function testAssertClassIsAbstractOrFinalSucceedsWhenClassIsAbstractOrFinal(string $className)
-    {
-        $this->assertClassIsAbstractOrFinal($className);
-    }
-
-    public function providerClassAbstractOrFinal(): \Generator
-    {
-        $classNames = [
-            'class-abstract' => Fixture\ClassIsAbstractOrFinal\AbstractClass::class,
-            'class-final' => Fixture\ClassIsAbstractOrFinal\FinalClass::class,
-        ];
-
-        foreach ($classNames as $key => $className) {
-            yield $key => [
-                $className,
-            ];
-        }
-    }
-
-    /**
-     * @dataProvider providerNotClass
-     *
-     * @param string $className
-     */
     public function testAssertClassIsFinalFailsWhenClassIsNotClass(string $className)
     {
         $this->expectException(Framework\AssertionFailedError::class);
