@@ -773,6 +773,42 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $className
      */
+    public function testAssertClassIsAbstractFailsWhenClassIsNotClass(string $className)
+    {
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed asserting that a class "%s" exists.',
+            $className
+        ));
+
+        $this->assertClassIsAbstract($className);
+    }
+
+    public function testAssertClassIsAbstractFailsWhenClassIsNotAbstract()
+    {
+        $className = Fixture\ClassIsAbstract\ConcreteClass::class;
+
+        $this->expectException(Framework\AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed asserting that class "%s" is abstract.',
+            $className
+        ));
+
+        $this->assertClassIsAbstract($className);
+    }
+
+    public function testAssertClassIsAbstractSucceedsWhenClassIsAbstract()
+    {
+        $className = Fixture\ClassIsAbstract\AbstractClass::class;
+
+        $this->assertClassIsAbstract($className);
+    }
+
+    /**
+     * @dataProvider providerNotClass
+     *
+     * @param string $className
+     */
     public function testAssertClassIsAbstractOrFinalFailsWhenClassIsNotClass(string $className)
     {
         $this->expectException(Framework\AssertionFailedError::class);

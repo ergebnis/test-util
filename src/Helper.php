@@ -268,6 +268,23 @@ trait Helper
     }
 
     /**
+     * Asserts that a class is abstract.
+     *
+     * @param string $className
+     */
+    final protected function assertClassIsAbstract(string $className)
+    {
+        $this->assertClassExists($className);
+
+        $reflection = new \ReflectionClass($className);
+
+        $this->assertTrue($reflection->isAbstract(), \sprintf(
+            'Failed asserting that class "%s" is abstract.',
+            $className
+        ));
+    }
+
+    /**
      * Asserts that a class is abstract or final.
      *
      * Useful to prevent long inheritance chains.

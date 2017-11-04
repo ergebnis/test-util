@@ -40,6 +40,7 @@ final class ProjectCodeTest extends Framework\TestCase
         $this->assertClassesAreAbstractOrFinal(__DIR__ . '/..', [
             Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\AlsoNeitherAbstractNorFinal::class,
             Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\NeitherAbstractNorFinal::class,
+            Fixture\ClassIsAbstract\ConcreteClass::class,
             Fixture\ClassIsAbstractOrFinal\NeitherAbstractNorFinalClass::class,
             Fixture\ClassIsFinal\NeitherAbstractNorFinalClass::class,
         ]);
