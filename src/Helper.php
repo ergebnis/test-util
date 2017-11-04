@@ -80,46 +80,88 @@ trait Helper
      * @param string   $directory
      * @param string   $namespace
      * @param string   $testNamespace
-     * @param string[] $excludeClassNames
+     * @param string[] $excludeClassyNames
      *
      * @throws \InvalidArgumentException
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
-    final protected function assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassNames = [])
+    final protected function assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassyNames = [])
     {
+        if (!\is_dir($directory)) {
+            throw new \InvalidArgumentException(\sprintf(
+                'Directory "%s" does not exist.',
+                $directory
+            ));
+        }
+
+        \array_walk($excludeClassyNames, function ($excludeClassyName) {
+            if (!\is_string($excludeClassyName)) {
+                throw new \InvalidArgumentException(\sprintf(
+                    'Exclude classy names need to be specified as an array of strings, got "%s" instead.',
+                    \is_object($excludeClassyName) ? \get_class($excludeClassyName) : \gettype($excludeClassyName)
+                ));
+            }
+        });
+
+        $constructs = Classy\Constructs::fromDirectory($directory);
+
+        $classyNames = \array_diff(
+            $constructs,
+            $excludeClassyNames
+        );
+
         $namespace = \rtrim($namespace, '\\') . '\\';
         $testNamespace = \rtrim($testNamespace, '\\') . '\\';
 
-        $this->assertClassyConstructsSatisfySpecification(
-            function (string $className) use ($namespace, $testNamespace) {
-                $reflection = new \ReflectionClass($className);
+        $testClassNameFrom = function (string $className) use ($namespace, $testNamespace) {
+            return \str_replace(
+                $namespace,
+                $testNamespace,
+                $className
+            ) . 'Test';
+        };
 
-                if ($reflection->isAbstract()
-                    || $reflection->isInterface()
-                    || $reflection->isTrait()
-                    || $reflection->isSubclassOf(Framework\TestCase::class)
-                ) {
-                    return true;
-                }
+        $specification = function (string $className) use ($testClassNameFrom) {
+            $reflection = new \ReflectionClass($className);
 
-                $testClassName = \str_replace(
-                    $namespace,
-                    $testNamespace,
+            if ($reflection->isAbstract()
+                || $reflection->isInterface()
+                || $reflection->isTrait()
+                || $reflection->isSubclassOf(Framework\TestCase::class)
+            ) {
+                return true;
+            }
+
+            $testClassName = $testClassNameFrom($className);
+
+            if (!\class_exists($testClassName)) {
+                return false;
+            }
+
+            $testReflection = new \ReflectionClass($testClassName);
+
+            return $testReflection->isSubclassOf(Framework\TestCase::class);
+        };
+
+        $classesWithoutTests = \array_filter($classyNames, function (string $className) use ($specification) {
+            return false === $specification($className);
+        });
+
+        $this->assertEmpty($classesWithoutTests, \sprintf(
+            "Failed asserting that the classes\n\n%s\n\nhave tests. Expected corresponding test classes\n\n%s\n\nbut could not find them.",
+            \implode("\n", \array_map(function (string $className) {
+                return \sprintf(
+                    ' - %s',
                     $className
-                ) . 'Test';
-
-                if (!\class_exists($testClassName)) {
-                    return false;
-                }
-
-                $testReflection = new \ReflectionClass($testClassName);
-
-                return $testReflection->isSubclassOf(Framework\TestCase::class);
-            },
-            $directory,
-            $excludeClassNames,
-            "Failed asserting that the classes\n\n%s\n\nhave tests."
-        );
+                );
+            }, $classesWithoutTests)),
+            \implode("\n", \array_map(function (string $className) use ($testClassNameFrom) {
+                return \sprintf(
+                    ' - %s',
+                    $testClassNameFrom($className)
+                );
+            }, $classesWithoutTests))
+        ));
     }
 
     /**

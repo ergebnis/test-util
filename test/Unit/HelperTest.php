@@ -245,16 +245,33 @@ final class HelperTest extends Framework\TestCase
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/WithoutTests';
         $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithoutTests\\';
-        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithoutTests\\Test';
+        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithoutTests\\Test\\';
 
-        $classesNotSatisfyingSpecification = [
+        $classesWithoutTests = [
             Fixture\ClassesHaveTests\WithoutTests\ExampleClass::class,
         ];
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            "Failed asserting that the classes\n\n%s\n\nhave tests.",
-            ' - ' . \implode("\n - ", $classesNotSatisfyingSpecification)
+            "Failed asserting that the classes\n\n%s\n\nhave tests. Expected corresponding test classes\n\n%s\n\nbut could not find them.",
+            \implode("\n", \array_map(function (string $className) {
+                return \sprintf(
+                    ' - %s',
+                    $className
+                );
+            }, $classesWithoutTests)),
+            \implode("\n", \array_map(function (string $className) use ($namespace, $testNamespace) {
+                $testClassName = \str_replace(
+                        $namespace,
+                        $testNamespace,
+                        $className
+                    ) . 'Test';
+
+                return \sprintf(
+                    ' - %s',
+                    $testClassName
+                );
+            }, $classesWithoutTests))
         ));
 
         $this->assertClassesHaveTests(

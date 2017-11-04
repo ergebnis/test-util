@@ -75,7 +75,7 @@ In addition to the assertions made available by extending from `PHPUnit\Framewor
 the `Helper` trait provides the following assertions:
 
 * `assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])`
-* `assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassNames = [])`
+* `assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassyNames = [])`
 * `assertClassExists(string $className)`
 * `assertClassExtends(string $parentClassName, string $className)`
 * `assertClassImplementsInterface(string $interfaceName, string $className)`
