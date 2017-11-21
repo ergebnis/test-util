@@ -25,7 +25,7 @@
     "localheinz/classy": "0.3.0"
   },
   "require-dev": {
-    "localheinz/php-cs-fixer-config": "~1.7.0",
+    "localheinz/php-cs-fixer-config": "~1.7.2",
     "phpunit/phpunit": "^6.4.3"
   },
   "autoload": {
