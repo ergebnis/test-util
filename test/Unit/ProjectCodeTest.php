@@ -41,7 +41,6 @@ final class ProjectCodeTest extends Framework\TestCase
             Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\AlsoNeitherAbstractNorFinal::class,
             Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\NeitherAbstractNorFinal::class,
             Fixture\ClassIsAbstract\ConcreteClass::class,
-            Fixture\ClassIsAbstractOrFinal\NeitherAbstractNorFinalClass::class,
             Fixture\ClassIsFinal\NeitherAbstractNorFinalClass::class,
         ]);
     }
