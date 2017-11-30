@@ -18,6 +18,9 @@ use Faker\Generator;
 use Localheinz\Classy;
 use PHPUnit\Framework;
 
+/**
+ * @mixin \PHPUnit\Framework\TestCase
+ */
 trait Helper
 {
     /**
