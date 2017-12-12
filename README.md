@@ -101,3 +101,9 @@ Please have a look at [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md).
 ## License
 
 This package is licensed using the MIT License.
+
+## Credits
+
+The [`ProjectCodeTest`](test/Unit/ProjectCodeTest.php) in this and other 
+projects I maintain or contribute to is inspired by [`ProjectCodeTest`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v2.0.0/tests/ProjectCodeTest.php) 
+in [`friends-of-php/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer), and was initially created by [Dariusz Rumiński](https://github.com/keradus).  
