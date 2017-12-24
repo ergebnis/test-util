@@ -24,6 +24,30 @@ final class HelperTest extends Framework\TestCase
 {
     use Helper;
 
+    public function testHelperMethodsAreFinalAndProtected()
+    {
+        $className = Helper::class;
+
+        $reflection = new \ReflectionClass($className);
+
+        $methods = $reflection->getMethods();
+
+        $methodsNeitherFinalNorProtected = \array_filter($methods, function (\ReflectionMethod $method) {
+            return !$method->isFinal() || !$method->isProtected();
+        });
+
+        $this->assertEmpty($methodsNeitherFinalNorProtected, \sprintf(
+            "Failed asserting that the methods \n\n%s\n\nare final and protected.",
+            \implode("\n", \array_map(function (\ReflectionMethod $method) use ($className) {
+                return \sprintf(
+                    ' - %s::%s()',
+                    $className,
+                    $method->getName()
+                );
+            }, $methodsNeitherFinalNorProtected))
+        ));
+    }
+
     public function testFakerWithoutLocaleReturnsFakerWithDefaultLocale()
     {
         $faker = $this->faker();
