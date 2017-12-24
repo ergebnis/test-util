@@ -58,6 +58,7 @@ trait Helper
      * @param string[] $excludeClassNames
      *
      * @throws \InvalidArgumentException
+     * @throws Exception\NonExistentDirectory
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
     final protected function assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])
@@ -86,16 +87,14 @@ trait Helper
      * @param string[] $excludeClassyNames
      *
      * @throws \InvalidArgumentException
+     * @throws Exception\NonExistentDirectory
      * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
     final protected function assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassyNames = [])
     {
         if (!\is_dir($directory)) {
-            throw new \InvalidArgumentException(\sprintf(
-                'Directory "%s" does not exist.',
-                $directory
-            ));
+            throw Exception\NonExistentDirectory::fromDirectory($directory);
         }
 
         \array_walk($excludeClassyNames, function ($excludeClassyName) {
@@ -185,16 +184,14 @@ trait Helper
      * @param string   $message
      *
      * @throws \InvalidArgumentException
+     * @throws Exception\NonExistentDirectory
      * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
     final protected function assertClassyConstructsSatisfySpecification(callable $specification, string $directory, array $excludeClassyNames = [], string $message = '')
     {
         if (!\is_dir($directory)) {
-            throw new \InvalidArgumentException(\sprintf(
-                'Directory "%s" does not exist.',
-                $directory
-            ));
+            throw Exception\NonExistentDirectory::fromDirectory($directory);
         }
 
         \array_walk($excludeClassyNames, function ($excludeClassyName) {
