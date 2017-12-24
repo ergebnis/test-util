@@ -86,6 +86,7 @@ trait Helper
      * @param string[] $excludeClassyNames
      *
      * @throws \InvalidArgumentException
+     * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
     final protected function assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassyNames = [])
@@ -106,10 +107,7 @@ trait Helper
             }
 
             if (!\class_exists($excludeClassyName)) {
-                throw new \InvalidArgumentException(\sprintf(
-                    'Exclude classy names need to be specified as an array of existing classes, but "%s" does not exist.',
-                    $excludeClassyName
-                ));
+                throw Exception\NonExistentExcludeClass::fromClassName($excludeClassyName);
             }
         });
 
@@ -187,6 +185,7 @@ trait Helper
      * @param string   $message
      *
      * @throws \InvalidArgumentException
+     * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
     final protected function assertClassyConstructsSatisfySpecification(callable $specification, string $directory, array $excludeClassyNames = [], string $message = '')
@@ -207,10 +206,7 @@ trait Helper
             }
 
             if (!\class_exists($excludeClassyName)) {
-                throw new \InvalidArgumentException(\sprintf(
-                    'Exclude classy names need to be specified as an array of existing classes, but "%s" does not exist.',
-                    $excludeClassyName
-                ));
+                throw Exception\NonExistentExcludeClass::fromClassName($excludeClassyName);
             }
         });
 
