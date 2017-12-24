@@ -8,7 +8,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @link https://github.com/localheinz/test-util
+ * @see https://github.com/localheinz/test-util
  */
 
 namespace Localheinz\Test\Util;
@@ -28,7 +28,7 @@ trait Helper
      *
      * Useful for generating fake data in tests.
      *
-     * @link https://github.com/fzaninotto/Faker
+     * @see https://github.com/fzaninotto/Faker
      *
      * @param string $locale
      *
