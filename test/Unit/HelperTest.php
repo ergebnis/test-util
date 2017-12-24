@@ -16,6 +16,7 @@ namespace Localheinz\Test\Util\Test\Unit;
 use Faker\Factory;
 use Faker\Generator;
 use Faker\Provider;
+use Localheinz\Test\Util\Exception;
 use Localheinz\Test\Util\Helper;
 use Localheinz\Test\Util\Test\Fixture;
 use PHPUnit\Framework;
@@ -204,11 +205,7 @@ final class HelperTest extends Framework\TestCase
             $nonExistentClassName,
         ];
 
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Exclude classy names need to be specified as an array of existing classes, but "%s" does not exist.',
-            $nonExistentClassName
-        ));
+        $this->expectException(Exception\NonExistentExcludeClass::class);
 
         $this->assertClassesAreAbstractOrFinal(
             $directory,
@@ -417,11 +414,7 @@ final class HelperTest extends Framework\TestCase
             $nonExistentClassName,
         ];
 
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Exclude classy names need to be specified as an array of existing classes, but "%s" does not exist.',
-            $nonExistentClassName
-        ));
+        $this->expectException(Exception\NonExistentExcludeClass::class);
 
         $this->assertClassesHaveTests(
             $directory,
@@ -576,11 +569,7 @@ final class HelperTest extends Framework\TestCase
             $nonExistentClassName,
         ];
 
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Exclude classy names need to be specified as an array of existing classes, but "%s" does not exist.',
-            $nonExistentClassName
-        ));
+        $this->expectException(Exception\NonExistentExcludeClass::class);
 
         $this->assertClassyConstructsSatisfySpecification(
             function (string $classyName) {
