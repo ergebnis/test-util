@@ -104,6 +104,13 @@ trait Helper
                     \is_object($excludeClassyName) ? \get_class($excludeClassyName) : \gettype($excludeClassyName)
                 ));
             }
+
+            if (!\class_exists($excludeClassyName)) {
+                throw new \InvalidArgumentException(\sprintf(
+                    'Exclude classy names need to be specified as an array of existing classes, but "%s" does not exist.',
+                    $excludeClassyName
+                ));
+            }
         });
 
         $constructs = Classy\Constructs::fromDirectory($directory);
@@ -196,6 +203,13 @@ trait Helper
                 throw new \InvalidArgumentException(\sprintf(
                     'Exclude classy names need to be specified as an array of strings, got "%s" instead.',
                     \is_object($excludeClassyName) ? \get_class($excludeClassyName) : \gettype($excludeClassyName)
+                ));
+            }
+
+            if (!\class_exists($excludeClassyName)) {
+                throw new \InvalidArgumentException(\sprintf(
+                    'Exclude classy names need to be specified as an array of existing classes, but "%s" does not exist.',
+                    $excludeClassyName
                 ));
             }
         });
