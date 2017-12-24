@@ -59,6 +59,7 @@ trait Helper
      *
      * @throws \InvalidArgumentException
      * @throws Exception\NonExistentDirectory
+     * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
     final protected function assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])
