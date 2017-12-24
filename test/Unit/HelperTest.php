@@ -194,6 +194,28 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
+    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesRejectsNonExistentExcludeClassNames()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal';
+        $nonExistentClassName = __NAMESPACE__ . '\\NonExistentClass';
+        $excludeClassyNames = [
+            Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\AlsoNeitherAbstractNorFinal::class,
+            Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\NeitherAbstractNorFinal::class,
+            $nonExistentClassName,
+        ];
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Exclude classy names need to be specified as an array of existing classes, but "%s" does not exist.',
+            $nonExistentClassName
+        ));
+
+        $this->assertClassesAreAbstractOrFinal(
+            $directory,
+            $excludeClassyNames
+        );
+    }
+
     public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesFailsWhenFoundClassesAreNeitherAbstractNorFinal()
     {
         $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal/NotAllAbstractOrFinal';
@@ -223,21 +245,6 @@ final class HelperTest extends Framework\TestCase
         $excludeClassyNames = [
             Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\AlsoNeitherAbstractNorFinal::class,
             Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\NeitherAbstractNorFinal::class,
-        ];
-
-        $this->assertClassesAreAbstractOrFinal(
-            $directory,
-            $excludeClassyNames
-        );
-    }
-
-    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesIgnoresNonExistentExcludeClassNames()
-    {
-        $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal';
-        $excludeClassyNames = [
-            Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\AlsoNeitherAbstractNorFinal::class,
-            Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\NeitherAbstractNorFinal::class,
-            __NAMESPACE__ . '\\NonExistentClass',
         ];
 
         $this->assertClassesAreAbstractOrFinal(
@@ -398,6 +405,32 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
+    public function testAssertClassesHaveTestsWithExcludeClassNamesRejectsNonExistentExcludeClassNames()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests';
+        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\';
+        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
+        $nonExistentClassName = __NAMESPACE__ . '\\NonExistentClass';
+        $excludeClassyNames = [
+            Fixture\ClassesHaveTests\NotAllClassesHaveTests\AnotherExampleClass::class,
+            Fixture\ClassesHaveTests\NotAllClassesHaveTests\OneMoreExampleClass::class,
+            $nonExistentClassName,
+        ];
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Exclude classy names need to be specified as an array of existing classes, but "%s" does not exist.',
+            $nonExistentClassName
+        ));
+
+        $this->assertClassesHaveTests(
+            $directory,
+            $namespace,
+            $testNamespace,
+            $excludeClassyNames
+        );
+    }
+
     public function testAssertClassesHaveTestsWithExcludeClassNamesFailsWhenFoundClassesDoNotHaveTests()
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests';
@@ -433,25 +466,6 @@ final class HelperTest extends Framework\TestCase
         $excludeClassyNames = [
             Fixture\ClassesHaveTests\NotAllClassesHaveTests\AnotherExampleClass::class,
             Fixture\ClassesHaveTests\NotAllClassesHaveTests\OneMoreExampleClass::class,
-        ];
-
-        $this->assertClassesHaveTests(
-            $directory,
-            $namespace,
-            $testNamespace,
-            $excludeClassyNames
-        );
-    }
-
-    public function testAssertClassesHaveTestsWithExcludeClassNamesIgnoresNonExistentExcludeClassNames()
-    {
-        $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests';
-        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\';
-        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
-        $excludeClassyNames = [
-            Fixture\ClassesHaveTests\NotAllClassesHaveTests\AnotherExampleClass::class,
-            Fixture\ClassesHaveTests\NotAllClassesHaveTests\OneMoreExampleClass::class,
-            __NAMESPACE__ . '\\NonExistentClass',
         ];
 
         $this->assertClassesHaveTests(
@@ -553,6 +567,30 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
+    public function testAssertClassyConstructsSpecificationWithExcludeClassNamesRejectsNonExistentExcludeClassNames()
+    {
+        $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification';
+        $nonExistentClassName = __NAMESPACE__ . '\\NonExistentClass';
+        $excludeClassyNames = [
+            Fixture\ClassyConstructsSatisfySpecification\AnotherExampleClass::class,
+            $nonExistentClassName,
+        ];
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Exclude classy names need to be specified as an array of existing classes, but "%s" does not exist.',
+            $nonExistentClassName
+        ));
+
+        $this->assertClassyConstructsSatisfySpecification(
+            function (string $classyName) {
+                return Fixture\ClassyConstructsSatisfySpecification\ExampleClass::class === $classyName;
+            },
+            $directory,
+            $excludeClassyNames
+        );
+    }
+
     public function testAssertClassyConstructsSatisfySpecificationWithExcludeClassyNamesFailsWhenFoundClassyConstructsDoNotSatisfySpecification()
     {
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification';
@@ -584,23 +622,6 @@ final class HelperTest extends Framework\TestCase
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification';
         $excludeClassyNames = [
             Fixture\ClassyConstructsSatisfySpecification\AnotherExampleClass::class,
-        ];
-
-        $this->assertClassyConstructsSatisfySpecification(
-            function (string $classyName) {
-                return Fixture\ClassyConstructsSatisfySpecification\ExampleClass::class === $classyName;
-            },
-            $directory,
-            $excludeClassyNames
-        );
-    }
-
-    public function testAssertClassyConstructsSpecificationWithExcludeClassNamesIgnoresNonExistentExcludeClassNames()
-    {
-        $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification';
-        $excludeClassyNames = [
-            Fixture\ClassyConstructsSatisfySpecification\AnotherExampleClass::class,
-            __NAMESPACE__ . '\\NonExistentClass',
         ];
 
         $this->assertClassyConstructsSatisfySpecification(
