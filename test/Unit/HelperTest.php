@@ -155,11 +155,7 @@ final class HelperTest extends Framework\TestCase
             $excludeClassName,
         ];
 
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Exclude classy names need to be specified as an array of strings, got "%s" instead.',
-            \is_object($excludeClassName) ? \get_class($excludeClassName) : \gettype($excludeClassName)
-        ));
+        $this->expectException(Exception\InvalidExcludeClassName::class);
 
         $this->assertClassesAreAbstractOrFinal(
             $directory,
@@ -380,11 +376,7 @@ final class HelperTest extends Framework\TestCase
             $excludeClassyName,
         ];
 
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Exclude classy names need to be specified as an array of strings, got "%s" instead.',
-            \is_object($excludeClassyName) ? \get_class($excludeClassyName) : \gettype($excludeClassyName)
-        ));
+        $this->expectException(Exception\InvalidExcludeClassName::class);
 
         $this->assertClassesHaveTests(
             $directory,
@@ -533,11 +525,7 @@ final class HelperTest extends Framework\TestCase
             $excludeClassyName,
         ];
 
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Exclude classy names need to be specified as an array of strings, got "%s" instead.',
-            \is_object($excludeClassyName) ? \get_class($excludeClassyName) : \gettype($excludeClassyName)
-        ));
+        $this->expectException(Exception\InvalidExcludeClassName::class);
 
         $this->assertClassyConstructsSatisfySpecification(
             function (string $classyName) {
