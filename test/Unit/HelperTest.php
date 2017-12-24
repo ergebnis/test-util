@@ -107,11 +107,7 @@ final class HelperTest extends Framework\TestCase
     {
         $directory = __DIR__ . '/../Fixture/NonExistentDirectory';
 
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Directory "%s" does not exist.',
-            $directory
-        ));
+        $this->expectException(Exception\NonExistentDirectory::class);
 
         $this->assertClassesAreAbstractOrFinal($directory);
     }
@@ -256,11 +252,7 @@ final class HelperTest extends Framework\TestCase
         $namespace = '';
         $testNamespace = '';
 
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Directory "%s" does not exist.',
-            $directory
-        ));
+        $this->expectException(Exception\NonExistentDirectory::class);
 
         $this->assertClassesHaveTests(
             $directory,
@@ -473,11 +465,7 @@ final class HelperTest extends Framework\TestCase
     {
         $directory = __DIR__ . '/../Fixture/NonExistentDirectory';
 
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Directory "%s" does not exist.',
-            $directory
-        ));
+        $this->expectException(Exception\NonExistentDirectory::class);
 
         $this->assertClassyConstructsSatisfySpecification(
             function (string $classyName) {
