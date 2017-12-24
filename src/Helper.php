@@ -57,8 +57,8 @@ trait Helper
      * @param string   $directory
      * @param string[] $excludeClassNames
      *
-     * @throws \InvalidArgumentException
      * @throws Exception\NonExistentDirectory
+     * @throws Exception\InvalidExcludeClassName
      * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
@@ -87,8 +87,8 @@ trait Helper
      * @param string   $testNamespace
      * @param string[] $excludeClassyNames
      *
-     * @throws \InvalidArgumentException
      * @throws Exception\NonExistentDirectory
+     * @throws Exception\InvalidExcludeClassName
      * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
@@ -100,10 +100,7 @@ trait Helper
 
         \array_walk($excludeClassyNames, function ($excludeClassyName) {
             if (!\is_string($excludeClassyName)) {
-                throw new \InvalidArgumentException(\sprintf(
-                    'Exclude classy names need to be specified as an array of strings, got "%s" instead.',
-                    \is_object($excludeClassyName) ? \get_class($excludeClassyName) : \gettype($excludeClassyName)
-                ));
+                throw Exception\InvalidExcludeClassName::fromClassName($excludeClassyName);
             }
 
             if (!\class_exists($excludeClassyName)) {
@@ -184,8 +181,8 @@ trait Helper
      * @param string[] $excludeClassyNames
      * @param string   $message
      *
-     * @throws \InvalidArgumentException
      * @throws Exception\NonExistentDirectory
+     * @throws Exception\InvalidExcludeClassName
      * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
@@ -197,10 +194,7 @@ trait Helper
 
         \array_walk($excludeClassyNames, function ($excludeClassyName) {
             if (!\is_string($excludeClassyName)) {
-                throw new \InvalidArgumentException(\sprintf(
-                    'Exclude classy names need to be specified as an array of strings, got "%s" instead.',
-                    \is_object($excludeClassyName) ? \get_class($excludeClassyName) : \gettype($excludeClassyName)
-                ));
+                throw Exception\InvalidExcludeClassName::fromClassName($excludeClassyName);
             }
 
             if (!\class_exists($excludeClassyName)) {
