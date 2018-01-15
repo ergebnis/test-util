@@ -1,7 +1,7 @@
 {
   "name": "localheinz/test-util",
-  "description": "Provides utilities for tests.",
   "type": "library",
+  "description": "Provides utilities for tests.",
   "keywords": [
     "assertion",
     "faker",
@@ -15,10 +15,6 @@
       "email": "am@localheinz.com"
     }
   ],
-  "config": {
-    "preferred-install": "dist",
-    "sort-packages": true
-  },
   "require": {
     "php": "^7.0",
     "fzaninotto/faker": "^1.7.1",
@@ -28,6 +24,10 @@
     "infection/infection": "~0.7.0",
     "localheinz/php-cs-fixer-config": "~1.8.0",
     "phpunit/phpunit": "^6.4.3"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
   },
   "autoload": {
     "psr-4": {
