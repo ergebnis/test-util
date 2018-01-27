@@ -8,6 +8,7 @@
     "phpunit",
     "test"
   ],
+  "homepage": "https://github.com/localheinz/test-util",
   "license": "MIT",
   "authors": [
     {
@@ -38,5 +39,9 @@
     "psr-4": {
       "Localheinz\\Test\\Util\\Test\\": "test/"
     }
+  },
+  "support": {
+    "issues": "https://github.com/localheinz/test-util/issues",
+    "source": "https://github.com/localheinz/test-util"
   }
 }
