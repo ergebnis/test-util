@@ -108,7 +108,9 @@ trait Helper
         $constructs = Classy\Constructs::fromDirectory($directory);
 
         $classyNames = \array_diff(
-            $constructs,
+            \array_map(function (Classy\Construct $construct) {
+                return $construct->name();
+            }, $constructs),
             $excludeClassyNames
         );
 
@@ -123,30 +125,34 @@ trait Helper
             ) . 'Test';
         };
 
-        $specification = function (string $className) use ($testClassNameFrom) {
+        $classesWithoutTests = \array_filter($classyNames, function (string $className) use ($testClassNameFrom) {
             $reflection = new \ReflectionClass($className);
 
-            if ($reflection->isAbstract()
-                || $reflection->isInterface()
-                || $reflection->isTrait()
-                || $reflection->isSubclassOf(Framework\TestCase::class)
-            ) {
-                return true;
+            /**
+             * Construct is not concrete, does not need a test.
+             */
+            if ($reflection->isAbstract() || $reflection->isInterface() || $reflection->isTrait()) {
+                return false;
+            }
+
+            /**
+             * Class is a test itself.
+             */
+            if ($reflection->isSubclassOf(Framework\TestCase::class)) {
+                return false;
             }
 
             $testClassName = $testClassNameFrom($className);
 
-            if (!\class_exists($testClassName)) {
-                return false;
+            if (\class_exists($testClassName)) {
+                $testReflection = new \ReflectionClass($testClassName);
+
+                if ($testReflection->isSubclassOf(Framework\TestCase::class) && $testReflection->isInstantiable()) {
+                    return false;
+                }
             }
 
-            $testReflection = new \ReflectionClass($testClassName);
-
-            return $testReflection->isSubclassOf(Framework\TestCase::class) && $testReflection->isInstantiable();
-        };
-
-        $classesWithoutTests = \array_filter($classyNames, function (string $className) use ($specification) {
-            return false === $specification($className);
+            return true;
         });
 
         $this->assertEmpty($classesWithoutTests, \sprintf(
