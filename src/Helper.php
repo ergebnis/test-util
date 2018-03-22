@@ -142,7 +142,7 @@ trait Helper
 
             $testReflection = new \ReflectionClass($testClassName);
 
-            return $testReflection->isSubclassOf(Framework\TestCase::class);
+            return $testReflection->isSubclassOf(Framework\TestCase::class) && $testReflection->isInstantiable();
         };
 
         $classesWithoutTests = \array_filter($classyNames, function (string $className) use ($specification) {
@@ -150,7 +150,7 @@ trait Helper
         });
 
         $this->assertEmpty($classesWithoutTests, \sprintf(
-            "Failed asserting that the classes\n\n%s\n\nhave tests. Expected corresponding test classes\n\n%s\n\nbut could not find them.",
+            "Failed asserting that the classes\n\n%s\n\nhave tests. Expected corresponding test classes\n\n%s\n\nextending from \"%s\" but could not find them.",
             \implode("\n", \array_map(function (string $className) {
                 return \sprintf(
                     ' - %s',
@@ -162,7 +162,8 @@ trait Helper
                     ' - %s',
                     $testClassNameFrom($className)
                 );
-            }, $classesWithoutTests))
+            }, $classesWithoutTests)),
+            Framework\TestCase::class
         ));
     }
 
