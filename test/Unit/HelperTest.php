@@ -264,12 +264,14 @@ final class HelperTest extends Framework\TestCase
         $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithoutTests\\Test\\';
 
         $classesWithoutTests = [
+            Fixture\ClassesHaveTests\WithoutTests\Src\AnotherExampleClass::class,
             Fixture\ClassesHaveTests\WithoutTests\Src\ExampleClass::class,
+            Fixture\ClassesHaveTests\WithoutTests\Src\OneMoreExampleClass::class,
         ];
 
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            "Failed asserting that the classes\n\n%s\n\nhave tests. Expected corresponding test classes\n\n%s\n\nbut could not find them.",
+            "Failed asserting that the classes\n\n%s\n\nhave tests. Expected corresponding test classes\n\n%s\n\nextending from \"%s\" but could not find them.",
             \implode("\n", \array_map(function (string $className) {
                 return \sprintf(
                     ' - %s',
@@ -287,7 +289,8 @@ final class HelperTest extends Framework\TestCase
                     ' - %s',
                     $testClassName
                 );
-            }, $classesWithoutTests))
+            }, $classesWithoutTests)),
+            Framework\TestCase::class
         ));
 
         $this->assertClassesHaveTests(
