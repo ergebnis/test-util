@@ -142,7 +142,7 @@ trait Helper
 
             $testReflection = new \ReflectionClass($testClassName);
 
-            return $testReflection->isSubclassOf(Framework\TestCase::class);
+            return $testReflection->isSubclassOf(Framework\TestCase::class) && $testReflection->isInstantiable();
         };
 
         $classesWithoutTests = \array_filter($classyNames, function (string $className) use ($specification) {
