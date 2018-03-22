@@ -267,6 +267,7 @@ final class HelperTest extends Framework\TestCase
             Fixture\ClassesHaveTests\WithoutTests\Src\AnotherExampleClass::class,
             Fixture\ClassesHaveTests\WithoutTests\Src\ExampleClass::class,
             Fixture\ClassesHaveTests\WithoutTests\Src\OneMoreExampleClass::class,
+            Fixture\ClassesHaveTests\WithoutTests\Src\YetAnotherExampleClass::class,
         ];
 
         $this->expectException(Framework\AssertionFailedError::class);
