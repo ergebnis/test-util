@@ -11,8 +11,8 @@ declare(strict_types=1);
  * @see https://github.com/localheinz/test-util
  */
 
-namespace Localheinz\Test\Util\Test\Fixture\ClassesHaveTests\WithoutTests;
+namespace Localheinz\Test\Util\Test\Fixture\ClassesHaveTests\WithoutTests\Src;
 
-final class ExampleClass
+trait ExampleTrait
 {
 }
