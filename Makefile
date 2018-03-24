@@ -1,4 +1,4 @@
-.PHONY: coverage cs infection it test
+.PHONY: coverage cs infection it stan test
 
 it: cs test
 
@@ -10,6 +10,9 @@ cs: vendor
 
 infection: vendor
 	vendor/bin/infection --min-covered-msi=80 --min-msi=60
+
+stan: vendor
+	vendor/bin/phpstan analyse --level=max src test
 
 test: vendor
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
