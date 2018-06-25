@@ -24,12 +24,12 @@ final class NonExistentExcludeClassTest extends Framework\TestCase
 {
     use Helper;
 
-    public function testExtendsInvalidArgumentException()
+    public function testExtendsInvalidArgumentException(): void
     {
         $this->assertClassExtends(\InvalidArgumentException::class, NonExistentExcludeClass::class);
     }
 
-    public function testFromClassNameReturnsException()
+    public function testFromClassNameReturnsException(): void
     {
         $className = \sprintf(
             '%s\\%s',

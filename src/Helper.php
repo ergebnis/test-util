@@ -59,10 +59,10 @@ trait Helper
      * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
-    final protected function assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])
+    final protected function assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = []): void
     {
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $className) {
+            function (string $className): bool {
                 $reflection = new \ReflectionClass($className);
 
                 return $reflection->isAbstract()
@@ -89,13 +89,13 @@ trait Helper
      * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
-    final protected function assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassyNames = [])
+    final protected function assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassyNames = []): void
     {
         if (!\is_dir($directory)) {
             throw Exception\NonExistentDirectory::fromDirectory($directory);
         }
 
-        \array_walk($excludeClassyNames, function ($excludeClassyName) {
+        \array_walk($excludeClassyNames, function ($excludeClassyName): void {
             if (!\is_string($excludeClassyName)) {
                 throw Exception\InvalidExcludeClassName::fromClassName($excludeClassyName);
             }
@@ -108,7 +108,7 @@ trait Helper
         $constructs = Classy\Constructs::fromDirectory($directory);
 
         $classyNames = \array_diff(
-            \array_map(function (Classy\Construct $construct) {
+            \array_map(function (Classy\Construct $construct): string {
                 return $construct->name();
             }, $constructs),
             $excludeClassyNames
@@ -117,7 +117,7 @@ trait Helper
         $namespace = \rtrim($namespace, '\\') . '\\';
         $testNamespace = \rtrim($testNamespace, '\\') . '\\';
 
-        $testClassNameFrom = function (string $className) use ($namespace, $testNamespace) {
+        $testClassNameFrom = function (string $className) use ($namespace, $testNamespace): string {
             return \str_replace(
                 $namespace,
                 $testNamespace,
@@ -190,7 +190,7 @@ trait Helper
      * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
-    final protected function assertClassyConstructsSatisfySpecification(callable $specification, string $directory, array $excludeClassyNames = [], string $message = '')
+    final protected function assertClassyConstructsSatisfySpecification(callable $specification, string $directory, array $excludeClassyNames = [], string $message = ''): void
     {
         if (!\is_dir($directory)) {
             throw Exception\NonExistentDirectory::fromDirectory($directory);
@@ -228,7 +228,7 @@ trait Helper
      *
      * @param string $className
      */
-    final protected function assertClassExists(string $className)
+    final protected function assertClassExists(string $className): void
     {
         $this->assertTrue(\class_exists($className), \sprintf(
             'Failed asserting that a class "%s" exists.',
@@ -242,7 +242,7 @@ trait Helper
      * @param string $parentClassName
      * @param string $className
      */
-    final protected function assertClassExtends(string $parentClassName, string $className)
+    final protected function assertClassExtends(string $parentClassName, string $className): void
     {
         $this->assertClassExists($parentClassName);
         $this->assertClassExists($className);
@@ -262,7 +262,7 @@ trait Helper
      * @param string $interfaceName
      * @param string $className
      */
-    final protected function assertClassImplementsInterface(string $interfaceName, string $className)
+    final protected function assertClassImplementsInterface(string $interfaceName, string $className): void
     {
         $this->assertInterfaceExists($interfaceName);
         $this->assertClassExists($className);
@@ -281,7 +281,7 @@ trait Helper
      *
      * @param string $className
      */
-    final protected function assertClassIsAbstract(string $className)
+    final protected function assertClassIsAbstract(string $className): void
     {
         $this->assertClassExists($className);
 
@@ -300,7 +300,7 @@ trait Helper
      *
      * @param string $className
      */
-    final protected function assertClassIsFinal(string $className)
+    final protected function assertClassIsFinal(string $className): void
     {
         $this->assertClassExists($className);
 
@@ -321,7 +321,7 @@ trait Helper
      * @param string   $className
      * @param string   $message
      */
-    final protected function assertClassSatisfiesSpecification(callable $specification, string $className, string $message = '')
+    final protected function assertClassSatisfiesSpecification(callable $specification, string $className, string $message = ''): void
     {
         $this->assertClassExists($className);
 
@@ -337,7 +337,7 @@ trait Helper
      * @param string $traitName
      * @param string $className
      */
-    final protected function assertClassUsesTrait(string $traitName, string $className)
+    final protected function assertClassUsesTrait(string $traitName, string $className): void
     {
         $this->assertTraitExists($traitName);
         $this->assertClassExists($className);
@@ -354,7 +354,7 @@ trait Helper
      *
      * @param string $interfaceName
      */
-    final protected function assertInterfaceExists(string $interfaceName)
+    final protected function assertInterfaceExists(string $interfaceName): void
     {
         $this->assertTrue(\interface_exists($interfaceName), \sprintf(
             'Failed asserting that an interface "%s" exists.',
@@ -368,7 +368,7 @@ trait Helper
      * @param string $parentInterfaceName
      * @param string $interfaceName
      */
-    final protected function assertInterfaceExtends(string $parentInterfaceName, string $interfaceName)
+    final protected function assertInterfaceExtends(string $parentInterfaceName, string $interfaceName): void
     {
         $this->assertInterfaceExists($parentInterfaceName);
         $this->assertInterfaceExists($interfaceName);
@@ -391,7 +391,7 @@ trait Helper
      * @param string   $interfaceName
      * @param string   $message
      */
-    final protected function assertInterfaceSatisfiesSpecification(callable $specification, string $interfaceName, string $message = '')
+    final protected function assertInterfaceSatisfiesSpecification(callable $specification, string $interfaceName, string $message = ''): void
     {
         $this->assertInterfaceExists($interfaceName);
 
@@ -406,7 +406,7 @@ trait Helper
      *
      * @param string $traitName
      */
-    final protected function assertTraitExists(string $traitName)
+    final protected function assertTraitExists(string $traitName): void
     {
         $this->assertTrue(\trait_exists($traitName), \sprintf(
             'Failed asserting that a trait "%s" exists.',
@@ -423,7 +423,7 @@ trait Helper
      * @param string   $traitName
      * @param string   $message
      */
-    final protected function assertTraitSatisfiesSpecification(callable $specification, string $traitName, string $message = '')
+    final protected function assertTraitSatisfiesSpecification(callable $specification, string $traitName, string $message = ''): void
     {
         $this->assertTraitExists($traitName);
 
