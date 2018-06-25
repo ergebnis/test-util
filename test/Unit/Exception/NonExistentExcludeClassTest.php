@@ -17,6 +17,9 @@ use Localheinz\Test\Util\Exception\NonExistentExcludeClass;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 final class NonExistentExcludeClassTest extends Framework\TestCase
 {
     use Helper;

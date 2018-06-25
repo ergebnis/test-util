@@ -17,6 +17,9 @@ use Localheinz\Test\Util\Exception\InvalidExcludeClassName;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 final class InvalidExcludeClassNameTest extends Framework\TestCase
 {
     use Helper;
