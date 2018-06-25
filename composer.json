@@ -22,7 +22,7 @@
     "localheinz/classy": "0.3.0"
   },
   "require-dev": {
-    "infection/infection": "~0.7.0",
+    "infection/infection": "~0.8.2",
     "localheinz/php-cs-fixer-config": "~1.14.0",
     "phpunit/phpunit": "^6.0.0 || ^7.0.0"
   },
