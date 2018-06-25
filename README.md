@@ -56,7 +56,7 @@ final class PlayerTest extends TestCase
 {
     use Helper;
     
-    public function testConstructorSetsValues()
+    public function testConstructorSetsValues(): void
     {
         $name = $this->faker()->firstName;
         

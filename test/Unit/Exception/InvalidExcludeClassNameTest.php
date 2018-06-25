@@ -24,7 +24,7 @@ final class InvalidExcludeClassNameTest extends Framework\TestCase
 {
     use Helper;
 
-    public function testExtendsInvalidArgumentException()
+    public function testExtendsInvalidArgumentException(): void
     {
         $this->assertClassExtends(\InvalidArgumentException::class, InvalidExcludeClassName::class);
     }
@@ -34,7 +34,7 @@ final class InvalidExcludeClassNameTest extends Framework\TestCase
      *
      * @param mixed $className
      */
-    public function testFromClassNameReturnsException($className)
+    public function testFromClassNameReturnsException($className): void
     {
         $exception = InvalidExcludeClassName::fromClassName($className);
 

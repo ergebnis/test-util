@@ -28,7 +28,7 @@ final class HelperTest extends Framework\TestCase
 {
     use Helper;
 
-    public function testHelperMethodsAreFinalAndProtected()
+    public function testHelperMethodsAreFinalAndProtected(): void
     {
         $className = Helper::class;
 
@@ -36,13 +36,13 @@ final class HelperTest extends Framework\TestCase
 
         $methods = $reflection->getMethods();
 
-        $methodsNeitherFinalNorProtected = \array_filter($methods, function (\ReflectionMethod $method) {
+        $methodsNeitherFinalNorProtected = \array_filter($methods, function (\ReflectionMethod $method): bool {
             return !$method->isFinal() || !$method->isProtected();
         });
 
         $this->assertEmpty($methodsNeitherFinalNorProtected, \sprintf(
             "Failed asserting that the methods \n\n%s\n\nare final and protected.",
-            \implode("\n", \array_map(function (\ReflectionMethod $method) use ($className) {
+            \implode("\n", \array_map(function (\ReflectionMethod $method) use ($className): string {
                 return \sprintf(
                     ' - %s::%s()',
                     $className,
@@ -52,7 +52,7 @@ final class HelperTest extends Framework\TestCase
         ));
     }
 
-    public function testFakerWithoutLocaleReturnsFakerWithDefaultLocale()
+    public function testFakerWithoutLocaleReturnsFakerWithDefaultLocale(): void
     {
         $faker = $this->faker();
 
@@ -64,7 +64,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $locale
      */
-    public function testFakerWithLocaleReturnsFakerWithSpecifiedLocale(string $locale)
+    public function testFakerWithLocaleReturnsFakerWithSpecifiedLocale(string $locale): void
     {
         $faker = $this->faker($locale);
 
@@ -76,7 +76,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $locale
      */
-    public function testFakerReturnsSameFaker(string $locale)
+    public function testFakerReturnsSameFaker(string $locale): void
     {
         $faker = $this->faker($locale);
 
@@ -106,7 +106,7 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
-    public function testAssertClassesAreAbstractOrFinalRejectsNonExistentDirectory()
+    public function testAssertClassesAreAbstractOrFinalRejectsNonExistentDirectory(): void
     {
         $directory = __DIR__ . '/../Fixture/NonExistentDirectory';
 
@@ -115,7 +115,7 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassesAreAbstractOrFinal($directory);
     }
 
-    public function testAssertClassesAreAbstractOrFinalFailsWhenFoundClassesAreNeitherAbstractNorFinal()
+    public function testAssertClassesAreAbstractOrFinalFailsWhenFoundClassesAreNeitherAbstractNorFinal(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal/NotAllAbstractOrFinal';
         $classesNeitherAbstractNorFinal = [
@@ -132,14 +132,14 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassesAreAbstractOrFinal($directory);
     }
 
-    public function testAssertClassesAreAbstractOrFinalSucceedsWhenNoClassesHaveBeenFound()
+    public function testAssertClassesAreAbstractOrFinalSucceedsWhenNoClassesHaveBeenFound(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal/EmptyDirectory';
 
         $this->assertClassesAreAbstractOrFinal($directory);
     }
 
-    public function testAssertClassesAreAbstractOrFinalSucceedsWhenFoundClassesAreAbstractOrFinal()
+    public function testAssertClassesAreAbstractOrFinalSucceedsWhenFoundClassesAreAbstractOrFinal(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal/AbstractOrFinal';
 
@@ -151,7 +151,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param mixed $excludeClassName
      */
-    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesRejectsInvalidExcludeClassNames($excludeClassName)
+    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesRejectsInvalidExcludeClassNames($excludeClassName): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal';
         $excludeClassNames = [
@@ -190,7 +190,7 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
-    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesRejectsNonExistentExcludeClassNames()
+    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesRejectsNonExistentExcludeClassNames(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal';
         $nonExistentClassName = __NAMESPACE__ . '\\NonExistentClass';
@@ -208,7 +208,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesFailsWhenFoundClassesAreNeitherAbstractNorFinal()
+    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesFailsWhenFoundClassesAreNeitherAbstractNorFinal(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal/NotAllAbstractOrFinal';
         $excludeClassyNames = [
@@ -231,7 +231,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesSucceedsWhenFoundClassesAreAbstractOrFinal()
+    public function testAssertClassesAreAbstractOrFinalWithExcludeClassNamesSucceedsWhenFoundClassesAreAbstractOrFinal(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal';
         $excludeClassyNames = [
@@ -245,7 +245,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassesHaveTestsRejectsNonExistentDirectory()
+    public function testAssertClassesHaveTestsRejectsNonExistentDirectory(): void
     {
         $directory = __DIR__ . '/../Fixture/NonExistentDirectory';
         $namespace = '';
@@ -260,7 +260,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassesHaveTestsFailsWhenFoundClassesDoNotHaveTests()
+    public function testAssertClassesHaveTestsFailsWhenFoundClassesDoNotHaveTests(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/WithoutTests/Src';
         $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithoutTests\\Src\\';
@@ -276,13 +276,13 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             "Failed asserting that the classes\n\n%s\n\nhave tests. Expected corresponding test classes\n\n%s\n\nextending from \"%s\" but could not find them.",
-            \implode("\n", \array_map(function (string $className) {
+            \implode("\n", \array_map(function (string $className): string {
                 return \sprintf(
                     ' - %s',
                     $className
                 );
             }, $classesWithoutTests)),
-            \implode("\n", \array_map(function (string $className) use ($namespace, $testNamespace) {
+            \implode("\n", \array_map(function (string $className) use ($namespace, $testNamespace): string {
                 $testClassName = \str_replace(
                         $namespace,
                         $testNamespace,
@@ -304,7 +304,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassesHaveTestsSucceedsWhenNoClassesHaveBeenFound()
+    public function testAssertClassesHaveTestsSucceedsWhenNoClassesHaveBeenFound(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/EmptyDirectory/Src';
         $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\EmptyDirectory\\Src\\';
@@ -317,7 +317,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassesHaveTestsSucceedsWhenFoundClassesHaveTests()
+    public function testAssertClassesHaveTestsSucceedsWhenFoundClassesHaveTests(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/WithTests/Src';
         $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Src\\';
@@ -336,7 +336,7 @@ final class HelperTest extends Framework\TestCase
      * @param string $namespace
      * @param string $testNamespace
      */
-    public function testAssertClassesHaveTestsWorksWithAndWithoutTrailingSlash(string $namespace, string $testNamespace)
+    public function testAssertClassesHaveTestsWorksWithAndWithoutTrailingSlash(string $namespace, string $testNamespace): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/WithTests/Src';
 
@@ -374,7 +374,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param mixed $excludeClassyName
      */
-    public function testAssertClassesHaveTestsWithExcludeClassNamesRejectsInvalidExcludeClassNames($excludeClassyName)
+    public function testAssertClassesHaveTestsWithExcludeClassNamesRejectsInvalidExcludeClassNames($excludeClassyName): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests/Src';
         $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Src\\';
@@ -393,7 +393,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassesHaveTestsWithExcludeClassNamesRejectsNonExistentExcludeClassNames()
+    public function testAssertClassesHaveTestsWithExcludeClassNamesRejectsNonExistentExcludeClassNames(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests/Src';
         $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Src\\';
@@ -415,7 +415,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassesHaveTestsWithExcludeClassNamesFailsWhenFoundClassesDoNotHaveTests()
+    public function testAssertClassesHaveTestsWithExcludeClassNamesFailsWhenFoundClassesDoNotHaveTests(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests/Src';
         $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Src\\';
@@ -442,7 +442,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassesHaveTestsWithExcludeClassNamesSucceedsWhenFoundClassesHaveTests()
+    public function testAssertClassesHaveTestsWithExcludeClassNamesSucceedsWhenFoundClassesHaveTests(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests/Src';
         $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Src\\';
@@ -460,21 +460,21 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassyConstructsSatisfySpecificationRejectsNonExistentDirectory()
+    public function testAssertClassyConstructsSatisfySpecificationRejectsNonExistentDirectory(): void
     {
         $directory = __DIR__ . '/../Fixture/NonExistentDirectory';
 
         $this->expectException(Exception\NonExistentDirectory::class);
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $classyName) {
+            function (string $classyName): bool {
                 return false;
             },
             $directory
         );
     }
 
-    public function testAssertClassyConstructsSatisfySpecificationFailsWhenFoundClassesDoNotSatisfySpecification()
+    public function testAssertClassyConstructsSatisfySpecificationFailsWhenFoundClassesDoNotSatisfySpecification(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification';
         $classesNotSatisfyingSpecification = [
@@ -489,31 +489,31 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $className) {
+            function (string $className): bool {
                 return false;
             },
             $directory
         );
     }
 
-    public function testAssertClassyConstructsSatisfySpecificationSucceedsWhenNoClassesHaveBeenFound()
+    public function testAssertClassyConstructsSatisfySpecificationSucceedsWhenNoClassesHaveBeenFound(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification/EmptyDirectory';
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $className) {
+            function (string $className): bool {
                 return false;
             },
             $directory
         );
     }
 
-    public function testAssertClassyConstructsSatisfySpecificationSucceedsWhenFoundClassesSatisfySpecification()
+    public function testAssertClassyConstructsSatisfySpecificationSucceedsWhenFoundClassesSatisfySpecification(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification';
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $className) {
+            function (string $className): bool {
                 return true;
             },
             $directory
@@ -525,7 +525,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param mixed $excludeClassyName
      */
-    public function testAssertClassyConstructsSatisfySpecificationWithExcludeClassNamesRejectsInvalidExcludeClassNames($excludeClassyName)
+    public function testAssertClassyConstructsSatisfySpecificationWithExcludeClassNamesRejectsInvalidExcludeClassNames($excludeClassyName): void
     {
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification';
         $excludeClassyNames = [
@@ -535,7 +535,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Exception\InvalidExcludeClassName::class);
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $classyName) {
+            function (string $classyName): bool {
                 return true;
             },
             $directory,
@@ -543,7 +543,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassyConstructsSpecificationWithExcludeClassNamesRejectsNonExistentExcludeClassNames()
+    public function testAssertClassyConstructsSpecificationWithExcludeClassNamesRejectsNonExistentExcludeClassNames(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification';
         $nonExistentClassName = __NAMESPACE__ . '\\NonExistentClass';
@@ -555,7 +555,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Exception\NonExistentExcludeClass::class);
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $classyName) {
+            function (string $classyName): bool {
                 return Fixture\ClassyConstructsSatisfySpecification\ExampleClass::class === $classyName;
             },
             $directory,
@@ -563,7 +563,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassyConstructsSatisfySpecificationWithExcludeClassyNamesFailsWhenFoundClassyConstructsDoNotSatisfySpecification()
+    public function testAssertClassyConstructsSatisfySpecificationWithExcludeClassyNamesFailsWhenFoundClassyConstructsDoNotSatisfySpecification(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification';
         $excludeClassyNames = [
@@ -581,7 +581,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $classyName) {
+            function (string $classyName): bool {
                 return false;
             },
             $directory,
@@ -589,7 +589,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassyConstructsSpecificationWithExcludeClassNamesSucceedsWhenFoundClassesSatisfySpecification()
+    public function testAssertClassyConstructsSpecificationWithExcludeClassNamesSucceedsWhenFoundClassesSatisfySpecification(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification';
         $excludeClassyNames = [
@@ -597,7 +597,7 @@ final class HelperTest extends Framework\TestCase
         ];
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $classyName) {
+            function (string $classyName): bool {
                 return Fixture\ClassyConstructsSatisfySpecification\ExampleClass::class === $classyName;
             },
             $directory,
@@ -610,7 +610,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $className
      */
-    public function testAssertClassExistsFailsWhenClassIsNotClass(string $className)
+    public function testAssertClassExistsFailsWhenClassIsNotClass(string $className): void
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -636,7 +636,7 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
-    public function testAssertClassExistsSucceedsWhenClassExists()
+    public function testAssertClassExistsSucceedsWhenClassExists(): void
     {
         $className = Fixture\ClassExists\ExampleClass::class;
 
@@ -648,7 +648,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $parentClassName
      */
-    public function testAssertClassExtendsFailsWhenParentClassIsNotClass(string $parentClassName)
+    public function testAssertClassExtendsFailsWhenParentClassIsNotClass(string $parentClassName): void
     {
         $className = Fixture\ClassExtends\ChildClass::class;
 
@@ -669,7 +669,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $className
      */
-    public function testAssertClassExtendsFailsWhenClassIsNotClass(string $className)
+    public function testAssertClassExtendsFailsWhenClassIsNotClass(string $className): void
     {
         $parentClassName = Fixture\ClassExtends\ParentClass::class;
 
@@ -685,7 +685,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testClassExtendsFailsWhenClassDoesNotExtendParentClass()
+    public function testClassExtendsFailsWhenClassDoesNotExtendParentClass(): void
     {
         $parentClassName = Fixture\ClassExtends\ParentClass::class;
         $className = Fixture\ClassExtends\UnrelatedClass::class;
@@ -703,7 +703,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassExtendsSucceedsWhenClassExtendsParentClass()
+    public function testAssertClassExtendsSucceedsWhenClassExtendsParentClass(): void
     {
         $parentClassName = Fixture\ClassExtends\ParentClass::class;
         $className = Fixture\ClassExtends\ChildClass::class;
@@ -719,7 +719,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $interfaceName
      */
-    public function testAssertClassImplementsInterfaceFailsWhenInterfaceIsNotInterface(string $interfaceName)
+    public function testAssertClassImplementsInterfaceFailsWhenInterfaceIsNotInterface(string $interfaceName): void
     {
         $className = Fixture\ImplementsInterface\ClassImplementingInterface::class;
 
@@ -740,7 +740,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $className
      */
-    public function testAssertClassImplementsInterfaceFailsWhenClassIsNotClass(string $className)
+    public function testAssertClassImplementsInterfaceFailsWhenClassIsNotClass(string $className): void
     {
         $interfaceName = Fixture\ImplementsInterface\ExampleInterface::class;
 
@@ -756,7 +756,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassImplementsInterfaceFailsWhenClassDoesNotImplementInterface()
+    public function testAssertClassImplementsInterfaceFailsWhenClassDoesNotImplementInterface(): void
     {
         $interfaceName = Fixture\ImplementsInterface\ExampleInterface::class;
         $className = Fixture\ImplementsInterface\ClassNotImplementingInterface::class;
@@ -774,7 +774,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassImplementsInterfaceSucceedsWhenClassImplementsInterface()
+    public function testAssertClassImplementsInterfaceSucceedsWhenClassImplementsInterface(): void
     {
         $interfaceName = Fixture\ImplementsInterface\ExampleInterface::class;
         $className = Fixture\ImplementsInterface\ClassImplementingInterface::class;
@@ -790,7 +790,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $className
      */
-    public function testAssertClassIsAbstractFailsWhenClassIsNotClass(string $className)
+    public function testAssertClassIsAbstractFailsWhenClassIsNotClass(string $className): void
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -801,7 +801,7 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassIsAbstract($className);
     }
 
-    public function testAssertClassIsAbstractFailsWhenClassIsNotAbstract()
+    public function testAssertClassIsAbstractFailsWhenClassIsNotAbstract(): void
     {
         $className = Fixture\ClassIsAbstract\ConcreteClass::class;
 
@@ -814,7 +814,7 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassIsAbstract($className);
     }
 
-    public function testAssertClassIsAbstractSucceedsWhenClassIsAbstract()
+    public function testAssertClassIsAbstractSucceedsWhenClassIsAbstract(): void
     {
         $className = Fixture\ClassIsAbstract\AbstractClass::class;
 
@@ -826,7 +826,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $className
      */
-    public function testAssertClassIsFinalFailsWhenClassIsNotClass(string $className)
+    public function testAssertClassIsFinalFailsWhenClassIsNotClass(string $className): void
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -837,7 +837,7 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassIsFinal($className);
     }
 
-    public function testAssertClassIsFinalFailsWhenClassIsNotFinal()
+    public function testAssertClassIsFinalFailsWhenClassIsNotFinal(): void
     {
         $className = Fixture\ClassIsFinal\NeitherAbstractNorFinalClass::class;
 
@@ -850,7 +850,7 @@ final class HelperTest extends Framework\TestCase
         $this->assertClassIsFinal($className);
     }
 
-    public function testAssertClassIsFinalSucceedsWhenClassIsFinal()
+    public function testAssertClassIsFinalSucceedsWhenClassIsFinal(): void
     {
         $className = Fixture\ClassIsFinal\FinalClass::class;
 
@@ -862,7 +862,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $className
      */
-    public function testAssertClassSatisfiesSpecificationFailsWhenClassIsNotAClass(string $className)
+    public function testAssertClassSatisfiesSpecificationFailsWhenClassIsNotAClass(string $className): void
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -871,14 +871,14 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertClassSatisfiesSpecification(
-            function () {
+            function (): bool {
                 return true;
             },
             $className
         );
     }
 
-    public function testAssertClassSatisfiesSpecificationFailsWhenSpecificationReturnsFalse()
+    public function testAssertClassSatisfiesSpecificationFailsWhenSpecificationReturnsFalse(): void
     {
         $className = Fixture\ClassSatisfiesSpecification\ExampleClass::class;
 
@@ -889,14 +889,14 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertClassSatisfiesSpecification(
-            function () {
+            function (): bool {
                 return false;
             },
             $className
         );
     }
 
-    public function testAssertClassSatisfiesSpecificationFailsWhenSpecificationReturnsFalseAndUsesMessage()
+    public function testAssertClassSatisfiesSpecificationFailsWhenSpecificationReturnsFalseAndUsesMessage(): void
     {
         $className = Fixture\ClassSatisfiesSpecification\ExampleClass::class;
         $message = 'Looks like "%s" does not satisfy our requirements right now';
@@ -908,7 +908,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertClassSatisfiesSpecification(
-            function () {
+            function (): bool {
                 return false;
             },
             $className,
@@ -916,12 +916,12 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassSatisfiesSpecificationSucceedsWhenSpecificationReturnsTrue()
+    public function testAssertClassSatisfiesSpecificationSucceedsWhenSpecificationReturnsTrue(): void
     {
         $className = Fixture\ClassSatisfiesSpecification\ExampleClass::class;
 
         $this->assertClassSatisfiesSpecification(
-            function () {
+            function (): bool {
                 return true;
             },
             $className
@@ -933,7 +933,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $traitName
      */
-    public function testAssertClassUsesTraitFailsWhenTraitIsNotTrait(string $traitName)
+    public function testAssertClassUsesTraitFailsWhenTraitIsNotTrait(string $traitName): void
     {
         $className = Fixture\ClassUsesTrait\ClassUsingTrait::class;
 
@@ -954,7 +954,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $className
      */
-    public function testAssertClassUsesTraitFailsWhenClassIsNotClass(string $className)
+    public function testAssertClassUsesTraitFailsWhenClassIsNotClass(string $className): void
     {
         $traitName = Fixture\ClassUsesTrait\ExampleTrait::class;
 
@@ -970,7 +970,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassUsesTraitFailsWhenClassDoesNotUseTrait()
+    public function testAssertClassUsesTraitFailsWhenClassDoesNotUseTrait(): void
     {
         $traitName = Fixture\ClassUsesTrait\ExampleTrait::class;
         $className = Fixture\ClassUsesTrait\ClassNotUsingTrait::class;
@@ -988,7 +988,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertClassUsesTraitSucceedsWhenClassUsesTrait()
+    public function testAssertClassUsesTraitSucceedsWhenClassUsesTrait(): void
     {
         $traitName = Fixture\ClassUsesTrait\ExampleTrait::class;
         $className = Fixture\ClassUsesTrait\ClassUsingTrait::class;
@@ -1004,7 +1004,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $interfaceName
      */
-    public function testAssertInterfaceExistsFailsWhenInterfaceIsNotInterface(string $interfaceName)
+    public function testAssertInterfaceExistsFailsWhenInterfaceIsNotInterface(string $interfaceName): void
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -1030,7 +1030,7 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
-    public function testAssertInterfaceExistsSucceedsWhenInterfaceExists()
+    public function testAssertInterfaceExistsSucceedsWhenInterfaceExists(): void
     {
         $interfaceName = Fixture\InterfaceExists\ExampleInterface::class;
 
@@ -1042,7 +1042,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $parentInterfaceName
      */
-    public function testInterfaceExtendsFailsWhenParentInterfaceIsNotInterface(string $parentInterfaceName)
+    public function testInterfaceExtendsFailsWhenParentInterfaceIsNotInterface(string $parentInterfaceName): void
     {
         $interfaceName = Fixture\InterfaceExtends\ChildInterface::class;
 
@@ -1063,7 +1063,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $interfaceName
      */
-    public function testAssertInterfaceExtendsFailsWhenInterfaceIsNotInterface(string $interfaceName)
+    public function testAssertInterfaceExtendsFailsWhenInterfaceIsNotInterface(string $interfaceName): void
     {
         $parentInterfaceName = Fixture\InterfaceExtends\ParentInterface::class;
 
@@ -1079,7 +1079,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertInterfaceExtendsFailsWhenInterfaceDoesNotExtendParentInterface()
+    public function testAssertInterfaceExtendsFailsWhenInterfaceDoesNotExtendParentInterface(): void
     {
         $parentInterfaceName = Fixture\InterfaceExtends\ParentInterface::class;
         $interfaceName = Fixture\InterfaceExtends\UnrelatedInterface::class;
@@ -1097,7 +1097,7 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertInterfaceExtendsSucceedsWhenInterfaceExtendsParentInterface()
+    public function testAssertInterfaceExtendsSucceedsWhenInterfaceExtendsParentInterface(): void
     {
         $parentInterfaceName = Fixture\InterfaceExtends\ParentInterface::class;
         $interfaceName = Fixture\InterfaceExtends\ChildInterface::class;
@@ -1113,7 +1113,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $interfaceName
      */
-    public function testAssertInterfaceSatisfiesSpecificationFailsWhenInterfaceIsNotAInterface(string $interfaceName)
+    public function testAssertInterfaceSatisfiesSpecificationFailsWhenInterfaceIsNotAInterface(string $interfaceName): void
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -1122,14 +1122,14 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertInterfaceSatisfiesSpecification(
-            function () {
+            function (): bool {
                 return true;
             },
             $interfaceName
         );
     }
 
-    public function testAssertInterfaceSatisfiesSpecificationFailsWhenSpecificationReturnsFalse()
+    public function testAssertInterfaceSatisfiesSpecificationFailsWhenSpecificationReturnsFalse(): void
     {
         $interfaceName = Fixture\InterfaceSatisfiesSpecification\ExampleInterface::class;
 
@@ -1140,14 +1140,14 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertInterfaceSatisfiesSpecification(
-            function () {
+            function (): bool {
                 return false;
             },
             $interfaceName
         );
     }
 
-    public function testAssertInterfaceSatisfiesSpecificationFailsWhenSpecificationReturnsFalseAndUsesMessage()
+    public function testAssertInterfaceSatisfiesSpecificationFailsWhenSpecificationReturnsFalseAndUsesMessage(): void
     {
         $interfaceName = Fixture\InterfaceSatisfiesSpecification\ExampleInterface::class;
         $message = 'Looks like "%s" does not satisfy our requirements right now';
@@ -1159,7 +1159,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertInterfaceSatisfiesSpecification(
-            function () {
+            function (): bool {
                 return false;
             },
             $interfaceName,
@@ -1167,12 +1167,12 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertInterfaceSatisfiesSpecificationSucceedsWhenSpecificationReturnsTrue()
+    public function testAssertInterfaceSatisfiesSpecificationSucceedsWhenSpecificationReturnsTrue(): void
     {
         $interfaceName = Fixture\InterfaceSatisfiesSpecification\ExampleInterface::class;
 
         $this->assertInterfaceSatisfiesSpecification(
-            function () {
+            function (): bool {
                 return true;
             },
             $interfaceName
@@ -1184,7 +1184,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $traitName
      */
-    public function testAssertTraitExistsFailsWhenTraitIsNotTrait(string $traitName)
+    public function testAssertTraitExistsFailsWhenTraitIsNotTrait(string $traitName): void
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -1210,7 +1210,7 @@ final class HelperTest extends Framework\TestCase
         }
     }
 
-    public function testAssertTraitExistsSucceedsWhenTraitExists()
+    public function testAssertTraitExistsSucceedsWhenTraitExists(): void
     {
         $traitName = Fixture\TraitExists\ExampleTrait::class;
 
@@ -1222,7 +1222,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $traitName
      */
-    public function testAssertTraitSatisfiesSpecificationFailsWhenTraitIsNotATrait(string $traitName)
+    public function testAssertTraitSatisfiesSpecificationFailsWhenTraitIsNotATrait(string $traitName): void
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -1231,14 +1231,14 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertTraitSatisfiesSpecification(
-            function () {
+            function (): bool {
                 return true;
             },
             $traitName
         );
     }
 
-    public function testAssertTraitSatisfiesSpecificationFailsWhenSpecificationReturnsFalse()
+    public function testAssertTraitSatisfiesSpecificationFailsWhenSpecificationReturnsFalse(): void
     {
         $traitName = Fixture\TraitSatisfiesSpecification\ExampleTrait::class;
 
@@ -1249,14 +1249,14 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertTraitSatisfiesSpecification(
-            function () {
+            function (): bool {
                 return false;
             },
             $traitName
         );
     }
 
-    public function testAssertTraitSatisfiesSpecificationFailsWhenSpecificationReturnsFalseAndUsesMessage()
+    public function testAssertTraitSatisfiesSpecificationFailsWhenSpecificationReturnsFalseAndUsesMessage(): void
     {
         $traitName = Fixture\TraitSatisfiesSpecification\ExampleTrait::class;
         $message = 'Looks like "%s" does not satisfy our requirements right now';
@@ -1268,7 +1268,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertTraitSatisfiesSpecification(
-            function () {
+            function (): bool {
                 return false;
             },
             $traitName,
@@ -1276,25 +1276,25 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testAssertTraitSatisfiesSpecificationSucceedsWhenSpecificationReturnsTrue()
+    public function testAssertTraitSatisfiesSpecificationSucceedsWhenSpecificationReturnsTrue(): void
     {
         $traitName = Fixture\TraitSatisfiesSpecification\ExampleTrait::class;
 
         $this->assertTraitSatisfiesSpecification(
-            function () {
+            function (): bool {
                 return true;
             },
             $traitName
         );
     }
 
-    private function assertHasOnlyProvidersWithLocale(string $locale, Generator $faker)
+    private function assertHasOnlyProvidersWithLocale(string $locale, Generator $faker): void
     {
-        $providerClasses = \array_map(function (Provider\Base $provider) {
+        $providerClasses = \array_map(function (Provider\Base $provider): string {
             return \get_class($provider);
         }, $faker->getProviders());
 
-        $providerLocales = \array_map(function (string $providerClass) {
+        $providerLocales = \array_map(function (string $providerClass): ?string {
             if (0 === \preg_match('/^Faker\\\\Provider\\\\(?P<locale>[a-z]{2}_[A-Z]{2})\\\\/', $providerClass, $matches)) {
                 return null;
             }

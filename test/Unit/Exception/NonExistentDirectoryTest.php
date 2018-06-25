@@ -24,12 +24,12 @@ final class NonExistentDirectoryTest extends Framework\TestCase
 {
     use Helper;
 
-    public function testExtendsInvalidArgumentException()
+    public function testExtendsInvalidArgumentException(): void
     {
         $this->assertClassExtends(\InvalidArgumentException::class, NonExistentDirectory::class);
     }
 
-    public function testFromDirectoryReturnsException()
+    public function testFromDirectoryReturnsException(): void
     {
         $directory = \implode(
             '/',
