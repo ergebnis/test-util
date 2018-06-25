@@ -15,6 +15,9 @@ namespace Localheinz\Test\Util\Test\Fixture\ClassesHaveTests\WithTests\Test;
 
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 final class ExampleClassTest extends Framework\TestCase
 {
 }

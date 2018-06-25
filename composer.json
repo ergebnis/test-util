@@ -23,7 +23,7 @@
   },
   "require-dev": {
     "infection/infection": "~0.7.0",
-    "localheinz/php-cs-fixer-config": "~1.13.1",
+    "localheinz/php-cs-fixer-config": "~1.14.0",
     "phpunit/phpunit": "^6.4.3"
   },
   "config": {

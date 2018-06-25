@@ -21,6 +21,9 @@ use Localheinz\Test\Util\Helper;
 use Localheinz\Test\Util\Test\Fixture;
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 final class HelperTest extends Framework\TestCase
 {
     use Helper;

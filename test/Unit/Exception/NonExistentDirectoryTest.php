@@ -17,6 +17,9 @@ use Localheinz\Test\Util\Exception\NonExistentDirectory;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 final class NonExistentDirectoryTest extends Framework\TestCase
 {
     use Helper;
