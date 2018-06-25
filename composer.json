@@ -24,7 +24,7 @@
   "require-dev": {
     "infection/infection": "~0.7.0",
     "localheinz/php-cs-fixer-config": "~1.14.0",
-    "phpunit/phpunit": "^6.4.3"
+    "phpunit/phpunit": "^6.0.0 || ^7.0.0"
   },
   "config": {
     "preferred-install": "dist",
