@@ -18,7 +18,7 @@
   ],
   "require": {
     "php": "^7.1",
-    "fzaninotto/faker": "^1.7.1",
+    "fzaninotto/faker": "^1.8.0",
     "localheinz/classy": "0.3.0"
   },
   "require-dev": {
