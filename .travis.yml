@@ -24,6 +24,7 @@ jobs:
       php: 7.1
 
       before_install:
+        - composer self-update 1.6.5
         - source .travis/xdebug.sh
         - xdebug-disable
         - composer validate
@@ -36,6 +37,7 @@ jobs:
         - mkdir -p $HOME/.php-cs-fixer
 
       script:
+        - composer normalize --dry-run
         - vendor/bin/php-cs-fixer fix --config=.php_cs --diff --dry-run --verbose
 
     - stage: Stan
@@ -43,6 +45,7 @@ jobs:
       php: 7.1
 
       before_install:
+        - composer self-update 1.6.5
         - source .travis/xdebug.sh
         - xdebug-disable
         - composer validate
@@ -63,6 +66,7 @@ jobs:
       env: WITH_LOWEST=true
 
       before_install:
+        - composer self-update 1.6.5
         - source .travis/xdebug.sh
         - xdebug-disable
         - composer validate
@@ -118,6 +122,7 @@ jobs:
       php: 7.2
 
       before_install:
+        - composer self-update 1.6.5
         - source .travis/xdebug.sh
         - xdebug-disable
         - composer validate
