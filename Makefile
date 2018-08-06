@@ -19,7 +19,7 @@ test: vendor
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
 
 vendor: composer.json composer.lock
-	composer self-update
+	composer self-update 1.6.5
 	composer validate
 	composer install
 	composer normalize
