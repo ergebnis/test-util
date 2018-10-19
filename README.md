@@ -1,6 +1,6 @@
 # test-util
 
-[![Build Status](https://travis-ci.org/localheinz/test-util.svg?branch=master)](https://travis-ci.org/localheinz/test-util)
+[![Build Status](https://travis-ci.com/localheinz/test-util.svg?branch=master)](https://travis-ci.com/localheinz/test-util)
 [![codecov](https://codecov.io/gh/localheinz/test-util/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/test-util)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/test-util/v/stable)](https://packagist.org/packages/localheinz/test-util)
 [![Total Downloads](https://poser.pugx.org/localheinz/test-util/downloads)](https://packagist.org/packages/localheinz/test-util)
