@@ -38,14 +38,14 @@ final class NonExistentDirectoryTest extends Framework\TestCase
 
         $exception = NonExistentDirectory::fromDirectory($directory);
 
-        $this->assertInstanceOf(NonExistentDirectory::class, $exception);
-        $this->assertSame(0, $exception->getCode());
+        self::assertInstanceOf(NonExistentDirectory::class, $exception);
+        self::assertSame(0, $exception->getCode());
 
         $message = \sprintf(
             'Directory "%s" does not exist.',
             $directory
         );
 
-        $this->assertSame($message, $exception->getMessage());
+        self::assertSame($message, $exception->getMessage());
     }
 }

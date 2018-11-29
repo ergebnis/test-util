@@ -36,13 +36,13 @@ final class HelperTest extends Framework\TestCase
 
         $methods = $reflection->getMethods();
 
-        $methodsNeitherFinalNorProtected = \array_filter($methods, function (\ReflectionMethod $method): bool {
+        $methodsNeitherFinalNorProtected = \array_filter($methods, static function (\ReflectionMethod $method): bool {
             return !$method->isFinal() || !$method->isProtected();
         });
 
-        $this->assertEmpty($methodsNeitherFinalNorProtected, \sprintf(
+        self::assertEmpty($methodsNeitherFinalNorProtected, \sprintf(
             "Failed asserting that the methods \n\n%s\n\nare final and protected.",
-            \implode("\n", \array_map(function (\ReflectionMethod $method) use ($className): string {
+            \implode("\n", \array_map(static function (\ReflectionMethod $method) use ($className): string {
                 return \sprintf(
                     ' - %s::%s()',
                     $className,
@@ -80,7 +80,7 @@ final class HelperTest extends Framework\TestCase
     {
         $faker = $this->faker($locale);
 
-        $this->assertSame($faker, $this->faker($locale));
+        self::assertSame($faker, $this->faker($locale));
     }
 
     public function providerLocale(): \Generator
@@ -276,13 +276,13 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             "Failed asserting that the classes\n\n%s\n\nhave tests. Expected corresponding test classes\n\n%s\n\nextending from \"%s\" but could not find them.",
-            \implode("\n", \array_map(function (string $className): string {
+            \implode("\n", \array_map(static function (string $className): string {
                 return \sprintf(
                     ' - %s',
                     $className
                 );
             }, $classesWithoutTests)),
-            \implode("\n", \array_map(function (string $className) use ($namespace, $testNamespace): string {
+            \implode("\n", \array_map(static function (string $className) use ($namespace, $testNamespace): string {
                 $testClassName = \str_replace(
                         $namespace,
                         $testNamespace,
@@ -467,7 +467,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Exception\NonExistentDirectory::class);
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $classyName): bool {
+            static function (string $classyName): bool {
                 return false;
             },
             $directory
@@ -489,7 +489,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $className): bool {
+            static function (string $className): bool {
                 return false;
             },
             $directory
@@ -501,7 +501,7 @@ final class HelperTest extends Framework\TestCase
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification/EmptyDirectory';
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $className): bool {
+            static function (string $className): bool {
                 return false;
             },
             $directory
@@ -513,7 +513,7 @@ final class HelperTest extends Framework\TestCase
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification';
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $className): bool {
+            static function (string $className): bool {
                 return true;
             },
             $directory
@@ -535,7 +535,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Exception\InvalidExcludeClassName::class);
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $classyName): bool {
+            static function (string $classyName): bool {
                 return true;
             },
             $directory,
@@ -555,7 +555,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Exception\NonExistentExcludeClass::class);
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $classyName): bool {
+            static function (string $classyName): bool {
                 return Fixture\ClassyConstructsSatisfySpecification\ExampleClass::class === $classyName;
             },
             $directory,
@@ -581,7 +581,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $classyName): bool {
+            static function (string $classyName): bool {
                 return false;
             },
             $directory,
@@ -597,7 +597,7 @@ final class HelperTest extends Framework\TestCase
         ];
 
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $classyName): bool {
+            static function (string $classyName): bool {
                 return Fixture\ClassyConstructsSatisfySpecification\ExampleClass::class === $classyName;
             },
             $directory,
@@ -871,7 +871,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertClassSatisfiesSpecification(
-            function (): bool {
+            static function (): bool {
                 return true;
             },
             $className
@@ -889,7 +889,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertClassSatisfiesSpecification(
-            function (): bool {
+            static function (): bool {
                 return false;
             },
             $className
@@ -908,7 +908,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertClassSatisfiesSpecification(
-            function (): bool {
+            static function (): bool {
                 return false;
             },
             $className,
@@ -921,7 +921,7 @@ final class HelperTest extends Framework\TestCase
         $className = Fixture\ClassSatisfiesSpecification\ExampleClass::class;
 
         $this->assertClassSatisfiesSpecification(
-            function (): bool {
+            static function (): bool {
                 return true;
             },
             $className
@@ -1122,7 +1122,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertInterfaceSatisfiesSpecification(
-            function (): bool {
+            static function (): bool {
                 return true;
             },
             $interfaceName
@@ -1140,7 +1140,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertInterfaceSatisfiesSpecification(
-            function (): bool {
+            static function (): bool {
                 return false;
             },
             $interfaceName
@@ -1159,7 +1159,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertInterfaceSatisfiesSpecification(
-            function (): bool {
+            static function (): bool {
                 return false;
             },
             $interfaceName,
@@ -1172,7 +1172,7 @@ final class HelperTest extends Framework\TestCase
         $interfaceName = Fixture\InterfaceSatisfiesSpecification\ExampleInterface::class;
 
         $this->assertInterfaceSatisfiesSpecification(
-            function (): bool {
+            static function (): bool {
                 return true;
             },
             $interfaceName
@@ -1231,7 +1231,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertTraitSatisfiesSpecification(
-            function (): bool {
+            static function (): bool {
                 return true;
             },
             $traitName
@@ -1249,7 +1249,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertTraitSatisfiesSpecification(
-            function (): bool {
+            static function (): bool {
                 return false;
             },
             $traitName
@@ -1268,7 +1268,7 @@ final class HelperTest extends Framework\TestCase
         ));
 
         $this->assertTraitSatisfiesSpecification(
-            function (): bool {
+            static function (): bool {
                 return false;
             },
             $traitName,
@@ -1281,7 +1281,7 @@ final class HelperTest extends Framework\TestCase
         $traitName = Fixture\TraitSatisfiesSpecification\ExampleTrait::class;
 
         $this->assertTraitSatisfiesSpecification(
-            function (): bool {
+            static function (): bool {
                 return true;
             },
             $traitName
@@ -1290,11 +1290,11 @@ final class HelperTest extends Framework\TestCase
 
     private function assertHasOnlyProvidersWithLocale(string $locale, Generator $faker): void
     {
-        $providerClasses = \array_map(function (Provider\Base $provider): string {
+        $providerClasses = \array_map(static function (Provider\Base $provider): string {
             return \get_class($provider);
         }, $faker->getProviders());
 
-        $providerLocales = \array_map(function (string $providerClass): ?string {
+        $providerLocales = \array_map(static function (string $providerClass): ?string {
             if (0 === \preg_match('/^Faker\\\\Provider\\\\(?P<locale>[a-z]{2}_[A-Z]{2})\\\\/', $providerClass, $matches)) {
                 return null;
             }
@@ -1308,6 +1308,6 @@ final class HelperTest extends Framework\TestCase
             $locale,
         ];
 
-        $this->assertEquals($expected, $locales);
+        self::assertEquals($expected, $locales);
     }
 }

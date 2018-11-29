@@ -39,14 +39,14 @@ final class NonExistentExcludeClassTest extends Framework\TestCase
 
         $exception = NonExistentExcludeClass::fromClassName($className);
 
-        $this->assertInstanceOf(NonExistentExcludeClass::class, $exception);
-        $this->assertSame(0, $exception->getCode());
+        self::assertInstanceOf(NonExistentExcludeClass::class, $exception);
+        self::assertSame(0, $exception->getCode());
 
         $message = \sprintf(
             'Exclude class "%s" does not exist.',
             $className
         );
 
-        $this->assertSame($message, $exception->getMessage());
+        self::assertSame($message, $exception->getMessage());
     }
 }

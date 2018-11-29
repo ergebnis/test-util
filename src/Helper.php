@@ -62,7 +62,7 @@ trait Helper
     final protected function assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = []): void
     {
         $this->assertClassyConstructsSatisfySpecification(
-            function (string $className): bool {
+            static function (string $className): bool {
                 $reflection = new \ReflectionClass($className);
 
                 return $reflection->isAbstract()
@@ -95,7 +95,7 @@ trait Helper
             throw Exception\NonExistentDirectory::fromDirectory($directory);
         }
 
-        \array_walk($excludeClassyNames, function ($excludeClassyName): void {
+        \array_walk($excludeClassyNames, static function ($excludeClassyName): void {
             if (!\is_string($excludeClassyName)) {
                 throw Exception\InvalidExcludeClassName::fromClassName($excludeClassyName);
             }
@@ -108,7 +108,7 @@ trait Helper
         $constructs = Classy\Constructs::fromDirectory($directory);
 
         $classyNames = \array_diff(
-            \array_map(function (Classy\Construct $construct): string {
+            \array_map(static function (Classy\Construct $construct): string {
                 return $construct->name();
             }, $constructs),
             $excludeClassyNames
@@ -117,7 +117,7 @@ trait Helper
         $namespace = \rtrim($namespace, '\\') . '\\';
         $testNamespace = \rtrim($testNamespace, '\\') . '\\';
 
-        $testClassNameFrom = function (string $className) use ($namespace, $testNamespace): string {
+        $testClassNameFrom = static function (string $className) use ($namespace, $testNamespace): string {
             return \str_replace(
                 $namespace,
                 $testNamespace,
@@ -125,7 +125,7 @@ trait Helper
             ) . 'Test';
         };
 
-        $classesWithoutTests = \array_filter($classyNames, function (string $className) use ($testClassNameFrom) {
+        $classesWithoutTests = \array_filter($classyNames, static function (string $className) use ($testClassNameFrom) {
             $reflection = new \ReflectionClass($className);
 
             /**
@@ -157,13 +157,13 @@ trait Helper
 
         $this->assertEmpty($classesWithoutTests, \sprintf(
             "Failed asserting that the classes\n\n%s\n\nhave tests. Expected corresponding test classes\n\n%s\n\nextending from \"%s\" but could not find them.",
-            \implode("\n", \array_map(function (string $className) {
+            \implode("\n", \array_map(static function (string $className) {
                 return \sprintf(
                     ' - %s',
                     $className
                 );
             }, $classesWithoutTests)),
-            \implode("\n", \array_map(function (string $className) use ($testClassNameFrom) {
+            \implode("\n", \array_map(static function (string $className) use ($testClassNameFrom) {
                 return \sprintf(
                     ' - %s',
                     $testClassNameFrom($className)
@@ -196,7 +196,7 @@ trait Helper
             throw Exception\NonExistentDirectory::fromDirectory($directory);
         }
 
-        \array_walk($excludeClassyNames, function ($excludeClassyName) {
+        \array_walk($excludeClassyNames, static function ($excludeClassyName) {
             if (!\is_string($excludeClassyName)) {
                 throw Exception\InvalidExcludeClassName::fromClassName($excludeClassyName);
             }
@@ -213,7 +213,7 @@ trait Helper
             $excludeClassyNames
         );
 
-        $classyNamesNotSatisfyingSpecification = \array_filter($classyNames, function (string $className) use ($specification) {
+        $classyNamesNotSatisfyingSpecification = \array_filter($classyNames, static function (string $className) use ($specification) {
             return false === $specification($className);
         });
 
