@@ -38,15 +38,15 @@ final class InvalidExcludeClassNameTest extends Framework\TestCase
     {
         $exception = InvalidExcludeClassName::fromClassName($className);
 
-        $this->assertInstanceOf(InvalidExcludeClassName::class, $exception);
-        $this->assertSame(0, $exception->getCode());
+        self::assertInstanceOf(InvalidExcludeClassName::class, $exception);
+        self::assertSame(0, $exception->getCode());
 
         $message = \sprintf(
             'Exclude class name should be a string, got "%s" instead.',
             \is_object($className) ? \get_class($className) : \gettype($className)
         );
 
-        $this->assertSame($message, $exception->getMessage());
+        self::assertSame($message, $exception->getMessage());
     }
 
     public function providerInvalidClassName(): \Generator
