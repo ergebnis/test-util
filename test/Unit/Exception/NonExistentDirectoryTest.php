@@ -31,14 +31,10 @@ final class NonExistentDirectoryTest extends Framework\TestCase
 
     public function testFromDirectoryReturnsException(): void
     {
-        $directory = \implode(
-            '/',
-            $this->faker()->words
-        );
+        $directory = __DIR__ . '/non-existent-directory';
 
         $exception = NonExistentDirectory::fromDirectory($directory);
 
-        self::assertInstanceOf(NonExistentDirectory::class, $exception);
         self::assertSame(0, $exception->getCode());
 
         $message = \sprintf(

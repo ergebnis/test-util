@@ -31,15 +31,10 @@ final class NonExistentExcludeClassTest extends Framework\TestCase
 
     public function testFromClassNameReturnsException(): void
     {
-        $className = \sprintf(
-            '%s\\%s',
-            __NAMESPACE__,
-            $this->faker()->word
-        );
+        $className = __NAMESPACE__ . '\\NonExistentClass';
 
         $exception = NonExistentExcludeClass::fromClassName($className);
 
-        self::assertInstanceOf(NonExistentExcludeClass::class, $exception);
         self::assertSame(0, $exception->getCode());
 
         $message = \sprintf(
