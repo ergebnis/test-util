@@ -38,7 +38,6 @@ final class InvalidExcludeClassNameTest extends Framework\TestCase
     {
         $exception = InvalidExcludeClassName::fromClassName($className);
 
-        self::assertInstanceOf(InvalidExcludeClassName::class, $exception);
         self::assertSame(0, $exception->getCode());
 
         $message = \sprintf(

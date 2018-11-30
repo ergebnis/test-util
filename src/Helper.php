@@ -155,7 +155,7 @@ trait Helper
             return true;
         });
 
-        $this->assertEmpty($classesWithoutTests, \sprintf(
+        self::assertEmpty($classesWithoutTests, \sprintf(
             "Failed asserting that the classes\n\n%s\n\nhave tests. Expected corresponding test classes\n\n%s\n\nextending from \"%s\" but could not find them.",
             \implode("\n", \array_map(static function (string $className) {
                 return \sprintf(
@@ -217,7 +217,7 @@ trait Helper
             return false === $specification($className);
         });
 
-        $this->assertEmpty($classyNamesNotSatisfyingSpecification, \sprintf(
+        self::assertEmpty($classyNamesNotSatisfyingSpecification, \sprintf(
             '' !== $message ? $message : "Failed asserting that the classy constructs\n\n%s\n\nsatisfy a specification.",
             ' - ' . \implode("\n - ", $classyNamesNotSatisfyingSpecification)
         ));
@@ -230,7 +230,7 @@ trait Helper
      */
     final protected function assertClassExists(string $className): void
     {
-        $this->assertTrue(\class_exists($className), \sprintf(
+        self::assertTrue(\class_exists($className), \sprintf(
             'Failed asserting that a class "%s" exists.',
             $className
         ));
@@ -249,7 +249,7 @@ trait Helper
 
         $reflection = new \ReflectionClass($className);
 
-        $this->assertTrue($reflection->isSubclassOf($parentClassName), \sprintf(
+        self::assertTrue($reflection->isSubclassOf($parentClassName), \sprintf(
             'Failed asserting that class "%s" extends "%s".',
             $className,
             $parentClassName
@@ -269,7 +269,7 @@ trait Helper
 
         $reflection = new \ReflectionClass($className);
 
-        $this->assertTrue($reflection->implementsInterface($interfaceName), \sprintf(
+        self::assertTrue($reflection->implementsInterface($interfaceName), \sprintf(
             'Failed asserting that class "%s" implements interface "%s".',
             $className,
             $interfaceName
@@ -287,7 +287,7 @@ trait Helper
 
         $reflection = new \ReflectionClass($className);
 
-        $this->assertTrue($reflection->isAbstract(), \sprintf(
+        self::assertTrue($reflection->isAbstract(), \sprintf(
             'Failed asserting that class "%s" is abstract.',
             $className
         ));
@@ -306,7 +306,7 @@ trait Helper
 
         $reflection = new \ReflectionClass($className);
 
-        $this->assertTrue($reflection->isFinal(), \sprintf(
+        self::assertTrue($reflection->isFinal(), \sprintf(
             'Failed asserting that class "%s" is final.',
             $className
         ));
@@ -325,7 +325,7 @@ trait Helper
     {
         $this->assertClassExists($className);
 
-        $this->assertTrue($specification($className), \sprintf(
+        self::assertTrue($specification($className), \sprintf(
             '' !== $message ? $message : 'Failed asserting that class "%s" satisfies a specification.',
             $className
         ));
@@ -342,7 +342,7 @@ trait Helper
         $this->assertTraitExists($traitName);
         $this->assertClassExists($className);
 
-        $this->assertContains($traitName, \class_uses($className), \sprintf(
+        self::assertContains($traitName, \class_uses($className), \sprintf(
             'Failed asserting that class "%s" uses trait "%s".',
             $className,
             $traitName
@@ -356,7 +356,7 @@ trait Helper
      */
     final protected function assertInterfaceExists(string $interfaceName): void
     {
-        $this->assertTrue(\interface_exists($interfaceName), \sprintf(
+        self::assertTrue(\interface_exists($interfaceName), \sprintf(
             'Failed asserting that an interface "%s" exists.',
             $interfaceName
         ));
@@ -375,7 +375,7 @@ trait Helper
 
         $reflection = new \ReflectionClass($interfaceName);
 
-        $this->assertTrue($reflection->isSubclassOf($parentInterfaceName), \sprintf(
+        self::assertTrue($reflection->isSubclassOf($parentInterfaceName), \sprintf(
             'Failed asserting that interface "%s" extends "%s".',
             $interfaceName,
             $parentInterfaceName
@@ -395,7 +395,7 @@ trait Helper
     {
         $this->assertInterfaceExists($interfaceName);
 
-        $this->assertTrue($specification($interfaceName), \sprintf(
+        self::assertTrue($specification($interfaceName), \sprintf(
             '' !== $message ? $message : 'Failed asserting that interface "%s" satisfies a specification.',
             $interfaceName
         ));
@@ -408,7 +408,7 @@ trait Helper
      */
     final protected function assertTraitExists(string $traitName): void
     {
-        $this->assertTrue(\trait_exists($traitName), \sprintf(
+        self::assertTrue(\trait_exists($traitName), \sprintf(
             'Failed asserting that a trait "%s" exists.',
             $traitName
         ));
@@ -427,7 +427,7 @@ trait Helper
     {
         $this->assertTraitExists($traitName);
 
-        $this->assertTrue($specification($traitName), \sprintf(
+        self::assertTrue($specification($traitName), \sprintf(
             '' !== $message ? $message : 'Failed asserting that trait "%s" satisfies a specification.',
             $traitName
         ));
