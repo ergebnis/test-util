@@ -1,6 +1,6 @@
 .PHONY: coverage cs infection it stan test
 
-it: cs test
+it: cs stan test
 
 coverage: vendor
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-text
