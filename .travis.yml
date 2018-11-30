@@ -8,6 +8,7 @@ cache:
   directories:
     - $HOME/.composer/cache
     - $HOME/.php-cs-fixer
+    - $HOME/.phpstan
 
 stages:
   - style
@@ -50,8 +51,11 @@ jobs:
       install:
         - composer install
 
+      before_script:
+        - mkdir -p $HOME/.phpstan
+
       script:
-        - vendor/bin/phpstan analyse --configuration=phpstan.neon --level=max src test
+        - vendor/bin/phpstan analyse --configuration=phpstan.neon src test
 
     - &TEST
 
@@ -68,7 +72,6 @@ jobs:
         - if [[ -n "$GITHUB_TOKEN" ]]; then composer config github-oauth.github.com $GITHUB_TOKEN; fi
 
       install:
-        - if [[ "$TRAVIS_PHP_VERSION" == "7.2" ]]; then composer remove --dev localheinz/php-cs-fixer-config; fi
         - if [[ "$WITH_LOWEST" == "true" ]]; then composer update --prefer-lowest; fi
         - if [[ "$WITH_LOCKED" == "true" ]]; then composer install; fi
         - if [[ "$WITH_HIGHEST" == "true" ]]; then composer update; fi
@@ -127,9 +130,10 @@ jobs:
 
       before_script:
         - xdebug-enable
+        - mkdir -p $HOME/.infection
 
       script:
-        - vendor/bin/infection --min-covered-msi=96 --min-msi=96
+        - vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=96 --min-msi=96
 
 notifications:
   email: false
