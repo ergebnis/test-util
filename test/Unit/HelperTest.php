@@ -1294,15 +1294,21 @@ final class HelperTest extends Framework\TestCase
             return \get_class($provider);
         }, $faker->getProviders());
 
-        $providerLocales = \array_map(static function (string $providerClass): ?string {
-            if (0 === \preg_match('/^Faker\\\\Provider\\\\(?P<locale>[a-z]{2}_[A-Z]{2})\\\\/', $providerClass, $matches)) {
-                return null;
-            }
+        $providerLocales = \array_reduce(
+            $providerClasses,
+            static function (array $providerLocales, string $providerClass): array {
+                if (0 === \preg_match('/^Faker\\\\Provider\\\\(?P<locale>[a-z]{2}_[A-Z]{2})\\\\/', $providerClass, $matches)) {
+                    return $providerLocales;
+                }
 
-            return $matches['locale'];
-        }, $providerClasses);
+                $providerLocales[] = $matches['locale'];
 
-        $locales = \array_values(\array_unique(\array_filter($providerLocales)));
+                return $providerLocales;
+            },
+            []
+        );
+
+        $locales = \array_values(\array_unique($providerLocales));
 
         $expected = [
             $locale,
