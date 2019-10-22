@@ -8,6 +8,7 @@ coverage: vendor
 cs: vendor
 	mkdir -p .php-cs-fixer
 	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
+	vendor/bin/php-cs-fixer fix --config=.php_cs.fixture --diff --verbose
 
 infection: vendor
 	mkdir -p .infection
