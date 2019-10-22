@@ -5,7 +5,7 @@
 [![Latest Stable Version](https://poser.pugx.org/localheinz/test-util/v/stable)](https://packagist.org/packages/localheinz/test-util)
 [![Total Downloads](https://poser.pugx.org/localheinz/test-util/downloads)](https://packagist.org/packages/localheinz/test-util)
 
-As an alternative to [`refinery29/test-util`](https://github.com/refinery29/test-util), this repository provides a test helper.
+Provides utilities for tests.
 
 ## Installation
 
