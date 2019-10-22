@@ -8,6 +8,7 @@ use PHPUnit\Framework;
 
 /**
  * @internal
+ *
  * @coversNothing
  */
 final class ExampleTest extends Framework\TestCase

@@ -23,7 +23,8 @@ use PHPUnit\Framework;
 
 /**
  * @internal
- * @coversNothing
+ *
+ * @covers \Localheinz\Test\Util\Helper
  */
 final class HelperTest extends Framework\TestCase
 {

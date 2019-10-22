@@ -19,7 +19,8 @@ use PHPUnit\Framework;
 
 /**
  * @internal
- * @coversNothing
+ *
+ * @covers \Localheinz\Test\Util\Exception\NonExistentDirectory
  */
 final class NonExistentDirectoryTest extends Framework\TestCase
 {

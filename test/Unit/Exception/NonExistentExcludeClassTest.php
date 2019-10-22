@@ -19,7 +19,8 @@ use PHPUnit\Framework;
 
 /**
  * @internal
- * @coversNothing
+ *
+ * @covers \Localheinz\Test\Util\Exception\NonExistentExcludeClass
  */
 final class NonExistentExcludeClassTest extends Framework\TestCase
 {
