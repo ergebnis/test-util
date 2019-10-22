@@ -27,9 +27,9 @@ declare(strict_types=1);
 namespace Foo\Bar\Test\Unit;
 
 use Localheinz\Test\Util\Helper;
-use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework;
 
-final class BazTest extends TestCase
+final class BazTest extends Framework\TestCase
 {
     use Helper;
 }
@@ -50,15 +50,15 @@ namespace Example\Test\Unit;
 
 use Example\Player;
 use Localheinz\Test\Util\Helper;
-use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework;
 
-final class PlayerTest extends TestCase
+final class PlayerTest extends Framework\TestCase
 {
     use Helper;
 
     public function testConstructorSetsValues(): void
     {
-        $name = $this->faker()->firstName;
+        $name = self::faker()->firstName;
 
         $player = new Player($name);
 
