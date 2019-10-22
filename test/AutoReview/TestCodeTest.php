@@ -28,7 +28,7 @@ final class TestCodeTest extends Framework\TestCase
 
     public function testTestClassesAreAbstractOrFinal(): void
     {
-        $this->assertClassesAreAbstractOrFinal(__DIR__ . '/..', [
+        self::assertClassesAreAbstractOrFinal(__DIR__ . '/..', [
             Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\AlsoNeitherAbstractNorFinal::class,
             Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\NeitherAbstractNorFinal::class,
             Fixture\ClassIsAbstract\ConcreteClass::class,

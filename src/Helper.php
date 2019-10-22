@@ -31,7 +31,7 @@ trait Helper
      *
      * @return Generator
      */
-    final protected function faker(string $locale = 'en_US'): Generator
+    final protected static function faker(string $locale = 'en_US'): Generator
     {
         static $fakers = [];
 
@@ -59,9 +59,9 @@ trait Helper
      * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
-    final protected function assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = []): void
+    final protected static function assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = []): void
     {
-        $this->assertClassyConstructsSatisfySpecification(
+        self::assertClassyConstructsSatisfySpecification(
             static function (string $className): bool {
                 $reflection = new \ReflectionClass($className);
 
@@ -89,7 +89,7 @@ trait Helper
      * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
-    final protected function assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassyNames = []): void
+    final protected static function assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassyNames = []): void
     {
         if (!\is_dir($directory)) {
             throw Exception\NonExistentDirectory::fromDirectory($directory);
@@ -190,7 +190,7 @@ trait Helper
      * @throws Exception\NonExistentExcludeClass
      * @throws Classy\Exception\MultipleDefinitionsFound
      */
-    final protected function assertClassyConstructsSatisfySpecification(callable $specification, string $directory, array $excludeClassyNames = [], string $message = ''): void
+    final protected static function assertClassyConstructsSatisfySpecification(callable $specification, string $directory, array $excludeClassyNames = [], string $message = ''): void
     {
         if (!\is_dir($directory)) {
             throw Exception\NonExistentDirectory::fromDirectory($directory);
@@ -228,7 +228,7 @@ trait Helper
      *
      * @param string $className
      */
-    final protected function assertClassExists(string $className): void
+    final protected static function assertClassExists(string $className): void
     {
         self::assertTrue(\class_exists($className), \sprintf(
             'Failed asserting that a class "%s" exists.',
@@ -242,10 +242,10 @@ trait Helper
      * @param string $parentClassName
      * @param string $className
      */
-    final protected function assertClassExtends(string $parentClassName, string $className): void
+    final protected static function assertClassExtends(string $parentClassName, string $className): void
     {
-        $this->assertClassExists($parentClassName);
-        $this->assertClassExists($className);
+        self::assertClassExists($parentClassName);
+        self::assertClassExists($className);
 
         $reflection = new \ReflectionClass($className);
 
@@ -262,10 +262,10 @@ trait Helper
      * @param string $interfaceName
      * @param string $className
      */
-    final protected function assertClassImplementsInterface(string $interfaceName, string $className): void
+    final protected static function assertClassImplementsInterface(string $interfaceName, string $className): void
     {
-        $this->assertInterfaceExists($interfaceName);
-        $this->assertClassExists($className);
+        self::assertInterfaceExists($interfaceName);
+        self::assertClassExists($className);
 
         $reflection = new \ReflectionClass($className);
 
@@ -281,9 +281,9 @@ trait Helper
      *
      * @param string $className
      */
-    final protected function assertClassIsAbstract(string $className): void
+    final protected static function assertClassIsAbstract(string $className): void
     {
-        $this->assertClassExists($className);
+        self::assertClassExists($className);
 
         $reflection = new \ReflectionClass($className);
 
@@ -300,9 +300,9 @@ trait Helper
      *
      * @param string $className
      */
-    final protected function assertClassIsFinal(string $className): void
+    final protected static function assertClassIsFinal(string $className): void
     {
-        $this->assertClassExists($className);
+        self::assertClassExists($className);
 
         $reflection = new \ReflectionClass($className);
 
@@ -321,9 +321,9 @@ trait Helper
      * @param string   $className
      * @param string   $message
      */
-    final protected function assertClassSatisfiesSpecification(callable $specification, string $className, string $message = ''): void
+    final protected static function assertClassSatisfiesSpecification(callable $specification, string $className, string $message = ''): void
     {
-        $this->assertClassExists($className);
+        self::assertClassExists($className);
 
         self::assertTrue($specification($className), \sprintf(
             '' !== $message ? $message : 'Failed asserting that class "%s" satisfies a specification.',
@@ -337,10 +337,10 @@ trait Helper
      * @param string $traitName
      * @param string $className
      */
-    final protected function assertClassUsesTrait(string $traitName, string $className): void
+    final protected static function assertClassUsesTrait(string $traitName, string $className): void
     {
-        $this->assertTraitExists($traitName);
-        $this->assertClassExists($className);
+        self::assertTraitExists($traitName);
+        self::assertClassExists($className);
 
         self::assertContains($traitName, \class_uses($className), \sprintf(
             'Failed asserting that class "%s" uses trait "%s".',
@@ -354,7 +354,7 @@ trait Helper
      *
      * @param string $interfaceName
      */
-    final protected function assertInterfaceExists(string $interfaceName): void
+    final protected static function assertInterfaceExists(string $interfaceName): void
     {
         self::assertTrue(\interface_exists($interfaceName), \sprintf(
             'Failed asserting that an interface "%s" exists.',
@@ -368,10 +368,10 @@ trait Helper
      * @param string $parentInterfaceName
      * @param string $interfaceName
      */
-    final protected function assertInterfaceExtends(string $parentInterfaceName, string $interfaceName): void
+    final protected static function assertInterfaceExtends(string $parentInterfaceName, string $interfaceName): void
     {
-        $this->assertInterfaceExists($parentInterfaceName);
-        $this->assertInterfaceExists($interfaceName);
+        self::assertInterfaceExists($parentInterfaceName);
+        self::assertInterfaceExists($interfaceName);
 
         $reflection = new \ReflectionClass($interfaceName);
 
@@ -391,9 +391,9 @@ trait Helper
      * @param string   $interfaceName
      * @param string   $message
      */
-    final protected function assertInterfaceSatisfiesSpecification(callable $specification, string $interfaceName, string $message = ''): void
+    final protected static function assertInterfaceSatisfiesSpecification(callable $specification, string $interfaceName, string $message = ''): void
     {
-        $this->assertInterfaceExists($interfaceName);
+        self::assertInterfaceExists($interfaceName);
 
         self::assertTrue($specification($interfaceName), \sprintf(
             '' !== $message ? $message : 'Failed asserting that interface "%s" satisfies a specification.',
@@ -406,7 +406,7 @@ trait Helper
      *
      * @param string $traitName
      */
-    final protected function assertTraitExists(string $traitName): void
+    final protected static function assertTraitExists(string $traitName): void
     {
         self::assertTrue(\trait_exists($traitName), \sprintf(
             'Failed asserting that a trait "%s" exists.',
@@ -423,9 +423,9 @@ trait Helper
      * @param string   $traitName
      * @param string   $message
      */
-    final protected function assertTraitSatisfiesSpecification(callable $specification, string $traitName, string $message = ''): void
+    final protected static function assertTraitSatisfiesSpecification(callable $specification, string $traitName, string $message = ''): void
     {
-        $this->assertTraitExists($traitName);
+        self::assertTraitExists($traitName);
 
         self::assertTrue($specification($traitName), \sprintf(
             '' !== $message ? $message : 'Failed asserting that trait "%s" satisfies a specification.',

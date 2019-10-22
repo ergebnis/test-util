@@ -30,7 +30,7 @@ final class InvalidExcludeClassNameTest extends Framework\TestCase
 
     public function testExtendsInvalidArgumentException(): void
     {
-        $this->assertClassExtends(\InvalidArgumentException::class, InvalidExcludeClassName::class);
+        self::assertClassExtends(\InvalidArgumentException::class, InvalidExcludeClassName::class);
     }
 
     /**

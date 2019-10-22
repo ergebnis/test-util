@@ -30,7 +30,7 @@ final class NonExistentExcludeClassTest extends Framework\TestCase
 
     public function testExtendsInvalidArgumentException(): void
     {
-        $this->assertClassExtends(\InvalidArgumentException::class, NonExistentExcludeClass::class);
+        self::assertClassExtends(\InvalidArgumentException::class, NonExistentExcludeClass::class);
     }
 
     public function testFromClassNameReturnsException(): void
