@@ -25,6 +25,10 @@ use PHPUnit\Framework;
  * @internal
  *
  * @covers \Localheinz\Test\Util\Helper
+ *
+ * @uses \Localheinz\Test\Util\Exception\InvalidExcludeClassName
+ * @uses \Localheinz\Test\Util\Exception\NonExistentDirectory
+ * @uses \Localheinz\Test\Util\Exception\NonExistentExcludeClass
  */
 final class HelperTest extends Framework\TestCase
 {
