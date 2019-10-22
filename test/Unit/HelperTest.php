@@ -23,6 +23,7 @@ use PHPUnit\Framework;
 
 /**
  * @internal
+ * @coversNothing
  */
 final class HelperTest extends Framework\TestCase
 {
@@ -284,10 +285,10 @@ final class HelperTest extends Framework\TestCase
             }, $classesWithoutTests)),
             \implode("\n", \array_map(static function (string $className) use ($namespace, $testNamespace): string {
                 $testClassName = \str_replace(
-                        $namespace,
-                        $testNamespace,
-                        $className
-                    ) . 'Test';
+                    $namespace,
+                    $testNamespace,
+                    $className
+                ) . 'Test';
 
                 return \sprintf(
                     ' - %s',

@@ -19,6 +19,7 @@ use PHPUnit\Framework;
 
 /**
  * @internal
+ * @coversNothing
  */
 final class NonExistentExcludeClassTest extends Framework\TestCase
 {
