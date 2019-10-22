@@ -1,6 +1,6 @@
 # test-util
 
-[![Build Status](https://travis-ci.com/localheinz/test-util.svg?branch=master)](https://travis-ci.com/localheinz/test-util)
+[![CI Status](https://github.com/localheinz/test-util/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/test-util/actions)
 [![codecov](https://codecov.io/gh/localheinz/test-util/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/test-util)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/test-util/v/stable)](https://packagist.org/packages/localheinz/test-util)
 [![Total Downloads](https://poser.pugx.org/localheinz/test-util/downloads)](https://packagist.org/packages/localheinz/test-util)
@@ -32,7 +32,7 @@ use PHPUnit\Framework\TestCase;
 final class BazTest extends TestCase
 {
     use Helper;
-} 
+}
 ```
 
 ### Easy access to localized instances of `Faker\Generator`
@@ -55,23 +55,23 @@ use PHPUnit\Framework\TestCase;
 final class PlayerTest extends TestCase
 {
     use Helper;
-    
+
     public function testConstructorSetsValues(): void
     {
         $name = $this->faker()->firstName;
-        
+
         $player = new Player($name);
-        
+
         $this->assertSame($name, $player->firstName());
     }
-} 
+}
 ```
 
 For reference, see [`fzaninotto/faker`](https://github.com/fzaninotto/Faker).
 
 ### Additional Assertions
 
-In addition to the assertions made available by extending from `PHPUnit\Framework\TestCase`, 
+In addition to the assertions made available by extending from `PHPUnit\Framework\TestCase`,
 the `Helper` trait provides the following assertions:
 
 * `assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])`
@@ -90,6 +90,10 @@ the `Helper` trait provides the following assertions:
 * `assertTraitExists(string $traitName)`
 * `assertTraitSatisfiesSpecification(callable $specification, string $traitName, string $message = '')`
 
+## Changelog
+
+Please have a look at [`CHANGELOG.md`](CHANGELOG.md).
+
 ## Contributing
 
 Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
@@ -104,6 +108,6 @@ This package is licensed using the MIT License.
 
 ## Credits
 
-The [`ProjectCodeTest`](test/Unit/ProjectCodeTest.php) in this and other 
-projects I maintain or contribute to is inspired by [`ProjectCodeTest`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v2.0.0/tests/ProjectCodeTest.php) 
-in [`friends-of-php/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer), and was initially created by [Dariusz Rumiński](https://github.com/keradus).  
+The [`ProjectCodeTest`](test/Unit/ProjectCodeTest.php) in this and other
+projects I maintain or contribute to is inspired by [`ProjectCodeTest`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v2.0.0/tests/ProjectCodeTest.php)
+in [`friends-of-php/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer), and was initially created by [Dariusz Rumiński](https://github.com/keradus).
