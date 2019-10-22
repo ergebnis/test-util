@@ -19,6 +19,10 @@ use PHPUnit\Framework;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\Test\Util\Exception\NonExistentExcludeClass
+ *
+ * @uses \Localheinz\Test\Util\Helper
  */
 final class NonExistentExcludeClassTest extends Framework\TestCase
 {

@@ -33,6 +33,7 @@ $config->getFinder()
         '.php-cs-fixer',
         '.phpstan',
         '.travis',
+        'test/Fixture',
     ])
     ->name('.php_cs');
 

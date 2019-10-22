@@ -19,6 +19,8 @@ use PHPUnit\Framework;
 
 /**
  * @internal
+ *
+ * @coversNothing
  */
 final class ProjectCodeTest extends Framework\TestCase
 {

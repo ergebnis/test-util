@@ -23,6 +23,12 @@ use PHPUnit\Framework;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\Test\Util\Helper
+ *
+ * @uses \Localheinz\Test\Util\Exception\InvalidExcludeClassName
+ * @uses \Localheinz\Test\Util\Exception\NonExistentDirectory
+ * @uses \Localheinz\Test\Util\Exception\NonExistentExcludeClass
  */
 final class HelperTest extends Framework\TestCase
 {
@@ -284,10 +290,10 @@ final class HelperTest extends Framework\TestCase
             }, $classesWithoutTests)),
             \implode("\n", \array_map(static function (string $className) use ($namespace, $testNamespace): string {
                 $testClassName = \str_replace(
-                        $namespace,
-                        $testNamespace,
-                        $className
-                    ) . 'Test';
+                    $namespace,
+                    $testNamespace,
+                    $className
+                ) . 'Test';
 
                 return \sprintf(
                     ' - %s',

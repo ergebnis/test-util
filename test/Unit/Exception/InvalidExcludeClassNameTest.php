@@ -19,6 +19,10 @@ use PHPUnit\Framework;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\Test\Util\Exception\InvalidExcludeClassName
+ *
+ * @uses \Localheinz\Test\Util\Helper
  */
 final class InvalidExcludeClassNameTest extends Framework\TestCase
 {
