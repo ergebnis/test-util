@@ -12,3 +12,4 @@ For a full diff see [`0.7.0...master`](https://github.com/localheinz/php-library
 
 * Dropped support for PHP 7.1 ([#118](https://github.com/localheinz/test-util/pull/118)), by [@localheinz](https://github.com/localheinz)
 * Methods in `Helper` trait are now `static` ([#119](https://github.com/localheinz/test-util/pull/119)), by [@localheinz](https://github.com/localheinz)
+* Dropped support for `phpunit/phpunit:^6.0.0` ([#120](https://github.com/localheinz/test-util/pull/120)), by [@localheinz](https://github.com/localheinz)
