@@ -8,6 +8,9 @@ update_configs:
     default_reviewers:
       - "localheinz"
     directory: "/"
+    ignored_updates:
+      - match:
+          dependency_name: "phpunit/phpunit"
     package_manager: "php:composer"
     update_schedule: "live"
     version_requirement_updates: "increase_versions"
