@@ -30,7 +30,7 @@ final class NonExistentDirectoryTest extends Framework\TestCase
 
     public function testExtendsInvalidArgumentException(): void
     {
-        $this->assertClassExtends(\InvalidArgumentException::class, NonExistentDirectory::class);
+        self::assertClassExtends(\InvalidArgumentException::class, NonExistentDirectory::class);
     }
 
     public function testFromDirectoryReturnsException(): void

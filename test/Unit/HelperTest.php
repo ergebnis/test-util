@@ -34,7 +34,7 @@ final class HelperTest extends Framework\TestCase
 {
     use Helper;
 
-    public function testHelperMethodsAreFinalAndProtected(): void
+    public function testHelperMethodsAreFinalProtectedAndStatic(): void
     {
         $className = Helper::class;
 
@@ -43,7 +43,7 @@ final class HelperTest extends Framework\TestCase
         $methods = $reflection->getMethods();
 
         $methodsNeitherFinalNorProtected = \array_filter($methods, static function (\ReflectionMethod $method): bool {
-            return !$method->isFinal() || !$method->isProtected();
+            return !$method->isFinal() || !$method->isProtected() || !$method->isStatic();
         });
 
         self::assertEmpty($methodsNeitherFinalNorProtected, \sprintf(
@@ -60,7 +60,7 @@ final class HelperTest extends Framework\TestCase
 
     public function testFakerWithoutLocaleReturnsFakerWithDefaultLocale(): void
     {
-        $faker = $this->faker();
+        $faker = self::faker();
 
         $this->assertHasOnlyProvidersWithLocale(Factory::DEFAULT_LOCALE, $faker);
     }
@@ -72,7 +72,7 @@ final class HelperTest extends Framework\TestCase
      */
     public function testFakerWithLocaleReturnsFakerWithSpecifiedLocale(string $locale): void
     {
-        $faker = $this->faker($locale);
+        $faker = self::faker($locale);
 
         $this->assertHasOnlyProvidersWithLocale($locale, $faker);
     }
@@ -84,9 +84,9 @@ final class HelperTest extends Framework\TestCase
      */
     public function testFakerReturnsSameFaker(string $locale): void
     {
-        $faker = $this->faker($locale);
+        $faker = self::faker($locale);
 
-        self::assertSame($faker, $this->faker($locale));
+        self::assertSame($faker, self::faker($locale));
     }
 
     public function providerLocale(): \Generator
@@ -118,7 +118,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Exception\NonExistentDirectory::class);
 
-        $this->assertClassesAreAbstractOrFinal($directory);
+        self::assertClassesAreAbstractOrFinal($directory);
     }
 
     public function testAssertClassesAreAbstractOrFinalFailsWhenFoundClassesAreNeitherAbstractNorFinal(): void
@@ -135,21 +135,21 @@ final class HelperTest extends Framework\TestCase
             ' - ' . \implode("\n - ", $classesNeitherAbstractNorFinal)
         ));
 
-        $this->assertClassesAreAbstractOrFinal($directory);
+        self::assertClassesAreAbstractOrFinal($directory);
     }
 
     public function testAssertClassesAreAbstractOrFinalSucceedsWhenNoClassesHaveBeenFound(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal/EmptyDirectory';
 
-        $this->assertClassesAreAbstractOrFinal($directory);
+        self::assertClassesAreAbstractOrFinal($directory);
     }
 
     public function testAssertClassesAreAbstractOrFinalSucceedsWhenFoundClassesAreAbstractOrFinal(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesAreAbstractOrFinal/AbstractOrFinal';
 
-        $this->assertClassesAreAbstractOrFinal($directory);
+        self::assertClassesAreAbstractOrFinal($directory);
     }
 
     /**
@@ -166,7 +166,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Exception\InvalidExcludeClassName::class);
 
-        $this->assertClassesAreAbstractOrFinal(
+        self::assertClassesAreAbstractOrFinal(
             $directory,
             $excludeClassNames
         );
@@ -208,7 +208,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Exception\NonExistentExcludeClass::class);
 
-        $this->assertClassesAreAbstractOrFinal(
+        self::assertClassesAreAbstractOrFinal(
             $directory,
             $excludeClassyNames
         );
@@ -231,7 +231,7 @@ final class HelperTest extends Framework\TestCase
             ' - ' . \implode("\n - ", $classesNeitherAbstractNorFinal)
         ));
 
-        $this->assertClassesAreAbstractOrFinal(
+        self::assertClassesAreAbstractOrFinal(
             $directory,
             $excludeClassyNames
         );
@@ -245,7 +245,7 @@ final class HelperTest extends Framework\TestCase
             Fixture\ClassesAreAbstractOrFinal\NotAllAbstractOrFinal\NeitherAbstractNorFinal::class,
         ];
 
-        $this->assertClassesAreAbstractOrFinal(
+        self::assertClassesAreAbstractOrFinal(
             $directory,
             $excludeClassyNames
         );
@@ -259,7 +259,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Exception\NonExistentDirectory::class);
 
-        $this->assertClassesHaveTests(
+        self::assertClassesHaveTests(
             $directory,
             $namespace,
             $testNamespace
@@ -303,7 +303,7 @@ final class HelperTest extends Framework\TestCase
             Framework\TestCase::class
         ));
 
-        $this->assertClassesHaveTests(
+        self::assertClassesHaveTests(
             $directory,
             $namespace,
             $testNamespace
@@ -316,7 +316,7 @@ final class HelperTest extends Framework\TestCase
         $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\EmptyDirectory\\Src\\';
         $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\EmptyDirectory\\Test\\';
 
-        $this->assertClassesHaveTests(
+        self::assertClassesHaveTests(
             $directory,
             $namespace,
             $testNamespace
@@ -329,7 +329,7 @@ final class HelperTest extends Framework\TestCase
         $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Src\\';
         $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Test\\';
 
-        $this->assertClassesHaveTests(
+        self::assertClassesHaveTests(
             $directory,
             $namespace,
             $testNamespace
@@ -346,7 +346,7 @@ final class HelperTest extends Framework\TestCase
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/WithTests/Src';
 
-        $this->assertClassesHaveTests(
+        self::assertClassesHaveTests(
             $directory,
             $namespace,
             $testNamespace
@@ -391,7 +391,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Exception\InvalidExcludeClassName::class);
 
-        $this->assertClassesHaveTests(
+        self::assertClassesHaveTests(
             $directory,
             $namespace,
             $testNamespace,
@@ -413,7 +413,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Exception\NonExistentExcludeClass::class);
 
-        $this->assertClassesHaveTests(
+        self::assertClassesHaveTests(
             $directory,
             $namespace,
             $testNamespace,
@@ -440,7 +440,7 @@ final class HelperTest extends Framework\TestCase
             ' - ' . \implode("\n - ", $classesWithoutTests)
         ));
 
-        $this->assertClassesHaveTests(
+        self::assertClassesHaveTests(
             $directory,
             $namespace,
             $testNamespace,
@@ -458,7 +458,7 @@ final class HelperTest extends Framework\TestCase
             Fixture\ClassesHaveTests\NotAllClassesHaveTests\Src\OneMoreExampleClass::class,
         ];
 
-        $this->assertClassesHaveTests(
+        self::assertClassesHaveTests(
             $directory,
             $namespace,
             $testNamespace,
@@ -472,7 +472,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Exception\NonExistentDirectory::class);
 
-        $this->assertClassyConstructsSatisfySpecification(
+        self::assertClassyConstructsSatisfySpecification(
             static function (string $classyName): bool {
                 return false;
             },
@@ -494,7 +494,7 @@ final class HelperTest extends Framework\TestCase
             ' - ' . \implode("\n - ", $classesNotSatisfyingSpecification)
         ));
 
-        $this->assertClassyConstructsSatisfySpecification(
+        self::assertClassyConstructsSatisfySpecification(
             static function (string $className): bool {
                 return false;
             },
@@ -506,7 +506,7 @@ final class HelperTest extends Framework\TestCase
     {
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification/EmptyDirectory';
 
-        $this->assertClassyConstructsSatisfySpecification(
+        self::assertClassyConstructsSatisfySpecification(
             static function (string $className): bool {
                 return false;
             },
@@ -518,7 +518,7 @@ final class HelperTest extends Framework\TestCase
     {
         $directory = __DIR__ . '/../Fixture/ClassyConstructsSatisfySpecification';
 
-        $this->assertClassyConstructsSatisfySpecification(
+        self::assertClassyConstructsSatisfySpecification(
             static function (string $className): bool {
                 return true;
             },
@@ -540,7 +540,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Exception\InvalidExcludeClassName::class);
 
-        $this->assertClassyConstructsSatisfySpecification(
+        self::assertClassyConstructsSatisfySpecification(
             static function (string $classyName): bool {
                 return true;
             },
@@ -560,7 +560,7 @@ final class HelperTest extends Framework\TestCase
 
         $this->expectException(Exception\NonExistentExcludeClass::class);
 
-        $this->assertClassyConstructsSatisfySpecification(
+        self::assertClassyConstructsSatisfySpecification(
             static function (string $classyName): bool {
                 return Fixture\ClassyConstructsSatisfySpecification\ExampleClass::class === $classyName;
             },
@@ -586,7 +586,7 @@ final class HelperTest extends Framework\TestCase
             ' - ' . \implode("\n - ", $classesNotSatisfyingSpecification)
         ));
 
-        $this->assertClassyConstructsSatisfySpecification(
+        self::assertClassyConstructsSatisfySpecification(
             static function (string $classyName): bool {
                 return false;
             },
@@ -602,7 +602,7 @@ final class HelperTest extends Framework\TestCase
             Fixture\ClassyConstructsSatisfySpecification\AnotherExampleClass::class,
         ];
 
-        $this->assertClassyConstructsSatisfySpecification(
+        self::assertClassyConstructsSatisfySpecification(
             static function (string $classyName): bool {
                 return Fixture\ClassyConstructsSatisfySpecification\ExampleClass::class === $classyName;
             },
@@ -624,7 +624,7 @@ final class HelperTest extends Framework\TestCase
             $className
         ));
 
-        $this->assertClassExists($className);
+        self::assertClassExists($className);
     }
 
     public function providerNotClass(): \Generator
@@ -646,7 +646,7 @@ final class HelperTest extends Framework\TestCase
     {
         $className = Fixture\ClassExists\ExampleClass::class;
 
-        $this->assertClassExists($className);
+        self::assertClassExists($className);
     }
 
     /**
@@ -664,7 +664,7 @@ final class HelperTest extends Framework\TestCase
             $parentClassName
         ));
 
-        $this->assertClassExtends(
+        self::assertClassExtends(
             $parentClassName,
             $className
         );
@@ -685,7 +685,7 @@ final class HelperTest extends Framework\TestCase
             $className
         ));
 
-        $this->assertClassExtends(
+        self::assertClassExtends(
             $parentClassName,
             $className
         );
@@ -703,7 +703,7 @@ final class HelperTest extends Framework\TestCase
             $parentClassName
         ));
 
-        $this->assertClassExtends(
+        self::assertClassExtends(
             $parentClassName,
             $className
         );
@@ -714,7 +714,7 @@ final class HelperTest extends Framework\TestCase
         $parentClassName = Fixture\ClassExtends\ParentClass::class;
         $className = Fixture\ClassExtends\ChildClass::class;
 
-        $this->assertClassExtends(
+        self::assertClassExtends(
             $parentClassName,
             $className
         );
@@ -735,7 +735,7 @@ final class HelperTest extends Framework\TestCase
             $interfaceName
         ));
 
-        $this->assertClassImplementsInterface(
+        self::assertClassImplementsInterface(
             $interfaceName,
             $className
         );
@@ -756,7 +756,7 @@ final class HelperTest extends Framework\TestCase
             $className
         ));
 
-        $this->assertClassImplementsInterface(
+        self::assertClassImplementsInterface(
             $interfaceName,
             $className
         );
@@ -774,7 +774,7 @@ final class HelperTest extends Framework\TestCase
             $interfaceName
         ));
 
-        $this->assertClassImplementsInterface(
+        self::assertClassImplementsInterface(
             $interfaceName,
             $className
         );
@@ -785,7 +785,7 @@ final class HelperTest extends Framework\TestCase
         $interfaceName = Fixture\ImplementsInterface\ExampleInterface::class;
         $className = Fixture\ImplementsInterface\ClassImplementingInterface::class;
 
-        $this->assertClassImplementsInterface(
+        self::assertClassImplementsInterface(
             $interfaceName,
             $className
         );
@@ -804,7 +804,7 @@ final class HelperTest extends Framework\TestCase
             $className
         ));
 
-        $this->assertClassIsAbstract($className);
+        self::assertClassIsAbstract($className);
     }
 
     public function testAssertClassIsAbstractFailsWhenClassIsNotAbstract(): void
@@ -817,14 +817,14 @@ final class HelperTest extends Framework\TestCase
             $className
         ));
 
-        $this->assertClassIsAbstract($className);
+        self::assertClassIsAbstract($className);
     }
 
     public function testAssertClassIsAbstractSucceedsWhenClassIsAbstract(): void
     {
         $className = Fixture\ClassIsAbstract\AbstractClass::class;
 
-        $this->assertClassIsAbstract($className);
+        self::assertClassIsAbstract($className);
     }
 
     /**
@@ -840,7 +840,7 @@ final class HelperTest extends Framework\TestCase
             $className
         ));
 
-        $this->assertClassIsFinal($className);
+        self::assertClassIsFinal($className);
     }
 
     public function testAssertClassIsFinalFailsWhenClassIsNotFinal(): void
@@ -853,14 +853,14 @@ final class HelperTest extends Framework\TestCase
             $className
         ));
 
-        $this->assertClassIsFinal($className);
+        self::assertClassIsFinal($className);
     }
 
     public function testAssertClassIsFinalSucceedsWhenClassIsFinal(): void
     {
         $className = Fixture\ClassIsFinal\FinalClass::class;
 
-        $this->assertClassIsFinal($className);
+        self::assertClassIsFinal($className);
     }
 
     /**
@@ -876,7 +876,7 @@ final class HelperTest extends Framework\TestCase
             $className
         ));
 
-        $this->assertClassSatisfiesSpecification(
+        self::assertClassSatisfiesSpecification(
             static function (): bool {
                 return true;
             },
@@ -894,7 +894,7 @@ final class HelperTest extends Framework\TestCase
             $className
         ));
 
-        $this->assertClassSatisfiesSpecification(
+        self::assertClassSatisfiesSpecification(
             static function (): bool {
                 return false;
             },
@@ -913,7 +913,7 @@ final class HelperTest extends Framework\TestCase
             $className
         ));
 
-        $this->assertClassSatisfiesSpecification(
+        self::assertClassSatisfiesSpecification(
             static function (): bool {
                 return false;
             },
@@ -926,7 +926,7 @@ final class HelperTest extends Framework\TestCase
     {
         $className = Fixture\ClassSatisfiesSpecification\ExampleClass::class;
 
-        $this->assertClassSatisfiesSpecification(
+        self::assertClassSatisfiesSpecification(
             static function (): bool {
                 return true;
             },
@@ -949,7 +949,7 @@ final class HelperTest extends Framework\TestCase
             $traitName
         ));
 
-        $this->assertClassUsesTrait(
+        self::assertClassUsesTrait(
             $traitName,
             $className
         );
@@ -970,7 +970,7 @@ final class HelperTest extends Framework\TestCase
             $className
         ));
 
-        $this->assertClassUsesTrait(
+        self::assertClassUsesTrait(
             $traitName,
             $className
         );
@@ -988,7 +988,7 @@ final class HelperTest extends Framework\TestCase
             $traitName
         ));
 
-        $this->assertClassUsesTrait(
+        self::assertClassUsesTrait(
             $traitName,
             $className
         );
@@ -999,7 +999,7 @@ final class HelperTest extends Framework\TestCase
         $traitName = Fixture\ClassUsesTrait\ExampleTrait::class;
         $className = Fixture\ClassUsesTrait\ClassUsingTrait::class;
 
-        $this->assertClassUsesTrait(
+        self::assertClassUsesTrait(
             $traitName,
             $className
         );
@@ -1018,7 +1018,7 @@ final class HelperTest extends Framework\TestCase
             $interfaceName
         ));
 
-        $this->assertInterfaceExists($interfaceName);
+        self::assertInterfaceExists($interfaceName);
     }
 
     public function providerNotInterface(): \Generator
@@ -1040,7 +1040,7 @@ final class HelperTest extends Framework\TestCase
     {
         $interfaceName = Fixture\InterfaceExists\ExampleInterface::class;
 
-        $this->assertInterfaceExists($interfaceName);
+        self::assertInterfaceExists($interfaceName);
     }
 
     /**
@@ -1058,7 +1058,7 @@ final class HelperTest extends Framework\TestCase
             $parentInterfaceName
         ));
 
-        $this->assertInterfaceExtends(
+        self::assertInterfaceExtends(
             $parentInterfaceName,
             $interfaceName
         );
@@ -1079,7 +1079,7 @@ final class HelperTest extends Framework\TestCase
             $interfaceName
         ));
 
-        $this->assertInterfaceExtends(
+        self::assertInterfaceExtends(
             $parentInterfaceName,
             $interfaceName
         );
@@ -1097,7 +1097,7 @@ final class HelperTest extends Framework\TestCase
             $parentInterfaceName
         ));
 
-        $this->assertInterfaceExtends(
+        self::assertInterfaceExtends(
             $parentInterfaceName,
             $interfaceName
         );
@@ -1108,7 +1108,7 @@ final class HelperTest extends Framework\TestCase
         $parentInterfaceName = Fixture\InterfaceExtends\ParentInterface::class;
         $interfaceName = Fixture\InterfaceExtends\ChildInterface::class;
 
-        $this->assertInterfaceExtends(
+        self::assertInterfaceExtends(
             $parentInterfaceName,
             $interfaceName
         );
@@ -1127,7 +1127,7 @@ final class HelperTest extends Framework\TestCase
             $interfaceName
         ));
 
-        $this->assertInterfaceSatisfiesSpecification(
+        self::assertInterfaceSatisfiesSpecification(
             static function (): bool {
                 return true;
             },
@@ -1145,7 +1145,7 @@ final class HelperTest extends Framework\TestCase
             $interfaceName
         ));
 
-        $this->assertInterfaceSatisfiesSpecification(
+        self::assertInterfaceSatisfiesSpecification(
             static function (): bool {
                 return false;
             },
@@ -1164,7 +1164,7 @@ final class HelperTest extends Framework\TestCase
             $interfaceName
         ));
 
-        $this->assertInterfaceSatisfiesSpecification(
+        self::assertInterfaceSatisfiesSpecification(
             static function (): bool {
                 return false;
             },
@@ -1177,7 +1177,7 @@ final class HelperTest extends Framework\TestCase
     {
         $interfaceName = Fixture\InterfaceSatisfiesSpecification\ExampleInterface::class;
 
-        $this->assertInterfaceSatisfiesSpecification(
+        self::assertInterfaceSatisfiesSpecification(
             static function (): bool {
                 return true;
             },
@@ -1198,7 +1198,7 @@ final class HelperTest extends Framework\TestCase
             $traitName
         ));
 
-        $this->assertTraitExists($traitName);
+        self::assertTraitExists($traitName);
     }
 
     public function providerNotTrait(): \Generator
@@ -1220,7 +1220,7 @@ final class HelperTest extends Framework\TestCase
     {
         $traitName = Fixture\TraitExists\ExampleTrait::class;
 
-        $this->assertTraitExists($traitName);
+        self::assertTraitExists($traitName);
     }
 
     /**
@@ -1236,7 +1236,7 @@ final class HelperTest extends Framework\TestCase
             $traitName
         ));
 
-        $this->assertTraitSatisfiesSpecification(
+        self::assertTraitSatisfiesSpecification(
             static function (): bool {
                 return true;
             },
@@ -1254,7 +1254,7 @@ final class HelperTest extends Framework\TestCase
             $traitName
         ));
 
-        $this->assertTraitSatisfiesSpecification(
+        self::assertTraitSatisfiesSpecification(
             static function (): bool {
                 return false;
             },
@@ -1273,7 +1273,7 @@ final class HelperTest extends Framework\TestCase
             $traitName
         ));
 
-        $this->assertTraitSatisfiesSpecification(
+        self::assertTraitSatisfiesSpecification(
             static function (): bool {
                 return false;
             },
@@ -1286,7 +1286,7 @@ final class HelperTest extends Framework\TestCase
     {
         $traitName = Fixture\TraitSatisfiesSpecification\ExampleTrait::class;
 
-        $this->assertTraitSatisfiesSpecification(
+        self::assertTraitSatisfiesSpecification(
             static function (): bool {
                 return true;
             },
