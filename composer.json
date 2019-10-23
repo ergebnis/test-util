@@ -19,7 +19,7 @@
   "require": {
     "php": "^7.2",
     "fzaninotto/faker": "^1.8.0",
-    "localheinz/classy": "0.3.0"
+    "localheinz/classy": "0.4.0"
   },
   "require-dev": {
     "infection/infection": "~0.11.4",

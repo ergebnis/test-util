@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "804f3f91a6e07726c3b6baca55ce8b49",
+    "content-hash": "f46662f8be7da77d366a30ea463f1adb",
     "packages": [
         {
             "name": "fzaninotto/faker",
@@ -58,26 +58,31 @@
         },
         {
             "name": "localheinz/classy",
-            "version": "0.3.0",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/classy.git",
-                "reference": "8f1413f01a464f88521eac735f0e62b02da9ac67"
+                "reference": "01ef6ffc263f62379726477e706f77f20f424fdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/classy/zipball/8f1413f01a464f88521eac735f0e62b02da9ac67",
-                "reference": "8f1413f01a464f88521eac735f0e62b02da9ac67",
+                "url": "https://api.github.com/repos/localheinz/classy/zipball/01ef6ffc263f62379726477e706f77f20f424fdf",
+                "reference": "01ef6ffc263f62379726477e706f77f20f424fdf",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "php": "^7.1"
             },
             "require-dev": {
-                "localheinz/php-cs-fixer-config": "~1.6.2",
+                "infection/infection": "~0.11.4",
+                "localheinz/composer-normalize": "^1.0.0",
+                "localheinz/php-cs-fixer-config": "~1.17.0",
+                "localheinz/phpstan-rules": "~0.5.0",
                 "localheinz/test-util": "0.2.2",
-                "phpbench/phpbench": "0.13.0",
-                "phpunit/phpunit": "^6.4.1"
+                "phpbench/phpbench": "~0.14.0",
+                "phpstan/phpstan": "~0.10.5",
+                "phpstan/phpstan-strict-rules": "~0.10.1",
+                "phpunit/phpunit": "^7.5.0"
             },
             "type": "library",
             "autoload": {
@@ -96,7 +101,8 @@
                 }
             ],
             "description": "Provides a way to collect classy constructs from source or a directory.",
-            "time": "2017-10-24T14:31:40+00:00"
+            "homepage": "https://github.com/localheinz/classy",
+            "time": "2018-12-10T18:56:43+00:00"
         }
     ],
     "packages-dev": [
