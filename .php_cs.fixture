@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/localheinz/test-util
  */
 
-use Localheinz\PhpCsFixer\Config;
+use Ergebnis\PhpCsFixer\Config;
 
 $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(''), [
     'final_class' => false,
