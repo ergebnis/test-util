@@ -1,5 +1,5 @@
 {
-  "name": "localheinz/test-util",
+  "name": "ergebnis/test-util",
   "type": "library",
   "description": "Provides utilities for tests.",
   "keywords": [
@@ -8,7 +8,7 @@
     "phpunit",
     "test"
   ],
-  "homepage": "https://github.com/localheinz/test-util",
+  "homepage": "https://github.com/ergebnis/test-util",
   "license": "MIT",
   "authors": [
     {
@@ -47,6 +47,6 @@
   },
   "support": {
     "issues": "https://github.com/ergebnis/test-util/issues",
-    "source": "https://github.com/localheinz/test-util"
+    "source": "https://github.com/ergebnis/test-util"
   }
 }
