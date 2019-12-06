@@ -19,14 +19,14 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 * Dropped support for `phpunit/phpunit:^6.0.0` ([#120]), by [@localheinz]
 * Allowed installation with `phpunit/phpunit:^8.0.0` ([#122]), by [@localheinz]
 
-[0.8.0]: https://github.com/localheinz/test-util/releases/tag/0.8.0
+[0.8.0]: https://github.com/ergebnis/test-util/releases/tag/0.8.0
 
-[0.7.0...0.8.0]: https://github.com/localheinz/test-util/compare/0.7.0...0.8.0
-[0.8.0...master]: https://github.com/localheinz/test-util/compare/0.8.0...master
+[0.7.0...0.8.0]: https://github.com/ergebnis/test-util/compare/0.7.0...0.8.0
+[0.8.0...master]: https://github.com/ergebnis/test-util/compare/0.8.0...master
 
-[#118]: https://github.com/localheinz/test-util/pull/118
-[#119]: https://github.com/localheinz/test-util/pull/119
-[#120]: https://github.com/localheinz/test-util/pull/120
-[#122]: https://github.com/localheinz/test-util/pull/122
+[#118]: https://github.com/ergebnis/test-util/pull/118
+[#119]: https://github.com/ergebnis/test-util/pull/119
+[#120]: https://github.com/ergebnis/test-util/pull/120
+[#122]: https://github.com/ergebnis/test-util/pull/122
 
 [@localheinz]: https://github.com/localheinz
