@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Localheinz\Test\Util;
 
+use Ergebnis\Classy;
 use Faker\Factory;
 use Faker\Generator;
-use Localheinz\Classy;
 use PHPUnit\Framework;
 
 trait Helper
