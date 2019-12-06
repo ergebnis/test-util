@@ -1,6 +1,6 @@
 # test-util
 
-[![CI Status](https://github.com/localheinz/test-util/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/test-util/actions)
+[![continuous Integration](https://github.com/localheinz/test-util/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/test-util/actions)
 [![codecov](https://codecov.io/gh/localheinz/test-util/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/test-util)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/test-util/v/stable)](https://packagist.org/packages/localheinz/test-util)
 [![Total Downloads](https://poser.pugx.org/localheinz/test-util/downloads)](https://packagist.org/packages/localheinz/test-util)
@@ -108,6 +108,6 @@ This package is licensed using the MIT License.
 
 ## Credits
 
-The [`ProjectCodeTest`](test/Unit/ProjectCodeTest.php) in this and other
+The [`SrcCodeTest`](test/AutoReview/SrcCodeTest.php) in this and other
 projects I maintain or contribute to is inspired by [`ProjectCodeTest`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v2.0.0/tests/ProjectCodeTest.php)
 in [`friends-of-php/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer), and was initially created by [Dariusz Rumiński](https://github.com/keradus).
