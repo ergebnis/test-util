@@ -6,15 +6,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.8.0...master`](https://github.com/localheinz/test-util/compare/0.8.0...master).
+For a full diff see [`0.8.0...master`][0.8.0...master].
 
-## [`0.8.0`](https://github.com/localheinz/test-util/releases/tag/0.8.0)
+## [`0.8.0`][0.8.0]
 
-For a full diff see [`0.7.0...0.8.0`](https://github.com/localheinz/test-util/compare/0.7.0...0.8.0).
+For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 
 ### Changed
 
-* Dropped support for PHP 7.1 ([#118](https://github.com/localheinz/test-util/pull/118)), by [@localheinz](https://github.com/localheinz)
-* Methods in `Helper` trait are now `static` ([#119](https://github.com/localheinz/test-util/pull/119)), by [@localheinz](https://github.com/localheinz)
-* Dropped support for `phpunit/phpunit:^6.0.0` ([#120](https://github.com/localheinz/test-util/pull/120)), by [@localheinz](https://github.com/localheinz)
-* Allowed installation with `phpunit/phpunit:^8.0.0` ([#120](https://github.com/localheinz/test-util/pull/120)), by [@localheinz](https://github.com/localheinz)
+* Dropped support for PHP 7.1 ([#118]), by [@localheinz]
+* Methods in `Helper` trait are now `static` ([#119]), by [@localheinz]
+* Dropped support for `phpunit/phpunit:^6.0.0` ([#120]), by [@localheinz]
+* Allowed installation with `phpunit/phpunit:^8.0.0` ([#122]), by [@localheinz]
+
+[0.8.0]: https://github.com/localheinz/test-util/releases/tag/0.8.0
+
+[0.7.0...0.8.0]: https://github.com/localheinz/test-util/compare/0.7.0...0.8.0
+[0.8.0...master]: https://github.com/localheinz/test-util/compare/0.8.0...master
+
+[#118]: https://github.com/localheinz/test-util/pull/118
+[#119]: https://github.com/localheinz/test-util/pull/119
+[#120]: https://github.com/localheinz/test-util/pull/120
+[#122]: https://github.com/localheinz/test-util/pull/122
+
+[@localheinz]: https://github.com/localheinz
