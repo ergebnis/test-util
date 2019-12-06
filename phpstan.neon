@@ -1,7 +1,5 @@
 includes:
-	- vendor/localheinz/phpstan-rules/rules.neon
-	- vendor/phpstan/phpstan-strict-rules/rules.neon
-	- vendor/phpstan/phpstan/conf/config.levelmax.neon
+	- phpstan-baseline.neon
 
 parameters:
 	classesAllowedToBeExtended:
@@ -9,6 +7,7 @@ parameters:
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture/
 	inferPrivatePropertyTypeFromConstructor: true
+	level: max
 	paths:
 		- src
 		- test
