@@ -1,9 +1,9 @@
 # test-util
 
 [![Continuous Integration](https://github.com/ergebnis/test-util/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/test-util/actions)
-[![Code Coverage](https://codecov.io/gh/ergebnis/test-util/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/test-util)
-[![Latest Stable Version](https://poser.pugx.org/ergebnis/test-util/v/stable)](https://packagist.org/packages/localheinz/test-util)
-[![Total Downloads](https://poser.pugx.org/ergebnis/test-util/downloads)](https://packagist.org/packages/localheinz/test-util)
+[![Code Coverage](https://codecov.io/gh/ergebnis/test-util/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/test-util)
+[![Latest Stable Version](https://poser.pugx.org/ergebnis/test-util/v/stable)](https://packagist.org/packages/ergebnis/test-util)
+[![Total Downloads](https://poser.pugx.org/ergebnis/test-util/downloads)](https://packagist.org/packages/ergebnis/test-util)
 
 Provides utilities for tests.
 
@@ -12,7 +12,7 @@ Provides utilities for tests.
 Run
 
 ```
-$ composer require --dev localheinz/test-util
+$ composer require --dev ergebnis/test-util
 ```
 
 ## Usage
