@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/test-util
  */
 
-namespace Localheinz\Test\Util;
+namespace Ergebnis\Test\Util;
 
 use Ergebnis\Classy;
 use Faker\Factory;

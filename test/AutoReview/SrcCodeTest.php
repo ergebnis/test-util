@@ -11,9 +11,9 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/test-util
  */
 
-namespace Localheinz\Test\Util\Test\AutoReview;
+namespace Ergebnis\Test\Util\Test\AutoReview;
 
-use Localheinz\Test\Util\Helper;
+use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
@@ -34,8 +34,8 @@ final class SrcCodeTest extends Framework\TestCase
     {
         self::assertClassesHaveTests(
             __DIR__ . '/../../src',
-            'Localheinz\\Test\\Util\\',
-            'Localheinz\\Test\\Util\\Test\\Unit\\'
+            'Ergebnis\\Test\\Util\\',
+            'Ergebnis\\Test\\Util\\Test\\Unit\\'
         );
     }
 }

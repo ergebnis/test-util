@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Localheinz\Test\Util\Test\Fixture\ClassesHaveTests\WithTests\Src;
+namespace Ergebnis\Test\Util\Test\Fixture\ClassesHaveTests\WithTests\Src;
 
 interface ExampleInterface
 {

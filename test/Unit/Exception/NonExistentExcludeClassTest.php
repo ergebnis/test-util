@@ -11,18 +11,18 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/test-util
  */
 
-namespace Localheinz\Test\Util\Test\Unit\Exception;
+namespace Ergebnis\Test\Util\Test\Unit\Exception;
 
-use Localheinz\Test\Util\Exception\NonExistentExcludeClass;
-use Localheinz\Test\Util\Helper;
+use Ergebnis\Test\Util\Exception\NonExistentExcludeClass;
+use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Localheinz\Test\Util\Exception\NonExistentExcludeClass
+ * @covers \Ergebnis\Test\Util\Exception\NonExistentExcludeClass
  *
- * @uses \Localheinz\Test\Util\Helper
+ * @uses \Ergebnis\Test\Util\Helper
  */
 final class NonExistentExcludeClassTest extends Framework\TestCase
 {

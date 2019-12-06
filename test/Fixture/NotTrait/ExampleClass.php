@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Localheinz\Test\Util\Test\Fixture\NotTrait;
+namespace Ergebnis\Test\Util\Test\Fixture\NotTrait;
 
 final class ExampleClass
 {

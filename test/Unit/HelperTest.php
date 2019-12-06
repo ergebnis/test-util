@@ -11,24 +11,24 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/test-util
  */
 
-namespace Localheinz\Test\Util\Test\Unit;
+namespace Ergebnis\Test\Util\Test\Unit;
 
+use Ergebnis\Test\Util\Exception;
+use Ergebnis\Test\Util\Helper;
+use Ergebnis\Test\Util\Test\Fixture;
 use Faker\Factory;
 use Faker\Generator;
 use Faker\Provider;
-use Localheinz\Test\Util\Exception;
-use Localheinz\Test\Util\Helper;
-use Localheinz\Test\Util\Test\Fixture;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Localheinz\Test\Util\Helper
+ * @covers \Ergebnis\Test\Util\Helper
  *
- * @uses \Localheinz\Test\Util\Exception\InvalidExcludeClassName
- * @uses \Localheinz\Test\Util\Exception\NonExistentDirectory
- * @uses \Localheinz\Test\Util\Exception\NonExistentExcludeClass
+ * @uses \Ergebnis\Test\Util\Exception\InvalidExcludeClassName
+ * @uses \Ergebnis\Test\Util\Exception\NonExistentDirectory
+ * @uses \Ergebnis\Test\Util\Exception\NonExistentExcludeClass
  */
 final class HelperTest extends Framework\TestCase
 {
@@ -269,8 +269,8 @@ final class HelperTest extends Framework\TestCase
     public function testAssertClassesHaveTestsFailsWhenFoundClassesDoNotHaveTests(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/WithoutTests/Src';
-        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithoutTests\\Src\\';
-        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithoutTests\\Test\\';
+        $namespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithoutTests\\Src\\';
+        $testNamespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithoutTests\\Test\\';
 
         $classesWithoutTests = [
             Fixture\ClassesHaveTests\WithoutTests\Src\AnotherExampleClass::class,
@@ -313,8 +313,8 @@ final class HelperTest extends Framework\TestCase
     public function testAssertClassesHaveTestsSucceedsWhenNoClassesHaveBeenFound(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/EmptyDirectory/Src';
-        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\EmptyDirectory\\Src\\';
-        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\EmptyDirectory\\Test\\';
+        $namespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\EmptyDirectory\\Src\\';
+        $testNamespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\EmptyDirectory\\Test\\';
 
         self::assertClassesHaveTests(
             $directory,
@@ -326,8 +326,8 @@ final class HelperTest extends Framework\TestCase
     public function testAssertClassesHaveTestsSucceedsWhenFoundClassesHaveTests(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/WithTests/Src';
-        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Src\\';
-        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Test\\';
+        $namespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Src\\';
+        $testNamespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Test\\';
 
         self::assertClassesHaveTests(
             $directory,
@@ -356,13 +356,13 @@ final class HelperTest extends Framework\TestCase
     public function providerNamespaceAndTestNamespace(): \Generator
     {
         $namespaces = [
-            'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Src',
-            'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Src\\',
+            'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Src',
+            'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Src\\',
         ];
 
         $testNamespaces = [
-            'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Test',
-            'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Test\\',
+            'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Test',
+            'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\WithTests\\Test\\',
         ];
 
         foreach ($namespaces as $namespace) {
@@ -383,8 +383,8 @@ final class HelperTest extends Framework\TestCase
     public function testAssertClassesHaveTestsWithExcludeClassNamesRejectsInvalidExcludeClassNames($excludeClassyName): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests/Src';
-        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Src\\';
-        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
+        $namespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Src\\';
+        $testNamespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
         $excludeClassyNames = [
             $excludeClassyName,
         ];
@@ -402,8 +402,8 @@ final class HelperTest extends Framework\TestCase
     public function testAssertClassesHaveTestsWithExcludeClassNamesRejectsNonExistentExcludeClassNames(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests/Src';
-        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Src\\';
-        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
+        $namespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Src\\';
+        $testNamespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
         $nonExistentClassName = __NAMESPACE__ . '\\NonExistentClass';
         $excludeClassyNames = [
             Fixture\ClassesHaveTests\NotAllClassesHaveTests\Src\AnotherExampleClass::class,
@@ -424,8 +424,8 @@ final class HelperTest extends Framework\TestCase
     public function testAssertClassesHaveTestsWithExcludeClassNamesFailsWhenFoundClassesDoNotHaveTests(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests/Src';
-        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Src\\';
-        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
+        $namespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Src\\';
+        $testNamespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
         $excludeClassyNames = [
             Fixture\ClassesHaveTests\NotAllClassesHaveTests\Src\AnotherExampleClass::class,
         ];
@@ -451,8 +451,8 @@ final class HelperTest extends Framework\TestCase
     public function testAssertClassesHaveTestsWithExcludeClassNamesSucceedsWhenFoundClassesHaveTests(): void
     {
         $directory = __DIR__ . '/../Fixture/ClassesHaveTests/NotAllClassesHaveTests/Src';
-        $namespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Src\\';
-        $testNamespace = 'Localheinz\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
+        $namespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Src\\';
+        $testNamespace = 'Ergebnis\\Test\\Util\\Test\\Fixture\\ClassesHaveTests\\NotAllClassesHaveTests\\Test\\';
         $excludeClassyNames = [
             Fixture\ClassesHaveTests\NotAllClassesHaveTests\Src\AnotherExampleClass::class,
             Fixture\ClassesHaveTests\NotAllClassesHaveTests\Src\OneMoreExampleClass::class,
