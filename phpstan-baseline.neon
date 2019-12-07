@@ -1,6 +1,485 @@
 
 
 parameters:
-	ignoreErrors: []
+	ignoreErrors:
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertClassyConstructsSatisfySpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertClassExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertClassImplementsInterface\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertClassIsAbstract\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertClassIsFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertClassSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertClassUsesTrait\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertInterfaceExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertInterfaceExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertInterfaceSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertTraitExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertClassyConstructsSatisfySpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertClassExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertClassImplementsInterface\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertClassIsAbstract\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertClassIsFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertClassSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertClassUsesTrait\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertInterfaceExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertInterfaceExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertInterfaceSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertTraitExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertClassyConstructsSatisfySpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertClassExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertClassImplementsInterface\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertClassIsAbstract\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertClassIsFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertClassSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertClassUsesTrait\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertInterfaceExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertInterfaceExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertInterfaceSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertTraitExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertClassyConstructsSatisfySpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertClassExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertClassImplementsInterface\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertClassIsAbstract\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertClassIsFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertClassSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertClassUsesTrait\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertInterfaceExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertInterfaceExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertInterfaceSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertTraitExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertClassyConstructsSatisfySpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertClassExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertClassImplementsInterface\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertClassIsAbstract\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertClassIsFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertClassSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertClassUsesTrait\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertInterfaceExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertInterfaceExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertInterfaceSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertTraitExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertClassyConstructsSatisfySpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertClassExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertClassImplementsInterface\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertClassIsAbstract\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertClassIsFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertClassSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertClassUsesTrait\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertInterfaceExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertInterfaceExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertInterfaceSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertTraitExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
 
 
