@@ -28,6 +28,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 * Allowed installation with `phpunit/phpunit:^8.0.0` ([#122]), by [@localheinz]
 
 [0.8.0]: https://github.com/ergebnis/test-util/releases/tag/0.8.0
+[0.9.0]: https://github.com/ergebnis/test-util/releases/tag/0.9.0
 
 [0.7.0...0.8.0]: https://github.com/ergebnis/test-util/compare/0.7.0...0.8.0
 [0.8.0...0.9.0]: https://github.com/ergebnis/test-util/compare/0.8.0...0.9.0
