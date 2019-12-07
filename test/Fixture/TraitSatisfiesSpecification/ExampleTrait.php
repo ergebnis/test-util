@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Localheinz\Test\Util\Test\Fixture\TraitSatisfiesSpecification;
+namespace Ergebnis\Test\Util\Test\Fixture\TraitSatisfiesSpecification;
 
 trait ExampleTrait
 {

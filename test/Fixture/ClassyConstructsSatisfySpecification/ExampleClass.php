@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Localheinz\Test\Util\Test\Fixture\ClassyConstructsSatisfySpecification;
+namespace Ergebnis\Test\Util\Test\Fixture\ClassyConstructsSatisfySpecification;
 
 final class ExampleClass
 {

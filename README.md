@@ -17,7 +17,7 @@ $ composer require --dev ergebnis/test-util
 
 ## Usage
 
-Import the `Localheinz\Test\Util\Helper` trait into your test class:
+Import the `Ergebnis\Test\Util\Helper` trait into your test class:
 
 ```php
 <?php
@@ -26,7 +26,7 @@ declare(strict_types=1);
 
 namespace Foo\Bar\Test\Unit;
 
-use Localheinz\Test\Util\Helper;
+use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 final class BazTest extends Framework\TestCase
@@ -48,8 +48,8 @@ declare(strict_types=1);
 
 namespace Example\Test\Unit;
 
+use Ergebnis\Test\Util\Helper;
 use Example\Player;
-use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
 final class PlayerTest extends Framework\TestCase

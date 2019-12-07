@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Localheinz\Test\Util\Test\Fixture\InterfaceExtends;
+namespace Ergebnis\Test\Util\Test\Fixture\InterfaceExtends;
 
 interface ParentInterface
 {

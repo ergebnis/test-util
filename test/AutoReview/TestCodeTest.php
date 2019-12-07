@@ -11,10 +11,10 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/test-util
  */
 
-namespace Localheinz\Test\Util\Test\AutoReview;
+namespace Ergebnis\Test\Util\Test\AutoReview;
 
-use Localheinz\Test\Util\Helper;
-use Localheinz\Test\Util\Test\Fixture;
+use Ergebnis\Test\Util\Helper;
+use Ergebnis\Test\Util\Test\Fixture;
 use PHPUnit\Framework;
 
 /**

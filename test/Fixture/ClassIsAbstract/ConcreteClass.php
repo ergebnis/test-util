@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Localheinz\Test\Util\Test\Fixture\ClassIsAbstract;
+namespace Ergebnis\Test\Util\Test\Fixture\ClassIsAbstract;
 
 class ConcreteClass
 {

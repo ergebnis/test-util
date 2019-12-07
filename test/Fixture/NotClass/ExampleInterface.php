@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Localheinz\Test\Util\Test\Fixture\NotClass;
+namespace Ergebnis\Test\Util\Test\Fixture\NotClass;
 
 interface ExampleInterface
 {

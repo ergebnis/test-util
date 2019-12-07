@@ -37,12 +37,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Localheinz\\Test\\Util\\": "src/"
+      "Ergebnis\\Test\\Util\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Localheinz\\Test\\Util\\Test\\": "test/"
+      "Ergebnis\\Test\\Util\\Test\\": "test/"
     }
   },
   "support": {
