@@ -15,7 +15,37 @@ For a full diff see [`0.8.0...0.9.0`][0.8.0...0.9.0].
 ### Changed
 
 * Renamed vendor namespace `Localheinz` to `Ergebnis` after move to [@ergebnis] ([#147]), by [@localheinz]
-*
+
+  Run
+
+  ```
+  $ composer remove localheinz/test-util
+  ```
+
+  and
+
+  ```
+  $ composer require ergebnis/test-util
+  ```
+
+  to update.
+
+  Run
+
+  ```
+  $ find . -type f -exec sed -i '.bak' 's/Localheinz\\Test\\Util/Ergebnis\\Test\\Util/g' {} \;
+  ```
+
+  to replace occurrences of `Localheinz\Test\Util` with `Ergebnis\Test\Util`.
+
+  Run
+
+  ```
+  $ find -type f -name '*.bak' -delete
+  ```
+
+  to delete backup files created in the previous step.
+
 ## [`0.8.0`][0.8.0]
 
 For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
