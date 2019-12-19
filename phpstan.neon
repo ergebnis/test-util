@@ -2,9 +2,8 @@ includes:
 	- phpstan-baseline.neon
 
 parameters:
-	ergebnis:
-		classesAllowedToBeExtended:
-			- InvalidArgumentException
+	classesAllowedToBeExtended:
+		- InvalidArgumentException
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture/
 	inferPrivatePropertyTypeFromConstructor: true
