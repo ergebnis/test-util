@@ -125,7 +125,7 @@ trait Helper
             ) . 'Test';
         };
 
-        $classesWithoutTests = \array_filter($classyNames, static function (string $className) use ($testClassNameFrom) {
+        $classesWithoutTests = \array_filter($classyNames, static function (string $className) use ($testClassNameFrom): bool {
             $reflection = new \ReflectionClass($className);
 
             /**
@@ -157,13 +157,13 @@ trait Helper
 
         self::assertEmpty($classesWithoutTests, \sprintf(
             "Failed asserting that the classes\n\n%s\n\nhave tests. Expected corresponding test classes\n\n%s\n\nextending from \"%s\" but could not find them.",
-            \implode("\n", \array_map(static function (string $className) {
+            \implode("\n", \array_map(static function (string $className): string {
                 return \sprintf(
                     ' - %s',
                     $className
                 );
             }, $classesWithoutTests)),
-            \implode("\n", \array_map(static function (string $className) use ($testClassNameFrom) {
+            \implode("\n", \array_map(static function (string $className) use ($testClassNameFrom): string {
                 return \sprintf(
                     ' - %s',
                     $testClassNameFrom($className)
@@ -213,7 +213,7 @@ trait Helper
             $excludeClassyNames
         );
 
-        $classyNamesNotSatisfyingSpecification = \array_filter($classyNames, static function (string $className) use ($specification) {
+        $classyNamesNotSatisfyingSpecification = \array_filter($classyNames, static function (string $className) use ($specification): bool {
             return false === $specification($className);
         });
 

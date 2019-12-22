@@ -52,6 +52,9 @@ final class InvalidExcludeClassNameTest extends Framework\TestCase
         self::assertSame($message, $exception->getMessage());
     }
 
+    /**
+     * @return \Generator<array<null|array|bool|float|int|resource|\stdClass>>
+     */
     public function providerInvalidClassName(): \Generator
     {
         $className = [

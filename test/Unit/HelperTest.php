@@ -89,6 +89,9 @@ final class HelperTest extends Framework\TestCase
         self::assertSame($faker, self::faker($locale));
     }
 
+    /**
+     * @return \Generator<array<string>>
+     */
     public function providerLocale(): \Generator
     {
         /**
@@ -172,6 +175,9 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
+    /**
+     * @return \Generator<array<null|array|bool|float|int|resource|\stdClass>>
+     */
     public function providerInvalidExcludeClassyName(): \Generator
     {
         $classyNames = [
@@ -353,6 +359,9 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
+    /**
+     * @return \Generator<array<string>>
+     */
     public function providerNamespaceAndTestNamespace(): \Generator
     {
         $namespaces = [
@@ -627,6 +636,9 @@ final class HelperTest extends Framework\TestCase
         self::assertClassExists($className);
     }
 
+    /**
+     * @return \Generator<array<string>>
+     */
     public function providerNotClass(): \Generator
     {
         $classyNames = [
@@ -1021,6 +1033,9 @@ final class HelperTest extends Framework\TestCase
         self::assertInterfaceExists($interfaceName);
     }
 
+    /**
+     * @return \Generator<array<string>>
+     */
     public function providerNotInterface(): \Generator
     {
         $interfaceNames = [
@@ -1201,6 +1216,9 @@ final class HelperTest extends Framework\TestCase
         self::assertTraitExists($traitName);
     }
 
+    /**
+     * @return \Generator<array<string>>
+     */
     public function providerNotTrait(): \Generator
     {
         $traitNames = [
