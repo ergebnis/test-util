@@ -36,6 +36,7 @@ final class HelperTest extends Framework\TestCase
 
     public function testHelperMethodsAreFinalProtectedAndStatic(): void
     {
+        /** @var class-string $className */
         $className = Helper::class;
 
         $reflection = new \ReflectionClass($className);
