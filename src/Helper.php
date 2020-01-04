@@ -63,6 +63,7 @@ trait Helper
     {
         self::assertClassyConstructsSatisfySpecification(
             static function (string $className): bool {
+                /** @var class-string $className */
                 $reflection = new \ReflectionClass($className);
 
                 return $reflection->isAbstract()
@@ -107,6 +108,7 @@ trait Helper
 
         $constructs = Classy\Constructs::fromDirectory($directory);
 
+        /** @var class-string[] $classyNames */
         $classyNames = \array_diff(
             \array_map(static function (Classy\Construct $construct): string {
                 return $construct->name();
@@ -247,6 +249,7 @@ trait Helper
         self::assertClassExists($parentClassName);
         self::assertClassExists($className);
 
+        /** @var class-string $className */
         $reflection = new \ReflectionClass($className);
 
         self::assertTrue($reflection->isSubclassOf($parentClassName), \sprintf(
@@ -267,6 +270,7 @@ trait Helper
         self::assertInterfaceExists($interfaceName);
         self::assertClassExists($className);
 
+        /** @var class-string $className */
         $reflection = new \ReflectionClass($className);
 
         self::assertTrue($reflection->implementsInterface($interfaceName), \sprintf(
@@ -285,6 +289,7 @@ trait Helper
     {
         self::assertClassExists($className);
 
+        /** @var class-string $className */
         $reflection = new \ReflectionClass($className);
 
         self::assertTrue($reflection->isAbstract(), \sprintf(
@@ -304,6 +309,7 @@ trait Helper
     {
         self::assertClassExists($className);
 
+        /** @var class-string $className */
         $reflection = new \ReflectionClass($className);
 
         self::assertTrue($reflection->isFinal(), \sprintf(
@@ -373,6 +379,7 @@ trait Helper
         self::assertInterfaceExists($parentInterfaceName);
         self::assertInterfaceExists($interfaceName);
 
+        /** @var class-string $interfaceName */
         $reflection = new \ReflectionClass($interfaceName);
 
         self::assertTrue($reflection->isSubclassOf($parentInterfaceName), \sprintf(
