@@ -2,8 +2,10 @@
 
 [![Continuous Deployment](https://github.com/ergebnis/test-util/workflows/Continuous%20Deployment/badge.svg)](https://github.com/ergebnis/test-util/actions)
 [![Continuous Integration](https://github.com/ergebnis/test-util/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/test-util/actions)
+
 [![Code Coverage](https://codecov.io/gh/ergebnis/test-util/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/test-util)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/test-util/coverage.svg)](https://shepherd.dev/github/ergebnis/test-util)
+
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/test-util/v/stable)](https://packagist.org/packages/ergebnis/test-util)
 [![Total Downloads](https://poser.pugx.org/ergebnis/test-util/downloads)](https://packagist.org/packages/ergebnis/test-util)
 
@@ -73,8 +75,7 @@ For reference, see [`fzaninotto/faker`](https://github.com/fzaninotto/Faker).
 
 ### Additional Assertions
 
-In addition to the assertions made available by extending from `PHPUnit\Framework\TestCase`,
-the `Helper` trait provides the following assertions:
+In addition to the assertions made available by extending from `PHPUnit\Framework\TestCase`, the `Helper` trait provides the following assertions:
 
 * `assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])`
 * `assertClassesHaveTests(string $directory, string $namespace, string $testNamespace, array $excludeClassyNames = [])`
@@ -106,10 +107,8 @@ Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github
 
 ## License
 
-This package is licensed using the MIT License.
+This package is licensed using the [MIT License](LICENSE.md).
 
 ## Credits
 
-The [`SrcCodeTest`](test/AutoReview/SrcCodeTest.php) in this and other
-projects I maintain or contribute to is inspired by [`ProjectCodeTest`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v2.0.0/tests/ProjectCodeTest.php)
-in [`friends-of-php/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer), and was initially created by [Dariusz Rumiński](https://github.com/keradus).
+The [`SrcCodeTest`](test/AutoReview/SrcCodeTest.php) in this and other projects I maintain or contribute to is inspired by [`ProjectCodeTest`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v2.0.0/tests/ProjectCodeTest.php) in [`friends-of-php/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer), and was initially created by [Dariusz Rumiński](https://github.com/keradus).
