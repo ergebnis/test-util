@@ -33,6 +33,9 @@ trait Helper
      */
     final protected static function faker(string $locale = 'en_US'): Generator
     {
+        /**
+         * @var array<string, Generator>
+         */
         static $fakers = [];
 
         if (!\array_key_exists($locale, $fakers)) {
@@ -51,8 +54,8 @@ trait Helper
      *
      * Useful to prevent long inheritance chains.
      *
-     * @param string   $directory
-     * @param string[] $excludeClassNames
+     * @param string         $directory
+     * @param class-string[] $excludeClassNames
      *
      * @throws Exception\NonExistentDirectory
      * @throws Exception\InvalidExcludeClassName
@@ -80,10 +83,10 @@ trait Helper
     /**
      * Asserts that classes in a directory have matching test classes extending from PHPUnit\Framework\TestCase.
      *
-     * @param string   $directory
-     * @param string   $namespace
-     * @param string   $testNamespace
-     * @param string[] $excludeClassyNames
+     * @param string         $directory
+     * @param string         $namespace
+     * @param string         $testNamespace
+     * @param class-string[] $excludeClassyNames
      *
      * @throws Exception\NonExistentDirectory
      * @throws Exception\InvalidExcludeClassName
@@ -128,6 +131,7 @@ trait Helper
         };
 
         $classesWithoutTests = \array_filter($classyNames, static function (string $className) use ($testClassNameFrom): bool {
+            /** @var class-string $className */
             $reflection = new \ReflectionClass($className);
 
             /**
@@ -147,6 +151,7 @@ trait Helper
             $testClassName = $testClassNameFrom($className);
 
             if (\class_exists($testClassName)) {
+                /** @var class-string $testClassName */
                 $testReflection = new \ReflectionClass($testClassName);
 
                 if ($testReflection->isSubclassOf(Framework\TestCase::class) && $testReflection->isInstantiable()) {
@@ -182,10 +187,10 @@ trait Helper
      *
      * The specification will be invoked with a single argument, the class name, and should return true or false.
      *
-     * @param callable $specification
-     * @param string   $directory
-     * @param string[] $excludeClassyNames
-     * @param string   $message
+     * @param callable       $specification
+     * @param string         $directory
+     * @param class-string[] $excludeClassyNames
+     * @param string         $message
      *
      * @throws Exception\NonExistentDirectory
      * @throws Exception\InvalidExcludeClassName
@@ -241,8 +246,8 @@ trait Helper
     /**
      * Asserts that a class extends from a parent class.
      *
-     * @param string $parentClassName
-     * @param string $className
+     * @param class-string $parentClassName
+     * @param class-string $className
      */
     final protected static function assertClassExtends(string $parentClassName, string $className): void
     {
@@ -262,8 +267,8 @@ trait Helper
     /**
      * Asserts that a class implements an interface.
      *
-     * @param string $interfaceName
-     * @param string $className
+     * @param class-string $interfaceName
+     * @param class-string $className
      */
     final protected static function assertClassImplementsInterface(string $interfaceName, string $className): void
     {
@@ -283,7 +288,7 @@ trait Helper
     /**
      * Asserts that a class is abstract.
      *
-     * @param string $className
+     * @param class-string $className
      */
     final protected static function assertClassIsAbstract(string $className): void
     {
@@ -303,7 +308,7 @@ trait Helper
      *
      * Useful to prevent long inheritance chains.
      *
-     * @param string $className
+     * @param class-string $className
      */
     final protected static function assertClassIsFinal(string $className): void
     {
@@ -323,9 +328,9 @@ trait Helper
      *
      * The specification will be invoked with a single argument, the class name, and should return true or false.
      *
-     * @param callable $specification
-     * @param string   $className
-     * @param string   $message
+     * @param callable(class-string):bool $specification
+     * @param class-string                $className
+     * @param string                      $message
      */
     final protected static function assertClassSatisfiesSpecification(callable $specification, string $className, string $message = ''): void
     {
@@ -340,8 +345,8 @@ trait Helper
     /**
      * Asserts that a class uses a trait.
      *
-     * @param string $traitName
-     * @param string $className
+     * @param class-string $traitName
+     * @param class-string $className
      */
     final protected static function assertClassUsesTrait(string $traitName, string $className): void
     {
@@ -371,8 +376,8 @@ trait Helper
     /**
      * Asserts that an interface extends a parent interface.
      *
-     * @param string $parentInterfaceName
-     * @param string $interfaceName
+     * @param class-string $parentInterfaceName
+     * @param class-string $interfaceName
      */
     final protected static function assertInterfaceExtends(string $parentInterfaceName, string $interfaceName): void
     {
@@ -394,9 +399,9 @@ trait Helper
      *
      * The specification will be invoked with a single argument, the class name, and should return true or false.
      *
-     * @param callable $specification
-     * @param string   $interfaceName
-     * @param string   $message
+     * @param callable(class-string):bool $specification
+     * @param class-string                $interfaceName
+     * @param string                      $message
      */
     final protected static function assertInterfaceSatisfiesSpecification(callable $specification, string $interfaceName, string $message = ''): void
     {
@@ -426,9 +431,9 @@ trait Helper
      *
      * The specification will be invoked with a single argument, the class name, and should return true or false.
      *
-     * @param callable $specification
-     * @param string   $traitName
-     * @param string   $message
+     * @param callable(class-string):bool $specification
+     * @param class-string                $traitName
+     * @param string                      $message
      */
     final protected static function assertTraitSatisfiesSpecification(callable $specification, string $traitName, string $message = ''): void
     {
