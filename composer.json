@@ -18,7 +18,7 @@
   ],
   "require": {
     "php": "^7.1",
-    "ergebnis/classy": "~1.0.0",
+    "ergebnis/classy": "^1.0.0",
     "fzaninotto/faker": "^1.9.0"
   },
   "require-dev": {
