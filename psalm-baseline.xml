@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.8.3@389af1bfc739bfdff3f9e3dc7bd6499aee51a831">
+<files psalm-version="3.9.5@0cfe565d0afbcd31eadcc281b9017b5692911661">
   <file src="src/Helper.php">
     <MissingClosureParamType occurrences="2">
       <code>$excludeClassyName</code>
       <code>$excludeClassyName</code>
     </MissingClosureParamType>
+  </file>
+  <file src="test/Unit/Exception/InvalidExcludeClassNameTest.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>\Generator&lt;array&lt;null|array|bool|float|int|resource|\stdClass&gt;&gt;</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="test/Unit/HelperTest.php">
+    <ArgumentTypeCoercion occurrences="16">
+      <code>$excludeClassyNames</code>
+      <code>$excludeClassyNames</code>
+      <code>$excludeClassyNames</code>
+      <code>$parentClassName</code>
+      <code>$className</code>
+      <code>$interfaceName</code>
+      <code>$className</code>
+      <code>$className</code>
+      <code>$className</code>
+      <code>$className</code>
+      <code>$traitName</code>
+      <code>$className</code>
+      <code>$parentInterfaceName</code>
+      <code>$interfaceName</code>
+      <code>$interfaceName</code>
+      <code>$traitName</code>
+    </ArgumentTypeCoercion>
+    <InvalidReturnType occurrences="1">
+      <code>\Generator&lt;string, array&lt;string&gt;&gt;</code>
+    </InvalidReturnType>
+    <MixedArgumentTypeCoercion occurrences="3">
+      <code>$excludeClassNames</code>
+      <code>$excludeClassyNames</code>
+      <code>$excludeClassyNames</code>
+    </MixedArgumentTypeCoercion>
+    <MixedInferredReturnType occurrences="1">
+      <code>\Generator&lt;array&lt;string&gt;&gt;</code>
+    </MixedInferredReturnType>
   </file>
 </files>

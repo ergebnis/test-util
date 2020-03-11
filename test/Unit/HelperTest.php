@@ -91,7 +91,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @return \Generator<array<string>>
+     * @return \Generator<string, array<string>>
      */
     public function providerLocale(): \Generator
     {
@@ -177,7 +177,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @return \Generator<array<null|array|bool|float|int|resource|\stdClass>>
+     * @return \Generator<string, array<null|array|bool|float|int|resource|\stdClass>>
      */
     public function providerInvalidExcludeClassyName(): \Generator
     {
@@ -361,7 +361,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @return \Generator<array<string>>
+     * @return \Generator<string, array<string>>
      */
     public function providerNamespaceAndTestNamespace(): \Generator
     {
@@ -551,7 +551,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Exception\InvalidExcludeClassName::class);
 
         self::assertClassyConstructsSatisfySpecification(
-            static function (string $classyName): bool {
+            static function (): bool {
                 return true;
             },
             $directory,
@@ -638,7 +638,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @return \Generator<array<string>>
+     * @return \Generator<string, array<string>>
      */
     public function providerNotClass(): \Generator
     {
@@ -1035,7 +1035,7 @@ final class HelperTest extends Framework\TestCase
     }
 
     /**
-     * @return \Generator<array<string>>
+     * @return \Generator<string, array<string>>
      */
     public function providerNotInterface(): \Generator
     {
@@ -1135,7 +1135,7 @@ final class HelperTest extends Framework\TestCase
      *
      * @param string $interfaceName
      */
-    public function testAssertInterfaceSatisfiesSpecificationFailsWhenInterfaceIsNotAInterface(string $interfaceName): void
+    public function testAssertInterfaceSatisfiesSpecificationFailsWhenInterfaceIsNotInterface(string $interfaceName): void
     {
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
@@ -1315,9 +1315,12 @@ final class HelperTest extends Framework\TestCase
 
     private function assertHasOnlyProvidersWithLocale(string $locale, Generator $faker): void
     {
+        /** @var Provider\Base[] $providers */
+        $providers = $faker->getProviders();
+
         $providerClasses = \array_map(static function (Provider\Base $provider): string {
             return \get_class($provider);
-        }, $faker->getProviders());
+        }, $providers);
 
         $providerLocales = \array_reduce(
             $providerClasses,
