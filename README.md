@@ -1,7 +1,9 @@
 # test-util
 
-[![Continuous Deployment](https://github.com/ergebnis/test-util/workflows/Continuous%20Deployment/badge.svg)](https://github.com/ergebnis/test-util/actions)
-[![Continuous Integration](https://github.com/ergebnis/test-util/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/test-util/actions)
+[![Integrate](https://github.com/ergebnis/test-util/workflows/Integrate/badge.svg?branch=master)](https://github.com/ergebnis/test-util/actions)
+[![Prune](https://github.com/ergebnis/test-util/workflows/Prune/badge.svg?branch=master)](https://github.com/ergebnis/test-util/actions)
+[![Release](https://github.com/ergebnis/test-util/workflows/Release/badge.svg?branch=master)](https://github.com/ergebnis/test-util/actions)
+[![Renew](https://github.com/ergebnis/test-util/workflows/Renew/badge.svg?branch=master)](https://github.com/ergebnis/test-util/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/test-util/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/test-util)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/test-util/coverage.svg)](https://shepherd.dev/github/ergebnis/test-util)
@@ -107,7 +109,9 @@ Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github
 
 ## License
 
-This package is licensed using the [MIT License](LICENSE.md).
+This package is licensed using the MIT License.
+
+Please have a look at [`LICENSE.md`](LICENSE.md).
 
 ## Credits
 
