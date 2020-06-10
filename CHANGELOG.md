@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.0.0...master`][1.0.0...master].
+For a full diff see [`1.0.0...main`][1.0.0...main].
 
 ## [`1.0.0`][1.0.0]
 
@@ -78,7 +78,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [0.8.0...0.9.0]: https://github.com/ergebnis/test-util/compare/0.8.0...0.9.0
 [0.9.0...0.9.1]: https://github.com/ergebnis/test-util/compare/0.9.0...0.9.1
 [0.9.1...1.0.0]: https://github.com/ergebnis/test-util/compare/0.9.1...1.0.0
-[1.0.0...master]: https://github.com/ergebnis/test-util/compare/1.0.0...master
+[1.0.0...main]: https://github.com/ergebnis/test-util/compare/1.0.0...main
 
 [#118]: https://github.com/ergebnis/test-util/pull/118
 [#119]: https://github.com/ergebnis/test-util/pull/119
