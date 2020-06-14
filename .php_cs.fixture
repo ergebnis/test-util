@@ -11,9 +11,9 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/test-util
  */
 
-use Ergebnis\PhpCsFixer\Config;
+use Ergebnis\PhpCsFixer;
 
-$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(''), [
+$config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Php71(''), [
     'final_class' => false,
 ]);
 

@@ -8,14 +8,17 @@ For details, take a look at the following workflow configuration files:
 - [`workflows/prune.yaml`](workflows/prune.yaml)
 - [`workflows/release.yaml`](workflows/release.yaml)
 - [`workflows/renew.yaml`](workflows/renew.yaml)
+- [`workflows/triage.yaml`](workflows/triage.yaml)
 
 ## Coding Standards
+
+We are using [`ergebnis/composer-normalize`](https://github.com/ergebnis/composer-normalize) to normalize `composer.json`.
 
 We are using [`yamllint`](https://github.com/adrienverge/yamllint) to enforce coding standards in YAML files.
 
 If you do not have `yamllint` installed yet, run
 
-```
+```sh
 $ brew install yamllint
 ```
 
@@ -25,7 +28,7 @@ We are using [`friendsofphp/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-C
 
 Run
 
-```
+```sh
 $ make coding-standards
 ```
 
@@ -37,7 +40,7 @@ We are using [`maglnet/composer-require-checker`](https://github.com/maglnet/Com
 
 Run
 
-```
+```sh
 $ make dependency-analysis
 ```
 
@@ -49,7 +52,7 @@ We are using [`phpstan/phpstan`](https://github.com/phpstan/phpstan) and [`vimeo
 
 Run
 
-```
+```sh
 $ make static-code-analysis
 ```
 
@@ -59,7 +62,7 @@ We are also using the baseline features of [`phpstan/phpstan`](https://medium.co
 
 Run
 
-```
+```sh
 $ make static-code-analysis-baseline
 ```
 
@@ -73,7 +76,7 @@ We are using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) t
 
 Run
 
-```
+```sh
 $ make tests
 ```
 
@@ -85,7 +88,7 @@ We are using [`infection/infection`](https://github.com/infection/infection) to 
 
 Enable `pcov` or `Xdebug` and run
 
-```
+```sh
 $ make mutation-tests
 ```
 
@@ -95,7 +98,7 @@ to run mutation tests.
 
 Run
 
-```
+```sh
 $ make
 ```
 
@@ -105,7 +108,7 @@ to enforce coding standards, run a static code analysis, and run tests!
 
 :bulb: Run
 
-```
+```sh
 $ make help
 ```
 
