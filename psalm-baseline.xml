@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.10.1@eeed5ecccc10131397f0eb7ee6da810c0be3a7fc">
+<files psalm-version="3.14.1@9822043ca46d6682b76097bfa97d7c450eef9e90">
   <file src="src/Helper.php">
     <MissingClosureParamType occurrences="2">
       <code>$excludeClassyName</code>
       <code>$excludeClassyName</code>
     </MissingClosureParamType>
+    <UnnecessaryVarAnnotation occurrences="7">
+      <code>class-string</code>
+      <code>class-string</code>
+      <code>class-string</code>
+      <code>class-string</code>
+      <code>class-string</code>
+      <code>class-string</code>
+      <code>class-string</code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/Exception/InvalidExcludeClassNameTest.php">
     <MixedInferredReturnType occurrences="1">
@@ -41,5 +50,12 @@
     <MixedInferredReturnType occurrences="1">
       <code>\Generator&lt;array&lt;string&gt;&gt;</code>
     </MixedInferredReturnType>
+    <UnusedClosureParam occurrences="5">
+      <code>$classyName</code>
+      <code>$className</code>
+      <code>$className</code>
+      <code>$className</code>
+      <code>$classyName</code>
+    </UnusedClosureParam>
   </file>
 </files>
