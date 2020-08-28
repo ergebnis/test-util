@@ -1,20 +1,20 @@
 {
-  "symbol-whitelist" : [
-    "array",
-    "bool",
-    "callable",
-    "false",
-    "float",
-    "int",
-    "iterable",
-    "null",
-    "object",
-    "parent",
-    "self",
-    "static",
-    "string",
-    "true",
-    "void",
-    "PHPUnit\\Framework\\TestCase"
-  ]
+    "symbol-whitelist": [
+        "array",
+        "bool",
+        "callable",
+        "false",
+        "float",
+        "int",
+        "iterable",
+        "null",
+        "object",
+        "parent",
+        "self",
+        "static",
+        "string",
+        "true",
+        "void",
+        "PHPUnit\\Framework\\TestCase"
+    ]
 }
