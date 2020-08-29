@@ -4,44 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9801502aad83494162e53162342c3dc2",
+    "content-hash": "c20986ba62ca4df821e01b4d0ab8ddf6",
     "packages": [
         {
             "name": "ergebnis/classy",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/classy.git",
-                "reference": "a763926a0a1e908cc30317494ea8bba6440e41e7"
+                "reference": "6bc67be4c69ed315301c3d774e6560cdfb2b2863"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/classy/zipball/a763926a0a1e908cc30317494ea8bba6440e41e7",
-                "reference": "a763926a0a1e908cc30317494ea8bba6440e41e7",
+                "url": "https://api.github.com/repos/ergebnis/classy/zipball/6bc67be4c69ed315301c3d774e6560cdfb2b2863",
+                "reference": "6bc67be4c69ed315301c3d774e6560cdfb2b2863",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": "^7.1"
+                "php": "^7.2"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.2.2",
-                "ergebnis/license": "~0.1.0",
-                "ergebnis/php-cs-fixer-config": "^2.0.0",
-                "ergebnis/phpstan-rules": "~0.14.2",
-                "ergebnis/test-util": "~0.7.0",
+                "ergebnis/composer-normalize": "^2.7.1",
+                "ergebnis/license": "^1.0.0",
+                "ergebnis/php-cs-fixer-config": "^2.2.1",
+                "ergebnis/phpstan-rules": "~0.15.2",
+                "ergebnis/test-util": "^1.0.0",
                 "infection/infection": "~0.13.6",
-                "phpbench/phpbench": "~0.16.10",
-                "phpstan/extension-installer": "^1.0.3",
-                "phpstan/phpstan": "~0.12.7",
-                "phpstan/phpstan-deprecation-rules": "~0.12.2",
-                "phpstan/phpstan-strict-rules": "~0.12.2",
+                "phpstan/extension-installer": "^1.0.4",
+                "phpstan/phpstan": "~0.12.40",
+                "phpstan/phpstan-deprecation-rules": "~0.12.5",
+                "phpstan/phpstan-strict-rules": "~0.12.4",
                 "phpunit/phpunit": "^7.5.20",
-                "psalm/plugin-phpunit": "~0.8.1",
-                "vimeo/psalm": "^3.8.3",
+                "psalm/plugin-phpunit": "~0.10.1",
+                "vimeo/psalm": "^3.14.2",
                 "zendframework/zend-file": "^2.8.3"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Ergebnis\\Classy\\": "src/"
@@ -57,9 +61,23 @@
                     "email": "am@localheinz.com"
                 }
             ],
-            "description": "Provides a way to collect classy constructs from source or a directory.",
+            "description": "Provides a finder for classy constructs (classes, interfaces, and traits).",
             "homepage": "https://github.com/ergebnis/classy",
-            "time": "2020-01-21T08:19:00+00:00"
+            "keywords": [
+                "classes",
+                "classy",
+                "constructs",
+                "finder",
+                "interfaces",
+                "traits"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/localheinz",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-08-29T17:54:41+00:00"
         },
         {
             "name": "fzaninotto/faker",
