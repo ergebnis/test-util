@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac236fa38b14423c7f35ee324e13bcbc",
+    "content-hash": "0bf27d95d308cc8ea6cdd00c4517850b",
     "packages": [
         {
             "name": "ergebnis/classy",
@@ -5518,7 +5518,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2"
+        "php": "^7.2 || ^8.0"
     },
     "platform-dev": [],
     "platform-overrides": {
