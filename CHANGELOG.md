@@ -11,6 +11,7 @@ For a full diff see [`1.1.0...main`][1.1.0...main].
 ### Added
 
 * Added `DataProvider\BooleanProvider` ([#326]), by [@localheinz]
+* Added `DataProvider\NullProvider` ([#327]), by [@localheinz]
 
 ## [`1.1.0`][1.1.0]
 
@@ -113,6 +114,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#295]: https://github.com/ergebnis/test-util/pull/295
 [#302]: https://github.com/ergebnis/test-util/pull/302
 [#326]: https://github.com/ergebnis/test-util/pull/326
+[#327]: https://github.com/ergebnis/test-util/pull/327
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

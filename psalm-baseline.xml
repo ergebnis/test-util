@@ -10,6 +10,11 @@
       <code>true === $value</code>
     </RedundantIdentityWithTrue>
   </file>
+  <file src="src/DataProvider/NullProvider.php">
+    <MoreSpecificReturnType occurrences="1">
+      <code>\Generator&lt;string, array{0: null}&gt;</code>
+    </MoreSpecificReturnType>
+  </file>
   <file src="src/Helper.php">
     <MissingClosureParamType occurrences="2">
       <code>$excludeClassyName</code>
