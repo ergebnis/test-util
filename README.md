@@ -118,6 +118,15 @@ For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\BooleanProviderTes
 
 For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\NullProviderTest`](test/Unit/DataProvider/NullProviderTest.php).
 
+#### `DataProvider\StringProvider`
+
+* `arbitrary()` provides non-empty `string`s without leading and trailing whitespade
+* `blank()` provides `string`s consisting of whitespace characters only
+* `empty()` provides an empty `string`
+* `untrimmed()` provides `string`s with leading and trailing whitespace
+*
+For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\StringProviderTest`](test/Unit/DataProvider/StringProviderTest.php).
+
 ## Changelog
 
 Please have a look at [`CHANGELOG.md`](CHANGELOG.md).
