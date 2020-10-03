@@ -142,6 +142,18 @@ final class ExampleTest extends Framework\TestCase
 
 For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\BoolProviderTest`](test/Unit/DataProvider/BoolProviderTest.php).
 
+#### `DataProvider\IntProvider`
+
+* `arbitrary()` provides arbitrary `int`s
+* `greaterThanOne()` provides `int`s greater than `1`
+* `greaterThanZero()` provides `int`s greater than `0`
+* `lessThanOne()` provides `int`s less than `1`
+* `lessThanZero()` provides `int`s less than `0`
+* `one()` provides `1`
+* `zero()` provides `0`
+
+For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\IntProviderTest`](test/Unit/DataProvider/IntProviderTest.php).
+
 #### `DataProvider\NullProvider`
 
 * `null()` provides `null`
