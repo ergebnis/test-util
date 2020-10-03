@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace Ergebnis\Test\Util\Test\Unit\DataProvider;
 
-use PHPUnit\Framework;
+use Ergebnis\Test\Util\DataProvider\NullProvider;
 
 /**
  * @internal
  *
  * @covers \Ergebnis\Test\Util\DataProvider\NullProvider
  */
-final class NullProviderTest extends Framework\TestCase
+final class NullProviderTest extends AbstractProviderTestCase
 {
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\NullProvider::null()
@@ -30,5 +30,16 @@ final class NullProviderTest extends Framework\TestCase
     public function testNullProvidesNull($value): void
     {
         self::assertNull($value);
+    }
+
+    public function testNullReturnsGeneratorThatProvidesNull(): void
+    {
+        $values = [
+            'null' => null,
+        ];
+
+        $provider = NullProvider::null();
+
+        self::assertProvidesDataForValues($values, $provider);
     }
 }
