@@ -34,13 +34,21 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     public function testArbitraryReturnsGeneratorThatProvidesIntValues(): void
     {
-        $test = static function ($value): bool {
-            return \is_int($value);
-        };
+        $tests = [
+            'int-less-than-minus-one' => static function (int $value): bool {
+                return -1 > $value;
+            },
+            'int-minus-one' => -1,
+            'int-zero' => 0,
+            'int-plus-one' => 1,
+            'int-greater-than-plus-one' => static function (int $value): bool {
+                return 1 < $value;
+            },
+        ];
 
         $provider = IntProvider::arbitrary();
 
-        self::assertProvidesDataForValuesWhere($test, $provider);
+        self::assertProvidesDataForValuesPassingTests($tests, $provider);
     }
 
     /**
@@ -55,13 +63,16 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     public function testLessThanZeroReturnsGeneratorThatProvidesIntLessThanZero(): void
     {
-        $test = static function (int $value): bool {
-            return 0 > $value;
-        };
+        $tests = [
+            'int-less-than-minus-one' => static function (int $value): bool {
+                return -1 > $value;
+            },
+            'int-minus-one' => -1,
+        ];
 
         $provider = IntProvider::lessThanZero();
 
-        self::assertProvidesDataForValuesWhere($test, $provider);
+        self::assertProvidesDataForValuesPassingTests($tests, $provider);
     }
 
     /**
@@ -97,13 +108,16 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     public function testGreaterThanZeroReturnsGeneratorThatProvidesIntGreaterThanZero(): void
     {
-        $test = static function (int $value): bool {
-            return 0 < $value;
-        };
+        $tests = [
+            'int-plus-one' => 1,
+            'int-greater-than-plus-one' => static function (int $value): bool {
+                return 1 < $value;
+            },
+        ];
 
         $provider = IntProvider::greaterThanZero();
 
-        self::assertProvidesDataForValuesWhere($test, $provider);
+        self::assertProvidesDataForValuesPassingTests($tests, $provider);
     }
 
     /**
@@ -118,13 +132,17 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     public function testLessThanOneReturnsGeneratorThatProvidesIntLessThanOne(): void
     {
-        $test = static function (int $value): bool {
-            return 1 > $value;
-        };
+        $tests = [
+            'int-less-than-minus-one' => static function (int $value): bool {
+                return -1 > $value;
+            },
+            'int-minus-one' => -1,
+            'int-zero' => 0,
+        ];
 
         $provider = IntProvider::lessThanOne();
 
-        self::assertProvidesDataForValuesWhere($test, $provider);
+        self::assertProvidesDataForValuesPassingTests($tests, $provider);
     }
 
     public function testOneReturnsGeneratorThatProvidesOne(): void
@@ -150,12 +168,14 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     public function testGreaterThanOneReturnsGeneratorThatProvidesIntGreaterThanOne(): void
     {
-        $test = static function (int $value): bool {
-            return 1 < $value;
-        };
+        $tests = [
+            'int-greater-than-plus-one' => static function (int $value): bool {
+                return 1 < $value;
+            },
+        ];
 
         $provider = IntProvider::greaterThanOne();
 
-        self::assertProvidesDataForValuesWhere($test, $provider);
+        self::assertProvidesDataForValuesPassingTests($tests, $provider);
     }
 }

@@ -45,27 +45,46 @@ abstract class AbstractProviderTestCase extends Framework\TestCase
     }
 
     /**
-     * @param \Closure                         $test
+     * @param array<string, \Closure|mixed>    $tests
      * @param \Generator<string, array<mixed>> $provider
      */
-    final protected static function assertProvidesDataForValuesWhere(\Closure $test, \Generator $provider): void
+    final protected static function assertProvidesDataForValuesPassingTests(array $tests, \Generator $provider): void
     {
         $provided = \iterator_to_array($provider);
 
-        self::assertProvidedDataIsNotEmpty($provided);
-        self::assertProvidedDataContainsArraysWhereFirstElementPassesTest($test, $provided);
-    }
+        self::assertEquals(
+            \array_keys($tests),
+            \array_keys($provided),
+            'Failed asserting that the provided data has the same keys as the tests.'
+        );
 
-    /**
-     * @param \Closure                         $test
-     * @param \Generator<string, array<mixed>> $provider
-     */
-    final protected static function assertProvidesDataForValuesWhereNot(\Closure $test, \Generator $provider): void
-    {
-        $provided = \iterator_to_array($provider);
+        $normalizedTests = \array_map(static function ($test): \Closure {
+            if (!$test instanceof \Closure) {
+                return static function ($value) use ($test): bool {
+                    return $value === $test;
+                };
+            }
 
-        self::assertProvidedDataIsNotEmpty($provided);
-        self::assertProvidedDataContainsArraysWhereFirstElementDoesNotPassTest($test, $provided);
+            return $test;
+        }, $tests);
+
+        $keysWhereValueDoesNotPassTest = \array_filter(\array_keys($provided), static function (string $key) use ($provided, $normalizedTests): bool {
+            $set = $provided[$key];
+
+            self::assertIsArray($set);
+            self::assertCount(1, $set);
+
+            $value = \array_shift($set);
+            $test = $normalizedTests[$key];
+
+            return true !== $test($value);
+        });
+
+        self::assertEquals(
+            [],
+            $keysWhereValueDoesNotPassTest,
+            'Failed asserting that all values pass the corresponding tests.'
+        );
     }
 
     /**

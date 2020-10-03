@@ -54,10 +54,19 @@
       <code>class-string</code>
     </UnnecessaryVarAnnotation>
   </file>
-  <file src="test/Unit/DataProvider/IntProviderTest.php">
+  <file src="test/Unit/DataProvider/AbstractProviderTestCase.php">
     <MissingClosureParamType occurrences="1">
       <code>$value</code>
     </MissingClosureParamType>
+    <MixedAssignment occurrences="1">
+      <code>$value</code>
+    </MixedAssignment>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+    <RedundantIdentityWithTrue occurrences="1">
+      <code>true === $test($value)</code>
+    </RedundantIdentityWithTrue>
   </file>
   <file src="test/Unit/Exception/InvalidExcludeClassNameTest.php">
     <MixedInferredReturnType occurrences="1">

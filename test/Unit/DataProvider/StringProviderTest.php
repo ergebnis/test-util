@@ -34,13 +34,30 @@ final class StringProviderTest extends AbstractProviderTestCase
 
     public function testArbitraryReturnsGeneratorThatProvidesStringsThatAreNeitherEmptyNorBlank(): void
     {
-        $test = static function (string $value): bool {
-            return '' === \trim($value);
-        };
+        $tests = [
+            'string-arbitrary-sentence' => static function (string $value): bool {
+                return '' !== $value && '' !== \trim($value);
+            },
+            'string-arbitrary-word' => static function (string $value): bool {
+                return '' !== $value && '' !== \trim($value);
+            },
+            'string-untrimmed-carriage-return' => static function (string $value): bool {
+                return 1 === \preg_match('/^\r{1,5}\w+\r{1,5}$/', $value);
+            },
+            'string-untrimmed-line-feed' => static function (string $value): bool {
+                return 1 === \preg_match('/^\n{1,5}\w+\n{1,5}$/', $value);
+            },
+            'string-untrimmed-space' => static function (string $value): bool {
+                return 1 === \preg_match('/^\s{1,5}\w+\s{1,5}$/', $value);
+            },
+            'string-untrimmed-tab' => static function (string $value): bool {
+                return 1 === \preg_match('/^\t{1,5}\w+\t{1,5}$/', $value);
+            },
+        ];
 
         $provider = StringProvider::arbitrary();
 
-        self::assertProvidesDataForValuesWhereNot($test, $provider);
+        self::assertProvidesDataForValuesPassingTests($tests, $provider);
     }
 
     /**
@@ -103,13 +120,23 @@ final class StringProviderTest extends AbstractProviderTestCase
 
     public function testUntrimmedReturnsGeneratorThatProvidesUntrimmedStrings(): void
     {
-        $test = static function (string $value): bool {
-            return \trim($value) !== $value
-                && '' !== \trim($value);
-        };
+        $tests = [
+            'string-untrimmed-carriage-return' => static function (string $value): bool {
+                return 1 === \preg_match('/^\r{1,5}\w+\r{1,5}$/', $value);
+            },
+            'string-untrimmed-line-feed' => static function (string $value): bool {
+                return 1 === \preg_match('/^\n{1,5}\w+\n{1,5}$/', $value);
+            },
+            'string-untrimmed-space' => static function (string $value): bool {
+                return 1 === \preg_match('/^\s{1,5}\w+\s{1,5}$/', $value);
+            },
+            'string-untrimmed-tab' => static function (string $value): bool {
+                return 1 === \preg_match('/^\t{1,5}\w+\t{1,5}$/', $value);
+            },
+        ];
 
         $provider = StringProvider::untrimmed();
 
-        self::assertProvidesDataForValuesWhere($test, $provider);
+        self::assertProvidesDataForValuesPassingTests($tests, $provider);
     }
 }
