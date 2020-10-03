@@ -24,7 +24,7 @@ final class StringProvider
      */
     public static function arbitrary(): \Generator
     {
-        yield from self::provideWhereNot(self::values(), static function (string $value): bool {
+        yield from self::provideDataForValuesWhereNot(self::values(), static function (string $value): bool {
             return '' === \trim($value);
         });
     }
@@ -34,7 +34,7 @@ final class StringProvider
      */
     public static function blank(): \Generator
     {
-        yield from self::provideWhere(self::values(), static function (string $value): bool {
+        yield from self::provideDataForValuesWhere(self::values(), static function (string $value): bool {
             return '' === \trim($value)
                 && '' !== $value;
         });
@@ -45,7 +45,7 @@ final class StringProvider
      */
     public static function empty(): \Generator
     {
-        yield from self::provideWhere(self::values(), static function (string $value): bool {
+        yield from self::provideDataForValuesWhere(self::values(), static function (string $value): bool {
             return '' === $value;
         });
     }
@@ -55,7 +55,7 @@ final class StringProvider
      */
     public static function untrimmed(): \Generator
     {
-        yield from self::provideWhere(self::values(), static function (string $value): bool {
+        yield from self::provideDataForValuesWhere(self::values(), static function (string $value): bool {
             return \trim($value) !== $value
                 && '' !== \trim($value);
         });

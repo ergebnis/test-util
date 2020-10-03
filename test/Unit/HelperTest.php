@@ -1314,18 +1314,18 @@ final class HelperTest extends Framework\TestCase
         );
     }
 
-    public function testProvideReturnsGeneratorThatRejectsEmptyValues(): void
+    public function testProvideDataForValuesReturnsGeneratorThatRejectsEmptyValues(): void
     {
         $values = [];
 
-        $provided = self::provide($values);
+        $provided = self::provideDataForValues($values);
 
         $this->expectException(Exception\EmptyValues::class);
 
         \iterator_to_array($provided);
     }
 
-    public function testProvideReturnsGeneratorThatProvidesValues(): void
+    public function testProvideDataForValuesReturnsGeneratorThatProvidesValues(): void
     {
         $faker = self::faker();
 
@@ -1335,7 +1335,7 @@ final class HelperTest extends Framework\TestCase
             'baz' => $faker->sentence,
         ];
 
-        $provided = self::provide($values);
+        $provided = self::provideDataForValues($values);
 
         $expected = \array_map(static function ($value): array {
             return [
@@ -1346,11 +1346,11 @@ final class HelperTest extends Framework\TestCase
         self::assertSame($expected, \iterator_to_array($provided));
     }
 
-    public function testProvideWhereReturnsGeneratorThatRejectsEmptyValues(): void
+    public function testDataForValuesWhereReturnsGeneratorThatRejectsEmptyValues(): void
     {
         $values = [];
 
-        $provided = self::provideWhere($values, static function (int $value): bool {
+        $provided = self::provideDataForValuesWhere($values, static function (int $value): bool {
             return 3 > $value;
         });
 
@@ -1359,7 +1359,7 @@ final class HelperTest extends Framework\TestCase
         \iterator_to_array($provided);
     }
 
-    public function testProvideWhereReturnsGeneratorThatRejectsEmptyFilteredValues(): void
+    public function testProvideDataForValuesWhereReturnsGeneratorThatRejectsEmptyFilteredValues(): void
     {
         $values = [
             'foo' => 3,
@@ -1368,7 +1368,7 @@ final class HelperTest extends Framework\TestCase
             'qux' => 13,
         ];
 
-        $provided = self::provideWhere($values, static function (int $value): bool {
+        $provided = self::provideDataForValuesWhere($values, static function (int $value): bool {
             return 3 > $value;
         });
 
@@ -1377,7 +1377,7 @@ final class HelperTest extends Framework\TestCase
         \iterator_to_array($provided);
     }
 
-    public function testProvideWhereReturnsGeneratorThatProvidesValuesWhereTestReturnsFalse(): void
+    public function testProvideDataForValuesWhereReturnsGeneratorThatProvidesValuesWhereTestReturnsFalse(): void
     {
         $values = [
             'foo' => 1,
@@ -1391,7 +1391,7 @@ final class HelperTest extends Framework\TestCase
             'bar' => 2,
         ];
 
-        $provided = self::provideWhere($values, static function (int $value): bool {
+        $provided = self::provideDataForValuesWhere($values, static function (int $value): bool {
             return 3 > $value;
         });
 
@@ -1404,11 +1404,11 @@ final class HelperTest extends Framework\TestCase
         self::assertSame($expected, \iterator_to_array($provided));
     }
 
-    public function testProvideWhereNotReturnsGeneratorThatRejectsEmptyValues(): void
+    public function testProvideDataForValuesWhereNotReturnsGeneratorThatRejectsEmptyValues(): void
     {
         $values = [];
 
-        $provided = self::provideWhereNot($values, static function (int $value): bool {
+        $provided = self::provideDataForValuesWhereNot($values, static function (int $value): bool {
             return 3 > $value;
         });
 
@@ -1416,7 +1416,7 @@ final class HelperTest extends Framework\TestCase
         \iterator_to_array($provided);
     }
 
-    public function testProvideWhereNotReturnsGeneratorThatRejectsEmptyFilteredValues(): void
+    public function testProvideDataForValuesWhereNotReturnsGeneratorThatRejectsEmptyFilteredValues(): void
     {
         $values = [
             'foo' => 0,
@@ -1424,7 +1424,7 @@ final class HelperTest extends Framework\TestCase
             'baz' => 2,
         ];
 
-        $provided = self::provideWhereNot($values, static function (int $value): bool {
+        $provided = self::provideDataForValuesWhereNot($values, static function (int $value): bool {
             return 3 > $value;
         });
 
@@ -1447,7 +1447,7 @@ final class HelperTest extends Framework\TestCase
             'qux' => 5,
         ];
 
-        $provided = self::provideWhereNot($values, static function (int $value): bool {
+        $provided = self::provideDataForValuesWhereNot($values, static function (int $value): bool {
             return 3 > $value;
         });
 

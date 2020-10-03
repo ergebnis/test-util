@@ -24,7 +24,7 @@ final class NullProvider
      */
     public static function null(): \Generator
     {
-        yield from self::provide([
+        yield from self::provideDataForValues([
             'null' => null,
         ]);
     }
