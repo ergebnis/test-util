@@ -103,6 +103,7 @@ This package provides the following generic data providers:
 
 * [`Ergebnis\Test\Util\DataProvider\BooleanProvider`](https://github.com/ergebnis/test-util#dataproviderbooleanprovider)
 * [`Ergebnis\Test\Util\DataProvider\NullProvider`](https://github.com/ergebnis/test-util#dataprovidernullprovider)
+* [`Ergebnis\Test\Util\DataProvider\StringProvider`](https://github.com/ergebnis/test-util#dataproviderstringprovider)
 
 Since it is possible to use multiple `@dataProvider` annotations for test methods, these generic data providers allow for reuse and composition of data providers:
 
