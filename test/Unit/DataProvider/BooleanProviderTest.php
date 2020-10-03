@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace Ergebnis\Test\Util\Test\Unit\DataProvider;
 
-use PHPUnit\Framework;
+use Ergebnis\Test\Util\DataProvider\BooleanProvider;
 
 /**
  * @internal
  *
  * @covers \Ergebnis\Test\Util\DataProvider\BooleanProvider
  */
-final class BooleanProviderTest extends Framework\TestCase
+final class BooleanProviderTest extends AbstractProviderTestCase
 {
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\BooleanProvider::arbitrary()
@@ -30,6 +30,18 @@ final class BooleanProviderTest extends Framework\TestCase
     public function testArbitraryProvidesBoolean($value): void
     {
         self::assertIsBool($value);
+    }
+
+    public function testArbitraryReturnsGeneratorThatProvidesBooleanValues(): void
+    {
+        $values = [
+            'boolean-false' => false,
+            'boolean-true' => true,
+        ];
+
+        $provider = BooleanProvider::arbitrary();
+
+        self::assertProvidesDataForValues($values, $provider);
     }
 
     /**
@@ -42,6 +54,17 @@ final class BooleanProviderTest extends Framework\TestCase
         self::assertFalse($value);
     }
 
+    public function testFalseReturnsGeneratorThatProvidesFalse(): void
+    {
+        $values = [
+            'boolean-false' => false,
+        ];
+
+        $provider = BooleanProvider::false();
+
+        self::assertProvidesDataForValues($values, $provider);
+    }
+
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\BooleanProvider::true()
      *
@@ -50,5 +73,16 @@ final class BooleanProviderTest extends Framework\TestCase
     public function testTrueProvidesTrue($value): void
     {
         self::assertTrue($value);
+    }
+
+    public function testTrueReturnsGeneratorThatProvidesTrue(): void
+    {
+        $values = [
+            'boolean-true' => true,
+        ];
+
+        $provider = BooleanProvider::true();
+
+        self::assertProvidesDataForValues($values, $provider);
     }
 }

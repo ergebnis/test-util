@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace Ergebnis\Test\Util\Test\Unit\DataProvider;
 
-use PHPUnit\Framework;
+use Ergebnis\Test\Util\DataProvider\StringProvider;
 
 /**
  * @internal
  *
  * @covers \Ergebnis\Test\Util\DataProvider\StringProvider
  */
-final class StringProviderTest extends Framework\TestCase
+final class StringProviderTest extends AbstractProviderTestCase
 {
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\StringProvider::arbitrary()
@@ -30,6 +30,17 @@ final class StringProviderTest extends Framework\TestCase
     public function testArbitraryProvidesString(string $value): void
     {
         self::assertNotSame('', \trim($value));
+    }
+
+    public function testArbitraryReturnsGeneratorThatProvidesStringsThatAreNeitherEmptyNorBlank(): void
+    {
+        $test = static function (string $value): bool {
+            return '' === \trim($value);
+        };
+
+        $provider = StringProvider::arbitrary();
+
+        self::assertProvidesDataForValuesWhereNot($test, $provider);
     }
 
     /**
@@ -43,6 +54,20 @@ final class StringProviderTest extends Framework\TestCase
         self::assertNotSame('', $value);
     }
 
+    public function testBlankReturnsGeneratorThatProvidesStringsThatAreNeitherEmptyNorBlank(): void
+    {
+        $values = [
+            'string-blank-carriage-return' => "\r",
+            'string-blank-line-feed' => "\n",
+            'string-blank-space' => ' ',
+            'string-blank-tab' => "\t",
+        ];
+
+        $provider = StringProvider::blank();
+
+        self::assertProvidesDataForValues($values, $provider);
+    }
+
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\StringProvider::empty()
      *
@@ -51,6 +76,17 @@ final class StringProviderTest extends Framework\TestCase
     public function testEmptyProvidesEmptyString(string $value): void
     {
         self::assertSame('', $value);
+    }
+
+    public function testEmptyReturnsGeneratorThatProvidesAnEmptyString(): void
+    {
+        $values = [
+            'string-empty' => '',
+        ];
+
+        $provider = StringProvider::empty();
+
+        self::assertProvidesDataForValues($values, $provider);
     }
 
     /**
@@ -63,5 +99,17 @@ final class StringProviderTest extends Framework\TestCase
         self::assertNotSame(\trim($value), $value);
         self::assertNotSame('', $value);
         self::assertNotSame('', \trim($value));
+    }
+
+    public function testUntrimmedReturnsGeneratorThatProvidesUntrimmedStrings(): void
+    {
+        $test = static function (string $value): bool {
+            return \trim($value) !== $value
+                && '' !== \trim($value);
+        };
+
+        $provider = StringProvider::untrimmed();
+
+        self::assertProvidesDataForValuesWhere($test, $provider);
     }
 }

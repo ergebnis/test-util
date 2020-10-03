@@ -546,6 +546,11 @@ parameters:
 			path: test/AutoReview/TestCodeTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			count: 2
+			path: test/Unit/DataProvider/AbstractProviderTestCase.php
+
+		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/EmptyValuesTest.php
