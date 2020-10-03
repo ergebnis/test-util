@@ -101,7 +101,7 @@ In addition to the assertions made available by extending from `PHPUnit\Framewor
 
 This package provides the following generic data providers:
 
-* [`Ergebnis\Test\Util\DataProvider\BooleanProvider`](https://github.com/ergebnis/test-util#dataproviderbooleanprovider)
+* [`Ergebnis\Test\Util\DataProvider\BoolProvider`](https://github.com/ergebnis/test-util#dataproviderboolprovider)
 * [`Ergebnis\Test\Util\DataProvider\NullProvider`](https://github.com/ergebnis/test-util#dataprovidernullprovider)
 * [`Ergebnis\Test\Util\DataProvider\StringProvider`](https://github.com/ergebnis/test-util#dataproviderstringprovider)
 
@@ -134,13 +134,13 @@ final class ExampleTest extends Framework\TestCase
 }
 ```
 
-#### `DataProvider\BooleanProvider`
+#### `DataProvider\BoolProvider`
 
 * `arbitrary()` provides `true`, `false`
 * `false()` provides `false`
 * `true()` provides `true`
 
-For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\BooleanProviderTest`](test/Unit/DataProvider/BooleanProviderTest.php).
+For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\BoolProviderTest`](test/Unit/DataProvider/BoolProviderTest.php).
 
 #### `DataProvider\NullProvider`
 

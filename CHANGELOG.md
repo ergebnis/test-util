@@ -13,6 +13,10 @@ For a full diff see [`1.1.0...main`][1.1.0...main].
 * Added `DataProvider\BooleanProvider` ([#326]), by [@localheinz]
 * Added `DataProvider\NullProvider` ([#327]), by [@localheinz]
 * Added `DataProvider\StringProvider` ([#328]), by [@localheinz]
+*
+### Changed
+
+* Renamed `DataProvider\BooleanProvider` to `DataProvider\BoolProvider` ([#334]), by [@localheinz]
 
 ## [`1.1.0`][1.1.0]
 
@@ -117,6 +121,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#326]: https://github.com/ergebnis/test-util/pull/326
 [#327]: https://github.com/ergebnis/test-util/pull/327
 [#328]: https://github.com/ergebnis/test-util/pull/328
+[#334]: https://github.com/ergebnis/test-util/pull/334
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

@@ -13,39 +13,39 @@ declare(strict_types=1);
 
 namespace Ergebnis\Test\Util\Test\Unit\DataProvider;
 
-use Ergebnis\Test\Util\DataProvider\BooleanProvider;
+use Ergebnis\Test\Util\DataProvider\BoolProvider;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\Test\Util\DataProvider\BooleanProvider
+ * @covers \Ergebnis\Test\Util\DataProvider\BoolProvider
  */
-final class BooleanProviderTest extends AbstractProviderTestCase
+final class BoolProviderTest extends AbstractProviderTestCase
 {
     /**
-     * @dataProvider \Ergebnis\Test\Util\DataProvider\BooleanProvider::arbitrary()
+     * @dataProvider \Ergebnis\Test\Util\DataProvider\BoolProvider::arbitrary()
      *
      * @param mixed $value
      */
-    public function testArbitraryProvidesBoolean($value): void
+    public function testArbitraryProvidesBool($value): void
     {
         self::assertIsBool($value);
     }
 
-    public function testArbitraryReturnsGeneratorThatProvidesBooleanValues(): void
+    public function testArbitraryReturnsGeneratorThatProvidesBoolValues(): void
     {
         $values = [
-            'boolean-false' => false,
-            'boolean-true' => true,
+            'bool-false' => false,
+            'bool-true' => true,
         ];
 
-        $provider = BooleanProvider::arbitrary();
+        $provider = BoolProvider::arbitrary();
 
         self::assertProvidesDataForValues($values, $provider);
     }
 
     /**
-     * @dataProvider \Ergebnis\Test\Util\DataProvider\BooleanProvider::false()
+     * @dataProvider \Ergebnis\Test\Util\DataProvider\BoolProvider::false()
      *
      * @param mixed $value
      */
@@ -57,16 +57,16 @@ final class BooleanProviderTest extends AbstractProviderTestCase
     public function testFalseReturnsGeneratorThatProvidesFalse(): void
     {
         $values = [
-            'boolean-false' => false,
+            'bool-false' => false,
         ];
 
-        $provider = BooleanProvider::false();
+        $provider = BoolProvider::false();
 
         self::assertProvidesDataForValues($values, $provider);
     }
 
     /**
-     * @dataProvider \Ergebnis\Test\Util\DataProvider\BooleanProvider::true()
+     * @dataProvider \Ergebnis\Test\Util\DataProvider\BoolProvider::true()
      *
      * @param mixed $value
      */
@@ -78,10 +78,10 @@ final class BooleanProviderTest extends AbstractProviderTestCase
     public function testTrueReturnsGeneratorThatProvidesTrue(): void
     {
         $values = [
-            'boolean-true' => true,
+            'bool-true' => true,
         ];
 
-        $provider = BooleanProvider::true();
+        $provider = BoolProvider::true();
 
         self::assertProvidesDataForValues($values, $provider);
     }

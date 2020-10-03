@@ -15,7 +15,7 @@ namespace Ergebnis\Test\Util\DataProvider;
 
 use Ergebnis\Test\Util;
 
-final class BooleanProvider
+final class BoolProvider
 {
     use Util\Helper;
 
@@ -53,8 +53,8 @@ final class BooleanProvider
     private static function values(): array
     {
         return [
-            'boolean-false' => false,
-            'boolean-true' => true,
+            'bool-false' => false,
+            'bool-true' => true,
         ];
     }
 }
