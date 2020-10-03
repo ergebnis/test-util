@@ -15,6 +15,15 @@
       <code>\Generator&lt;string, array{0: null}&gt;</code>
     </MoreSpecificReturnType>
   </file>
+  <file src="src/DataProvider/StringProvider.php">
+    <MixedArgumentTypeCoercion occurrences="2"/>
+    <MoreSpecificReturnType occurrences="4">
+      <code>\Generator&lt;string, array{0: string}&gt;</code>
+      <code>\Generator&lt;string, array{0: string}&gt;</code>
+      <code>\Generator&lt;string, array{0: string}&gt;</code>
+      <code>\Generator&lt;string, array{0: string}&gt;</code>
+    </MoreSpecificReturnType>
+  </file>
   <file src="src/Helper.php">
     <MissingClosureParamType occurrences="2">
       <code>$excludeClassyName</code>
