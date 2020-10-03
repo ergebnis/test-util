@@ -24,7 +24,7 @@ final class BooleanProvider
      */
     public static function arbitrary(): \Generator
     {
-        yield from self::provide(self::values());
+        yield from self::provideDataForValues(self::values());
     }
 
     /**
@@ -32,7 +32,7 @@ final class BooleanProvider
      */
     public static function false(): \Generator
     {
-        yield from self::provideWhere(self::values(), static function (bool $value): bool {
+        yield from self::provideDataForValuesWhere(self::values(), static function (bool $value): bool {
             return false === $value;
         });
     }
@@ -42,7 +42,7 @@ final class BooleanProvider
      */
     public static function true(): \Generator
     {
-        yield from self::provideWhere(self::values(), static function (bool $value): bool {
+        yield from self::provideDataForValuesWhere(self::values(), static function (bool $value): bool {
             return true === $value;
         });
     }

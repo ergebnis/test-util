@@ -452,7 +452,7 @@ trait Helper
      *
      * @return \Generator<string, array{0: mixed}>
      */
-    final protected static function provide(array $values): \Generator
+    final protected static function provideDataForValues(array $values): \Generator
     {
         if ([] === $values) {
             throw Exception\EmptyValues::create();
@@ -473,7 +473,7 @@ trait Helper
      *
      * @return \Generator<string, array{0: mixed}>
      */
-    final protected static function provideWhere(array $values, \Closure $test): \Generator
+    final protected static function provideDataForValuesWhere(array $values, \Closure $test): \Generator
     {
         if ([] === $values) {
             throw Exception\EmptyValues::create();
@@ -487,7 +487,7 @@ trait Helper
             throw Exception\EmptyValues::filtered();
         }
 
-        yield from self::provide($filtered);
+        yield from self::provideDataForValues($filtered);
     }
 
     /**
@@ -498,7 +498,7 @@ trait Helper
      *
      * @return \Generator<string, array{0: mixed}>
      */
-    final protected static function provideWhereNot(array $values, \Closure $test): \Generator
+    final protected static function provideDataForValuesWhereNot(array $values, \Closure $test): \Generator
     {
         if ([] === $values) {
             throw Exception\EmptyValues::create();
@@ -512,6 +512,6 @@ trait Helper
             throw Exception\EmptyValues::filtered();
         }
 
-        yield from self::provide($filtered);
+        yield from self::provideDataForValues($filtered);
     }
 }
