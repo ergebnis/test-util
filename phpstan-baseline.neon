@@ -1,119 +1,119 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
 			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
 			count: 2
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertEmpty\\(\\)\\.$#"
+			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertEmpty\\(\\)\\.$#"
 			count: 2
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassyConstructsSatisfySpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertClassyConstructsSatisfySpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertTrue\\(\\)\\.$#"
+			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertTrue\\(\\)\\.$#"
 			count: 11
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertClassExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassImplementsInterface\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertClassImplementsInterface\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassIsAbstract\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertClassIsAbstract\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassIsFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertClassIsFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertClassSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassUsesTrait\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertClassUsesTrait\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertContains\\(\\)\\.$#"
+			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertContains\\(\\)\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertInterfaceExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertInterfaceExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertInterfaceExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertInterfaceExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertInterfaceSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertInterfaceSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertTraitExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertTraitExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:provideDataForValues\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:provideDataForValues\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:provideDataForValuesWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:provideDataForValuesWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:provideDataForValuesWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:provideDataForValuesWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/BooleanProvider.php
+			path: src/DataProvider/BoolProvider.php
 
 		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\NullProvider\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
