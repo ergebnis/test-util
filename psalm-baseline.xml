@@ -10,6 +10,17 @@
       <code>true === $value</code>
     </RedundantIdentityWithTrue>
   </file>
+  <file src="src/DataProvider/IntProvider.php">
+    <MoreSpecificReturnType occurrences="7">
+      <code>\Generator&lt;string, array{0: int}&gt;</code>
+      <code>\Generator&lt;string, array{0: int}&gt;</code>
+      <code>\Generator&lt;string, array{0: int}&gt;</code>
+      <code>\Generator&lt;string, array{0: int}&gt;</code>
+      <code>\Generator&lt;string, array{0: int}&gt;</code>
+      <code>\Generator&lt;string, array{0: int}&gt;</code>
+      <code>\Generator&lt;string, array{0: int}&gt;</code>
+    </MoreSpecificReturnType>
+  </file>
   <file src="src/DataProvider/NullProvider.php">
     <MoreSpecificReturnType occurrences="1">
       <code>\Generator&lt;string, array{0: null}&gt;</code>
@@ -42,6 +53,11 @@
       <code>class-string</code>
       <code>class-string</code>
     </UnnecessaryVarAnnotation>
+  </file>
+  <file src="test/Unit/DataProvider/IntProviderTest.php">
+    <MissingClosureParamType occurrences="1">
+      <code>$value</code>
+    </MissingClosureParamType>
   </file>
   <file src="test/Unit/Exception/InvalidExcludeClassNameTest.php">
     <MixedInferredReturnType occurrences="1">
