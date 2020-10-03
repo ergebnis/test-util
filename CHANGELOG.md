@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.1.0...main`][1.1.0...main].
 
+### Added
+
+* Added `DataProvider\BooleanProvider` ([#326]), by [@localheinz]
+
 ## [`1.1.0`][1.1.0]
 
 For a full diff see [`1.0.1...1.1.0`][1.0.1...1.1.0].
@@ -108,6 +112,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#155]: https://github.com/ergebnis/test-util/pull/155
 [#295]: https://github.com/ergebnis/test-util/pull/295
 [#302]: https://github.com/ergebnis/test-util/pull/302
+[#326]: https://github.com/ergebnis/test-util/pull/326
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

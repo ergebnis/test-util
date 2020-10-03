@@ -444,4 +444,74 @@ trait Helper
             $traitName
         ));
     }
+
+    /**
+     * @param array<string, mixed> $values
+     *
+     * @throws Exception\EmptyValues
+     *
+     * @return \Generator<string, array{0: mixed}>
+     */
+    final protected static function provide(array $values): \Generator
+    {
+        if ([] === $values) {
+            throw Exception\EmptyValues::create();
+        }
+
+        foreach ($values as $key => $value) {
+            yield $key => [
+                $value,
+            ];
+        }
+    }
+
+    /**
+     * @param array<string, mixed> $values
+     * @param \Closure             $test
+     *
+     * @throws Exception\EmptyValues
+     *
+     * @return \Generator<string, array{0: mixed}>
+     */
+    final protected static function provideWhere(array $values, \Closure $test): \Generator
+    {
+        if ([] === $values) {
+            throw Exception\EmptyValues::create();
+        }
+
+        $filtered = \array_filter($values, static function ($value) use ($test): bool {
+            return true === $test($value);
+        });
+
+        if ([] === $filtered) {
+            throw Exception\EmptyValues::filtered();
+        }
+
+        yield from self::provide($filtered);
+    }
+
+    /**
+     * @param array<string, mixed> $values
+     * @param \Closure             $test
+     *
+     * @throws Exception\EmptyValues
+     *
+     * @return \Generator<string, array{0: mixed}>
+     */
+    final protected static function provideWhereNot(array $values, \Closure $test): \Generator
+    {
+        if ([] === $values) {
+            throw Exception\EmptyValues::create();
+        }
+
+        $filtered = \array_filter($values, static function ($value) use ($test): bool {
+            return false === $test($value);
+        });
+
+        if ([] === $filtered) {
+            throw Exception\EmptyValues::filtered();
+        }
+
+        yield from self::provide($filtered);
+    }
 }

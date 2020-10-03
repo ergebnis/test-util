@@ -11,7 +11,7 @@ on: # yamllint disable-line rule:truthy
 env:
   ERGEBNIS_BOT_NAME: "ergebnis-bot"
   MIN_COVERED_MSI: 95
-  MIN_MSI: 95
+  MIN_MSI: 91
   PHP_EXTENSIONS: "mbstring"
 
 jobs:

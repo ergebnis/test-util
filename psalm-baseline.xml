@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.14.1@9822043ca46d6682b76097bfa97d7c450eef9e90">
+<files psalm-version="3.16@d03e5ef057d6adc656c0ff7e166c50b73b4f48f3">
+  <file src="src/DataProvider/BooleanProvider.php">
+    <MoreSpecificReturnType occurrences="3">
+      <code>\Generator&lt;string, array{0: bool}&gt;</code>
+      <code>\Generator&lt;string, array{0: bool}&gt;</code>
+      <code>\Generator&lt;string, array{0: bool}&gt;</code>
+    </MoreSpecificReturnType>
+    <RedundantIdentityWithTrue occurrences="1">
+      <code>true === $value</code>
+    </RedundantIdentityWithTrue>
+  </file>
   <file src="src/Helper.php">
     <MissingClosureParamType occurrences="2">
       <code>$excludeClassyName</code>
       <code>$excludeClassyName</code>
     </MissingClosureParamType>
+    <MixedAssignment occurrences="1">
+      <code>$value</code>
+    </MixedAssignment>
+    <UndefinedMethod occurrences="14"/>
     <UnnecessaryVarAnnotation occurrences="7">
       <code>class-string</code>
       <code>class-string</code>
@@ -22,21 +36,21 @@
   </file>
   <file src="test/Unit/HelperTest.php">
     <ArgumentTypeCoercion occurrences="16">
+      <code>$className</code>
+      <code>$className</code>
+      <code>$className</code>
+      <code>$className</code>
+      <code>$className</code>
+      <code>$className</code>
       <code>$excludeClassyNames</code>
       <code>$excludeClassyNames</code>
       <code>$excludeClassyNames</code>
+      <code>$interfaceName</code>
+      <code>$interfaceName</code>
+      <code>$interfaceName</code>
       <code>$parentClassName</code>
-      <code>$className</code>
-      <code>$interfaceName</code>
-      <code>$className</code>
-      <code>$className</code>
-      <code>$className</code>
-      <code>$className</code>
-      <code>$traitName</code>
-      <code>$className</code>
       <code>$parentInterfaceName</code>
-      <code>$interfaceName</code>
-      <code>$interfaceName</code>
+      <code>$traitName</code>
       <code>$traitName</code>
     </ArgumentTypeCoercion>
     <InvalidReturnType occurrences="1">
@@ -51,11 +65,18 @@
       <code>\Generator&lt;array&lt;string&gt;&gt;</code>
     </MixedInferredReturnType>
     <UnusedClosureParam occurrences="5">
+      <code>$className</code>
+      <code>$className</code>
+      <code>$className</code>
       <code>$classyName</code>
-      <code>$className</code>
-      <code>$className</code>
-      <code>$className</code>
       <code>$classyName</code>
     </UnusedClosureParam>
+    <UnusedFunctionCall occurrences="5">
+      <code>\iterator_to_array</code>
+      <code>\iterator_to_array</code>
+      <code>\iterator_to_array</code>
+      <code>\iterator_to_array</code>
+      <code>\iterator_to_array</code>
+    </UnusedFunctionCall>
   </file>
 </files>
