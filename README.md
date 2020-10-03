@@ -11,7 +11,7 @@
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/test-util/v/stable)](https://packagist.org/packages/ergebnis/test-util)
 [![Total Downloads](https://poser.pugx.org/ergebnis/test-util/downloads)](https://packagist.org/packages/ergebnis/test-util)
 
-Provides utilities for tests.
+Provides a helper trait and generic data providers for tests.
 
 ## Installation
 
@@ -22,6 +22,8 @@ $ composer require --dev ergebnis/test-util
 ```
 
 ## Usage
+
+### `Helper`
 
 Import the `Ergebnis\Test\Util\Helper` trait into your test class:
 
@@ -41,7 +43,7 @@ final class BazTest extends Framework\TestCase
 }
 ```
 
-### Easy access to localized instances of `Faker\Generator`
+#### Easy access to localized instances of `Faker\Generator`
 
 The `Helper` trait provides a method to fetch a localized instance of `Faker\Generator`:
 
@@ -75,7 +77,7 @@ final class PlayerTest extends Framework\TestCase
 
 For reference, see [`fzaninotto/faker`](https://github.com/fzaninotto/Faker).
 
-### Additional Assertions
+#### Additional Assertions
 
 In addition to the assertions made available by extending from `PHPUnit\Framework\TestCase`, the `Helper` trait provides the following assertions:
 
@@ -94,6 +96,20 @@ In addition to the assertions made available by extending from `PHPUnit\Framewor
 * `assertInterfaceSatisfiesSpecification(callable $specification, string $interfaceName, string $message = '')`
 * `assertTraitExists(string $traitName)`
 * `assertTraitSatisfiesSpecification(callable $specification, string $traitName, string $message = '')`
+
+### Data Providers
+
+This package provides the following generic data providers:
+
+* [`Ergebnis\Test\Util\DataProvider\BooleanProvider`](https://github.com/ergebnis/test-util#dataproviderbooleanprovider)
+
+#### `DataProvider\BooleanProvider`
+
+* `arbitrary()` provides `true`, `false`
+* `false()` provides `false`
+* `true()` provides `true`
+
+For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\BooleanProviderTest`](test/Unit/DataProvider/BooleanProviderTest.php).
 
 ## Changelog
 

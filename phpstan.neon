@@ -5,6 +5,7 @@ parameters:
 	checkMissingIterableValueType: false
 	ergebnis:
 		classesAllowedToBeExtended:
+			- Ergebnis\Test\Util\DataProvider\AbstractDataProvider
 			- InvalidArgumentException
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture/

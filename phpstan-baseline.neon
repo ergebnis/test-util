@@ -1,6 +1,121 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			count: 2
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertEmpty\\(\\)\\.$#"
+			count: 2
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassyConstructsSatisfySpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertTrue\\(\\)\\.$#"
+			count: 11
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassImplementsInterface\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassIsAbstract\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassIsFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertClassUsesTrait\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertContains\\(\\)\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertInterfaceExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertInterfaceExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertInterfaceSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertTraitExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:provide\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:provideWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BooleanProvider\\:\\:provideWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/BooleanProvider.php
+
+		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/AutoReview/SrcCodeTest.php
@@ -82,6 +197,21 @@ parameters:
 
 		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:provide\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:provideWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/SrcCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:provideWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/AutoReview/SrcCodeTest.php
 
@@ -171,6 +301,121 @@ parameters:
 			path: test/AutoReview/TestCodeTest.php
 
 		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:provide\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:provideWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:provideWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			count: 2
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassyConstructsSatisfySpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassImplementsInterface\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassIsAbstract\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassIsFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassUsesTrait\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertInterfaceExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertInterfaceExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertInterfaceSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertTraitExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:provide\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:provideWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:provideWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
@@ -252,6 +497,21 @@ parameters:
 
 		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:provide\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:provideWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:provideWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
 
@@ -341,6 +601,21 @@ parameters:
 			path: test/Unit/Exception/NonExistentDirectoryTest.php
 
 		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:provide\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:provideWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:provideWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/NonExistentExcludeClassTest.php
@@ -426,6 +701,21 @@ parameters:
 			path: test/Unit/Exception/NonExistentExcludeClassTest.php
 
 		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:provide\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:provideWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:provideWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/HelperTest.php
@@ -507,6 +797,21 @@ parameters:
 
 		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:provide\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:provideWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:provideWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/HelperTest.php
 

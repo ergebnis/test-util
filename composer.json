@@ -1,7 +1,7 @@
 {
   "name": "ergebnis/test-util",
   "type": "library",
-  "description": "Provides utilities for tests.",
+  "description": "Provides a helper trait and generic data providers for tests.",
   "keywords": [
     "assertion",
     "faker",
