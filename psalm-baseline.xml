@@ -28,7 +28,8 @@
   </file>
   <file src="src/DataProvider/StringProvider.php">
     <MixedArgumentTypeCoercion occurrences="2"/>
-    <MoreSpecificReturnType occurrences="4">
+    <MoreSpecificReturnType occurrences="5">
+      <code>\Generator&lt;string, array{0: string}&gt;</code>
       <code>\Generator&lt;string, array{0: string}&gt;</code>
       <code>\Generator&lt;string, array{0: string}&gt;</code>
       <code>\Generator&lt;string, array{0: string}&gt;</code>

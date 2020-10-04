@@ -51,6 +51,17 @@ final class StringProvider
     /**
      * @return \Generator<string, array{0: string}>
      */
+    public static function trimmed(): \Generator
+    {
+        yield from self::provideDataForValuesWhere(self::values(), static function (string $value): bool {
+            return \trim($value) === $value
+                && '' !== \trim($value);
+        });
+    }
+
+    /**
+     * @return \Generator<string, array{0: string}>
+     */
     public static function untrimmed(): \Generator
     {
         yield from self::provideDataForValuesWhere(self::values(), static function (string $value): bool {
