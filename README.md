@@ -162,7 +162,7 @@ For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\NullProviderTest`]
 
 #### `DataProvider\StringProvider`
 
-* `arbitrary()` provides non-empty `string`s without leading and trailing whitespade
+* `arbitrary()` provides arbitrary `string`s
 * `blank()` provides `string`s consisting of whitespace characters only
 * `empty()` provides an empty `string`
 * `untrimmed()` provides `string`s with leading and trailing whitespace

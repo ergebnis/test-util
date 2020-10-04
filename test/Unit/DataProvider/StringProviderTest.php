@@ -26,11 +26,11 @@ final class StringProviderTest extends AbstractProviderTestCase
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\StringProvider::arbitrary()
      *
-     * @param string $value
+     * @param mixed $value
      */
-    public function testArbitraryProvidesString(string $value): void
+    public function testArbitraryProvidesString($value): void
     {
-        self::assertNotSame('', \trim($value));
+        self::assertIsString($value);
     }
 
     public function testArbitraryReturnsGeneratorThatProvidesStringsThatAreNeitherEmptyNorBlank(): void
@@ -42,6 +42,11 @@ final class StringProviderTest extends AbstractProviderTestCase
             'string-arbitrary-word' => Util\DataProvider\Specification\Closure::create(static function (string $value): bool {
                 return '' !== $value && '' !== \trim($value);
             }),
+            'string-blank-carriage-return' => Util\DataProvider\Specification\Identical::create("\r"),
+            'string-blank-line-feed' => Util\DataProvider\Specification\Identical::create("\n"),
+            'string-blank-space' => Util\DataProvider\Specification\Identical::create(' '),
+            'string-blank-tab' => Util\DataProvider\Specification\Identical::create("\t"),
+            'string-empty' => Util\DataProvider\Specification\Identical::create(''),
             'string-untrimmed-carriage-return' => Util\DataProvider\Specification\Pattern::create('/^\r{1,5}\w+\r{1,5}$/'),
             'string-untrimmed-line-feed' => Util\DataProvider\Specification\Pattern::create('/^\n{1,5}\w+\n{1,5}$/'),
             'string-untrimmed-space' => Util\DataProvider\Specification\Pattern::create('/^\s{1,5}\w+\s{1,5}$/'),
