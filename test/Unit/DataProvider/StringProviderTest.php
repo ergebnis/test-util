@@ -116,6 +116,32 @@ final class StringProviderTest extends AbstractProviderTestCase
         self::assertNotSame('', \trim($value));
     }
 
+    /**
+     * @dataProvider \Ergebnis\Test\Util\DataProvider\StringProvider::trimmed()
+     *
+     * @param mixed $value
+     */
+    public function testTrimmedProvidesString($value): void
+    {
+        self::assertIsString($value);
+    }
+
+    public function testTrimmedReturnsGeneratorThatProvidesStringsThatAreTrimmed(): void
+    {
+        $specifications = [
+            'string-arbitrary-sentence' => Util\DataProvider\Specification\Closure::create(static function (string $value): bool {
+                return '' !== $value && '' !== \trim($value);
+            }),
+            'string-arbitrary-word' => Util\DataProvider\Specification\Closure::create(static function (string $value): bool {
+                return '' !== $value && '' !== \trim($value);
+            }),
+        ];
+
+        $provider = StringProvider::trimmed();
+
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
+    }
+
     public function testUntrimmedReturnsGeneratorThatProvidesUntrimmedStrings(): void
     {
         $specifications = [

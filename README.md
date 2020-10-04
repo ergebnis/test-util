@@ -166,6 +166,7 @@ For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\NullProviderTest`]
 * `arbitrary()` provides arbitrary `string`s
 * `blank()` provides `string`s consisting of whitespace characters only
 * `empty()` provides an empty `string`
+* `trimmed()` provides non-empty `strings` without leading and trailing whitespace
 * `untrimmed()` provides `string`s with leading and trailing whitespace
 
 For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\StringProviderTest`](test/Unit/DataProvider/StringProviderTest.php).
