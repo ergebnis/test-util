@@ -24,9 +24,7 @@ final class StringProvider
      */
     public static function arbitrary(): \Generator
     {
-        yield from self::provideDataForValuesWhereNot(self::values(), static function (string $value): bool {
-            return '' === \trim($value);
-        });
+        yield from self::provideDataForValues(self::values());
     }
 
     /**
