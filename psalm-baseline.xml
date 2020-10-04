@@ -10,6 +10,20 @@
       <code>true === $value</code>
     </RedundantIdentityWithTrue>
   </file>
+  <file src="src/DataProvider/FloatProvider.php">
+    <InvalidOperand occurrences="1">
+      <code>-1 * $faker-&gt;randomFloat(null, 1.01)</code>
+    </InvalidOperand>
+    <MoreSpecificReturnType occurrences="7">
+      <code>\Generator&lt;string, array{0: float}&gt;</code>
+      <code>\Generator&lt;string, array{0: float}&gt;</code>
+      <code>\Generator&lt;string, array{0: float}&gt;</code>
+      <code>\Generator&lt;string, array{0: float}&gt;</code>
+      <code>\Generator&lt;string, array{0: float}&gt;</code>
+      <code>\Generator&lt;string, array{0: float}&gt;</code>
+      <code>\Generator&lt;string, array{0: float}&gt;</code>
+    </MoreSpecificReturnType>
+  </file>
   <file src="src/DataProvider/IntProvider.php">
     <MoreSpecificReturnType occurrences="7">
       <code>\Generator&lt;string, array{0: int}&gt;</code>
