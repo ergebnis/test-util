@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Test\Util\Test\Unit\DataProvider;
 
 use Ergebnis\Test\Util\DataProvider\NullProvider;
+use Ergebnis\Test\Util\Test\Util;
 
 /**
  * @internal
@@ -34,12 +35,12 @@ final class NullProviderTest extends AbstractProviderTestCase
 
     public function testNullReturnsGeneratorThatProvidesNull(): void
     {
-        $values = [
-            'null' => null,
+        $specifications = [
+            'null' => Util\DataProvider\Specification\Identical::create(null),
         ];
 
         $provider = NullProvider::null();
 
-        self::assertProvidesDataForValues($values, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 }

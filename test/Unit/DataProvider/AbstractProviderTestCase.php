@@ -27,72 +27,89 @@ abstract class AbstractProviderTestCase extends Framework\TestCase
      * @param array<string, mixed>             $values
      * @param \Generator<string, array<mixed>> $provider
      */
-    final protected static function assertProvidesDataForValues(array $values, \Generator $provider): void
+    final protected static function assertProvidesDataSetsForValues(array $values, \Generator $provider): void
     {
         self::assertExpectedValuesAreNotEmpty($values);
 
-        $expected = \iterator_to_array(self::provideDataForValues($values));
+        $expectedDataSets = \iterator_to_array(self::provideDataForValues($values));
+        $actualDataSets = \iterator_to_array($provider);
 
-        $provided = \iterator_to_array($provider);
-
-        self::assertProvidedDataIsNotEmpty($provided);
+        self::assertDataSetsAreNotEmpty($actualDataSets);
 
         self::assertEquals(
-            $expected,
-            $provided,
-            'Failed asserting that a generator yields data for expected values.'
+            $expectedDataSets,
+            $actualDataSets,
+            'Failed asserting that a generator yields data sets for the expected values.'
         );
     }
 
     /**
-     * @param array<string, \Closure|mixed>    $tests
-     * @param \Generator<string, array<mixed>> $provider
+     * @param array<string, Util\Test\Util\DataProvider\Specification\Specification> $specifications
+     * @param \Generator<string, array<mixed>>                                       $provider
      */
-    final protected static function assertProvidesDataForValuesPassingTests(array $tests, \Generator $provider): void
+    final protected static function assertProvidesDataSetsForValuesSatisfyingSpecifications(array $specifications, \Generator $provider): void
     {
-        $provided = \iterator_to_array($provider);
-
-        self::assertEquals(
-            \array_keys($tests),
-            \array_keys($provided),
-            'Failed asserting that the provided data has the same keys as the tests.'
+        self::assertContainsOnly(
+            'string',
+            \array_keys($specifications),
+            true,
+            'Failed asserting that the keys of specifications are all strings.'
         );
 
-        $normalizedTests = \array_map(static function ($test): \Closure {
-            if (!$test instanceof \Closure) {
-                return static function ($value) use ($test): bool {
-                    return $value === $test;
-                };
-            }
+        self::assertContainsOnly(
+            Util\Test\Util\DataProvider\Specification\Specification::class,
+            $specifications,
+            false,
+            \sprintf(
+                'Failed asserting that the values of specifications implement "%s".',
+                Util\Test\Util\DataProvider\Specification\Specification::class
+            )
+        );
 
-            return $test;
-        }, $tests);
+        $dataSets = \iterator_to_array($provider);
 
-        $keysWhereValueDoesNotPassTest = \array_filter(\array_keys($provided), static function (string $key) use ($provided, $normalizedTests): bool {
-            $set = $provided[$key];
+        self::assertEquals(
+            \array_keys($specifications),
+            \array_keys($dataSets),
+            'Failed asserting that the provided data has the same keys as the specifications.'
+        );
 
-            self::assertIsArray($set);
-            self::assertCount(1, $set);
+        $keysForDataSetsWhereValueDoesNotSatisfySpecification = \array_filter(\array_keys($dataSets), static function (string $key) use ($dataSets, $specifications): bool {
+            /** @var Util\Test\Util\DataProvider\Specification\Specification $specification */
+            $specification = $specifications[$key];
 
-            $value = \array_shift($set);
-            $test = $normalizedTests[$key];
+            $dataSet = $dataSets[$key];
 
-            return true !== $test($value);
+            self::assertIsArray($dataSet, \sprintf(
+                'Failed asserting that the data set provided for key "%s" is an array.',
+                $key
+            ));
+
+            self::assertCount(1, $dataSet, \sprintf(
+                'Failed asserting that the data set provided for key "%s" contains only one value.',
+                $key
+            ));
+
+            $value = \array_shift($dataSet);
+
+            return !$specification->isSatisfiedBy($value);
         });
 
-        self::assertEquals(
-            [],
-            $keysWhereValueDoesNotPassTest,
-            'Failed asserting that all values pass the corresponding tests.'
-        );
+        self::assertEquals([], $keysForDataSetsWhereValueDoesNotSatisfySpecification, \sprintf(
+            'Failed asserting that the value for the data sets with the keys "%s" satisfy the corresponding requirements.',
+            \implode(
+                '", "',
+                $keysForDataSetsWhereValueDoesNotSatisfySpecification
+            )
+        ));
     }
 
     /**
      * @param array $actual
      */
-    final protected static function assertProvidedDataIsNotEmpty(array $actual): void
+    final protected static function assertDataSetsAreNotEmpty(array $actual): void
     {
-        self::assertNotEmpty($actual, 'Failed asserting that provided values are not empty.');
+        self::assertNotEmpty($actual, 'Failed asserting that provided data sets are not empty.');
     }
 
     /**
@@ -101,85 +118,5 @@ abstract class AbstractProviderTestCase extends Framework\TestCase
     private static function assertExpectedValuesAreNotEmpty(array $values): void
     {
         self::assertNotEmpty($values, 'Failed asserting that expected values are not empty.');
-    }
-
-    /**
-     * @param \Closure             $test
-     * @param array<string, mixed> $provided
-     */
-    private static function assertProvidedDataContainsArraysWhereFirstElementPassesTest(\Closure $test, array $provided): void
-    {
-        self::assertProvidedDataContainsArraysWithOneElement($provided);
-
-        $value = \array_map(static function (array $set) {
-            return \array_shift($set);
-        }, $provided);
-
-        $tested = \array_filter($value, static function ($value) use ($test): bool {
-            return true === $test($value);
-        });
-
-        self::assertEquals(
-            $value,
-            $tested,
-            'Failed asserting that the first value in each array passed the test.'
-        );
-    }
-
-    /**
-     * @param \Closure             $test
-     * @param array<string, mixed> $provided
-     */
-    private static function assertProvidedDataContainsArraysWhereFirstElementDoesNotPassTest(\Closure $test, array $provided): void
-    {
-        self::assertProvidedDataContainsArraysWithOneElement($provided);
-
-        $value = \array_map(static function (array $set) {
-            return \array_shift($set);
-        }, $provided);
-
-        $tested = \array_filter($value, static function ($value) use ($test): bool {
-            return false === $test($value);
-        });
-
-        self::assertEquals(
-            $value,
-            $tested,
-            'Failed asserting that the first value in each array does not pass the test.'
-        );
-    }
-
-    /**
-     * @param array<string, mixed> $provided
-     */
-    private static function assertProvidedDataContainsArraysWithOneElement(array $provided): void
-    {
-        self::assertProvidedDataContainsArraysOnly($provided);
-
-        $setsWhereNumberOfProvidedArgumentsIsNotOne = \array_filter($provided, static function (array $set): bool {
-            return 1 !== \count($set);
-        });
-
-        self::assertEquals(
-            [],
-            $setsWhereNumberOfProvidedArgumentsIsNotOne,
-            'Failed asserting that each set in the provided data contains only a single value.'
-        );
-    }
-
-    /**
-     * @param array<string, mixed> $provided
-     */
-    private static function assertProvidedDataContainsArraysOnly(array $provided): void
-    {
-        $values = \array_filter($provided, static function ($set): bool {
-            return !\is_array($set);
-        });
-
-        self::assertEquals(
-            [],
-            $values,
-            'Failed asserting that each value is an array.'
-        );
     }
 }

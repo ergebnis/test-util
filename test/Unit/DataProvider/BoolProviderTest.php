@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Test\Util\Test\Unit\DataProvider;
 
 use Ergebnis\Test\Util\DataProvider\BoolProvider;
+use Ergebnis\Test\Util\Test\Util;
 
 /**
  * @internal
@@ -34,14 +35,14 @@ final class BoolProviderTest extends AbstractProviderTestCase
 
     public function testArbitraryReturnsGeneratorThatProvidesBoolValues(): void
     {
-        $values = [
-            'bool-false' => false,
-            'bool-true' => true,
+        $specifications = [
+            'bool-false' => Util\DataProvider\Specification\Identical::create(false),
+            'bool-true' => Util\DataProvider\Specification\Identical::create(true),
         ];
 
         $provider = BoolProvider::arbitrary();
 
-        self::assertProvidesDataForValues($values, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 
     /**
@@ -56,13 +57,13 @@ final class BoolProviderTest extends AbstractProviderTestCase
 
     public function testFalseReturnsGeneratorThatProvidesFalse(): void
     {
-        $values = [
-            'bool-false' => false,
+        $specifications = [
+            'bool-false' => Util\DataProvider\Specification\Identical::create(false),
         ];
 
         $provider = BoolProvider::false();
 
-        self::assertProvidesDataForValues($values, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 
     /**
@@ -77,12 +78,12 @@ final class BoolProviderTest extends AbstractProviderTestCase
 
     public function testTrueReturnsGeneratorThatProvidesTrue(): void
     {
-        $values = [
-            'bool-true' => true,
+        $specifications = [
+            'bool-true' => Util\DataProvider\Specification\Identical::create(true),
         ];
 
         $provider = BoolProvider::true();
 
-        self::assertProvidesDataForValues($values, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 }

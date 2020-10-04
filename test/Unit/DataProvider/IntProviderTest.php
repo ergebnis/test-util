@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Test\Util\Test\Unit\DataProvider;
 
 use Ergebnis\Test\Util\DataProvider\IntProvider;
+use Ergebnis\Test\Util\Test\Util;
 
 /**
  * @internal
@@ -34,21 +35,21 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     public function testArbitraryReturnsGeneratorThatProvidesIntValues(): void
     {
-        $tests = [
-            'int-less-than-minus-one' => static function (int $value): bool {
+        $specifications = [
+            'int-less-than-minus-one' => Util\DataProvider\Specification\Closure::create(static function (int $value): bool {
                 return -1 > $value;
-            },
-            'int-minus-one' => -1,
-            'int-zero' => 0,
-            'int-plus-one' => 1,
-            'int-greater-than-plus-one' => static function (int $value): bool {
-                return 1 < $value;
-            },
+            }),
+            'int-minus-one' => Util\DataProvider\Specification\Identical::create(-1),
+            'int-zero' => Util\DataProvider\Specification\Identical::create(0),
+            'int-plus-one' => Util\DataProvider\Specification\Identical::create(1),
+            'int-greater-than-plus-one' => Util\DataProvider\Specification\Closure::create(static function (int $value): bool {
+                return  1 < $value;
+            }),
         ];
 
         $provider = IntProvider::arbitrary();
 
-        self::assertProvidesDataForValuesPassingTests($tests, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 
     /**
@@ -63,16 +64,16 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     public function testLessThanZeroReturnsGeneratorThatProvidesIntLessThanZero(): void
     {
-        $tests = [
-            'int-less-than-minus-one' => static function (int $value): bool {
+        $specifications = [
+            'int-less-than-minus-one' => Util\DataProvider\Specification\Closure::create(static function (int $value): bool {
                 return -1 > $value;
-            },
-            'int-minus-one' => -1,
+            }),
+            'int-minus-one' => Util\DataProvider\Specification\Identical::create(-1),
         ];
 
         $provider = IntProvider::lessThanZero();
 
-        self::assertProvidesDataForValuesPassingTests($tests, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 
     /**
@@ -87,13 +88,13 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     public function testZeroReturnsGeneratorThatProvidesZero(): void
     {
-        $values = [
-            'int-zero' => 0,
+        $specifications = [
+            'int-zero' => Util\DataProvider\Specification\Identical::create(0),
         ];
 
         $provider = IntProvider::zero();
 
-        self::assertProvidesDataForValues($values, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 
     /**
@@ -108,16 +109,16 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     public function testGreaterThanZeroReturnsGeneratorThatProvidesIntGreaterThanZero(): void
     {
-        $tests = [
-            'int-plus-one' => 1,
-            'int-greater-than-plus-one' => static function (int $value): bool {
-                return 1 < $value;
-            },
+        $specifications = [
+            'int-plus-one' => Util\DataProvider\Specification\Identical::create(1),
+            'int-greater-than-plus-one' => Util\DataProvider\Specification\Closure::create(static function (int $value): bool {
+                return  1 < $value;
+            }),
         ];
 
         $provider = IntProvider::greaterThanZero();
 
-        self::assertProvidesDataForValuesPassingTests($tests, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 
     /**
@@ -132,28 +133,28 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     public function testLessThanOneReturnsGeneratorThatProvidesIntLessThanOne(): void
     {
-        $tests = [
-            'int-less-than-minus-one' => static function (int $value): bool {
+        $specifications = [
+            'int-less-than-minus-one' => Util\DataProvider\Specification\Closure::create(static function (int $value): bool {
                 return -1 > $value;
-            },
-            'int-minus-one' => -1,
-            'int-zero' => 0,
+            }),
+            'int-minus-one' => Util\DataProvider\Specification\Identical::create(-1),
+            'int-zero' => Util\DataProvider\Specification\Identical::create(0),
         ];
 
         $provider = IntProvider::lessThanOne();
 
-        self::assertProvidesDataForValuesPassingTests($tests, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 
     public function testOneReturnsGeneratorThatProvidesOne(): void
     {
-        $values = [
-            'int-plus-one' => 1,
+        $specifications = [
+            'int-plus-one' => Util\DataProvider\Specification\Identical::create(1),
         ];
 
         $provider = IntProvider::one();
 
-        self::assertProvidesDataForValues($values, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 
     /**
@@ -168,14 +169,14 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     public function testGreaterThanOneReturnsGeneratorThatProvidesIntGreaterThanOne(): void
     {
-        $tests = [
-            'int-greater-than-plus-one' => static function (int $value): bool {
-                return 1 < $value;
-            },
+        $specifications = [
+            'int-greater-than-plus-one' => Util\DataProvider\Specification\Closure::create(static function (int $value): bool {
+                return  1 < $value;
+            }),
         ];
 
         $provider = IntProvider::greaterThanOne();
 
-        self::assertProvidesDataForValuesPassingTests($tests, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 }
