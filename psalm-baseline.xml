@@ -55,18 +55,15 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/DataProvider/AbstractProviderTestCase.php">
-    <MissingClosureParamType occurrences="1">
-      <code>$value</code>
-    </MissingClosureParamType>
     <MixedAssignment occurrences="1">
       <code>$value</code>
     </MixedAssignment>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertIsArray</code>
     </RedundantConditionGivenDocblockType>
-    <RedundantIdentityWithTrue occurrences="1">
-      <code>true === $test($value)</code>
-    </RedundantIdentityWithTrue>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>Util\Test\Util\DataProvider\Specification\Specification</code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/Exception/InvalidExcludeClassNameTest.php">
     <MixedInferredReturnType occurrences="1">
@@ -117,5 +114,39 @@
       <code>\iterator_to_array</code>
       <code>\iterator_to_array</code>
     </UnusedFunctionCall>
+  </file>
+  <file src="test/Util/DataProvider/Specification/Closure.php">
+    <MissingClosureParamType occurrences="1">
+      <code>$value</code>
+    </MissingClosureParamType>
+    <MissingParamType occurrences="1">
+      <code>$value</code>
+    </MissingParamType>
+    <MixedInferredReturnType occurrences="1">
+      <code>bool</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$closure($value)</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="test/Util/DataProvider/Specification/Identical.php">
+    <MissingParamType occurrences="3">
+      <code>$value</code>
+      <code>$value</code>
+      <code>$value</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="1">
+      <code>$value</code>
+    </MissingPropertyType>
+  </file>
+  <file src="test/Util/DataProvider/Specification/Pattern.php">
+    <MissingParamType occurrences="1">
+      <code>$value</code>
+    </MissingParamType>
+  </file>
+  <file src="test/Util/DataProvider/Specification/Specification.php">
+    <MissingParamType occurrences="1">
+      <code>$value</code>
+    </MissingParamType>
   </file>
 </files>

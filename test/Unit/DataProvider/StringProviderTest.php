@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Test\Util\Test\Unit\DataProvider;
 
 use Ergebnis\Test\Util\DataProvider\StringProvider;
+use Ergebnis\Test\Util\Test\Util;
 
 /**
  * @internal
@@ -34,30 +35,22 @@ final class StringProviderTest extends AbstractProviderTestCase
 
     public function testArbitraryReturnsGeneratorThatProvidesStringsThatAreNeitherEmptyNorBlank(): void
     {
-        $tests = [
-            'string-arbitrary-sentence' => static function (string $value): bool {
+        $specifications = [
+            'string-arbitrary-sentence' => Util\DataProvider\Specification\Closure::create(static function (string $value): bool {
                 return '' !== $value && '' !== \trim($value);
-            },
-            'string-arbitrary-word' => static function (string $value): bool {
+            }),
+            'string-arbitrary-word' => Util\DataProvider\Specification\Closure::create(static function (string $value): bool {
                 return '' !== $value && '' !== \trim($value);
-            },
-            'string-untrimmed-carriage-return' => static function (string $value): bool {
-                return 1 === \preg_match('/^\r{1,5}\w+\r{1,5}$/', $value);
-            },
-            'string-untrimmed-line-feed' => static function (string $value): bool {
-                return 1 === \preg_match('/^\n{1,5}\w+\n{1,5}$/', $value);
-            },
-            'string-untrimmed-space' => static function (string $value): bool {
-                return 1 === \preg_match('/^\s{1,5}\w+\s{1,5}$/', $value);
-            },
-            'string-untrimmed-tab' => static function (string $value): bool {
-                return 1 === \preg_match('/^\t{1,5}\w+\t{1,5}$/', $value);
-            },
+            }),
+            'string-untrimmed-carriage-return' => Util\DataProvider\Specification\Pattern::create('/^\r{1,5}\w+\r{1,5}$/'),
+            'string-untrimmed-line-feed' => Util\DataProvider\Specification\Pattern::create('/^\n{1,5}\w+\n{1,5}$/'),
+            'string-untrimmed-space' => Util\DataProvider\Specification\Pattern::create('/^\s{1,5}\w+\s{1,5}$/'),
+            'string-untrimmed-tab' => Util\DataProvider\Specification\Pattern::create('/^\t{1,5}\w+\t{1,5}$/'),
         ];
 
         $provider = StringProvider::arbitrary();
 
-        self::assertProvidesDataForValuesPassingTests($tests, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 
     /**
@@ -73,16 +66,16 @@ final class StringProviderTest extends AbstractProviderTestCase
 
     public function testBlankReturnsGeneratorThatProvidesStringsThatAreNeitherEmptyNorBlank(): void
     {
-        $values = [
-            'string-blank-carriage-return' => "\r",
-            'string-blank-line-feed' => "\n",
-            'string-blank-space' => ' ',
-            'string-blank-tab' => "\t",
+        $specifications = [
+            'string-blank-carriage-return' => Util\DataProvider\Specification\Identical::create("\r"),
+            'string-blank-line-feed' => Util\DataProvider\Specification\Identical::create("\n"),
+            'string-blank-space' => Util\DataProvider\Specification\Identical::create(' '),
+            'string-blank-tab' => Util\DataProvider\Specification\Identical::create("\t"),
         ];
 
         $provider = StringProvider::blank();
 
-        self::assertProvidesDataForValues($values, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 
     /**
@@ -97,13 +90,13 @@ final class StringProviderTest extends AbstractProviderTestCase
 
     public function testEmptyReturnsGeneratorThatProvidesAnEmptyString(): void
     {
-        $values = [
-            'string-empty' => '',
+        $specifications = [
+            'string-empty' => Util\DataProvider\Specification\Identical::create(''),
         ];
 
         $provider = StringProvider::empty();
 
-        self::assertProvidesDataForValues($values, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 
     /**
@@ -120,23 +113,15 @@ final class StringProviderTest extends AbstractProviderTestCase
 
     public function testUntrimmedReturnsGeneratorThatProvidesUntrimmedStrings(): void
     {
-        $tests = [
-            'string-untrimmed-carriage-return' => static function (string $value): bool {
-                return 1 === \preg_match('/^\r{1,5}\w+\r{1,5}$/', $value);
-            },
-            'string-untrimmed-line-feed' => static function (string $value): bool {
-                return 1 === \preg_match('/^\n{1,5}\w+\n{1,5}$/', $value);
-            },
-            'string-untrimmed-space' => static function (string $value): bool {
-                return 1 === \preg_match('/^\s{1,5}\w+\s{1,5}$/', $value);
-            },
-            'string-untrimmed-tab' => static function (string $value): bool {
-                return 1 === \preg_match('/^\t{1,5}\w+\t{1,5}$/', $value);
-            },
+        $specifications = [
+            'string-untrimmed-carriage-return' => Util\DataProvider\Specification\Pattern::create('/^\r{1,5}\w+\r{1,5}$/'),
+            'string-untrimmed-line-feed' => Util\DataProvider\Specification\Pattern::create('/^\n{1,5}\w+\n{1,5}$/'),
+            'string-untrimmed-space' => Util\DataProvider\Specification\Pattern::create('/^\s{1,5}\w+\s{1,5}$/'),
+            'string-untrimmed-tab' => Util\DataProvider\Specification\Pattern::create('/^\t{1,5}\w+\t{1,5}$/'),
         ];
 
         $provider = StringProvider::untrimmed();
 
-        self::assertProvidesDataForValuesPassingTests($tests, $provider);
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
 }
