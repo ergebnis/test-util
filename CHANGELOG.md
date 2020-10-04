@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.1.0...main`][1.1.0...main].
+For a full diff see [`1.2.0...main`][1.2.0...main].
+
+## [`1.2.0`][1.2.0]
+
+For a full diff see [`1.1.0...1.2.0`][1.1.0...1.2.0].
 
 ### Added
 
@@ -14,6 +18,7 @@ For a full diff see [`1.1.0...main`][1.1.0...main].
 * Added `DataProvider\NullProvider` ([#327]), by [@localheinz]
 * Added `DataProvider\StringProvider` ([#328]), by [@localheinz]
 * Added `DataProvider\IntProvider` ([#335]), by [@localheinz]
+* Added `DataProvider\FloatProvider` ([#341]), by [@localheinz]
 *
 ### Changed
 
@@ -102,6 +107,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [1.0.0]: https://github.com/ergebnis/test-util/releases/tag/1.0.0
 [1.0.1]: https://github.com/ergebnis/test-util/releases/tag/1.0.1
 [1.1.0]: https://github.com/ergebnis/test-util/releases/tag/1.1.0
+[1.2.0]: https://github.com/ergebnis/test-util/releases/tag/1.2.0
 
 [0.7.0...0.8.0]: https://github.com/ergebnis/test-util/compare/0.7.0...0.8.0
 [0.8.0...0.9.0]: https://github.com/ergebnis/test-util/compare/0.8.0...0.9.0
@@ -109,7 +115,8 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [0.9.1...1.0.0]: https://github.com/ergebnis/test-util/compare/0.9.1...1.0.0
 [1.0.0...1.0.1]: https://github.com/ergebnis/test-util/compare/1.0.0...1.0.1
 [1.0.1...1.1.0]: https://github.com/ergebnis/test-util/compare/1.0.1...1.1.0
-[1.1.0...main]: https://github.com/ergebnis/test-util/compare/1.1.0...main
+[1.1.0...1.2.0]: https://github.com/ergebnis/test-util/compare/1.1.0...1.2.0
+[1.2.0...main]: https://github.com/ergebnis/test-util/compare/1.2.0...main
 
 [#118]: https://github.com/ergebnis/test-util/pull/118
 [#119]: https://github.com/ergebnis/test-util/pull/119
@@ -124,6 +131,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#328]: https://github.com/ergebnis/test-util/pull/328
 [#334]: https://github.com/ergebnis/test-util/pull/334
 [#335]: https://github.com/ergebnis/test-util/pull/335
+[#341]: https://github.com/ergebnis/test-util/pull/341
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

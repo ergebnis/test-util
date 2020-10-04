@@ -102,6 +102,7 @@ In addition to the assertions made available by extending from `PHPUnit\Framewor
 This package provides the following generic data providers:
 
 * [`Ergebnis\Test\Util\DataProvider\BoolProvider`](https://github.com/ergebnis/test-util#dataproviderboolprovider)
+* [`Ergebnis\Test\Util\DataProvider\FloatProvider`](https://github.com/ergebnis/test-util#dataproviderfloatprovider)
 * [`Ergebnis\Test\Util\DataProvider\IntProvider`](https://github.com/ergebnis/test-util#dataproviderintprovider)
 * [`Ergebnis\Test\Util\DataProvider\NullProvider`](https://github.com/ergebnis/test-util#dataprovidernullprovider)
 * [`Ergebnis\Test\Util\DataProvider\StringProvider`](https://github.com/ergebnis/test-util#dataproviderstringprovider)
@@ -142,6 +143,18 @@ final class ExampleTest extends Framework\TestCase
 * `true()` provides `true`
 
 For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\BoolProviderTest`](test/Unit/DataProvider/BoolProviderTest.php).
+
+#### `DataProvider\FloatProvider`
+
+* `arbitrary()` provides arbitrary `float`s
+* `greaterThanOne()` provides `int`s greater than `1.0`
+* `greaterThanZero()` provides `int`s greater than `0.0`
+* `lessThanOne()` provides `int`s less than `1.0`
+* `lessThanZero()` provides `int`s less than `0.0`
+* `one()` provides `1.0`
+* `zero()` provides `0.0`
+
+For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\FloatProviderTest`](test/Unit/DataProvider/FloatProviderTest.php).
 
 #### `DataProvider\IntProvider`
 
