@@ -11,9 +11,6 @@
     </RedundantIdentityWithTrue>
   </file>
   <file src="src/DataProvider/FloatProvider.php">
-    <InvalidOperand occurrences="1">
-      <code>-1 * $faker-&gt;randomFloat(null, 1.01)</code>
-    </InvalidOperand>
     <MoreSpecificReturnType occurrences="7">
       <code>\Generator&lt;string, array{0: float}&gt;</code>
       <code>\Generator&lt;string, array{0: float}&gt;</code>
@@ -38,6 +35,11 @@
   <file src="src/DataProvider/NullProvider.php">
     <MoreSpecificReturnType occurrences="1">
       <code>\Generator&lt;string, array{0: null}&gt;</code>
+    </MoreSpecificReturnType>
+  </file>
+  <file src="src/DataProvider/ObjectProvider.php">
+    <MoreSpecificReturnType occurrences="1">
+      <code>\Generator&lt;string, array{0: bool}&gt;</code>
     </MoreSpecificReturnType>
   </file>
   <file src="src/DataProvider/StringProvider.php">
@@ -143,6 +145,16 @@
     <MixedReturnStatement occurrences="1">
       <code>$closure($value)</code>
     </MixedReturnStatement>
+  </file>
+  <file src="test/Util/DataProvider/Specification/Equal.php">
+    <MissingParamType occurrences="3">
+      <code>$value</code>
+      <code>$value</code>
+      <code>$value</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="1">
+      <code>$value</code>
+    </MissingPropertyType>
   </file>
   <file src="test/Util/DataProvider/Specification/Identical.php">
     <MissingParamType occurrences="3">
