@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.2.0...main`][1.2.0...main].
 
+### Added
+
+* Added `DataProvider\ObjectProvider` ([#343]), by [@localheinz]
+*
 ## [`1.2.0`][1.2.0]
 
 For a full diff see [`1.1.0...1.2.0`][1.1.0...1.2.0].
@@ -132,6 +136,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#334]: https://github.com/ergebnis/test-util/pull/334
 [#335]: https://github.com/ergebnis/test-util/pull/335
 [#341]: https://github.com/ergebnis/test-util/pull/341
+[#343]: https://github.com/ergebnis/test-util/pull/343
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

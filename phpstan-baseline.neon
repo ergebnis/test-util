@@ -461,6 +461,121 @@ parameters:
 			path: src/DataProvider/NullProvider.php
 
 		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			count: 2
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertEmpty\\(\\)\\.$#"
+			count: 2
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertClassyConstructsSatisfySpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertTrue\\(\\)\\.$#"
+			count: 11
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertClassExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertClassImplementsInterface\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertClassIsAbstract\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertClassIsFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertClassSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertClassUsesTrait\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertContains\\(\\)\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertInterfaceExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertInterfaceExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertInterfaceSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertTraitExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:provideDataForValues\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:provideDataForValuesWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:provideDataForValuesWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ObjectProvider.php
+
+		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\StringProvider\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: src/DataProvider/StringProvider.php
@@ -1374,6 +1489,26 @@ parameters:
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Util\\\\DataProvider\\\\Specification\\\\Closure\\:\\:isSatisfiedBy\\(\\) has parameter \\$value with no typehint specified\\.$#"
 			count: 1
 			path: test/Util/DataProvider/Specification/Closure.php
+
+		-
+			message: "#^Property Ergebnis\\\\Test\\\\Util\\\\Test\\\\Util\\\\DataProvider\\\\Specification\\\\Equal\\:\\:\\$value has no typehint specified\\.$#"
+			count: 1
+			path: test/Util/DataProvider/Specification/Equal.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Util\\\\DataProvider\\\\Specification\\\\Equal\\:\\:__construct\\(\\) has parameter \\$value with no typehint specified\\.$#"
+			count: 1
+			path: test/Util/DataProvider/Specification/Equal.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Util\\\\DataProvider\\\\Specification\\\\Equal\\:\\:create\\(\\) has parameter \\$value with no typehint specified\\.$#"
+			count: 1
+			path: test/Util/DataProvider/Specification/Equal.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Util\\\\DataProvider\\\\Specification\\\\Equal\\:\\:isSatisfiedBy\\(\\) has parameter \\$value with no typehint specified\\.$#"
+			count: 1
+			path: test/Util/DataProvider/Specification/Equal.php
 
 		-
 			message: "#^Property Ergebnis\\\\Test\\\\Util\\\\Test\\\\Util\\\\DataProvider\\\\Specification\\\\Identical\\:\\:\\$value has no typehint specified\\.$#"
