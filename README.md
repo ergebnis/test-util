@@ -106,6 +106,7 @@ This package provides the following generic data providers:
 * [`Ergebnis\Test\Util\DataProvider\IntProvider`](https://github.com/ergebnis/test-util#dataproviderintprovider)
 * [`Ergebnis\Test\Util\DataProvider\NullProvider`](https://github.com/ergebnis/test-util#dataprovidernullprovider)
 * [`Ergebnis\Test\Util\DataProvider\ObjectProvider`](https://github.com/ergebnis/test-util#dataproviderobjectprovider)
+* [`Ergebnis\Test\Util\DataProvider\ResourceProvider`](https://github.com/ergebnis/test-util#dataproviderresourceprovider)
 * [`Ergebnis\Test\Util\DataProvider\StringProvider`](https://github.com/ergebnis/test-util#dataproviderstringprovider)
 
 Since it is possible to use multiple `@dataProvider` annotations for test methods, these generic data providers allow for reuse and composition of data providers:
@@ -180,6 +181,12 @@ For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\NullProviderTest`]
 * `object()` provides an instance of `stdClass`
 
 For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\ObjectProviderTest`](test/Unit/DataProvider/ObjectProviderTest.php).
+
+#### `DataProvider\ResourceProvider`
+
+* `resource()` provides a `resource`
+
+For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\ResourceProviderTest`](test/Unit/DataProvider/ResourceProviderTest.php).
 
 #### `DataProvider\StringProvider`
 
