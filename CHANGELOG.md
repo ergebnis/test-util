@@ -6,12 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.2.0...main`][1.2.0...main].
+For a full diff see [`1.3.0...main`][1.3.0...main].
+
+## [`1.3.0`][1.3.0]
+
+For a full diff see [`1.2.0...1.3.0`][1.2.0...1.3.0].
 
 ### Added
 
 * Added `DataProvider\ObjectProvider` ([#343]), by [@localheinz]
-*
+* Added `DataProvider\ResourceProvider` ([#344]), by [@localheinz]
+
 ## [`1.2.0`][1.2.0]
 
 For a full diff see [`1.1.0...1.2.0`][1.1.0...1.2.0].
@@ -23,7 +28,7 @@ For a full diff see [`1.1.0...1.2.0`][1.1.0...1.2.0].
 * Added `DataProvider\StringProvider` ([#328]), by [@localheinz]
 * Added `DataProvider\IntProvider` ([#335]), by [@localheinz]
 * Added `DataProvider\FloatProvider` ([#341]), by [@localheinz]
-*
+
 ### Changed
 
 * Renamed `DataProvider\BooleanProvider` to `DataProvider\BoolProvider` ([#334]), by [@localheinz]
@@ -112,6 +117,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [1.0.1]: https://github.com/ergebnis/test-util/releases/tag/1.0.1
 [1.1.0]: https://github.com/ergebnis/test-util/releases/tag/1.1.0
 [1.2.0]: https://github.com/ergebnis/test-util/releases/tag/1.2.0
+[1.3.0]: https://github.com/ergebnis/test-util/releases/tag/1.3.0
 
 [0.7.0...0.8.0]: https://github.com/ergebnis/test-util/compare/0.7.0...0.8.0
 [0.8.0...0.9.0]: https://github.com/ergebnis/test-util/compare/0.8.0...0.9.0
@@ -120,7 +126,8 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [1.0.0...1.0.1]: https://github.com/ergebnis/test-util/compare/1.0.0...1.0.1
 [1.0.1...1.1.0]: https://github.com/ergebnis/test-util/compare/1.0.1...1.1.0
 [1.1.0...1.2.0]: https://github.com/ergebnis/test-util/compare/1.1.0...1.2.0
-[1.2.0...main]: https://github.com/ergebnis/test-util/compare/1.2.0...main
+[1.2.0...1.3.0]: https://github.com/ergebnis/test-util/compare/1.2.0...1.3.0
+[1.3.0...main]: https://github.com/ergebnis/test-util/compare/1.3.0...main
 
 [#118]: https://github.com/ergebnis/test-util/pull/118
 [#119]: https://github.com/ergebnis/test-util/pull/119
@@ -137,6 +144,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#335]: https://github.com/ergebnis/test-util/pull/335
 [#341]: https://github.com/ergebnis/test-util/pull/341
 [#343]: https://github.com/ergebnis/test-util/pull/343
+[#344]: https://github.com/ergebnis/test-util/pull/344
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

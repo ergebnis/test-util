@@ -576,6 +576,121 @@ parameters:
 			path: src/DataProvider/ObjectProvider.php
 
 		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			count: 2
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertEmpty\\(\\)\\.$#"
+			count: 2
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertClassyConstructsSatisfySpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertTrue\\(\\)\\.$#"
+			count: 11
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertClassExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertClassImplementsInterface\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertClassIsAbstract\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertClassIsFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertClassSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertClassUsesTrait\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Call to an undefined static method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertContains\\(\\)\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertInterfaceExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertInterfaceExtends\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertInterfaceSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertTraitExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertTraitSatisfiesSpecification\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:provideDataForValues\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:provideDataForValuesWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:provideDataForValuesWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: src/DataProvider/ResourceProvider.php
+
+		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\StringProvider\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: src/DataProvider/StringProvider.php
