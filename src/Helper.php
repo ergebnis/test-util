@@ -54,8 +54,12 @@ trait Helper
      *
      * Useful to prevent long inheritance chains.
      *
-     * @param string         $directory
-     * @param class-string[] $excludeClassNames
+     * @phpstan-param array<class-string> $excludeClassNames
+     *
+     * @psalm-param array<class-string> $excludeClassNames
+     *
+     * @param string        $directory
+     * @param array<string> $excludeClassNames
      *
      * @throws Exception\NonExistentDirectory
      * @throws Exception\InvalidExcludeClassName
@@ -83,10 +87,13 @@ trait Helper
     /**
      * Asserts that classes in a directory have matching test classes extending from PHPUnit\Framework\TestCase.
      *
-     * @param string         $directory
-     * @param string         $namespace
-     * @param string         $testNamespace
-     * @param class-string[] $excludeClassyNames
+     * @phpstam-param array<class-string> $excludeClassyNames
+     * @psalm-param array<class-string> $excludeClassyNames
+     *
+     * @param string        $directory
+     * @param string        $namespace
+     * @param string        $testNamespace
+     * @param array<string> $excludeClassyNames
      *
      * @throws Exception\NonExistentDirectory
      * @throws Exception\InvalidExcludeClassName
@@ -187,10 +194,14 @@ trait Helper
      *
      * The specification will be invoked with a single argument, the class name, and should return true or false.
      *
-     * @param callable       $specification
-     * @param string         $directory
-     * @param class-string[] $excludeClassyNames
-     * @param string         $message
+     * @phpstan-param array<class-string> $excludeClassyNames
+     *
+     * @psalm-param array<class-string> $excludeClassyNames
+     *
+     * @param callable      $specification
+     * @param string        $directory
+     * @param array<string> $excludeClassyNames
+     * @param string        $message
      *
      * @throws Exception\NonExistentDirectory
      * @throws Exception\InvalidExcludeClassName
@@ -246,8 +257,14 @@ trait Helper
     /**
      * Asserts that a class extends from a parent class.
      *
-     * @param class-string $parentClassName
-     * @param class-string $className
+     * @phpstan-param class-string $parentClassName
+     * @phpstan-param class-string $className
+     *
+     * @psalm-param class-string $parentClassName
+     * @psalm-param class-string $className
+     *
+     * @param string $parentClassName
+     * @param string $className
      */
     final protected static function assertClassExtends(string $parentClassName, string $className): void
     {
@@ -267,8 +284,14 @@ trait Helper
     /**
      * Asserts that a class implements an interface.
      *
-     * @param class-string $interfaceName
-     * @param class-string $className
+     * @phpstan-param class-string $interfaceName
+     * @phpstan-param class-string $className
+     *
+     * @psalm-param class-string $interfaceName
+     * @psalm-param class-string $className
+     *
+     * @param string $interfaceName
+     * @param string $className
      */
     final protected static function assertClassImplementsInterface(string $interfaceName, string $className): void
     {
@@ -288,7 +311,11 @@ trait Helper
     /**
      * Asserts that a class is abstract.
      *
-     * @param class-string $className
+     * @phpstan-param class-string $className
+     *
+     * @psalm-param class-string $className
+     *
+     * @param string $className
      */
     final protected static function assertClassIsAbstract(string $className): void
     {
@@ -308,7 +335,11 @@ trait Helper
      *
      * Useful to prevent long inheritance chains.
      *
-     * @param class-string $className
+     * @phpstan-param class-string $className
+     *
+     * @psalm-param class-string $className
+     *
+     * @param string $className
      */
     final protected static function assertClassIsFinal(string $className): void
     {
@@ -328,9 +359,14 @@ trait Helper
      *
      * The specification will be invoked with a single argument, the class name, and should return true or false.
      *
-     * @param callable(class-string):bool $specification
-     * @param class-string                $className
-     * @param string                      $message
+     * @phpstan-param class-string $className
+     *
+     * @psalm-param callable(class-string):bool $specification
+     * @psalm-param class-string                $className
+     *
+     * @param callable $specification
+     * @param string   $className
+     * @param string   $message
      */
     final protected static function assertClassSatisfiesSpecification(callable $specification, string $className, string $message = ''): void
     {
@@ -345,8 +381,14 @@ trait Helper
     /**
      * Asserts that a class uses a trait.
      *
-     * @param class-string $traitName
-     * @param class-string $className
+     * @phpstan-param class-string $traitName
+     * @phpstan-param class-string $className
+     *
+     * @psalm-param class-string $traitName
+     * @psalm-param class-string $className
+     *
+     * @param string $traitName
+     * @param string $className
      */
     final protected static function assertClassUsesTrait(string $traitName, string $className): void
     {
@@ -376,8 +418,14 @@ trait Helper
     /**
      * Asserts that an interface extends a parent interface.
      *
-     * @param class-string $parentInterfaceName
-     * @param class-string $interfaceName
+     * @phpstan-param class-string $parentInterfaceName
+     * @phpstan-param class-string $interfaceName
+     *
+     * @psalm-param class-string $parentInterfaceName
+     * @psalm-param class-string $interfaceName
+     *
+     * @param string $parentInterfaceName
+     * @param string $interfaceName
      */
     final protected static function assertInterfaceExtends(string $parentInterfaceName, string $interfaceName): void
     {
@@ -399,9 +447,14 @@ trait Helper
      *
      * The specification will be invoked with a single argument, the class name, and should return true or false.
      *
-     * @param callable(class-string):bool $specification
-     * @param class-string                $interfaceName
-     * @param string                      $message
+     * @phpstan-param class-string $interfaceName
+     *
+     * @psalm-param callable(class-string):bool $specification
+     * @psalm-param class-string                $interfaceName
+     *
+     * @param callable $specification
+     * @param string   $interfaceName
+     * @param string   $message
      */
     final protected static function assertInterfaceSatisfiesSpecification(callable $specification, string $interfaceName, string $message = ''): void
     {
@@ -431,9 +484,14 @@ trait Helper
      *
      * The specification will be invoked with a single argument, the class name, and should return true or false.
      *
-     * @param callable(class-string):bool $specification
-     * @param class-string                $traitName
-     * @param string                      $message
+     * @phpstan-param class-string $traitName
+     *
+     * @psalm-param callable(class-string):bool $specification
+     * @psalm-param class-string                $traitName
+     *
+     * @param callable $specification
+     * @param string   $traitName
+     * @param string   $message
      */
     final protected static function assertTraitSatisfiesSpecification(callable $specification, string $traitName, string $message = ''): void
     {
