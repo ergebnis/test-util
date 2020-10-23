@@ -26,10 +26,6 @@ trait Helper
      * Useful for generating fake data in tests.
      *
      * @see https://github.com/fzaninotto/Faker
-     *
-     * @param string $locale
-     *
-     * @return Generator
      */
     final protected static function faker(string $locale = 'en_US'): Generator
     {
@@ -58,7 +54,6 @@ trait Helper
      *
      * @psalm-param array<class-string> $excludeClassNames
      *
-     * @param string        $directory
      * @param array<string> $excludeClassNames
      *
      * @throws Exception\NonExistentDirectory
@@ -90,9 +85,6 @@ trait Helper
      * @phpstam-param array<class-string> $excludeClassyNames
      * @psalm-param array<class-string> $excludeClassyNames
      *
-     * @param string        $directory
-     * @param string        $namespace
-     * @param string        $testNamespace
      * @param array<string> $excludeClassyNames
      *
      * @throws Exception\NonExistentDirectory
@@ -198,10 +190,7 @@ trait Helper
      *
      * @psalm-param array<class-string> $excludeClassyNames
      *
-     * @param callable      $specification
-     * @param string        $directory
      * @param array<string> $excludeClassyNames
-     * @param string        $message
      *
      * @throws Exception\NonExistentDirectory
      * @throws Exception\InvalidExcludeClassName
@@ -243,8 +232,6 @@ trait Helper
 
     /**
      * Asserts that a class exists.
-     *
-     * @param string $className
      */
     final protected static function assertClassExists(string $className): void
     {
@@ -262,9 +249,6 @@ trait Helper
      *
      * @psalm-param class-string $parentClassName
      * @psalm-param class-string $className
-     *
-     * @param string $parentClassName
-     * @param string $className
      */
     final protected static function assertClassExtends(string $parentClassName, string $className): void
     {
@@ -289,9 +273,6 @@ trait Helper
      *
      * @psalm-param class-string $interfaceName
      * @psalm-param class-string $className
-     *
-     * @param string $interfaceName
-     * @param string $className
      */
     final protected static function assertClassImplementsInterface(string $interfaceName, string $className): void
     {
@@ -314,8 +295,6 @@ trait Helper
      * @phpstan-param class-string $className
      *
      * @psalm-param class-string $className
-     *
-     * @param string $className
      */
     final protected static function assertClassIsAbstract(string $className): void
     {
@@ -338,8 +317,6 @@ trait Helper
      * @phpstan-param class-string $className
      *
      * @psalm-param class-string $className
-     *
-     * @param string $className
      */
     final protected static function assertClassIsFinal(string $className): void
     {
@@ -363,10 +340,6 @@ trait Helper
      *
      * @psalm-param callable(class-string):bool $specification
      * @psalm-param class-string                $className
-     *
-     * @param callable $specification
-     * @param string   $className
-     * @param string   $message
      */
     final protected static function assertClassSatisfiesSpecification(callable $specification, string $className, string $message = ''): void
     {
@@ -386,9 +359,6 @@ trait Helper
      *
      * @psalm-param class-string $traitName
      * @psalm-param class-string $className
-     *
-     * @param string $traitName
-     * @param string $className
      */
     final protected static function assertClassUsesTrait(string $traitName, string $className): void
     {
@@ -404,8 +374,6 @@ trait Helper
 
     /**
      * Asserts that an interface exists.
-     *
-     * @param string $interfaceName
      */
     final protected static function assertInterfaceExists(string $interfaceName): void
     {
@@ -423,9 +391,6 @@ trait Helper
      *
      * @psalm-param class-string $parentInterfaceName
      * @psalm-param class-string $interfaceName
-     *
-     * @param string $parentInterfaceName
-     * @param string $interfaceName
      */
     final protected static function assertInterfaceExtends(string $parentInterfaceName, string $interfaceName): void
     {
@@ -451,10 +416,6 @@ trait Helper
      *
      * @psalm-param callable(class-string):bool $specification
      * @psalm-param class-string                $interfaceName
-     *
-     * @param callable $specification
-     * @param string   $interfaceName
-     * @param string   $message
      */
     final protected static function assertInterfaceSatisfiesSpecification(callable $specification, string $interfaceName, string $message = ''): void
     {
@@ -468,8 +429,6 @@ trait Helper
 
     /**
      * Asserts that a trait exists.
-     *
-     * @param string $traitName
      */
     final protected static function assertTraitExists(string $traitName): void
     {
@@ -488,10 +447,6 @@ trait Helper
      *
      * @psalm-param callable(class-string):bool $specification
      * @psalm-param class-string                $traitName
-     *
-     * @param callable $specification
-     * @param string   $traitName
-     * @param string   $message
      */
     final protected static function assertTraitSatisfiesSpecification(callable $specification, string $traitName, string $message = ''): void
     {
@@ -525,7 +480,6 @@ trait Helper
 
     /**
      * @param array<string, mixed> $values
-     * @param \Closure             $test
      *
      * @throws Exception\EmptyValues
      *
@@ -550,7 +504,6 @@ trait Helper
 
     /**
      * @param array<string, mixed> $values
-     * @param \Closure             $test
      *
      * @throws Exception\EmptyValues
      *

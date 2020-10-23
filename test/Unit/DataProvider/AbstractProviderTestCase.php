@@ -104,17 +104,11 @@ abstract class AbstractProviderTestCase extends Framework\TestCase
         ));
     }
 
-    /**
-     * @param array $actual
-     */
     final protected static function assertDataSetsAreNotEmpty(array $actual): void
     {
         self::assertNotEmpty($actual, 'Failed asserting that provided data sets are not empty.');
     }
 
-    /**
-     * @param array $values
-     */
     private static function assertExpectedValuesAreNotEmpty(array $values): void
     {
         self::assertNotEmpty($values, 'Failed asserting that expected values are not empty.');

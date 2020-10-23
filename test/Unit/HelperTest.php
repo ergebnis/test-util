@@ -69,8 +69,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerLocale
-     *
-     * @param string $locale
      */
     public function testFakerWithLocaleReturnsFakerWithSpecifiedLocale(string $locale): void
     {
@@ -81,8 +79,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerLocale
-     *
-     * @param string $locale
      */
     public function testFakerReturnsSameFaker(string $locale): void
     {
@@ -346,9 +342,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNamespaceAndTestNamespace
-     *
-     * @param string $namespace
-     * @param string $testNamespace
      */
     public function testAssertClassesHaveTestsWorksWithAndWithoutTrailingSlash(string $namespace, string $testNamespace): void
     {
@@ -624,8 +617,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotClass
-     *
-     * @param string $className
      */
     public function testAssertClassExistsFailsWhenClassIsNotClass(string $className): void
     {
@@ -665,8 +656,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotClass
-     *
-     * @param string $parentClassName
      */
     public function testAssertClassExtendsFailsWhenParentClassIsNotClass(string $parentClassName): void
     {
@@ -686,8 +675,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotClass
-     *
-     * @param string $className
      */
     public function testAssertClassExtendsFailsWhenClassIsNotClass(string $className): void
     {
@@ -736,8 +723,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotInterface
-     *
-     * @param string $interfaceName
      */
     public function testAssertClassImplementsInterfaceFailsWhenInterfaceIsNotInterface(string $interfaceName): void
     {
@@ -757,8 +742,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotClass
-     *
-     * @param string $className
      */
     public function testAssertClassImplementsInterfaceFailsWhenClassIsNotClass(string $className): void
     {
@@ -807,8 +790,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotClass
-     *
-     * @param string $className
      */
     public function testAssertClassIsAbstractFailsWhenClassIsNotClass(string $className): void
     {
@@ -843,8 +824,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotClass
-     *
-     * @param string $className
      */
     public function testAssertClassIsFinalFailsWhenClassIsNotClass(string $className): void
     {
@@ -879,8 +858,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotClass
-     *
-     * @param string $className
      */
     public function testAssertClassSatisfiesSpecificationFailsWhenClassIsNotAClass(string $className): void
     {
@@ -950,8 +927,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotTrait
-     *
-     * @param string $traitName
      */
     public function testAssertClassUsesTraitFailsWhenTraitIsNotTrait(string $traitName): void
     {
@@ -971,8 +946,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotClass
-     *
-     * @param string $className
      */
     public function testAssertClassUsesTraitFailsWhenClassIsNotClass(string $className): void
     {
@@ -1021,8 +994,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotInterface
-     *
-     * @param string $interfaceName
      */
     public function testAssertInterfaceExistsFailsWhenInterfaceIsNotInterface(string $interfaceName): void
     {
@@ -1062,8 +1033,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotInterface
-     *
-     * @param string $parentInterfaceName
      */
     public function testInterfaceExtendsFailsWhenParentInterfaceIsNotInterface(string $parentInterfaceName): void
     {
@@ -1083,8 +1052,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotInterface
-     *
-     * @param string $interfaceName
      */
     public function testAssertInterfaceExtendsFailsWhenInterfaceIsNotInterface(string $interfaceName): void
     {
@@ -1133,8 +1100,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotInterface
-     *
-     * @param string $interfaceName
      */
     public function testAssertInterfaceSatisfiesSpecificationFailsWhenInterfaceIsNotInterface(string $interfaceName): void
     {
@@ -1204,8 +1169,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotTrait
-     *
-     * @param string $traitName
      */
     public function testAssertTraitExistsFailsWhenTraitIsNotTrait(string $traitName): void
     {
@@ -1245,8 +1208,6 @@ final class HelperTest extends Framework\TestCase
 
     /**
      * @dataProvider providerNotTrait
-     *
-     * @param string $traitName
      */
     public function testAssertTraitSatisfiesSpecificationFailsWhenTraitIsNotATrait(string $traitName): void
     {
