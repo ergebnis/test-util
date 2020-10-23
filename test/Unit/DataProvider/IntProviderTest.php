@@ -54,8 +54,6 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\IntProvider::lessThanZero()
-     *
-     * @param int $value
      */
     public function testLessThanZeroProvidesIntLessThanZero(int $value): void
     {
@@ -78,8 +76,6 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\IntProvider::zero()
-     *
-     * @param int $value
      */
     public function testZeroProvidesZero(int $value): void
     {
@@ -99,8 +95,6 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\IntProvider::greaterThanZero()
-     *
-     * @param int $value
      */
     public function testGreaterThanZeroProvidesIntGreaterThanZero(int $value): void
     {
@@ -123,8 +117,6 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\IntProvider::lessThanOne()
-     *
-     * @param int $value
      */
     public function testLessThanOneProvidesIntLessThanOne(int $value): void
     {
@@ -159,8 +151,6 @@ final class IntProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\IntProvider::greaterThanOne()
-     *
-     * @param int $value
      */
     public function testGreaterThanOneProvidesIntGreaterThanOne(int $value): void
     {

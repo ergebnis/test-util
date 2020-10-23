@@ -60,8 +60,6 @@ final class StringProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\StringProvider::blank()
-     *
-     * @param string $value
      */
     public function testBlankProvidesBlankString(string $value): void
     {
@@ -85,8 +83,6 @@ final class StringProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\StringProvider::empty()
-     *
-     * @param string $value
      */
     public function testEmptyProvidesEmptyString(string $value): void
     {
@@ -106,8 +102,6 @@ final class StringProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\StringProvider::untrimmed()
-     *
-     * @param string $value
      */
     public function testUntrimmedProvidesUntrimmedString(string $value): void
     {

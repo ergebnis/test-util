@@ -20,8 +20,6 @@ final class InvalidExcludeClassName extends \InvalidArgumentException
 {
     /**
      * @param mixed $className
-     *
-     * @return self
      */
     public static function fromClassName($className): self
     {

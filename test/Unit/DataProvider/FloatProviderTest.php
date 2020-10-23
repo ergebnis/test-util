@@ -54,8 +54,6 @@ final class FloatProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\FloatProvider::lessThanZero()
-     *
-     * @param float $value
      */
     public function testLessThanZeroProvidesFloatLessThanZero(float $value): void
     {
@@ -78,8 +76,6 @@ final class FloatProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\FloatProvider::zero()
-     *
-     * @param float $value
      */
     public function testZeroProvidesZero(float $value): void
     {
@@ -99,8 +95,6 @@ final class FloatProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\FloatProvider::greaterThanZero()
-     *
-     * @param float $value
      */
     public function testGreaterThanZeroProvidesFloatGreaterThanZero(float $value): void
     {
@@ -123,8 +117,6 @@ final class FloatProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\FloatProvider::lessThanOne()
-     *
-     * @param float $value
      */
     public function testLessThanOneProvidesFloatLessThanOne(float $value): void
     {
@@ -159,8 +151,6 @@ final class FloatProviderTest extends AbstractProviderTestCase
 
     /**
      * @dataProvider \Ergebnis\Test\Util\DataProvider\FloatProvider::greaterThanOne()
-     *
-     * @param float $value
      */
     public function testGreaterThanOneProvidesFloatGreaterThanOne(float $value): void
     {
