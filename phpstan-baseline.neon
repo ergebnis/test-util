@@ -1601,6 +1601,11 @@ parameters:
 			path: test/Unit/HelperTest.php
 
 		-
+			message: "#^Call to function iterator_to_array\\(\\) on a separate line has no effect\\.$#"
+			count: 5
+			path: test/Unit/HelperTest.php
+
+		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Util\\\\DataProvider\\\\Specification\\\\Closure\\:\\:isSatisfiedBy\\(\\) has parameter \\$value with no typehint specified\\.$#"
 			count: 1
 			path: test/Util/DataProvider/Specification/Closure.php
