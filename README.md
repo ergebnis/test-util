@@ -195,6 +195,7 @@ For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\ResourceProviderTe
 * `empty()` provides an empty `string`
 * `trimmed()` provides non-empty, non-blank `strings` without leading and trailing whitespace
 * `untrimmed()` provides non-empty, non-blank `string`s with additional leading and trailing whitespace
+* `withWhitespace()` provides non-empty, non-blank, trimmed `string`s containing whitespace
 
 For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\StringProviderTest`](test/Unit/DataProvider/StringProviderTest.php).
 

@@ -71,6 +71,17 @@ final class StringProvider
     }
 
     /**
+     * @return \Generator<string, array{0: string}>
+     */
+    public static function withWhitespace(): \Generator
+    {
+        yield from self::provideDataForValuesWhere(self::values(), static function (string $value): bool {
+            return \trim($value) === $value
+                && 1 === \preg_match('/\s/', $value);
+        });
+    }
+
+    /**
      * @return array<string, string>
      */
     private static function values(): array
@@ -123,14 +134,37 @@ final class StringProvider
             }, $whitespaceCharacters)
         );
 
+        /** @var array<string, string> $withWhitespaceValues */
+        $withWhitespaceValues = \array_combine(
+            \array_map(static function (string $key): string {
+                return \sprintf(
+                    'string-with-whitespace-%s',
+                    $key
+                );
+            }, \array_keys($whitespaceCharacters)),
+            \array_map(static function (string $whitespaceCharacter) use ($faker): string {
+                /** @var array<string> $words */
+                $words = $faker->words($faker->numberBetween(2, 5));
+
+                return \implode(
+                    $whitespaceCharacter,
+                    $words
+                );
+            }, $whitespaceCharacters)
+        );
+
         return \array_merge(
             $arbitraryValues,
             $blankValues,
             $emptyValues,
-            $untrimmedValues
+            $untrimmedValues,
+            $withWhitespaceValues
         );
     }
 
+    /**
+     * @return array<string, string>
+     */
     private static function whitespaceCharacters(): array
     {
         return [
