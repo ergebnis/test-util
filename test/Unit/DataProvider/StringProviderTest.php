@@ -51,6 +51,10 @@ final class StringProviderTest extends AbstractProviderTestCase
             'string-untrimmed-line-feed' => Util\DataProvider\Specification\Pattern::create('/^\n{1,5}\w+\n{1,5}$/'),
             'string-untrimmed-space' => Util\DataProvider\Specification\Pattern::create('/^\s{1,5}\w+\s{1,5}$/'),
             'string-untrimmed-tab' => Util\DataProvider\Specification\Pattern::create('/^\t{1,5}\w+\t{1,5}$/'),
+            'string-with-whitespace-carriage-return' => Util\DataProvider\Specification\Pattern::create('/^\w+(\r+\w+){1,4}$/'),
+            'string-with-whitespace-line-feed' => Util\DataProvider\Specification\Pattern::create('/^\w+(\n+\w+){1,4}$/'),
+            'string-with-whitespace-space' => Util\DataProvider\Specification\Pattern::create('/^\w+(\s+\w+){1,4}$/'),
+            'string-with-whitespace-tab' => Util\DataProvider\Specification\Pattern::create('/^\w+(\t+\w+){1,4}$/'),
         ];
 
         $provider = StringProvider::arbitrary();
@@ -129,6 +133,10 @@ final class StringProviderTest extends AbstractProviderTestCase
             'string-arbitrary-word' => Util\DataProvider\Specification\Closure::create(static function (string $value): bool {
                 return '' !== $value && '' !== \trim($value);
             }),
+            'string-with-whitespace-carriage-return' => Util\DataProvider\Specification\Pattern::create('/^\w+(\r+\w+){1,4}$/'),
+            'string-with-whitespace-line-feed' => Util\DataProvider\Specification\Pattern::create('/^\w+(\n+\w+){1,4}$/'),
+            'string-with-whitespace-space' => Util\DataProvider\Specification\Pattern::create('/^\w+(\s+\w+){1,4}$/'),
+            'string-with-whitespace-tab' => Util\DataProvider\Specification\Pattern::create('/^\w+(\t+\w+){1,4}$/'),
         ];
 
         $provider = StringProvider::trimmed();
@@ -146,6 +154,23 @@ final class StringProviderTest extends AbstractProviderTestCase
         ];
 
         $provider = StringProvider::untrimmed();
+
+        self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
+    }
+
+    public function testWithWhitespaceReturnsGeneratorThatProvidesTrimmedStringsWithWhitespace(): void
+    {
+        $specifications = [
+            'string-arbitrary-sentence' => Util\DataProvider\Specification\Closure::create(static function (string $value): bool {
+                return '' !== $value && '' !== \trim($value);
+            }),
+            'string-with-whitespace-carriage-return' => Util\DataProvider\Specification\Pattern::create('/^\w+(\r+\w+){1,4}$/'),
+            'string-with-whitespace-line-feed' => Util\DataProvider\Specification\Pattern::create('/^\w+(\n+\w+){1,4}$/'),
+            'string-with-whitespace-space' => Util\DataProvider\Specification\Pattern::create('/^\w+(\s+\w+){1,4}$/'),
+            'string-with-whitespace-tab' => Util\DataProvider\Specification\Pattern::create('/^\w+(\t+\w+){1,4}$/'),
+        ];
+
+        $provider = StringProvider::withWhitespace();
 
         self::assertProvidesDataSetsForValuesSatisfyingSpecifications($specifications, $provider);
     }
