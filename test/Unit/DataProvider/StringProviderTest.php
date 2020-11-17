@@ -33,7 +33,7 @@ final class StringProviderTest extends AbstractProviderTestCase
         self::assertIsString($value);
     }
 
-    public function testArbitraryReturnsGeneratorThatProvidesStringsThatAreNeitherEmptyNorBlank(): void
+    public function testArbitraryReturnsGeneratorThatProvidesArbitraryStrings(): void
     {
         $specifications = [
             'string-arbitrary-sentence' => Util\DataProvider\Specification\Closure::create(static function (string $value): bool {
