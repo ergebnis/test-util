@@ -43,7 +43,7 @@ final class FloatProviderTest extends AbstractProviderTestCase
             'float-zero' => Util\DataProvider\Specification\Identical::create(0.0),
             'float-plus-one' => Util\DataProvider\Specification\Identical::create(1.0),
             'float-greater-than-plus-one' => Util\DataProvider\Specification\Closure::create(static function (float $value): bool {
-                return  1.0 < $value;
+                return 1.0 < $value;
             }),
         ];
 
@@ -161,7 +161,7 @@ final class FloatProviderTest extends AbstractProviderTestCase
     {
         $specifications = [
             'float-greater-than-plus-one' => Util\DataProvider\Specification\Closure::create(static function (float $value): bool {
-                return  1.0 < $value;
+                return 1.0 < $value;
             }),
         ];
 
