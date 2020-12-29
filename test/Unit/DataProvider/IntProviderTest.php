@@ -43,7 +43,7 @@ final class IntProviderTest extends AbstractProviderTestCase
             'int-zero' => Util\DataProvider\Specification\Identical::create(0),
             'int-plus-one' => Util\DataProvider\Specification\Identical::create(1),
             'int-greater-than-plus-one' => Util\DataProvider\Specification\Closure::create(static function (int $value): bool {
-                return  1 < $value;
+                return 1 < $value;
             }),
         ];
 
@@ -106,7 +106,7 @@ final class IntProviderTest extends AbstractProviderTestCase
         $specifications = [
             'int-plus-one' => Util\DataProvider\Specification\Identical::create(1),
             'int-greater-than-plus-one' => Util\DataProvider\Specification\Closure::create(static function (int $value): bool {
-                return  1 < $value;
+                return 1 < $value;
             }),
         ];
 
@@ -161,7 +161,7 @@ final class IntProviderTest extends AbstractProviderTestCase
     {
         $specifications = [
             'int-greater-than-plus-one' => Util\DataProvider\Specification\Closure::create(static function (int $value): bool {
-                return  1 < $value;
+                return 1 < $value;
             }),
         ];
 
