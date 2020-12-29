@@ -19,7 +19,7 @@
   "require": {
     "php": "^7.2 || ^8.0",
     "ergebnis/classy": "^1.1.0",
-    "fakerphp/faker": "^1.11.0"
+    "fakerphp/faker": "^1.13.0"
   },
   "require-dev": {
     "ergebnis/composer-normalize": "^2.12.1",
