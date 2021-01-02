@@ -1,9 +1,9 @@
 # test-util
 
-[![Integrate](https://github.com/ergebnis/test-util/workflows/Integrate/badge.svg?branch=main)](https://github.com/ergebnis/test-util/actions)
-[![Prune](https://github.com/ergebnis/test-util/workflows/Prune/badge.svg?branch=main)](https://github.com/ergebnis/test-util/actions)
-[![Release](https://github.com/ergebnis/test-util/workflows/Release/badge.svg?branch=main)](https://github.com/ergebnis/test-util/actions)
-[![Renew](https://github.com/ergebnis/test-util/workflows/Renew/badge.svg?branch=main)](https://github.com/ergebnis/test-util/actions)
+[![Integrate](https://github.com/ergebnis/test-util/workflows/Integrate/badge.svg)](https://github.com/ergebnis/test-util/actions)
+[![Prune](https://github.com/ergebnis/test-util/workflows/Prune/badge.svg)](https://github.com/ergebnis/test-util/actions)
+[![Release](https://github.com/ergebnis/test-util/workflows/Release/badge.svg)](https://github.com/ergebnis/test-util/actions)
+[![Renew](https://github.com/ergebnis/test-util/workflows/Renew/badge.svg)](https://github.com/ergebnis/test-util/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/test-util/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/test-util)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/test-util/coverage.svg)](https://shepherd.dev/github/ergebnis/test-util)
