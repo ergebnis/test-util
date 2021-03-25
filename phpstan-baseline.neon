@@ -11,11 +11,6 @@ parameters:
 			path: src/DataProvider/BoolProvider.php
 
 		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
-			path: src/DataProvider/BoolProvider.php
-
-		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: src/DataProvider/BoolProvider.php
@@ -123,11 +118,6 @@ parameters:
 		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\FloatProvider\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/FloatProvider.php
-
-		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
 			path: src/DataProvider/FloatProvider.php
 
 		-
@@ -241,11 +231,6 @@ parameters:
 			path: src/DataProvider/IntProvider.php
 
 		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
-			path: src/DataProvider/IntProvider.php
-
-		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\IntProvider\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: src/DataProvider/IntProvider.php
@@ -353,11 +338,6 @@ parameters:
 		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\NullProvider\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/NullProvider.php
-
-		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
 			path: src/DataProvider/NullProvider.php
 
 		-
@@ -471,11 +451,6 @@ parameters:
 			path: src/DataProvider/ObjectProvider.php
 
 		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
-			path: src/DataProvider/ObjectProvider.php
-
-		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: src/DataProvider/ObjectProvider.php
@@ -583,11 +558,6 @@ parameters:
 		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: src/DataProvider/ResourceProvider.php
-
-		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
 			path: src/DataProvider/ResourceProvider.php
 
 		-
@@ -701,11 +671,6 @@ parameters:
 			path: src/DataProvider/StringProvider.php
 
 		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
-			path: src/DataProvider/StringProvider.php
-
-		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\StringProvider\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: src/DataProvider/StringProvider.php
@@ -816,11 +781,6 @@ parameters:
 			path: test/AutoReview/SrcCodeTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
-			path: test/AutoReview/SrcCodeTest.php
-
-		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\SrcCodeTest\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/AutoReview/SrcCodeTest.php
@@ -916,11 +876,6 @@ parameters:
 			path: test/AutoReview/TestCodeTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
-			path: test/AutoReview/TestCodeTest.php
-
-		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\AutoReview\\\\TestCodeTest\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/AutoReview/TestCodeTest.php
@@ -1006,16 +961,6 @@ parameters:
 			path: test/AutoReview/TestCodeTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
-			path: test/Unit/DataProvider/AbstractProviderTestCase.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array and string will always evaluate to true\\.$#"
-			count: 1
-			path: test/Unit/DataProvider/AbstractProviderTestCase.php
-
-		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/EmptyValuesTest.php
@@ -1023,11 +968,6 @@ parameters:
 		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: test/Unit/Exception/EmptyValuesTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
 			path: test/Unit/Exception/EmptyValuesTest.php
 
 		-
@@ -1126,11 +1066,6 @@ parameters:
 			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
-			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
-
-		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
@@ -1223,11 +1158,6 @@ parameters:
 		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: test/Unit/Exception/NonExistentDirectoryTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
 			path: test/Unit/Exception/NonExistentDirectoryTest.php
 
 		-
@@ -1326,11 +1256,6 @@ parameters:
 			path: test/Unit/Exception/NonExistentExcludeClassTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
-			path: test/Unit/Exception/NonExistentExcludeClassTest.php
-
-		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertClassesHaveTests\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/NonExistentExcludeClassTest.php
@@ -1423,11 +1348,6 @@ parameters:
 		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertClassesAreAbstractOrFinal\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
-			path: test/Unit/HelperTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 2
 			path: test/Unit/HelperTest.php
 
 		-
@@ -1599,6 +1519,11 @@ parameters:
 			message: "#^Parameter \\#2 \\$traitName of static method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:assertTraitSatisfiesSpecification\\(\\) expects class\\-string, string given\\.$#"
 			count: 1
 			path: test/Unit/HelperTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array and string will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/DataProvider/AbstractProviderTestCase.php
 
 		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Util\\\\DataProvider\\\\Specification\\\\Closure\\:\\:isSatisfiedBy\\(\\) has parameter \\$value with no typehint specified\\.$#"
