@@ -16,6 +16,10 @@ For a full diff see [`1.4.0...1.5.0`][1.4.0...1.5.0].
 
 * Updated `fakerphp/faker` ([#434]), by [@dependabot]
 
+### Fixed
+
+* Stopped using deprecated magic properties on `Faker\Generator` and started using magic functions instead ([#435]), by [@localheinz]
+
 ## [`1.4.0`][1.4.0]
 
 For a full diff see [`1.3.0...1.4.0`][1.3.1...1.4.0].
@@ -178,6 +182,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#372]: https://github.com/ergebnis/test-util/pull/372
 [#374]: https://github.com/ergebnis/test-util/pull/374
 [#434]: https://github.com/ergebnis/test-util/pull/434
+[#435]: https://github.com/ergebnis/test-util/pull/435
 
 [@dependabot]: https://github.com/dependabot
 [@ergebnis]: https://github.com/ergebnis
