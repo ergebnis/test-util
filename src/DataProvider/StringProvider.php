@@ -89,8 +89,8 @@ final class StringProvider
         $faker = self::faker();
 
         $arbitraryValues = [
-            'string-arbitrary-sentence' => $faker->sentence,
-            'string-arbitrary-word' => $faker->word,
+            'string-arbitrary-sentence' => $faker->sentence(),
+            'string-arbitrary-word' => $faker->word(),
         ];
 
         $whitespaceCharacters = self::whitespaceCharacters();
@@ -125,7 +125,7 @@ final class StringProvider
                         $whitespaceCharacter,
                         $faker->numberBetween(1, 5)
                     ),
-                    $faker->word,
+                    $faker->word(),
                     \str_repeat(
                         $whitespaceCharacter,
                         $faker->numberBetween(1, 5)
