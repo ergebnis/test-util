@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.4.0...main`][1.4.0...main].
+For a full diff see [`1.5.0...main`][1.5.0...main].
+
+## [`1.5.0`][1.5.0]
+
+For a full diff see [`1.4.0...1.5.0`][1.4.0...1.5.0].
+
+### Changed
+
+* Updated `fakerphp/faker` ([#434]), by [@dependabot]
 
 ## [`1.4.0`][1.4.0]
 
@@ -136,6 +144,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [1.3.0]: https://github.com/ergebnis/test-util/releases/tag/1.3.0
 [1.3.1]: https://github.com/ergebnis/test-util/releases/tag/1.3.1
 [1.4.0]: https://github.com/ergebnis/test-util/releases/tag/1.4.0
+[1.5.0]: https://github.com/ergebnis/test-util/releases/tag/1.5.0
 
 [0.7.0...0.8.0]: https://github.com/ergebnis/test-util/compare/0.7.0...0.8.0
 [0.8.0...0.9.0]: https://github.com/ergebnis/test-util/compare/0.8.0...0.9.0
@@ -147,7 +156,8 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [1.2.0...1.3.0]: https://github.com/ergebnis/test-util/compare/1.2.0...1.3.0
 [1.3.0...1.3.1]: https://github.com/ergebnis/test-util/compare/1.3.0...1.3.1
 [1.3.1...1.4.0]: https://github.com/ergebnis/test-util/compare/1.3.1...1.4.0
-[1.4.0...main]: https://github.com/ergebnis/test-util/compare/1.4.0...main
+[1.4.0...1.5.0]: https://github.com/ergebnis/test-util/compare/1.4.0...1.5.0
+[1.5.0...main]: https://github.com/ergebnis/test-util/compare/1.5.0...main
 
 [#118]: https://github.com/ergebnis/test-util/pull/118
 [#119]: https://github.com/ergebnis/test-util/pull/119
@@ -167,6 +177,8 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#344]: https://github.com/ergebnis/test-util/pull/344
 [#372]: https://github.com/ergebnis/test-util/pull/372
 [#374]: https://github.com/ergebnis/test-util/pull/374
+[#434]: https://github.com/ergebnis/test-util/pull/434
 
+[@dependabot]: https://github.com/dependabot
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
