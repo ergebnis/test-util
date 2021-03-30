@@ -34,12 +34,12 @@ declare(strict_types=1);
 
 namespace Foo\Bar\Test\Unit;
 
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Test\Util;
 use PHPUnit\Framework;
 
 final class BazTest extends Framework\TestCase
 {
-    use Helper;
+    use Util\Helper;
 }
 ```
 
@@ -56,13 +56,13 @@ declare(strict_types=1);
 
 namespace Example\Test\Unit;
 
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Test\Util;
 use Example\Player;
 use PHPUnit\Framework;
 
 final class PlayerTest extends Framework\TestCase
 {
-    use Helper;
+    use Util\Helper;
 
     public function testConstructorSetsValues(): void
     {
