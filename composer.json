@@ -21,7 +21,7 @@
     "source": "https://github.com/ergebnis/test-util"
   },
   "require": {
-    "php": "^7.3 || ^8.0",
+    "php": "^7.4 || ^8.0",
     "ergebnis/classy": "^1.2.0",
     "fakerphp/faker": "^1.17.0"
   },
@@ -57,7 +57,7 @@
       "phpstan/extension-installer": true
     },
     "platform": {
-      "php": "7.3.32"
+      "php": "7.4.26"
     },
     "preferred-install": "dist",
     "sort-packages": true
