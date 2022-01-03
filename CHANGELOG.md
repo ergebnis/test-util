@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+For a full diff see [`1.6.0...main`][1.6.0...main].
+
+## [`1.6.0`][1.6.0]
+
+For a full diff see [`1.5.0...1.6.0`][1.5.0...1.6.0].
+
 ### Changed
 
 - Deprecated all data providers ([#526]), by [@localheinz]
@@ -13,8 +19,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Dropped support for PHP 7.3 ([#540]), by [@localheinz]
 - Deprecated all assertions ([#548]), by [@localheinz]
 - Deprecated provide methods ([#549]), by [@localheinz]
-
-For a full diff see [`1.5.0...main`][1.5.0...main].
 
 ## [`1.5.0`][1.5.0]
 
@@ -157,6 +161,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [1.3.1]: https://github.com/ergebnis/test-util/releases/tag/1.3.1
 [1.4.0]: https://github.com/ergebnis/test-util/releases/tag/1.4.0
 [1.5.0]: https://github.com/ergebnis/test-util/releases/tag/1.5.0
+[1.6.0]: https://github.com/ergebnis/test-util/releases/tag/1.6.0
 
 [0.7.0...0.8.0]: https://github.com/ergebnis/test-util/compare/0.7.0...0.8.0
 [0.8.0...0.9.0]: https://github.com/ergebnis/test-util/compare/0.8.0...0.9.0
@@ -169,7 +174,8 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [1.3.0...1.3.1]: https://github.com/ergebnis/test-util/compare/1.3.0...1.3.1
 [1.3.1...1.4.0]: https://github.com/ergebnis/test-util/compare/1.3.1...1.4.0
 [1.4.0...1.5.0]: https://github.com/ergebnis/test-util/compare/1.4.0...1.5.0
-[1.5.0...main]: https://github.com/ergebnis/test-util/compare/1.5.0...main
+[1.5.0...1.6.0]: https://github.com/ergebnis/test-util/compare/1.5.0...1.6.0
+[1.6.0...main]: https://github.com/ergebnis/test-util/compare/1.6.0...main
 
 [#118]: https://github.com/ergebnis/test-util/pull/118
 [#119]: https://github.com/ergebnis/test-util/pull/119
