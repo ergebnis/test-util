@@ -14,25 +14,15 @@ declare(strict_types=1);
 namespace Ergebnis\Test\Util\Test\Unit\Exception;
 
 use Ergebnis\Test\Util\Exception\EmptyValues;
-use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
  * @covers \Ergebnis\Test\Util\Exception\EmptyValues
- *
- * @uses \Ergebnis\Test\Util\Helper
  */
 final class EmptyValuesTest extends Framework\TestCase
 {
-    use Helper;
-
-    public function testExtendsInvalidArgumentException(): void
-    {
-        self::assertClassExtends(\InvalidArgumentException::class, EmptyValues::class);
-    }
-
     public function testCreateReturnsException(): void
     {
         $exception = EmptyValues::create();
