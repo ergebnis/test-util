@@ -15,6 +15,10 @@ namespace Ergebnis\Test\Util\DataProvider;
 
 use Ergebnis\Test\Util;
 
+/**
+ * @deprecated use ergebnis/data-provider instead
+ * @see https://github.com/ergebnis/data-provider
+ */
 final class ObjectProvider
 {
     use Util\Helper;

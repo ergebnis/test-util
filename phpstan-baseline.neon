@@ -966,6 +966,240 @@ parameters:
 			path: test/Unit/DataProvider/AbstractProviderTestCase.php
 
 		-
+			message:
+				"""
+					#^Call to method arbitrary\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/BoolProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method false\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/BoolProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method true\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\BoolProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/BoolProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method arbitrary\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\FloatProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/FloatProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method greaterThanOne\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\FloatProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/FloatProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method greaterThanZero\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\FloatProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/FloatProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method lessThanOne\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\FloatProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/FloatProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method lessThanZero\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\FloatProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/FloatProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method one\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\FloatProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/FloatProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method zero\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\FloatProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/FloatProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method arbitrary\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\IntProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/IntProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method greaterThanOne\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\IntProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/IntProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method greaterThanZero\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\IntProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/IntProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method lessThanOne\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\IntProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/IntProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method lessThanZero\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\IntProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/IntProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method one\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\IntProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/IntProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method zero\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\IntProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/IntProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method null\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\NullProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/NullProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method object\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ObjectProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/ObjectProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method resource\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\ResourceProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/ResourceProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method arbitrary\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\StringProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/StringProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method blank\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\StringProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/StringProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method empty\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\StringProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/StringProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method trimmed\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\StringProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/StringProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method untrimmed\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\StringProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/StringProviderTest.php
+
+		-
+			message:
+				"""
+					#^Call to method withWhitespace\\(\\) of deprecated class Ergebnis\\\\Test\\\\Util\\\\DataProvider\\\\StringProvider\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/StringProviderTest.php
+
+		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/EmptyValuesTest.php

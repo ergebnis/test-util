@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+### Changed
+
+- Deprecated all data providers ([#526]), by [@localheinz]
+
 For a full diff see [`1.5.0...main`][1.5.0...main].
 
 ## [`1.5.0`][1.5.0]
@@ -183,6 +187,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#374]: https://github.com/ergebnis/test-util/pull/374
 [#434]: https://github.com/ergebnis/test-util/pull/434
 [#435]: https://github.com/ergebnis/test-util/pull/435
+[#526]: https://github.com/ergebnis/test-util/pull/526
 
 [@dependabot]: https://github.com/dependabot
 [@ergebnis]: https://github.com/ergebnis
