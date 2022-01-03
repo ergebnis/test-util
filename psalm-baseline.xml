@@ -87,10 +87,62 @@
       <code>Util\Test\Util\DataProvider\Specification\Specification</code>
     </UnnecessaryVarAnnotation>
   </file>
+  <file src="test/Unit/DataProvider/BoolProviderTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>BoolProvider::arbitrary()</code>
+      <code>BoolProvider::false()</code>
+      <code>BoolProvider::true()</code>
+    </DeprecatedClass>
+  </file>
+  <file src="test/Unit/DataProvider/FloatProviderTest.php">
+    <DeprecatedClass occurrences="7">
+      <code>FloatProvider::arbitrary()</code>
+      <code>FloatProvider::greaterThanOne()</code>
+      <code>FloatProvider::greaterThanZero()</code>
+      <code>FloatProvider::lessThanOne()</code>
+      <code>FloatProvider::lessThanZero()</code>
+      <code>FloatProvider::one()</code>
+      <code>FloatProvider::zero()</code>
+    </DeprecatedClass>
+  </file>
+  <file src="test/Unit/DataProvider/IntProviderTest.php">
+    <DeprecatedClass occurrences="7">
+      <code>IntProvider::arbitrary()</code>
+      <code>IntProvider::greaterThanOne()</code>
+      <code>IntProvider::greaterThanZero()</code>
+      <code>IntProvider::lessThanOne()</code>
+      <code>IntProvider::lessThanZero()</code>
+      <code>IntProvider::one()</code>
+      <code>IntProvider::zero()</code>
+    </DeprecatedClass>
+  </file>
+  <file src="test/Unit/DataProvider/NullProviderTest.php">
+    <DeprecatedClass occurrences="1">
+      <code>NullProvider::null()</code>
+    </DeprecatedClass>
+  </file>
+  <file src="test/Unit/DataProvider/ObjectProviderTest.php">
+    <DeprecatedClass occurrences="1">
+      <code>ObjectProvider::object()</code>
+    </DeprecatedClass>
+  </file>
   <file src="test/Unit/DataProvider/ResourceProviderTest.php">
+    <DeprecatedClass occurrences="1">
+      <code>ResourceProvider::resource()</code>
+    </DeprecatedClass>
     <MissingClosureParamType occurrences="1">
       <code>$value</code>
     </MissingClosureParamType>
+  </file>
+  <file src="test/Unit/DataProvider/StringProviderTest.php">
+    <DeprecatedClass occurrences="6">
+      <code>StringProvider::arbitrary()</code>
+      <code>StringProvider::blank()</code>
+      <code>StringProvider::empty()</code>
+      <code>StringProvider::trimmed()</code>
+      <code>StringProvider::untrimmed()</code>
+      <code>StringProvider::withWhitespace()</code>
+    </DeprecatedClass>
   </file>
   <file src="test/Unit/Exception/InvalidExcludeClassNameTest.php">
     <MixedInferredReturnType occurrences="1">

@@ -99,6 +99,8 @@ In addition to the assertions made available by extending from `PHPUnit\Framewor
 
 ### Data Providers
 
+:exclamation: The data providers have been deprecated. Use [`ergebnis/data-provider`](https://github.com/ergebnis/data-provider) instead.
+
 This package provides the following generic data providers:
 
 * [`Ergebnis\Test\Util\DataProvider\BoolProvider`](https://github.com/ergebnis/test-util#dataproviderboolprovider)
