@@ -11,7 +11,7 @@
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/test-util/v/stable)](https://packagist.org/packages/ergebnis/test-util)
 [![Total Downloads](https://poser.pugx.org/ergebnis/test-util/downloads)](https://packagist.org/packages/ergebnis/test-util)
 
-Provides a helper trait and generic data providers for tests.
+Provides a helper trait for tests.
 
 ## Installation
 
@@ -98,110 +98,6 @@ In addition to the assertions made available by extending from `PHPUnit\Framewor
 * `assertInterfaceSatisfiesSpecification(callable $specification, string $interfaceName, string $message = '')`
 * `assertTraitExists(string $traitName)`
 * `assertTraitSatisfiesSpecification(callable $specification, string $traitName, string $message = '')`
-
-### Data Providers
-
-:exclamation: The data providers have been deprecated. Use [`ergebnis/data-provider`](https://github.com/ergebnis/data-provider) instead.
-
-This package provides the following generic data providers:
-
-* [`Ergebnis\Test\Util\DataProvider\BoolProvider`](https://github.com/ergebnis/test-util#dataproviderboolprovider)
-* [`Ergebnis\Test\Util\DataProvider\FloatProvider`](https://github.com/ergebnis/test-util#dataproviderfloatprovider)
-* [`Ergebnis\Test\Util\DataProvider\IntProvider`](https://github.com/ergebnis/test-util#dataproviderintprovider)
-* [`Ergebnis\Test\Util\DataProvider\NullProvider`](https://github.com/ergebnis/test-util#dataprovidernullprovider)
-* [`Ergebnis\Test\Util\DataProvider\ObjectProvider`](https://github.com/ergebnis/test-util#dataproviderobjectprovider)
-* [`Ergebnis\Test\Util\DataProvider\ResourceProvider`](https://github.com/ergebnis/test-util#dataproviderresourceprovider)
-* [`Ergebnis\Test\Util\DataProvider\StringProvider`](https://github.com/ergebnis/test-util#dataproviderstringprovider)
-
-Since it is possible to use multiple `@dataProvider` annotations for test methods, these generic data providers allow for reuse and composition of data providers:
-
-```php
-<?php
-
-declare(strict_types=1);
-
-namespace Example\Test;
-
-use PHPUnit\Framework;
-
-final class ExampleTest extends Framework\TestCase
-{
-    /**
-     * @dataProvider \Ergebnis\Test\Util\DataProvider\StringProvider::blank()
-     * @dataProvider \Ergebnis\Test\Util\DataProvider\StringProvider::empty()
-     *
-     * @param string $value
-     */
-    public function testFromNameRejectsBlankOrEmptyStrings(string $value): void
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Value can not be an empty or blank string.');
-
-        UserName::fromString($value);
-    }
-}
-```
-
-#### `DataProvider\BoolProvider`
-
-* `arbitrary()` provides `true`, `false`
-* `false()` provides `false`
-* `true()` provides `true`
-
-For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\BoolProviderTest`](test/Unit/DataProvider/BoolProviderTest.php).
-
-#### `DataProvider\FloatProvider`
-
-* `arbitrary()` provides arbitrary `float`s
-* `greaterThanOne()` provides `int`s greater than `1.0`
-* `greaterThanZero()` provides `int`s greater than `0.0`
-* `lessThanOne()` provides `int`s less than `1.0`
-* `lessThanZero()` provides `int`s less than `0.0`
-* `one()` provides `1.0`
-* `zero()` provides `0.0`
-
-For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\FloatProviderTest`](test/Unit/DataProvider/FloatProviderTest.php).
-
-#### `DataProvider\IntProvider`
-
-* `arbitrary()` provides arbitrary `int`s
-* `greaterThanOne()` provides `int`s greater than `1`
-* `greaterThanZero()` provides `int`s greater than `0`
-* `lessThanOne()` provides `int`s less than `1`
-* `lessThanZero()` provides `int`s less than `0`
-* `one()` provides `1`
-* `zero()` provides `0`
-
-For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\IntProviderTest`](test/Unit/DataProvider/IntProviderTest.php).
-
-#### `DataProvider\NullProvider`
-
-* `null()` provides `null`
-
-For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\NullProviderTest`](test/Unit/DataProvider/NullProviderTest.php).
-
-#### `DataProvider\ObjectProvider`
-
-* `object()` provides an instance of `stdClass`
-
-For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\ObjectProviderTest`](test/Unit/DataProvider/ObjectProviderTest.php).
-
-#### `DataProvider\ResourceProvider`
-
-* `resource()` provides a `resource`
-
-For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\ResourceProviderTest`](test/Unit/DataProvider/ResourceProviderTest.php).
-
-#### `DataProvider\StringProvider`
-
-* `arbitrary()` provides arbitrary `string`s
-* `blank()` provides `string`s consisting of whitespace characters only
-* `empty()` provides an empty `string`
-* `trimmed()` provides non-empty, non-blank `strings` without leading and trailing whitespace
-* `untrimmed()` provides non-empty, non-blank `string`s with additional leading and trailing whitespace
-* `withWhitespace()` provides non-empty, non-blank, trimmed `string`s containing whitespace
-
-For examples, see [`Ergebnis\Test\Util\Test\Unit\DataProvider\StringProviderTest`](test/Unit/DataProvider/StringProviderTest.php).
 
 ## Changelog
 

@@ -6,7 +6,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.6.0...main`][1.6.0...main].
+For a full diff see [`2.0.0...main`][2.0.0...main].
+
+## [`2.0.0`][2.0.0]
+
+For a full diff see [`1.6.0...2.0.0`][1.6.0...2.0.0].
+
+### Removed
+
+- Removed all data providers ([#552]), by [@localheinz]
+
+  If you use any of the data providers, run
+
+  ```shell
+  composer require --dev ergebnis/data-provider
+  ```
+
+  and replace occurrences of `Ergebnis\Test\Util\DataProvider` with `Ergebnis\DataProvider`.
 
 ## [`1.6.0`][1.6.0]
 
@@ -162,6 +178,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [1.4.0]: https://github.com/ergebnis/test-util/releases/tag/1.4.0
 [1.5.0]: https://github.com/ergebnis/test-util/releases/tag/1.5.0
 [1.6.0]: https://github.com/ergebnis/test-util/releases/tag/1.6.0
+[2.0.0]: https://github.com/ergebnis/test-util/releases/tag/2.0.0
 
 [0.7.0...0.8.0]: https://github.com/ergebnis/test-util/compare/0.7.0...0.8.0
 [0.8.0...0.9.0]: https://github.com/ergebnis/test-util/compare/0.8.0...0.9.0
@@ -175,7 +192,8 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [1.3.1...1.4.0]: https://github.com/ergebnis/test-util/compare/1.3.1...1.4.0
 [1.4.0...1.5.0]: https://github.com/ergebnis/test-util/compare/1.4.0...1.5.0
 [1.5.0...1.6.0]: https://github.com/ergebnis/test-util/compare/1.5.0...1.6.0
-[1.6.0...main]: https://github.com/ergebnis/test-util/compare/1.6.0...main
+[1.6.0...2.0.0]: https://github.com/ergebnis/test-util/compare/1.6.0...2.0.0
+[2.0.0...main]: https://github.com/ergebnis/test-util/compare/2.0.0...main
 
 [#118]: https://github.com/ergebnis/test-util/pull/118
 [#119]: https://github.com/ergebnis/test-util/pull/119
@@ -202,6 +220,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#540]: https://github.com/ergebnis/test-util/pull/540
 [#548]: https://github.com/ergebnis/test-util/pull/548
 [#549]: https://github.com/ergebnis/test-util/pull/549
+[#552]: https://github.com/ergebnis/test-util/pull/552
 
 [@dependabot]: https://github.com/dependabot
 [@ergebnis]: https://github.com/ergebnis
