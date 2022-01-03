@@ -80,7 +80,9 @@
     <MixedAssignment occurrences="1">
       <code>$value</code>
     </MixedAssignment>
-    <UndefinedMethod occurrences="14"/>
+    <UndefinedMethod occurrences="15">
+      <code>self::assertIsArray($usedTraitNames)</code>
+    </UndefinedMethod>
     <UnnecessaryVarAnnotation occurrences="7">
       <code>class-string</code>
       <code>class-string</code>
