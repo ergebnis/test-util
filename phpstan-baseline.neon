@@ -806,6 +806,15 @@ parameters:
 			path: src/DataProvider/StringProvider.php
 
 		-
+			message:
+				"""
+					#^Call to deprecated method provideDataForValues\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\DataProvider\\\\AbstractProviderTestCase\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 1
+			path: test/Unit/DataProvider/AbstractProviderTestCase.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array and non\\-empty\\-string will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/DataProvider/AbstractProviderTestCase.php
@@ -1593,6 +1602,33 @@ parameters:
 					Will be removed with the next major release\\.$#
 				"""
 			count: 4
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method provideDataForValues\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 2
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method provideDataForValuesWhere\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 3
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method provideDataForValuesWhereNot\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					use ergebnis/data\\-provider instead$#
+				"""
+			count: 3
 			path: test/Unit/HelperTest.php
 
 		-

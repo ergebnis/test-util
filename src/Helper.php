@@ -492,6 +492,9 @@ trait Helper
     }
 
     /**
+     * @deprecated use ergebnis/data-provider instead
+     * @see https://github.com/ergebnis/data-provider
+     *
      * @param array<string, mixed> $values
      *
      * @throws Exception\EmptyValues
@@ -512,6 +515,9 @@ trait Helper
     }
 
     /**
+     * @deprecated use ergebnis/data-provider instead
+     * @see https://github.com/ergebnis/data-provider
+     *
      * @param array<string, mixed> $values
      *
      * @throws Exception\EmptyValues
@@ -536,6 +542,9 @@ trait Helper
     }
 
     /**
+     * @deprecated use ergebnis/data-provider instead
+     * @see https://github.com/ergebnis/data-provider
+     *
      * @param array<string, mixed> $values
      *
      * @throws Exception\EmptyValues
