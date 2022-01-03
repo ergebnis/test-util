@@ -46,6 +46,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that classes in a directory are either abstract or final.
      *
      * Useful to prevent long inheritance chains.
@@ -80,6 +82,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that classes in a directory have matching test classes extending from PHPUnit\Framework\TestCase.
      *
      * @phpstam-param array<class-string> $excludeClassyNames
@@ -180,6 +184,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that all classes, interfaces, and traits found in a directory satisfy a specification.
      *
      * Useful for asserting that production and test code conforms to certain requirements.
@@ -231,6 +237,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that a class exists.
      */
     final protected static function assertClassExists(string $className): void
@@ -242,6 +250,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that a class extends from a parent class.
      *
      * @phpstan-param class-string $parentClassName
@@ -266,6 +276,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that a class implements an interface.
      *
      * @phpstan-param class-string $interfaceName
@@ -290,6 +302,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that a class is abstract.
      *
      * @phpstan-param class-string $className
@@ -310,6 +324,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that a class is final.
      *
      * Useful to prevent long inheritance chains.
@@ -332,6 +348,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that a class satisfies a specification.
      *
      * The specification will be invoked with a single argument, the class name, and should return true or false.
@@ -352,6 +370,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that a class uses a trait.
      *
      * @phpstan-param class-string $traitName
@@ -373,6 +393,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that an interface exists.
      */
     final protected static function assertInterfaceExists(string $interfaceName): void
@@ -384,6 +406,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that an interface extends a parent interface.
      *
      * @phpstan-param class-string $parentInterfaceName
@@ -408,6 +432,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that an interface satisfies a specification.
      *
      * The specification will be invoked with a single argument, the class name, and should return true or false.
@@ -428,6 +454,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that a trait exists.
      */
     final protected static function assertTraitExists(string $traitName): void
@@ -439,6 +467,8 @@ trait Helper
     }
 
     /**
+     * @deprecated Will be removed with the next major release.
+     *
      * Asserts that a trait satisfies a specification.
      *
      * The specification will be invoked with a single argument, the class name, and should return true or false.

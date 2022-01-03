@@ -1010,6 +1010,15 @@ parameters:
 			path: test/Unit/DataProvider/StringProviderTest.php
 
 		-
+			message:
+				"""
+					#^Call to deprecated method assertClassExtends\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 1
+			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/EmptyValuesTest.php
@@ -1103,6 +1112,15 @@ parameters:
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\EmptyValuesTest\\:\\:provideDataForValuesWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/EmptyValuesTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertClassExtends\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 1
+			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
 
 		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\InvalidExcludeClassNameTest\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
@@ -1200,6 +1218,15 @@ parameters:
 			path: test/Unit/Exception/InvalidExcludeClassNameTest.php
 
 		-
+			message:
+				"""
+					#^Call to deprecated method assertClassExtends\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 1
+			path: test/Unit/Exception/NonExistentDirectoryTest.php
+
+		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentDirectoryTest\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/NonExistentDirectoryTest.php
@@ -1295,6 +1322,15 @@ parameters:
 			path: test/Unit/Exception/NonExistentDirectoryTest.php
 
 		-
+			message:
+				"""
+					#^Call to deprecated method assertClassExtends\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 1
+			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:assertClassExists\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/NonExistentExcludeClassTest.php
@@ -1388,6 +1424,141 @@ parameters:
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\Exception\\\\NonExistentExcludeClassTest\\:\\:provideDataForValuesWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/NonExistentExcludeClassTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertClassExists\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 2
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertClassExtends\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 4
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertClassImplementsInterface\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 4
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertClassIsAbstract\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 3
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertClassIsFinal\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 3
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertClassSatisfiesSpecification\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 4
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertClassUsesTrait\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 4
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertClassesAreAbstractOrFinal\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 8
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertClassesHaveTests\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 9
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertClassyConstructsSatisfySpecification\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 8
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertInterfaceExists\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 2
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertInterfaceExtends\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 4
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertInterfaceSatisfiesSpecification\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 4
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertTraitExists\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 2
+			path: test/Unit/HelperTest.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method assertTraitSatisfiesSpecification\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
+					Will be removed with the next major release\\.$#
+				"""
+			count: 4
+			path: test/Unit/HelperTest.php
 
 		-
 			message: "#^Generator expects key type string, int given\\.$#"

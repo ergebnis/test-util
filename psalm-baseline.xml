@@ -58,6 +58,21 @@
     </MoreSpecificReturnType>
   </file>
   <file src="src/Helper.php">
+    <DeprecatedMethod occurrences="14">
+      <code>self::assertClassExists($className)</code>
+      <code>self::assertClassExists($className)</code>
+      <code>self::assertClassExists($className)</code>
+      <code>self::assertClassExists($className)</code>
+      <code>self::assertClassExists($className)</code>
+      <code>self::assertClassExists($className)</code>
+      <code>self::assertClassExists($parentClassName)</code>
+      <code>self::assertInterfaceExists($interfaceName)</code>
+      <code>self::assertInterfaceExists($interfaceName)</code>
+      <code>self::assertInterfaceExists($interfaceName)</code>
+      <code>self::assertInterfaceExists($parentInterfaceName)</code>
+      <code>self::assertTraitExists($traitName)</code>
+      <code>self::assertTraitExists($traitName)</code>
+    </DeprecatedMethod>
     <MissingClosureParamType occurrences="2">
       <code>$excludeClassyName</code>
       <code>$excludeClassyName</code>
@@ -144,10 +159,28 @@
       <code>StringProvider::withWhitespace()</code>
     </DeprecatedClass>
   </file>
+  <file src="test/Unit/Exception/EmptyValuesTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>self::assertClassExtends(\InvalidArgumentException::class, EmptyValues::class)</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/Unit/Exception/InvalidExcludeClassNameTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>self::assertClassExtends(\InvalidArgumentException::class, InvalidExcludeClassName::class)</code>
+    </DeprecatedMethod>
     <MixedInferredReturnType occurrences="1">
       <code>\Generator&lt;array&lt;null|array|bool|float|int|resource|\stdClass&gt;&gt;</code>
     </MixedInferredReturnType>
+  </file>
+  <file src="test/Unit/Exception/NonExistentDirectoryTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>self::assertClassExtends(\InvalidArgumentException::class, NonExistentDirectory::class)</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/Unit/Exception/NonExistentExcludeClassTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>self::assertClassExtends(\InvalidArgumentException::class, NonExistentExcludeClass::class)</code>
+    </DeprecatedMethod>
   </file>
   <file src="test/Unit/HelperTest.php">
     <ArgumentTypeCoercion occurrences="16">
@@ -168,6 +201,24 @@
       <code>$traitName</code>
       <code>$traitName</code>
     </ArgumentTypeCoercion>
+    <DeprecatedMethod occurrences="65">
+      <code>self::assertClassExists($className)</code>
+      <code>self::assertClassExists($className)</code>
+      <code>self::assertClassIsAbstract($className)</code>
+      <code>self::assertClassIsAbstract($className)</code>
+      <code>self::assertClassIsAbstract($className)</code>
+      <code>self::assertClassIsFinal($className)</code>
+      <code>self::assertClassIsFinal($className)</code>
+      <code>self::assertClassIsFinal($className)</code>
+      <code>self::assertClassesAreAbstractOrFinal($directory)</code>
+      <code>self::assertClassesAreAbstractOrFinal($directory)</code>
+      <code>self::assertClassesAreAbstractOrFinal($directory)</code>
+      <code>self::assertClassesAreAbstractOrFinal($directory)</code>
+      <code>self::assertInterfaceExists($interfaceName)</code>
+      <code>self::assertInterfaceExists($interfaceName)</code>
+      <code>self::assertTraitExists($traitName)</code>
+      <code>self::assertTraitExists($traitName)</code>
+    </DeprecatedMethod>
     <InvalidReturnType occurrences="1">
       <code>\Generator&lt;string, array&lt;string&gt;&gt;</code>
     </InvalidReturnType>
