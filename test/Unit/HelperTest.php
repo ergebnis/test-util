@@ -54,9 +54,9 @@ final class HelperTest extends Framework\TestCase
                 return \sprintf(
                     ' - %s::%s()',
                     $className,
-                    $method->getName()
+                    $method->getName(),
                 );
-            }, $methodsNeitherFinalNorProtected))
+            }, $methodsNeitherFinalNorProtected)),
         ));
     }
 
@@ -133,7 +133,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             "Failed asserting that the classes\n\n%s\n\nare abstract or final.",
-            ' - ' . \implode("\n - ", $classesNeitherAbstractNorFinal)
+            ' - ' . \implode("\n - ", $classesNeitherAbstractNorFinal),
         ));
 
         self::assertClassesAreAbstractOrFinal($directory);
@@ -169,7 +169,7 @@ final class HelperTest extends Framework\TestCase
 
         self::assertClassesAreAbstractOrFinal(
             $directory,
-            $excludeClassNames
+            $excludeClassNames,
         );
     }
 
@@ -214,7 +214,7 @@ final class HelperTest extends Framework\TestCase
 
         self::assertClassesAreAbstractOrFinal(
             $directory,
-            $excludeClassyNames
+            $excludeClassyNames,
         );
     }
 
@@ -232,12 +232,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             "Failed asserting that the classes\n\n%s\n\nare abstract or final.",
-            ' - ' . \implode("\n - ", $classesNeitherAbstractNorFinal)
+            ' - ' . \implode("\n - ", $classesNeitherAbstractNorFinal),
         ));
 
         self::assertClassesAreAbstractOrFinal(
             $directory,
-            $excludeClassyNames
+            $excludeClassyNames,
         );
     }
 
@@ -251,7 +251,7 @@ final class HelperTest extends Framework\TestCase
 
         self::assertClassesAreAbstractOrFinal(
             $directory,
-            $excludeClassyNames
+            $excludeClassyNames,
         );
     }
 
@@ -266,7 +266,7 @@ final class HelperTest extends Framework\TestCase
         self::assertClassesHaveTests(
             $directory,
             $namespace,
-            $testNamespace
+            $testNamespace,
         );
     }
 
@@ -289,28 +289,28 @@ final class HelperTest extends Framework\TestCase
             \implode("\n", \array_map(static function (string $className): string {
                 return \sprintf(
                     ' - %s',
-                    $className
+                    $className,
                 );
             }, $classesWithoutTests)),
             \implode("\n", \array_map(static function (string $className) use ($namespace, $testNamespace): string {
                 $testClassName = \str_replace(
                     $namespace,
                     $testNamespace,
-                    $className
+                    $className,
                 ) . 'Test';
 
                 return \sprintf(
                     ' - %s',
-                    $testClassName
+                    $testClassName,
                 );
             }, $classesWithoutTests)),
-            Framework\TestCase::class
+            Framework\TestCase::class,
         ));
 
         self::assertClassesHaveTests(
             $directory,
             $namespace,
-            $testNamespace
+            $testNamespace,
         );
     }
 
@@ -323,7 +323,7 @@ final class HelperTest extends Framework\TestCase
         self::assertClassesHaveTests(
             $directory,
             $namespace,
-            $testNamespace
+            $testNamespace,
         );
     }
 
@@ -336,7 +336,7 @@ final class HelperTest extends Framework\TestCase
         self::assertClassesHaveTests(
             $directory,
             $namespace,
-            $testNamespace
+            $testNamespace,
         );
     }
 
@@ -350,7 +350,7 @@ final class HelperTest extends Framework\TestCase
         self::assertClassesHaveTests(
             $directory,
             $namespace,
-            $testNamespace
+            $testNamespace,
         );
     }
 
@@ -399,7 +399,7 @@ final class HelperTest extends Framework\TestCase
             $directory,
             $namespace,
             $testNamespace,
-            $excludeClassyNames
+            $excludeClassyNames,
         );
     }
 
@@ -421,7 +421,7 @@ final class HelperTest extends Framework\TestCase
             $directory,
             $namespace,
             $testNamespace,
-            $excludeClassyNames
+            $excludeClassyNames,
         );
     }
 
@@ -441,14 +441,14 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             "Failed asserting that the classes\n\n%s\n\nhave tests.",
-            ' - ' . \implode("\n - ", $classesWithoutTests)
+            ' - ' . \implode("\n - ", $classesWithoutTests),
         ));
 
         self::assertClassesHaveTests(
             $directory,
             $namespace,
             $testNamespace,
-            $excludeClassyNames
+            $excludeClassyNames,
         );
     }
 
@@ -466,7 +466,7 @@ final class HelperTest extends Framework\TestCase
             $directory,
             $namespace,
             $testNamespace,
-            $excludeClassyNames
+            $excludeClassyNames,
         );
     }
 
@@ -480,7 +480,7 @@ final class HelperTest extends Framework\TestCase
             static function (string $classyName): bool {
                 return false;
             },
-            $directory
+            $directory,
         );
     }
 
@@ -495,14 +495,14 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             "Failed asserting that the classy constructs\n\n%s\n\nsatisfy a specification.",
-            ' - ' . \implode("\n - ", $classesNotSatisfyingSpecification)
+            ' - ' . \implode("\n - ", $classesNotSatisfyingSpecification),
         ));
 
         self::assertClassyConstructsSatisfySpecification(
             static function (string $className): bool {
                 return false;
             },
-            $directory
+            $directory,
         );
     }
 
@@ -514,7 +514,7 @@ final class HelperTest extends Framework\TestCase
             static function (string $className): bool {
                 return false;
             },
-            $directory
+            $directory,
         );
     }
 
@@ -526,7 +526,7 @@ final class HelperTest extends Framework\TestCase
             static function (string $className): bool {
                 return true;
             },
-            $directory
+            $directory,
         );
     }
 
@@ -549,7 +549,7 @@ final class HelperTest extends Framework\TestCase
                 return true;
             },
             $directory,
-            $excludeClassyNames
+            $excludeClassyNames,
         );
     }
 
@@ -569,7 +569,7 @@ final class HelperTest extends Framework\TestCase
                 return Fixture\ClassyConstructsSatisfySpecification\ExampleClass::class === $classyName;
             },
             $directory,
-            $excludeClassyNames
+            $excludeClassyNames,
         );
     }
 
@@ -587,7 +587,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             "Failed asserting that the classy constructs\n\n%s\n\nsatisfy a specification.",
-            ' - ' . \implode("\n - ", $classesNotSatisfyingSpecification)
+            ' - ' . \implode("\n - ", $classesNotSatisfyingSpecification),
         ));
 
         self::assertClassyConstructsSatisfySpecification(
@@ -595,7 +595,7 @@ final class HelperTest extends Framework\TestCase
                 return false;
             },
             $directory,
-            $excludeClassyNames
+            $excludeClassyNames,
         );
     }
 
@@ -611,7 +611,7 @@ final class HelperTest extends Framework\TestCase
                 return Fixture\ClassyConstructsSatisfySpecification\ExampleClass::class === $classyName;
             },
             $directory,
-            $excludeClassyNames
+            $excludeClassyNames,
         );
     }
 
@@ -623,7 +623,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that a class "%s" exists.',
-            $className
+            $className,
         ));
 
         self::assertClassExists($className);
@@ -664,12 +664,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that a class "%s" exists.',
-            $parentClassName
+            $parentClassName,
         ));
 
         self::assertClassExtends(
             $parentClassName,
-            $className
+            $className,
         );
     }
 
@@ -683,12 +683,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that a class "%s" exists.',
-            $className
+            $className,
         ));
 
         self::assertClassExtends(
             $parentClassName,
-            $className
+            $className,
         );
     }
 
@@ -701,12 +701,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that class "%s" extends "%s".',
             $className,
-            $parentClassName
+            $parentClassName,
         ));
 
         self::assertClassExtends(
             $parentClassName,
-            $className
+            $className,
         );
     }
 
@@ -717,7 +717,7 @@ final class HelperTest extends Framework\TestCase
 
         self::assertClassExtends(
             $parentClassName,
-            $className
+            $className,
         );
     }
 
@@ -731,12 +731,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that an interface "%s" exists.',
-            $interfaceName
+            $interfaceName,
         ));
 
         self::assertClassImplementsInterface(
             $interfaceName,
-            $className
+            $className,
         );
     }
 
@@ -750,12 +750,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that a class "%s" exists.',
-            $className
+            $className,
         ));
 
         self::assertClassImplementsInterface(
             $interfaceName,
-            $className
+            $className,
         );
     }
 
@@ -768,12 +768,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that class "%s" implements interface "%s".',
             $className,
-            $interfaceName
+            $interfaceName,
         ));
 
         self::assertClassImplementsInterface(
             $interfaceName,
-            $className
+            $className,
         );
     }
 
@@ -784,7 +784,7 @@ final class HelperTest extends Framework\TestCase
 
         self::assertClassImplementsInterface(
             $interfaceName,
-            $className
+            $className,
         );
     }
 
@@ -796,7 +796,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that a class "%s" exists.',
-            $className
+            $className,
         ));
 
         self::assertClassIsAbstract($className);
@@ -809,7 +809,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that class "%s" is abstract.',
-            $className
+            $className,
         ));
 
         self::assertClassIsAbstract($className);
@@ -830,7 +830,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that a class "%s" exists.',
-            $className
+            $className,
         ));
 
         self::assertClassIsFinal($className);
@@ -843,7 +843,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that class "%s" is final.',
-            $className
+            $className,
         ));
 
         self::assertClassIsFinal($className);
@@ -864,14 +864,14 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that a class "%s" exists.',
-            $className
+            $className,
         ));
 
         self::assertClassSatisfiesSpecification(
             static function (): bool {
                 return true;
             },
-            $className
+            $className,
         );
     }
 
@@ -882,14 +882,14 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that class "%s" satisfies a specification.',
-            $className
+            $className,
         ));
 
         self::assertClassSatisfiesSpecification(
             static function (): bool {
                 return false;
             },
-            $className
+            $className,
         );
     }
 
@@ -901,7 +901,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             $message,
-            $className
+            $className,
         ));
 
         self::assertClassSatisfiesSpecification(
@@ -909,7 +909,7 @@ final class HelperTest extends Framework\TestCase
                 return false;
             },
             $className,
-            $message
+            $message,
         );
     }
 
@@ -921,7 +921,7 @@ final class HelperTest extends Framework\TestCase
             static function (): bool {
                 return true;
             },
-            $className
+            $className,
         );
     }
 
@@ -935,12 +935,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that a trait "%s" exists.',
-            $traitName
+            $traitName,
         ));
 
         self::assertClassUsesTrait(
             $traitName,
-            $className
+            $className,
         );
     }
 
@@ -954,12 +954,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that a class "%s" exists.',
-            $className
+            $className,
         ));
 
         self::assertClassUsesTrait(
             $traitName,
-            $className
+            $className,
         );
     }
 
@@ -972,12 +972,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that class "%s" uses trait "%s".',
             $className,
-            $traitName
+            $traitName,
         ));
 
         self::assertClassUsesTrait(
             $traitName,
-            $className
+            $className,
         );
     }
 
@@ -988,7 +988,7 @@ final class HelperTest extends Framework\TestCase
 
         self::assertClassUsesTrait(
             $traitName,
-            $className
+            $className,
         );
     }
 
@@ -1000,7 +1000,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that an interface "%s" exists.',
-            $interfaceName
+            $interfaceName,
         ));
 
         self::assertInterfaceExists($interfaceName);
@@ -1041,12 +1041,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that an interface "%s" exists.',
-            $parentInterfaceName
+            $parentInterfaceName,
         ));
 
         self::assertInterfaceExtends(
             $parentInterfaceName,
-            $interfaceName
+            $interfaceName,
         );
     }
 
@@ -1060,12 +1060,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that an interface "%s" exists.',
-            $interfaceName
+            $interfaceName,
         ));
 
         self::assertInterfaceExtends(
             $parentInterfaceName,
-            $interfaceName
+            $interfaceName,
         );
     }
 
@@ -1078,12 +1078,12 @@ final class HelperTest extends Framework\TestCase
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that interface "%s" extends "%s".',
             $interfaceName,
-            $parentInterfaceName
+            $parentInterfaceName,
         ));
 
         self::assertInterfaceExtends(
             $parentInterfaceName,
-            $interfaceName
+            $interfaceName,
         );
     }
 
@@ -1094,7 +1094,7 @@ final class HelperTest extends Framework\TestCase
 
         self::assertInterfaceExtends(
             $parentInterfaceName,
-            $interfaceName
+            $interfaceName,
         );
     }
 
@@ -1106,14 +1106,14 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that an interface "%s" exists.',
-            $interfaceName
+            $interfaceName,
         ));
 
         self::assertInterfaceSatisfiesSpecification(
             static function (): bool {
                 return true;
             },
-            $interfaceName
+            $interfaceName,
         );
     }
 
@@ -1124,14 +1124,14 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that interface "%s" satisfies a specification.',
-            $interfaceName
+            $interfaceName,
         ));
 
         self::assertInterfaceSatisfiesSpecification(
             static function (): bool {
                 return false;
             },
-            $interfaceName
+            $interfaceName,
         );
     }
 
@@ -1143,7 +1143,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             $message,
-            $interfaceName
+            $interfaceName,
         ));
 
         self::assertInterfaceSatisfiesSpecification(
@@ -1151,7 +1151,7 @@ final class HelperTest extends Framework\TestCase
                 return false;
             },
             $interfaceName,
-            $message
+            $message,
         );
     }
 
@@ -1163,7 +1163,7 @@ final class HelperTest extends Framework\TestCase
             static function (): bool {
                 return true;
             },
-            $interfaceName
+            $interfaceName,
         );
     }
 
@@ -1175,7 +1175,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that a trait "%s" exists.',
-            $traitName
+            $traitName,
         ));
 
         self::assertTraitExists($traitName);
@@ -1214,14 +1214,14 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that a trait "%s" exists.',
-            $traitName
+            $traitName,
         ));
 
         self::assertTraitSatisfiesSpecification(
             static function (): bool {
                 return true;
             },
-            $traitName
+            $traitName,
         );
     }
 
@@ -1232,14 +1232,14 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             'Failed asserting that trait "%s" satisfies a specification.',
-            $traitName
+            $traitName,
         ));
 
         self::assertTraitSatisfiesSpecification(
             static function (): bool {
                 return false;
             },
-            $traitName
+            $traitName,
         );
     }
 
@@ -1251,7 +1251,7 @@ final class HelperTest extends Framework\TestCase
         $this->expectException(Framework\AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
             $message,
-            $traitName
+            $traitName,
         ));
 
         self::assertTraitSatisfiesSpecification(
@@ -1259,7 +1259,7 @@ final class HelperTest extends Framework\TestCase
                 return false;
             },
             $traitName,
-            $message
+            $message,
         );
     }
 
@@ -1271,7 +1271,7 @@ final class HelperTest extends Framework\TestCase
             static function (): bool {
                 return true;
             },
-            $traitName
+            $traitName,
         );
     }
 
@@ -1441,7 +1441,7 @@ final class HelperTest extends Framework\TestCase
 
                 return $providerLocales;
             },
-            []
+            [],
         );
 
         $locales = \array_values(\array_unique($providerLocales));

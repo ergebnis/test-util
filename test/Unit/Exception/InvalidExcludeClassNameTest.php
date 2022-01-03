@@ -46,7 +46,7 @@ final class InvalidExcludeClassNameTest extends Framework\TestCase
 
         $message = \sprintf(
             'Exclude class name should be a string, got "%s" instead.',
-            \is_object($className) ? \get_class($className) : \gettype($className)
+            \is_object($className) ? \get_class($className) : \gettype($className),
         );
 
         self::assertSame($message, $exception->getMessage());

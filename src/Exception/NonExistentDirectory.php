@@ -22,7 +22,7 @@ final class NonExistentDirectory extends \InvalidArgumentException
     {
         return new self(\sprintf(
             'Directory "%s" does not exist.',
-            $directory
+            $directory,
         ));
     }
 }

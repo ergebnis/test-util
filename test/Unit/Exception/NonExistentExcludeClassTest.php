@@ -43,7 +43,7 @@ final class NonExistentExcludeClassTest extends Framework\TestCase
 
         $message = \sprintf(
             'Exclude class "%s" does not exist.',
-            $className
+            $className,
         );
 
         self::assertSame($message, $exception->getMessage());
