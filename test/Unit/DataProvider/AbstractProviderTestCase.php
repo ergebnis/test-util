@@ -39,7 +39,7 @@ abstract class AbstractProviderTestCase extends Framework\TestCase
         self::assertEquals(
             $expectedDataSets,
             $actualDataSets,
-            'Failed asserting that a generator yields data sets for the expected values.'
+            'Failed asserting that a generator yields data sets for the expected values.',
         );
     }
 
@@ -53,7 +53,7 @@ abstract class AbstractProviderTestCase extends Framework\TestCase
             'string',
             \array_keys($specifications),
             true,
-            'Failed asserting that the keys of specifications are all strings.'
+            'Failed asserting that the keys of specifications are all strings.',
         );
 
         self::assertContainsOnly(
@@ -62,8 +62,8 @@ abstract class AbstractProviderTestCase extends Framework\TestCase
             false,
             \sprintf(
                 'Failed asserting that the values of specifications implement "%s".',
-                Util\Test\Util\DataProvider\Specification\Specification::class
-            )
+                Util\Test\Util\DataProvider\Specification\Specification::class,
+            ),
         );
 
         $dataSets = \iterator_to_array($provider);
@@ -71,7 +71,7 @@ abstract class AbstractProviderTestCase extends Framework\TestCase
         self::assertEquals(
             \array_keys($specifications),
             \array_keys($dataSets),
-            'Failed asserting that the provided data has the same keys as the specifications.'
+            'Failed asserting that the provided data has the same keys as the specifications.',
         );
 
         $keysForDataSetsWhereValueDoesNotSatisfySpecification = \array_filter(\array_keys($dataSets), static function (string $key) use ($dataSets, $specifications): bool {
@@ -82,12 +82,12 @@ abstract class AbstractProviderTestCase extends Framework\TestCase
 
             self::assertIsArray($dataSet, \sprintf(
                 'Failed asserting that the data set provided for key "%s" is an array.',
-                $key
+                $key,
             ));
 
             self::assertCount(1, $dataSet, \sprintf(
                 'Failed asserting that the data set provided for key "%s" contains only one value.',
-                $key
+                $key,
             ));
 
             $value = \array_shift($dataSet);
@@ -99,8 +99,8 @@ abstract class AbstractProviderTestCase extends Framework\TestCase
             'Failed asserting that the value for the data sets with the keys "%s" satisfy the corresponding requirements.',
             \implode(
                 '", "',
-                $keysForDataSetsWhereValueDoesNotSatisfySpecification
-            )
+                $keysForDataSetsWhereValueDoesNotSatisfySpecification,
+            ),
         ));
     }
 

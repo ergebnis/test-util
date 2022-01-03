@@ -75,7 +75,7 @@ trait Helper
             },
             $directory,
             $excludeClassNames,
-            "Failed asserting that the classes\n\n%s\n\nare abstract or final."
+            "Failed asserting that the classes\n\n%s\n\nare abstract or final.",
         );
     }
 
@@ -115,7 +115,7 @@ trait Helper
             \array_map(static function (Classy\Construct $construct): string {
                 return $construct->name();
             }, $constructs),
-            $excludeClassyNames
+            $excludeClassyNames,
         );
 
         $namespace = \rtrim($namespace, '\\') . '\\';
@@ -125,7 +125,7 @@ trait Helper
             return \str_replace(
                 $namespace,
                 $testNamespace,
-                $className
+                $className,
             ) . 'Test';
         };
 
@@ -166,16 +166,16 @@ trait Helper
             \implode("\n", \array_map(static function (string $className): string {
                 return \sprintf(
                     ' - %s',
-                    $className
+                    $className,
                 );
             }, $classesWithoutTests)),
             \implode("\n", \array_map(static function (string $className) use ($testClassNameFrom): string {
                 return \sprintf(
                     ' - %s',
-                    $testClassNameFrom($className)
+                    $testClassNameFrom($className),
                 );
             }, $classesWithoutTests)),
-            Framework\TestCase::class
+            Framework\TestCase::class,
         ));
     }
 
@@ -217,7 +217,7 @@ trait Helper
 
         $classyNames = \array_diff(
             $constructs,
-            $excludeClassyNames
+            $excludeClassyNames,
         );
 
         $classyNamesNotSatisfyingSpecification = \array_filter($classyNames, static function (string $className) use ($specification): bool {
@@ -226,7 +226,7 @@ trait Helper
 
         self::assertEmpty($classyNamesNotSatisfyingSpecification, \sprintf(
             '' !== $message ? $message : "Failed asserting that the classy constructs\n\n%s\n\nsatisfy a specification.",
-            ' - ' . \implode("\n - ", $classyNamesNotSatisfyingSpecification)
+            ' - ' . \implode("\n - ", $classyNamesNotSatisfyingSpecification),
         ));
     }
 
@@ -237,7 +237,7 @@ trait Helper
     {
         self::assertTrue(\class_exists($className), \sprintf(
             'Failed asserting that a class "%s" exists.',
-            $className
+            $className,
         ));
     }
 
@@ -261,7 +261,7 @@ trait Helper
         self::assertTrue($reflection->isSubclassOf($parentClassName), \sprintf(
             'Failed asserting that class "%s" extends "%s".',
             $className,
-            $parentClassName
+            $parentClassName,
         ));
     }
 
@@ -285,7 +285,7 @@ trait Helper
         self::assertTrue($reflection->implementsInterface($interfaceName), \sprintf(
             'Failed asserting that class "%s" implements interface "%s".',
             $className,
-            $interfaceName
+            $interfaceName,
         ));
     }
 
@@ -305,7 +305,7 @@ trait Helper
 
         self::assertTrue($reflection->isAbstract(), \sprintf(
             'Failed asserting that class "%s" is abstract.',
-            $className
+            $className,
         ));
     }
 
@@ -327,7 +327,7 @@ trait Helper
 
         self::assertTrue($reflection->isFinal(), \sprintf(
             'Failed asserting that class "%s" is final.',
-            $className
+            $className,
         ));
     }
 
@@ -347,7 +347,7 @@ trait Helper
 
         self::assertTrue($specification($className), \sprintf(
             '' !== $message ? $message : 'Failed asserting that class "%s" satisfies a specification.',
-            $className
+            $className,
         ));
     }
 
@@ -368,7 +368,7 @@ trait Helper
         self::assertContains($traitName, \class_uses($className), \sprintf(
             'Failed asserting that class "%s" uses trait "%s".',
             $className,
-            $traitName
+            $traitName,
         ));
     }
 
@@ -379,7 +379,7 @@ trait Helper
     {
         self::assertTrue(\interface_exists($interfaceName), \sprintf(
             'Failed asserting that an interface "%s" exists.',
-            $interfaceName
+            $interfaceName,
         ));
     }
 
@@ -403,7 +403,7 @@ trait Helper
         self::assertTrue($reflection->isSubclassOf($parentInterfaceName), \sprintf(
             'Failed asserting that interface "%s" extends "%s".',
             $interfaceName,
-            $parentInterfaceName
+            $parentInterfaceName,
         ));
     }
 
@@ -423,7 +423,7 @@ trait Helper
 
         self::assertTrue($specification($interfaceName), \sprintf(
             '' !== $message ? $message : 'Failed asserting that interface "%s" satisfies a specification.',
-            $interfaceName
+            $interfaceName,
         ));
     }
 
@@ -434,7 +434,7 @@ trait Helper
     {
         self::assertTrue(\trait_exists($traitName), \sprintf(
             'Failed asserting that a trait "%s" exists.',
-            $traitName
+            $traitName,
         ));
     }
 
@@ -454,7 +454,7 @@ trait Helper
 
         self::assertTrue($specification($traitName), \sprintf(
             '' !== $message ? $message : 'Failed asserting that trait "%s" satisfies a specification.',
-            $traitName
+            $traitName,
         ));
     }
 

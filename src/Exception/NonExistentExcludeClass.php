@@ -22,7 +22,7 @@ final class NonExistentExcludeClass extends \InvalidArgumentException
     {
         return new self(\sprintf(
             'Exclude class "%s" does not exist.',
-            $className
+            $className,
         ));
     }
 }
