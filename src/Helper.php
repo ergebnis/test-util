@@ -385,7 +385,10 @@ trait Helper
         self::assertTraitExists($traitName);
         self::assertClassExists($className);
 
-        self::assertContains($traitName, \class_uses($className), \sprintf(
+        $usedTraitNames = \class_uses($className);
+
+        self::assertIsArray($usedTraitNames);
+        self::assertContains($traitName, $usedTraitNames, \sprintf(
             'Failed asserting that class "%s" uses trait "%s".',
             $className,
             $traitName,
