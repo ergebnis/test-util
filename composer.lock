@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6709cd808c7ac79102311fad3ee65868",
+    "content-hash": "14c653ced5169ff563596ae2ee792355",
     "packages": [
         {
             "name": "ergebnis/classy",
-            "version": "1.1.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/classy.git",
-                "reference": "72840bda3ce8b7bdc9362e8646141eb3c5ca9947"
+                "reference": "8d30c4a6179612cce2a0fbed8f1f878b913b61b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/classy/zipball/72840bda3ce8b7bdc9362e8646141eb3c5ca9947",
-                "reference": "72840bda3ce8b7bdc9362e8646141eb3c5ca9947",
+                "url": "https://api.github.com/repos/ergebnis/classy/zipball/8d30c4a6179612cce2a0fbed8f1f878b913b61b4",
+                "reference": "8d30c4a6179612cce2a0fbed8f1f878b913b61b4",
                 "shasum": ""
             },
             "require": {
@@ -25,19 +25,14 @@
                 "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.13.2",
+                "ergebnis/composer-normalize": "^2.19.0",
                 "ergebnis/license": "^1.1.0",
-                "ergebnis/php-cs-fixer-config": "^2.13.0",
-                "ergebnis/phpstan-rules": "~0.15.3",
-                "ergebnis/test-util": "^1.0.0",
+                "ergebnis/php-cs-fixer-config": "^2.14.0",
+                "fakerphp/faker": "^1.17.0",
                 "infection/infection": "~0.15.3",
-                "phpstan/extension-installer": "^1.1.0",
-                "phpstan/phpstan": "~0.12.70",
-                "phpstan/phpstan-deprecation-rules": "~0.12.6",
-                "phpstan/phpstan-strict-rules": "~0.12.9",
-                "phpunit/phpunit": "^8.5.14",
-                "psalm/plugin-phpunit": "~0.15.0",
-                "vimeo/psalm": "^4.4.1",
+                "phpunit/phpunit": "^8.5.22",
+                "psalm/plugin-phpunit": "~0.16.1",
+                "vimeo/psalm": "^4.16.1",
                 "zendframework/zend-file": "^2.8.3"
             },
             "type": "library",
@@ -81,7 +76,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-02-01T08:25:30+00:00"
+            "time": "2021-12-30T15:58:49+00:00"
         },
         {
             "name": "fakerphp/faker",
