@@ -24,6 +24,10 @@ For a full diff see [`1.6.0...2.0.0`][1.6.0...2.0.0].
 
   and replace occurrences of `Ergebnis\Test\Util\DataProvider` with `Ergebnis\DataProvider`.
 
+- Removed all assertions ([#553]), by [@localheinz]
+
+  If you use any of the assertions, stop. Most of them are useless, some of them could be replaced with static code analysis. I do not use them anymore and I would not recommend to use these kinds of assertions.
+
 ## [`1.6.0`][1.6.0]
 
 For a full diff see [`1.5.0...1.6.0`][1.5.0...1.6.0].
@@ -221,6 +225,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#548]: https://github.com/ergebnis/test-util/pull/548
 [#549]: https://github.com/ergebnis/test-util/pull/549
 [#552]: https://github.com/ergebnis/test-util/pull/552
+[#553]: https://github.com/ergebnis/test-util/pull/553
 
 [@dependabot]: https://github.com/dependabot
 [@ergebnis]: https://github.com/ergebnis
