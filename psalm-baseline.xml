@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.17.0@6f4707aa41c9174353a6434bba3fc8840f981d9c">
   <file src="src/DataProvider/BoolProvider.php">
+    <DeprecatedMethod occurrences="3">
+      <code>self::provideDataForValues(self::values())</code>
+    </DeprecatedMethod>
     <MoreSpecificReturnType occurrences="3">
       <code>\Generator&lt;string, array{0: bool}&gt;</code>
       <code>\Generator&lt;string, array{0: bool}&gt;</code>
@@ -11,6 +14,9 @@
     </RedundantIdentityWithTrue>
   </file>
   <file src="src/DataProvider/FloatProvider.php">
+    <DeprecatedMethod occurrences="7">
+      <code>self::provideDataForValues(self::values())</code>
+    </DeprecatedMethod>
     <MoreSpecificReturnType occurrences="7">
       <code>\Generator&lt;string, array{0: float}&gt;</code>
       <code>\Generator&lt;string, array{0: float}&gt;</code>
@@ -22,6 +28,9 @@
     </MoreSpecificReturnType>
   </file>
   <file src="src/DataProvider/IntProvider.php">
+    <DeprecatedMethod occurrences="7">
+      <code>self::provideDataForValues(self::values())</code>
+    </DeprecatedMethod>
     <MoreSpecificReturnType occurrences="7">
       <code>\Generator&lt;string, array{0: int}&gt;</code>
       <code>\Generator&lt;string, array{0: int}&gt;</code>
@@ -33,21 +42,27 @@
     </MoreSpecificReturnType>
   </file>
   <file src="src/DataProvider/NullProvider.php">
+    <DeprecatedMethod occurrences="1"/>
     <MoreSpecificReturnType occurrences="1">
       <code>\Generator&lt;string, array{0: null}&gt;</code>
     </MoreSpecificReturnType>
   </file>
   <file src="src/DataProvider/ObjectProvider.php">
+    <DeprecatedMethod occurrences="1"/>
     <MoreSpecificReturnType occurrences="1">
       <code>\Generator&lt;string, array{0: bool}&gt;</code>
     </MoreSpecificReturnType>
   </file>
   <file src="src/DataProvider/ResourceProvider.php">
+    <DeprecatedMethod occurrences="1"/>
     <MoreSpecificReturnType occurrences="1">
       <code>\Generator&lt;string, array{0: resource}&gt;</code>
     </MoreSpecificReturnType>
   </file>
   <file src="src/DataProvider/StringProvider.php">
+    <DeprecatedMethod occurrences="6">
+      <code>self::provideDataForValues(self::values())</code>
+    </DeprecatedMethod>
     <MoreSpecificReturnType occurrences="6">
       <code>\Generator&lt;string, array{0: string}&gt;</code>
       <code>\Generator&lt;string, array{0: string}&gt;</code>
@@ -58,7 +73,7 @@
     </MoreSpecificReturnType>
   </file>
   <file src="src/Helper.php">
-    <DeprecatedMethod occurrences="14">
+    <DeprecatedMethod occurrences="16">
       <code>self::assertClassExists($className)</code>
       <code>self::assertClassExists($className)</code>
       <code>self::assertClassExists($className)</code>
@@ -72,6 +87,8 @@
       <code>self::assertInterfaceExists($parentInterfaceName)</code>
       <code>self::assertTraitExists($traitName)</code>
       <code>self::assertTraitExists($traitName)</code>
+      <code>self::provideDataForValues($filtered)</code>
+      <code>self::provideDataForValues($filtered)</code>
     </DeprecatedMethod>
     <MissingClosureParamType occurrences="2">
       <code>$excludeClassyName</code>
@@ -94,6 +111,9 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/DataProvider/AbstractProviderTestCase.php">
+    <DeprecatedMethod occurrences="1">
+      <code>self::provideDataForValues($values)</code>
+    </DeprecatedMethod>
     <MixedAssignment occurrences="1">
       <code>$value</code>
     </MixedAssignment>
@@ -203,7 +223,7 @@
       <code>$traitName</code>
       <code>$traitName</code>
     </ArgumentTypeCoercion>
-    <DeprecatedMethod occurrences="65">
+    <DeprecatedMethod occurrences="73">
       <code>self::assertClassExists($className)</code>
       <code>self::assertClassExists($className)</code>
       <code>self::assertClassIsAbstract($className)</code>
@@ -220,6 +240,8 @@
       <code>self::assertInterfaceExists($interfaceName)</code>
       <code>self::assertTraitExists($traitName)</code>
       <code>self::assertTraitExists($traitName)</code>
+      <code>self::provideDataForValues($values)</code>
+      <code>self::provideDataForValues($values)</code>
     </DeprecatedMethod>
     <InvalidReturnType occurrences="1">
       <code>\Generator&lt;string, array&lt;string&gt;&gt;</code>

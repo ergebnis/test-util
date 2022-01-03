@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Dropped support for PHP 7.2 ([#530]), by [@localheinz]
 - Dropped support for PHP 7.3 ([#540]), by [@localheinz]
 - Deprecated all assertions ([#548]), by [@localheinz]
+- Deprecated provide methods ([#549]), by [@localheinz]
 
 For a full diff see [`1.5.0...main`][1.5.0...main].
 
@@ -194,6 +195,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#530]: https://github.com/ergebnis/test-util/pull/530
 [#540]: https://github.com/ergebnis/test-util/pull/540
 [#548]: https://github.com/ergebnis/test-util/pull/548
+[#549]: https://github.com/ergebnis/test-util/pull/549
 
 [@dependabot]: https://github.com/dependabot
 [@ergebnis]: https://github.com/ergebnis
