@@ -39,11 +39,9 @@ $config->getFinder()
     ])
     ->ignoreDotFiles(false)
     ->in(__DIR__)
-    ->name([
-        '.php_cs',
-        '.php_cs.fixture',
-    ]);
+    ->name('.php-cs-fixer.php')
+    ->name('.php-cs-fixer.fixture.php');
 
-$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.cache');
+$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php-cs-fixer.cache');
 
 return $config;
