@@ -3,8 +3,8 @@
   "logs": {
     "text": ".build/infection/infection-log.txt"
   },
-  "minCoveredMsi": 73,
-  "minMsi": 73,
+  "minCoveredMsi": 25,
+  "minMsi": 25,
   "phpUnit": {
     "configDir": "test\/Unit"
   },

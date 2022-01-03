@@ -1,18 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.17.0@6f4707aa41c9174353a6434bba3fc8840f981d9c">
-  <file src="src/Helper.php">
-    <DeprecatedMethod occurrences="2">
-      <code>self::provideDataForValues($filtered)</code>
-      <code>self::provideDataForValues($filtered)</code>
-    </DeprecatedMethod>
-    <MixedAssignment occurrences="1">
-      <code>$value</code>
-    </MixedAssignment>
-  </file>
-  <file src="test/Unit/HelperTest.php">
-    <DeprecatedMethod occurrences="8">
-      <code>self::provideDataForValues($values)</code>
-      <code>self::provideDataForValues($values)</code>
-    </DeprecatedMethod>
-  </file>
-</files>
+<files psalm-version="4.17.0@6f4707aa41c9174353a6434bba3fc8840f981d9c"/>
