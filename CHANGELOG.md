@@ -28,6 +28,18 @@ For a full diff see [`1.6.0...2.0.0`][1.6.0...2.0.0].
 
   If you use any of the assertions, stop. Most of them are useless, some of them could be replaced with static code analysis. I do not use them anymore and I would not recommend to use these kinds of assertions.
 
+- Removed all provide methods ([#554]), by [@localheinz]
+
+  If you use any of the provide methods in an external data provider, run
+
+  ```shell
+  composer require --dev ergebnis/data-provider
+  ```
+
+  and extend `Ergebnis\DataProvider\AbstractProvider`.
+
+  If you use any of the provide methods in data provider declared as an instance method on a test case, extract your own `Helper` trait and move the functionality there.
+
 ## [`1.6.0`][1.6.0]
 
 For a full diff see [`1.5.0...1.6.0`][1.5.0...1.6.0].

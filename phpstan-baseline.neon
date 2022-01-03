@@ -1,49 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message:
-				"""
-					#^Call to deprecated method provideDataForValues\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
-					use ergebnis/data\\-provider instead$#
-				"""
-			count: 2
-			path: test/Unit/HelperTest.php
-
-		-
-			message:
-				"""
-					#^Call to deprecated method provideDataForValuesWhere\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
-					use ergebnis/data\\-provider instead$#
-				"""
-			count: 3
-			path: test/Unit/HelperTest.php
-
-		-
-			message:
-				"""
-					#^Call to deprecated method provideDataForValuesWhereNot\\(\\) of class Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:
-					use ergebnis/data\\-provider instead$#
-				"""
-			count: 3
-			path: test/Unit/HelperTest.php
-
-		-
 			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/HelperTest.php
-
-		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:provideDataForValues\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/HelperTest.php
-
-		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:provideDataForValuesWhere\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/HelperTest.php
-
-		-
-			message: "#^Method Ergebnis\\\\Test\\\\Util\\\\Test\\\\Unit\\\\HelperTest\\:\\:provideDataForValuesWhereNot\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/HelperTest.php
 

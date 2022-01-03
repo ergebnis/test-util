@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\Test\Util\Test\Unit;
 
-use Ergebnis\Test\Util\Exception;
 use Ergebnis\Test\Util\Helper;
 use Faker\Factory;
 use Faker\Generator;
@@ -24,8 +23,6 @@ use PHPUnit\Framework;
  * @internal
  *
  * @covers \Ergebnis\Test\Util\Helper
- *
- * @uses \Ergebnis\Test\Util\Exception\EmptyValues
  */
 final class HelperTest extends Framework\TestCase
 {
@@ -107,152 +104,6 @@ final class HelperTest extends Framework\TestCase
                 $locale,
             ];
         }
-    }
-
-    public function testProvideDataForValuesReturnsGeneratorThatRejectsEmptyValues(): void
-    {
-        $values = [];
-
-        $provided = self::provideDataForValues($values);
-
-        $this->expectException(Exception\EmptyValues::class);
-
-        \iterator_to_array($provided);
-    }
-
-    public function testProvideDataForValuesReturnsGeneratorThatProvidesValues(): void
-    {
-        $faker = self::faker();
-
-        $values = [
-            'foo' => $faker->word,
-            'bar' => $faker->words,
-            'baz' => $faker->sentence,
-        ];
-
-        $provided = self::provideDataForValues($values);
-
-        $expected = \array_map(static function ($value): array {
-            return [
-                $value,
-            ];
-        }, $values);
-
-        self::assertSame($expected, \iterator_to_array($provided));
-    }
-
-    public function testDataForValuesWhereReturnsGeneratorThatRejectsEmptyValues(): void
-    {
-        $values = [];
-
-        $provided = self::provideDataForValuesWhere($values, static function (int $value): bool {
-            return 3 > $value;
-        });
-
-        $this->expectException(Exception\EmptyValues::class);
-
-        \iterator_to_array($provided);
-    }
-
-    public function testProvideDataForValuesWhereReturnsGeneratorThatRejectsEmptyFilteredValues(): void
-    {
-        $values = [
-            'foo' => 3,
-            'bar' => 5,
-            'baz' => 8,
-            'qux' => 13,
-        ];
-
-        $provided = self::provideDataForValuesWhere($values, static function (int $value): bool {
-            return 3 > $value;
-        });
-
-        $this->expectException(Exception\EmptyValues::class);
-
-        \iterator_to_array($provided);
-    }
-
-    public function testProvideDataForValuesWhereReturnsGeneratorThatProvidesValuesWhereTestReturnsFalse(): void
-    {
-        $values = [
-            'foo' => 1,
-            'bar' => 2,
-            'baz' => 3,
-            'qux' => 5,
-        ];
-
-        $filtered = [
-            'foo' => 1,
-            'bar' => 2,
-        ];
-
-        $provided = self::provideDataForValuesWhere($values, static function (int $value): bool {
-            return 3 > $value;
-        });
-
-        $expected = \array_map(static function ($value): array {
-            return [
-                $value,
-            ];
-        }, $filtered);
-
-        self::assertSame($expected, \iterator_to_array($provided));
-    }
-
-    public function testProvideDataForValuesWhereNotReturnsGeneratorThatRejectsEmptyValues(): void
-    {
-        $values = [];
-
-        $provided = self::provideDataForValuesWhereNot($values, static function (int $value): bool {
-            return 3 > $value;
-        });
-
-        $this->expectException(Exception\EmptyValues::class);
-        \iterator_to_array($provided);
-    }
-
-    public function testProvideDataForValuesWhereNotReturnsGeneratorThatRejectsEmptyFilteredValues(): void
-    {
-        $values = [
-            'foo' => 0,
-            'bar' => 1,
-            'baz' => 2,
-        ];
-
-        $provided = self::provideDataForValuesWhereNot($values, static function (int $value): bool {
-            return 3 > $value;
-        });
-
-        $this->expectException(Exception\EmptyValues::class);
-
-        \iterator_to_array($provided);
-    }
-
-    public function testProvideWhereNotReturnsGeneratorThatProvidesValuesWhereTestReturnsTrue(): void
-    {
-        $values = [
-            'foo' => 1,
-            'bar' => 2,
-            'baz' => 3,
-            'qux' => 5,
-        ];
-
-        $filtered = [
-            'baz' => 3,
-            'qux' => 5,
-        ];
-
-        $provided = self::provideDataForValuesWhereNot($values, static function (int $value): bool {
-            return 3 > $value;
-        });
-
-        $expected = \array_map(static function ($value): array {
-            return [
-                $value,
-            ];
-        }, $filtered);
-
-        self::assertSame($expected, \iterator_to_array($provided));
     }
 
     private function assertHasOnlyProvidersWithLocale(string $locale, Generator $faker): void
