@@ -1,7 +1,10 @@
 {
+  "ignoreMsiWithNoMutations": true,
   "logs": {
     "text": ".build/infection/infection-log.txt"
   },
+  "minCoveredMsi": 89,
+  "minMsi": 89,
   "phpUnit": {
     "configDir": "test\/Unit"
   },
