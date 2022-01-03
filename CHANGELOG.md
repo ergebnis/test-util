@@ -6,11 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.0.0...main`][2.0.0...main].
-
-## [`2.0.0`][2.0.0]
-
-For a full diff see [`1.6.0...2.0.0`][1.6.0...2.0.0].
+For a full diff see [`1.6.0...main`][1.6.0...main].
 
 ### Removed
 
@@ -194,7 +190,6 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [1.4.0]: https://github.com/ergebnis/test-util/releases/tag/1.4.0
 [1.5.0]: https://github.com/ergebnis/test-util/releases/tag/1.5.0
 [1.6.0]: https://github.com/ergebnis/test-util/releases/tag/1.6.0
-[2.0.0]: https://github.com/ergebnis/test-util/releases/tag/2.0.0
 
 [0.7.0...0.8.0]: https://github.com/ergebnis/test-util/compare/0.7.0...0.8.0
 [0.8.0...0.9.0]: https://github.com/ergebnis/test-util/compare/0.8.0...0.9.0
@@ -208,8 +203,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [1.3.1...1.4.0]: https://github.com/ergebnis/test-util/compare/1.3.1...1.4.0
 [1.4.0...1.5.0]: https://github.com/ergebnis/test-util/compare/1.4.0...1.5.0
 [1.5.0...1.6.0]: https://github.com/ergebnis/test-util/compare/1.5.0...1.6.0
-[1.6.0...2.0.0]: https://github.com/ergebnis/test-util/compare/1.6.0...2.0.0
-[2.0.0...main]: https://github.com/ergebnis/test-util/compare/2.0.0...main
+[1.6.0...main]: https://github.com/ergebnis/test-util/compare/1.6.0...main
 
 [#118]: https://github.com/ergebnis/test-util/pull/118
 [#119]: https://github.com/ergebnis/test-util/pull/119
