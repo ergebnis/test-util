@@ -15,10 +15,7 @@ namespace Ergebnis\Test\Util\Test\Util\DataProvider\Specification;
 
 final class Pattern implements Specification
 {
-    /**
-     * @var string
-     */
-    private $pattern;
+    private string $pattern;
 
     private function __construct(string $pattern)
     {
