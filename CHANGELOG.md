@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 - Deprecated all data providers ([#526]), by [@localheinz]
+- Dropped support for PHP 7.2 ([#530]), by [@localheinz]
 
 For a full diff see [`1.5.0...main`][1.5.0...main].
 
@@ -188,6 +189,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 [#434]: https://github.com/ergebnis/test-util/pull/434
 [#435]: https://github.com/ergebnis/test-util/pull/435
 [#526]: https://github.com/ergebnis/test-util/pull/526
+[#530]: https://github.com/ergebnis/test-util/pull/530
 
 [@dependabot]: https://github.com/dependabot
 [@ergebnis]: https://github.com/ergebnis
