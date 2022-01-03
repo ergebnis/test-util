@@ -38,7 +38,7 @@ jobs:
           file_or_dir: "."
           strict: true
 
-      - name: "Install PHP with extensions"
+      - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
@@ -99,7 +99,7 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2.4.0"
 
-      - name: "Install PHP with extensions"
+      - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
@@ -141,7 +141,7 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2.4.0"
 
-      - name: "Install PHP with extensions"
+      - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
@@ -212,7 +212,7 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2.4.0"
 
-      - name: "Install PHP with extensions"
+      - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
@@ -263,7 +263,7 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2.4.0"
 
-      - name: "Install PHP with extensions"
+      - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "pcov"
@@ -313,7 +313,7 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2.4.0"
 
-      - name: "Install PHP with extensions"
+      - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "pcov"
