@@ -219,10 +219,6 @@ This package is licensed using the MIT License.
 
 Please have a look at [`LICENSE.md`](LICENSE.md).
 
-## Credits
-
-The [`SrcCodeTest`](test/AutoReview/SrcCodeTest.php) in this and other projects I maintain or contribute to is inspired by [`ProjectCodeTest`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v2.0.0/tests/ProjectCodeTest.php) in [`friends-of-php/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer), and was initially created by [Dariusz Rumiński](https://github.com/keradus).
-
 ## Curious what I am building?
 
 :mailbox_with_mail: [Subscribe to my list](https://localheinz.com/projects/), and I will occasionally send you an email to let you know what I am working on.
