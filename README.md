@@ -79,6 +79,8 @@ For reference, see [`fzaninotto/faker`](https://github.com/fzaninotto/Faker).
 
 #### Additional Assertions
 
+:exclamation: The assertions have been deprecated. Stop using them.
+
 In addition to the assertions made available by extending from `PHPUnit\Framework\TestCase`, the `Helper` trait provides the following assertions:
 
 * `assertClassesAreAbstractOrFinal(string $directory, array $excludeClassNames = [])`
